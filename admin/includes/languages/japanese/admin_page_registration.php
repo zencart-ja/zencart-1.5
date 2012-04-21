@@ -7,20 +7,20 @@
  * @version $Id: admin_page_registration.php 18695 2011-05-04 05:24:19Z drbyte $
  */
 
-define('HEADING_TITLE', 'Admin Page Registration');
-define('TEXT_PAGE_KEY', 'Page Key');
-define('TEXT_LANGUAGE_KEY', 'Page Name');
-define('TEXT_MAIN_PAGE', 'Page Filename');
-define('TEXT_PAGE_PARAMS', 'Page Parameters');
-define('TEXT_MENU_KEY', 'Menu');
-define('TEXT_DISPLAY_ON_MENU', 'Display on Menu?');
-define('TEXT_SORT_ORDER', 'Sort Order');
+define('HEADING_TITLE', '管理ページの登録');
+define('TEXT_PAGE_KEY', 'ページのキー');
+define('TEXT_LANGUAGE_KEY', 'ページ名');
+define('TEXT_MAIN_PAGE', 'ページのファイル名');
+define('TEXT_PAGE_PARAMS', 'ページの変数');
+define('TEXT_MENU_KEY', 'メニュー');
+define('TEXT_DISPLAY_ON_MENU', 'メニューに表示しますか？');
+define('TEXT_SORT_ORDER', '整列順');
 
-define('TEXT_EXAMPLE_PAGE_KEY', '(e.g. myModPageName)');
-define('TEXT_EXAMPLE_LANGUAGE_KEY', '(e.g. BOX_MY_MOD_PAGE_NAME)');
-define('TEXT_EXAMPLE_MAIN_PAGE', '(e.g. FILENAME_PAGE_NAME)');
-define('TEXT_EXAMPLE_PAGE_PARAMS', '(e.g. option=1 or, more usually, leave blank)');
-define('TEXT_SELECT_MENU', 'Select Menu');
+define('TEXT_EXAMPLE_PAGE_KEY', '(例： myModPageName)');
+define('TEXT_EXAMPLE_LANGUAGE_KEY', '(例： BOX_MY_MOD_PAGE_NAME)');
+define('TEXT_EXAMPLE_MAIN_PAGE', '(例： FILENAME_PAGE_NAME)');
+define('TEXT_EXAMPLE_PAGE_PARAMS', '(例： option=1 or, more usually, leave blank)');
+define('TEXT_SELECT_MENU', '-メニューを選択してください-');
 
 define('ERROR_PAGE_KEY_NOT_ENTERED', 'Page key not entered. All admin pages must have a unique page key.');
 define('ERROR_PAGE_KEY_ALREADY_EXISTS', 'Page key already exists. Page keys must be unique.');

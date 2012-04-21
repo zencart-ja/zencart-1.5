@@ -9,6 +9,6 @@
 
 define('HEADING_TITLE', 'ログアウト');
 define('NAVBAR_TITLE', 'ログアウト');
-define('TEXT_MAIN', 'ログアウトしました。<br /><br />メンバーズカートの内容はログアウト前の状態で保存されています。The items inside it will be restored when you <a href="' . zen_href_link(FILENAME_LOGIN, '', 'SSL') . '"><span class="pseudolink">log back into your account</span></a>.<br />');
+define('TEXT_MAIN', 'ログアウトしました。<br /><br />メンバーズカートの内容はログアウト前の状態で保存されています。<br /><a href="' . zen_href_link(FILENAME_LOGIN, '', 'SSL') . '"><span class="pseudolink">再度ログイン</span></a>すれば、カート内の商品はご確認いただけます。');
 
 ?>

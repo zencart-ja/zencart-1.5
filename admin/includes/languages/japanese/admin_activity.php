@@ -7,21 +7,20 @@
  * @version $Id: admin_activity.php 19537 2011-09-20 17:14:44Z drbyte $
  */
 
-define('HEADING_TITLE', 'Admin Activity Log Manager');
-define('HEADING_SUB1', 'Review or Export Logs');
-define('HEADING_SUB2', 'Purge Log History');
-define('TEXT_ACTIVITY_EXPORT_FORMAT', 'Export File Format:');
-define('TEXT_ACTIVITY_EXPORT_FILENAME', 'Export Filename:');
-define('TEXT_ACTIVITY_EXPORT_SAVETOFILE','Save to file on server? (otherwise will stream for download directly from this window)');
-define('TEXT_ACTIVITY_EXPORT_DEST','Destination: ');
-define('TEXT_PROCESSED', ' Processed.');
-define('SUCCESS_EXPORT_ADMIN_ACTIVITY_LOG', 'Export complete. ');
-define('FAILURE_EXPORT_ADMIN_ACTIVITY_LOG', 'ALERT: Export failed. Could not successfully write to file ');
+define('HEADING_TITLE', '管理者活動ログマネージャー');
+define('HEADING_SUB1', 'ログの表示/エクスポート');
+define('HEADING_SUB2', 'ログの履歴削除');
+define('TEXT_ACTIVITY_EXPORT_FORMAT', 'エクスポートファイルフォーマット:');
+define('TEXT_ACTIVITY_EXPORT_FILENAME', 'エクスポートファイル名:');
+define('TEXT_ACTIVITY_EXPORT_SAVETOFILE','サーバーにファイルを保存しますか? (サーバーに保存をしない場合は、そのままブラウザ毎のファイル保存へと進みます。)');
+define('TEXT_ACTIVITY_EXPORT_DEST','保存先: ');
+define('TEXT_PROCESSED', ' 処理されました。');
+define('SUCCESS_EXPORT_ADMIN_ACTIVITY_LOG', 'エクスポートが完了しました。 ');
+define('FAILURE_EXPORT_ADMIN_ACTIVITY_LOG', '警告: エクスポートに失敗しました。保存先のファイルへの書き込むことができません。');
 
-define('TEXT_INSTRUCTIONS','<u>INSTRUCTIONS</u><br />You can use this page to export your Zen Cart&reg; Admin User Access Activity to a CSV file for archiving.<br />You should save this data for use in fraud investigations in case your site is compromised. This is a requirement for PCI Compliance.<br />
-<ol><li>Choose whether to display or export to a file.<li>Enter a filename.<li>Click Save to proceed.<li>Choose whether to save or open the file, depending on what your browser offers.</ol>');
+define('TEXT_INSTRUCTIONS','<u>説明</u><br />ここでは、管理者活動ログを、CSVファイルでインポートすることができます。<br />サイトへの不正アクセスや、不正に使用された場合などに、調査を行うため、ログデータを保存しておく必要があります。<br />これはPCIコンプライアンスの必要条件です。<br /><ol><li>エクスポートファイルフォーマットから、表示かエクスポートかを選択します。<li>エクスポートファイル名を入力します。<li>goをクリックします。(表示の場合は、ログが表示されます。)<li>ブラウザからの指示に従い、ファイルの表示や保存を選択して下さい。</ol>');
 
-define('TEXT_INFO_ADMIN_ACTIVITY_LOG', '<strong>Empty Admin Activity Log table from the database<br />WARNING: BE SURE TO BACKUP YOUR DATABASE before running this update!</strong><br />The Admin Activity Log is a tracking method that records activity in the Admin. <br />Due to its nature it can become very large, very quickly and does need to be cleaned out from time to time.<br />Warnings are given at 50,000 records or 60 days, which ever happens first.<br /><span class="alert">NOTE: For PCI Compliance, you are required to retain admin activity log history for 12 months.<br />It is best to archive your logs by choosing EXPORT TO CSV and clicking Save, above, *BEFORE* purging log data.</span>');
-define('TEXT_ADMIN_LOG_PLEASE_CONFIRM_ERASE', '<strong><span class="alert">WARNING!: You are about to DELETE *important* audit trail records from your database.</span></strong><br />You should FIRST confirm that you have a reliable BACKUP of your database before proceeding.<br />By proceeding you accept that this information will be deleted and understand your legal responsibilities regarding this data.<br /><br />I understand my responsibilities, and wish to proceed with the deletion by clicking Reset:<br />');
-define('SUCCESS_CLEAN_ADMIN_ACTIVITY_LOG', '<strong>Completed</strong> erasure of the Admin Activity log');
+define('TEXT_INFO_ADMIN_ACTIVITY_LOG', '<strong>管理者の活動ログをデータベースから削除します。<br />警告: この更新を行う前バックアップを必ず取ってください!</strong><br />管理者のアクティビティログは管理者の活動履歴を記録したものです。<br />ログは非常に多くなっていく為、速やかにきれいにしていく必要があります。<br />警告は60日で50,000件ほど溜まります<br /><span class="alert">注：PCI コンプライアンスのために、12ヵ月分の管理活動ログ履歴を保持することを要求されます。<br />ログデータを一掃する前に、上の『エクスポートCSV』から、管理活動ログ履歴を保存を行って下さい。</span>');
+define('TEXT_ADMIN_LOG_PLEASE_CONFIRM_ERASE', '<strong><span class="alert">警告!: あなたは、データベースから重要な電算機処理監査記録を削除しようとしています。</span></strong><br />リセットに進む前に、データベースなどにログ履歴のバックアップ保存をしているか、まず確認しなければなりません。<br />ログデータを保存することに関しての法的責任を理解したうえで、ログの削除に進んでください。<br /><br />責任を理解したうえで、リセットボタンをクリックしログの削除を行います:<br />');
+define('SUCCESS_CLEAN_ADMIN_ACTIVITY_LOG', '<strong>完了</strong> 管理者活動ログの削除が完了しました。');
 

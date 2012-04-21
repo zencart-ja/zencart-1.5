@@ -26,4 +26,4 @@ define('FOOTER_DOWNLOAD', '\'%s\'こちらから、後で商品をダウンロ�
 define('TEXT_YOUR_ORDER_NUMBER', '<strong>ご注文番号:</strong> ');
 
 define('TEXT_CHECKOUT_LOGOFF_GUEST', 'NOTE: To complete your order, a temporary account was created. You may close this account by clicking Log Off. Clicking Log Off also ensures that your receipt and purchase information is not visible to the next person using this computer. If you wish to continue shopping, feel free! You may log off at anytime using the link at the top of the page.');
-define('TEXT_CHECKOUT_LOGOFF_CUSTOMER', 'Thank you for shopping. Please click the Log Off link to ensure that your receipt and purchase information is not visible to the next person using this computer.');
+define('TEXT_CHECKOUT_LOGOFF_CUSTOMER', 'この度は当店にてご購入いただき、誠にありがとうございます。<br />お客様の履歴や購入情報が、同じパソコンをお使いの方に見られることの無いように、ログオフのリンクをクリックして下さい。');

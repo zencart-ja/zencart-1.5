@@ -257,11 +257,11 @@
 
       if (isset($_GET['debug'])) echo $mode . ($proxy ? ' (proxy)': '') . ' CURL RESULTS: ' . $errnum . ' => ' . $errtext . (trim($result) != '' ? ' [' . $result . ']' : '') . '<pre>' . print_r($commInfo, true) . '</pre><br /><br />';
 
-      if ($errnum != 0 || trim($result) != 'PASS') {
-        $response = $errnum . ' => ' . $errtext . (trim($result) != '' ? ' [' . $result . ']' : '');
-        $this->setError(($mode == 'NONSSL' ? ERROR_TEXT_CURL_PROBLEM_GENERAL : ERROR_TEXT_CURL_SSL_PROBLEM) . ' ' . $response, ERROR_CODE_CURL_SUPPORT, false);
-        return ($mode == 'NONSSL' ? ERROR_TEXT_CURL_PROBLEM_GENERAL : ERROR_TEXT_CURL_SSL_PROBLEM) . ' ' . $response;
-      }
+//      if ($errnum != 0 || trim($result) != 'PASS') {
+//        $response = $errnum . ' => ' . $errtext . (trim($result) != '' ? ' [' . $result . ']' : '');
+//        $this->setError(($mode == 'NONSSL' ? ERROR_TEXT_CURL_PROBLEM_GENERAL : ERROR_TEXT_CURL_SSL_PROBLEM) . ' ' . $response, ERROR_CODE_CURL_SUPPORT, false);
+//        return ($mode == 'NONSSL' ? ERROR_TEXT_CURL_PROBLEM_GENERAL : ERROR_TEXT_CURL_SSL_PROBLEM) . ' ' . $response;
+//      }
       return OKAY;  // yes, this is an intentional constant
     }
 
@@ -520,6 +520,7 @@
       // process the actual sql insertions
       executeSql('sql/' . $this->getConfigKey('DB_TYPE') . '_zencart.sql', $this->getConfigKey('DB_DATABASE'), $this->getConfigKey('DB_PREFIX'));
       executeSql('sql/' . $this->getConfigKey('DB_TYPE') . '_' . $this->getConfigKey('DB_CHARSET') . '.sql', $this->getConfigKey('DB_DATABASE'), $this->getConfigKey('DB_PREFIX'));
+      executeSql('sql/' . $this->getConfigKey('DB_TYPE') . '_' . $this->getConfigKey('DB_CHARSET') . '_' . $this->getConfigKey('language') . '_localize.sql', $this->getConfigKey('DB_DATABASE'), $this->getConfigKey('DB_PREFIX'));
 
       //update the cache folder setting:
       $this->dbAfterLoadActions();

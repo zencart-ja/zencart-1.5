@@ -7,10 +7,10 @@
  * @version $Id: checkout_payment.php 4087 2006-08-07 04:46:08Z drbyte $
  */
 
-define('NAVBAR_TITLE_1', 'レジに進む - Step 1');
-define('NAVBAR_TITLE_2', 'お支払い情報 - Step 2');
+define('NAVBAR_TITLE_1', 'レジに進む');
+define('NAVBAR_TITLE_2', 'お支払い情報');
 
-define('HEADING_TITLE', 'Step 2 of 3 - お支払い情報を記入してください');
+define('HEADING_TITLE', 'STEP2 - お支払い情報を記入してください');
 
 define('TABLE_HEADING_BILLING_ADDRESS', 'ご請求先住所');
 define('TEXT_SELECTED_BILLING_DESTINATION', 'ご請求先住所は左記の通りです。クレジットカードをご利用の場合はカード会社にご登録の住所と同じ住所にしてください。住所を変更される場合は左の<em>住所の変更</em>をクリックしてください。');

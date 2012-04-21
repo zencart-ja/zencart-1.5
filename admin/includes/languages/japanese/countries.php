@@ -23,5 +23,5 @@ define('TEXT_INFO_DELETE_INTRO', 'この国名を本当に削除しますか？'
 define('TEXT_INFO_HEADING_NEW_COUNTRY', '新しい国名');
 define('TEXT_INFO_HEADING_EDIT_COUNTRY', '国名を編集');
 define('TEXT_INFO_HEADING_DELETE_COUNTRY', '国名を削除');
-define('ERROR_COUNTRY_IN_USE', 'ERROR: Cannot delete selected country because it is connected to customer records.');
-define('ISO_COUNTRY_CODES_LINK', '<a href="http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm" target="_blank">ISO 3166 Country Codes Reference</a>');
+define('ERROR_COUNTRY_IN_USE', 'エラー: この国名は、すでに顧客情報に使用されているため、削除することができません。');
+define('ISO_COUNTRY_CODES_LINK', '<a href="http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm" target="_blank">国名コード ISO 3166 参照</a>');

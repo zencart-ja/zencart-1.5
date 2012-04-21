@@ -146,7 +146,8 @@ if (isset($_GET['main_page']) && !in_array($_GET['main_page'], array('', 'index'
  * language determination
  */
 $language = (isset($_GET['language']) && $_GET['language'] != '') ? preg_replace('/[^a-zA-Z_]/', '', $_GET['language']) : $zc_install->getConfigKey('language');
-if ($language == '') $language = 'english';
+//if ($language == '') $language = 'english';
+if ($language == '') $language = 'japanese';
 if (!file_exists('includes/languages/' . $language . '.php')) {
   $zc_install->throwException('Specified language file not found. Defaulting to english. (' . 'includes/languages/' . $language . '.php)');
   $language = 'english';

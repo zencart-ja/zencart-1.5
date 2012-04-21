@@ -62,8 +62,8 @@ define('BUTTON_IMAGE_LOG_OFF', 'button_logoff.gif');
  * ALT tags used for buttons
  */
 
-define('BUTTON_CREATE_ACCOUNT_ALT', 'Sign Up');
-define('BUTTON_LOG_OFF_ALT', 'Log Off');
+define('BUTTON_CREATE_ACCOUNT_ALT', '登録');
+define('BUTTON_LOG_OFF_ALT', 'ログオフ');
 define('BUTTON_ADD_TO_CART_ALT', 'カートに入れる');
 define('BUTTON_ADD_ADDRESS_ALT', '住所を追加');
 define('BUTTON_ADD_PRODUCTS_TO_CART_ALT','選択した商品をカートに入れる');
@@ -77,7 +77,7 @@ define('BUTTON_CONFIRM_ORDER_ALT', 'ご注文の確定');
 define('BUTTON_CONTINUE_ALT', '続ける');
 define('BUTTON_CONTINUE_SHOPPING_ALT', '買い物を続ける');
 define('BUTTON_DELETE_ALT', '削除');
-define('BUTTON_DELETE_SMALL_ALT', 'Delete');
+define('BUTTON_DELETE_SMALL_ALT', '削除');
 define('BUTTON_DOWNLOAD_ALT', 'ダウンロードする');
 define('BUTTON_EDIT_SMALL_ALT', '編集');
 define('BUTTON_IN_CART_ALT', 'カートに加える');

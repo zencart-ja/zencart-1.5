@@ -185,7 +185,7 @@ mb_http_output("UTF-8");
   define('CATEGORY_PASSWORD', 'パスワード');
   define('CATEGORY_LOGIN', 'ログイン');
   define('PULL_DOWN_DEFAULT', '国名を選択してください');
-  define('PLEASE_SELECT', 'Please select ...');
+  define('PLEASE_SELECT', '選択して下さい。');
   define('TYPE_BELOW', 'Type a choice below ...');
 
   define('ENTRY_COMPANY', '会社名・部署:');
@@ -238,7 +238,7 @@ mb_http_output("UTF-8");
   define('ENTRY_STATE_ERROR', '都道府県名は最低' . ENTRY_STATE_MIN_LENGTH . '文字以上入力してください');
   define('ENTRY_STATE_ERROR_SELECT', 'プルダウンメニューから都道府県を選択してください');
   define('ENTRY_STATE_TEXT', '*');
-  define('JS_STATE_SELECT', '-- Please Choose --');
+  define('JS_STATE_SELECT', '-- 選択して下さい --');
   define('ENTRY_COUNTRY', '国名:');
   define('ENTRY_COUNTRY_ERROR', 'プルダウンメニューから国名を選択してください');
   define('ENTRY_COUNTRY_TEXT', '*');
@@ -337,9 +337,7 @@ define('TEXT_NO_REVIEWS', '商品のレビューはまだありません。');
   define('ERROR_NO_REDEEM_CODE', '' . TEXT_GV_REDEEM . 'が入力されていません。');
   define('ERROR_NO_INVALID_REDEEM_GV', '無効な' . TEXT_GV_NAME . ' ' . TEXT_GV_REDEEM . 'です');
   define('TABLE_HEADING_CREDIT', 'ご利用可能なクレジットカード');
-define('GV_HAS_VOUCHERA', 'お客様の' . TEXT_GV_NAME . 'アカウントに残高があります。ご希望でしたら <br />
-
-                           この残高を送る <a class="pageResults" href="');
+define('GV_HAS_VOUCHERA', 'お客様の' . TEXT_GV_NAME . 'アカウントに残高があります。ご希望でしたら <br />この残高を送る <a class="pageResults" href="');
 define('GV_HAS_VOUCHERB', '"><strong>Eメール</strong></a>を送る');
 define('ENTRY_AMOUNT_CHECK_ERROR', 'この金額を送るには残高が不足しています');
 define('BOX_SEND_TO_FRIEND', ' ' . TEXT_GV_NAME . 'を贈る');

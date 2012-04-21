@@ -10,8 +10,8 @@
 define('HEADING_TITLE', '注文管理');
 define('HEADING_TITLE_SEARCH', '注文ID:');
 define('HEADING_TITLE_STATUS', 'ステータス:');
-define('HEADING_TITLE_SEARCH_DETAIL_ORDERS_PRODUCTS', 'Search by Product Name or <strong>ID:XX</strong> or Model ');
-define('TEXT_INFO_SEARCH_DETAIL_FILTER_ORDERS_PRODUCTS', 'Search Filter: ');
+define('HEADING_TITLE_SEARCH_DETAIL_ORDERS_PRODUCTS', '商品名や商品ID、商品型番での検索');
+define('TEXT_INFO_SEARCH_DETAIL_FILTER_ORDERS_PRODUCTS', '検索フィルタ: ');
 define('TABLE_HEADING_PAYMENT_METHOD', '支払方法<br />配送方法');
 define('TABLE_HEADING_ORDERS_ID','ID');
 
@@ -105,7 +105,7 @@ define('IMAGE_ICON_STATUS_MISSING', '状態 - 不明');
 
 define('SUCCESS_ORDER_UPDATED_DOWNLOAD_ON', 'ダウンロードに成功しました。');
 define('SUCCESS_ORDER_UPDATED_DOWNLOAD_OFF', '無効なダウンロードです。');
-define('TEXT_MORE', '... more');
+define('TEXT_MORE', '…');
 
 define('TEXT_INFO_IP_ADDRESS', 'IPアドレス: ');
 define('TEXT_DELETE_CVV_FROM_DATABASE','データベースからCVVを削除');
@@ -115,7 +115,7 @@ define('TEXT_MASK_CC_NUMBER','この数にマスクをかけてください');
 define('TEXT_INFO_EXPIRED_DATE', 'Expired Date:<br />');
 define('TEXT_INFO_EXPIRED_COUNT', 'Expired Count:<br />');
 
-define('TABLE_HEADING_CUSTOMER_COMMENTS', 'Customer<br />Comments');
-define('TEXT_COMMENTS_YES', 'Customer Comments - YES');
-define('TEXT_COMMENTS_NO', 'Customer Comments - NO');
+define('TABLE_HEADING_CUSTOMER_COMMENTS', 'お客様からの<br />連絡事項');
+define('TEXT_COMMENTS_YES', 'お客様からの連絡事項－有り');
+define('TEXT_COMMENTS_NO', 'お客様からの連絡事項－無し');
 ?>

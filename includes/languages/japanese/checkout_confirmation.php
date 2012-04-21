@@ -24,6 +24,6 @@ define('NO_COMMENTS_TEXT', 'なし');
 define('TITLE_CONTINUE_CHECKOUT_PROCEDURE', '<strong>最終確認</strong>');
 define('TEXT_CONTINUE_CHECKOUT_PROCEDURE', '→ご注文を確定する');
 
-define('OUT_OF_STOCK_CAN_CHECKOUT', 'Products marked with ' . STOCK_MARK_PRODUCT_OUT_OF_STOCK . ' are out of stock.<br />Items not in stock will be placed on backorder.');
+define('OUT_OF_STOCK_CAN_CHECKOUT', ' ' . STOCK_MARK_PRODUCT_OUT_OF_STOCK . 'の印がついた商品は在庫切れです。<br />在庫切れ商品はバックオーダーとなります。');
 
 ?>

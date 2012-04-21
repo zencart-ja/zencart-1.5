@@ -10,7 +10,7 @@
 define('NAVBAR_TITLE_1', 'レジへ進む');
 define('NAVBAR_TITLE_2', '配送情報');
 
-define('HEADING_TITLE', 'Step 1 of 3 - お届け先と配送方法を記入してください');
+define('HEADING_TITLE', 'STEP1 - お届け先と配送方法を記入してください');
 
 define('TABLE_HEADING_SHIPPING_ADDRESS', 'お届け先住所');
 define('TEXT_CHOOSE_SHIPPING_DESTINATION', 'ご注文の品物は左記の住所にお届けします。「住所を変更」ボタンをクリックしてお届け先を変更できます。');

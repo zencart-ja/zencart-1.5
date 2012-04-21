@@ -26,7 +26,7 @@ define('TABLE_HEADING_SOURCE', '日付');
 define('TABLE_HEADING_VIEWS', '表示');
 define('TABLE_HEADING_CLICKS', 'クリック');
 
-define('TEXT_BANNERS_DATA', 'D<br/>A<br/>T<br/>A');
+define('TEXT_BANNERS_DATA', 'デ<br/>ー<br/>タ');
 define('TEXT_BANNERS_DAILY_STATISTICS', '%s  Daily Statistics For %s %s');//画像に文字が乗るため、日本語にすると化ける
 define('TEXT_BANNERS_MONTHLY_STATISTICS', '%s Monthly Statistics For %s');//画像に文字が乗るため、日本語にすると化ける
 define('TEXT_BANNERS_YEARLY_STATISTICS', '%s Yearly Statistics');

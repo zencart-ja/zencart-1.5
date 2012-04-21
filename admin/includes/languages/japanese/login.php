@@ -21,7 +21,7 @@ define('ERROR_SECURITY_ERROR', 'There was a security error when trying to login.
 
 define('TEXT_PASSWORD_FORGOTTEN', 'パスワード再送信');
 
-define('LOGIN_EXPIRY_NOTICE', 'Please be aware that after 15 minutes of inactivity, you will be required to login again.<br /><br />Note: All passwords expire every 90 days.');
+define('LOGIN_EXPIRY_NOTICE', '15分以上操作をしない場合、再ログインが必要になります。<br /><br />注：すべてのパスワードは、90日おきに期限切れになります。');
 define('ERROR_PASSWORD_EXPIRED', 'NOTE: Your password has expired. Please select a new password. Your password <strong>must contain both NUMBERS and LETTERS and minimum 7 characters.</strong>');
 define('TEXT_TEMPORARY_PASSWORD_MUST_BE_CHANGED', 'For security reasons, your temporary password needs to be changed. Please select a new password.<br />Your password <strong>must contain both NUMBERS and LETTERS and minimum 7 characters.</strong>');
 

@@ -7,7 +7,7 @@
  * @version $Id: attributes_controller.php 15883 2010-04-11 16:41:26Z wilt $
  */
 
-define('HEADING_TITLE', 'CATEGORIES: ');
+define('HEADING_TITLE', 'カテゴリ: ');
 
 define('HEADING_TITLE_OPT', '商品オプション');
 define('HEADING_TITLE_VAL', 'オプション値');

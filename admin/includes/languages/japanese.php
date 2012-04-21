@@ -78,7 +78,7 @@ define('HEADER_TITLE_SUPPORT_SITE', 'Zen Cart.com');
 define('HEADER_TITLE_SUPPORT_SITE_JP', 'Zen Cart.JP');
 define('HEADER_TITLE_ONLINE_CATALOG', 'オンラインショップ');
 define('HEADER_TITLE_VERSION', 'バージョン');
-define('HEADER_TITLE_ACCOUNT', 'Account');
+define('HEADER_TITLE_ACCOUNT', 'マイアカウント');
 define('HEADER_TITLE_LOGOFF', 'ログオフ');
 //define('HEADER_TITLE_ADMINISTRATION', 'Administration');
 
@@ -99,31 +99,31 @@ define('DOB_FORMAT_STRING', 'yyyy/mm/dd');
 
 // configuration box text in includes/boxes/configuration.php
 define('BOX_HEADING_CONFIGURATION', '一般設定');
-define('BOX_CONFIGURATION_MY_STORE', 'マイショップ');
-define('BOX_CONFIGURATION_MINIMUM_VALUES', 'Minimum Values');
-define('BOX_CONFIGURATION_MAXIMUM_VALUES', 'Maximum Values');
-define('BOX_CONFIGURATION_IMAGES', 'Images');
-define('BOX_CONFIGURATION_CUSTOMER_DETAILS', 'Customer Details');
-define('BOX_CONFIGURATION_SHIPPING_PACKAGING', 'Shipping/Packaging');
-define('BOX_CONFIGURATION_PRODUCT_LISTING', 'Product Listing');
-define('BOX_CONFIGURATION_STOCK', 'Stock');
-define('BOX_CONFIGURATION_LOGGING', 'ロギング');
-define('BOX_CONFIGURATION_EMAIL_OPTIONS', 'E-Mail Options');
-define('BOX_CONFIGURATION_ATTRIBUTE_OPTIONS', 'Attribute Settings');
-define('BOX_CONFIGURATION_GZIP_COMPRESSION', 'GZip Compression');
-define('BOX_CONFIGURATION_SESSIONS', 'Sessions');
-define('BOX_CONFIGURATION_REGULATIONS', 'Regulations');
-define('BOX_CONFIGURATION_GV_COUPONS', 'GV Coupons');
-define('BOX_CONFIGURATION_CREDIT_CARDS', 'Credit Cards');
-define('BOX_CONFIGURATION_PRODUCT_INFO', 'Product Info');
-define('BOX_CONFIGURATION_LAYOUT_SETTINGS', 'Layout Settings');
-define('BOX_CONFIGURATION_WEBSITE_MAINTENANCE', 'Website Maintenance');
-define('BOX_CONFIGURATION_NEW_LISTING', 'New Listing');
-define('BOX_CONFIGURATION_FEATURED_LISTING', 'Featured Listing');
-define('BOX_CONFIGURATION_ALL_LISTING', 'All Listing');
-define('BOX_CONFIGURATION_INDEX_LISTING', 'Index Listing');
-define('BOX_CONFIGURATION_DEFINE_PAGE_STATUS', 'Define Page Status');
-define('BOX_CONFIGURATION_EZPAGES_SETTINGS', 'EZ-Pages Settings');
+define('BOX_CONFIGURATION_MY_STORE', 'ショップ全般の設定');
+define('BOX_CONFIGURATION_MINIMUM_VALUES', '最小値の設定');
+define('BOX_CONFIGURATION_MAXIMUM_VALUES', '最大値の設定');
+define('BOX_CONFIGURATION_IMAGES', '画像の設定');
+define('BOX_CONFIGURATION_CUSTOMER_DETAILS', '顧客アカウントの設定');
+define('BOX_CONFIGURATION_SHIPPING_PACKAGING', '配送料・パッケージの設定');
+define('BOX_CONFIGURATION_PRODUCT_LISTING', '商品リストの設定');
+define('BOX_CONFIGURATION_STOCK', '在庫の設定');
+define('BOX_CONFIGURATION_LOGGING', 'ログの設定');
+define('BOX_CONFIGURATION_EMAIL_OPTIONS', 'メールの設定');
+define('BOX_CONFIGURATION_ATTRIBUTE_OPTIONS', '商品属性の設定');
+define('BOX_CONFIGURATION_GZIP_COMPRESSION', 'GZip圧縮の設定');
+define('BOX_CONFIGURATION_SESSIONS', 'セッション管理の設定');
+define('BOX_CONFIGURATION_REGULATIONS', '規約関連の設定');
+define('BOX_CONFIGURATION_GV_COUPONS', 'ギフト券・クーポン券の設定');
+define('BOX_CONFIGURATION_CREDIT_CARDS', 'クレジットカードの設定');
+define('BOX_CONFIGURATION_PRODUCT_INFO', '商品情報の設定');
+define('BOX_CONFIGURATION_LAYOUT_SETTINGS', 'レイアウトの設定');
+define('BOX_CONFIGURATION_WEBSITE_MAINTENANCE', 'メンテナンス表示の設定');
+define('BOX_CONFIGURATION_NEW_LISTING', '新着商品リストの設定');
+define('BOX_CONFIGURATION_FEATURED_LISTING', 'おすすめ商品リストの設定');
+define('BOX_CONFIGURATION_ALL_LISTING', '全商品リストの設定');
+define('BOX_CONFIGURATION_INDEX_LISTING', 'トップページの表示設定');
+define('BOX_CONFIGURATION_DEFINE_PAGE_STATUS', '定番ページの表示設定');
+define('BOX_CONFIGURATION_EZPAGES_SETTINGS', 'EZ-Pagesの設定');
 
 // modules box text in includes/boxes/modules.php
 define('BOX_HEADING_MODULES', 'モジュール');
@@ -218,11 +218,11 @@ define('BOX_COUPON_ADMIN','クーポン券の管理');
 define('BOX_COUPON_RESTRICT','Coupon Restrictions');
 
 // admin access box text
-define('BOX_HEADING_ADMIN_ACCESS', 'Admin Access Management');
-define('BOX_ADMIN_ACCESS_USERS',  'Admin Users');
-define('BOX_ADMIN_ACCESS_PROFILES', 'Admin Profiles');
-define('BOX_ADMIN_ACCESS_PAGE_REGISTRATION', 'Admin Page Registration');
-define('BOX_ADMIN_ACCESS_LOGS', 'Admin Activity Logs');
+define('BOX_HEADING_ADMIN_ACCESS', '管理者の設定');
+define('BOX_ADMIN_ACCESS_USERS',  '管理者の設定');
+define('BOX_ADMIN_ACCESS_PROFILES', '管理グループの権限設定');
+define('BOX_ADMIN_ACCESS_PAGE_REGISTRATION', '管理ページの登録');
+define('BOX_ADMIN_ACCESS_LOGS', '管理活動ログ');
 
 define('IMAGE_RELEASE', 'Redeem ', '引き換え');
 
@@ -301,8 +301,8 @@ define('ENTRY_NEWSLETTER_NO', '購読しない');
 define('ENTRY_NEWSLETTER_ERROR', '');
 
 define('ERROR_PASSWORDS_NOT_MATCHING', 'Password and confirmation must match');
-define('ENTRY_PASSWORD_CHANGE_ERROR', '<strong>Sorry, your new password was rejected.</strong><br />');
-define('ERROR_PASSWORD_RULES', 'Passwords must contain both letters and numbers, must be at least %s characters long, and must not be the same as the last 4 passwords used. Passwords expire every 90 days.');
+define('ENTRY_PASSWORD_CHANGE_ERROR', '<strong>新しいパスワードを設定できませんでした。</strong><br />');
+define('ERROR_PASSWORD_RULES', 'パスワードは半角英数字を混在させ、%s 文字以上でなければなりません。現在のパスワードと直近4つのパスワードは使用できません。パスワードは、90日おきに期限切れになります。');
 define('ERROR_TOKEN_EXPIRED_PLEASE_RESUBMIT', 'ERROR: Sorry, there was an error processing your data. Please re-submit the information again.');
 
 // images
@@ -646,8 +646,8 @@ define('ENTRY_EMAIL_OPTOUT_DISPLAY','メールマガジン配信を拒否');
 define('ENTRY_NOTHING_TO_SEND','メッセージの入力内容がありません。');
  define('EMAIL_SEND_FAILED','エラー: "%s"へのメール送信失敗 <%s> 対象で: "%s"');
 
-  define('EDITOR_NONE', 'Plain Text');
-  define('TEXT_EDITOR_INFO', 'Text Editor');
+  define('EDITOR_NONE', 'プレーンテキスト');
+  define('TEXT_EDITOR_INFO', 'テキスト・エディタ');
   define('ERROR_EDITORS_FOLDER_NOT_FOUND', 'You have an HTML editor selected in \'My Store\' but the \'/editors/\' folder cannot be located. Please disable your selection or move your editor files into the \''.DIR_WS_CATALOG.'editors/\' folder');
   define('TEXT_CATEGORIES_PRODUCTS_SORT_ORDER_INFO', 'カテゴリ/商品 注文形式: ');
   define('TEXT_SORT_PRODUCTS_SORT_ORDER_PRODUCTS_NAME', '商品のソート順決定, 商品');
@@ -664,11 +664,11 @@ define('ENTRY_NOTHING_TO_SEND','メッセージの入力内容がありません
 
   define('TABLE_HEADING_YES','はい');
   define('TABLE_HEADING_NO','いいえ');
-  define('TEXT_PRODUCTS_IMAGE_MANUAL', '<br /><strong>Or, select an existing image file from server, filename:</strong>');
+  define('TEXT_PRODUCTS_IMAGE_MANUAL', '<br /><strong>または、サーバーから既存の画像ファイル名を入力して下さい。　ファイル名:</strong>');
   define('TEXT_IMAGES_OVERWRITE', '既存のオプション画像を上書きしますか？<br/>上書きしたくない場合は[いいえ]を選択して、既存ファイルとは異なる名前のファイルを[オプション画像]に指定してください。');
   define('TEXT_IMAGE_OVERWRITE_WARNING','警告: 属性見本画像をアップロードしましたが、上書きできませんでした。 ');
-  define('TEXT_IMAGES_DELETE', '<strong>Delete Image?</strong> NOTE: Removes Image from Product, Image is NOT removed from server:');
-  define('TEXT_IMAGE_CURRENT', 'Image Name: ');
+  define('TEXT_IMAGES_DELETE', '<strong>画像を削除しますか？</strong> 注: 商品画像としては削除されますが、サーバーから画像が削除されるわけではありません。');
+  define('TEXT_IMAGE_CURRENT', '画像名: ');
 
   define('ERROR_DEFINE_OPTION_NAMES', '警告: オプションネームの定義がされていません。');
   define('ERROR_DEFINE_OPTION_VALUES', '警告: オプションヴァリューの定義がされていません。');
@@ -722,7 +722,7 @@ define('ENTRY_NOTHING_TO_SEND','メッセージの入力内容がありません
 
 define('WARNING_ADMIN_FOLDERNAME_VULNERABLE', 'CAUTION: <a href="http://tutorials.zen-cart.com/index.php?article=33" target="_blank">Your /admin/ foldername should be renamed to something less common</a>, to prevent unauthorized access.');
 define('WARNING_EMAIL_SYSTEM_DISABLED', 'WARNING: The email subsystem is turned off. No emails will be sent until it is re-enabled in Admin->Configuration->Email Options.');
-define('TEXT_CURRENT_VER_IS', 'You are presently using: ');
+define('TEXT_CURRENT_VER_IS', '使用バージョン: ');
 define('ERROR_NO_DATA_TO_SAVE', 'ERROR: The data you submitted was found to be empty. YOUR CHANGES HAVE *NOT* BEEN SAVED. You may have a problem with your browser or your internet connection.');
 define('TEXT_HIDDEN', 'Hidden');
 define('TEXT_VISIBLE', 'Visible');

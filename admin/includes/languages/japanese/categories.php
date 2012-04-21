@@ -54,7 +54,7 @@ define('TEXT_INFO_HEADING_MOVE_PRODUCT', '商品を移動');
 define('TEXT_INFO_HEADING_COPY_TO', 'コピー先');
 
 define('TEXT_DELETE_CATEGORY_INTRO', 'このカテゴリを本当に削除しますか?');
-define('TEXT_DELETE_CATEGORY_INTRO_LINKED_PRODUCTS', '<strong>Warning:</strong> Linked Products whose Master Categories ID are deleted will not price properly. You should first assure that when deleting a Category that contains Linked Products that you reset the Product(s) Master Categories ID to another Category before removing a Category');
+define('TEXT_DELETE_CATEGORY_INTRO_LINKED_PRODUCTS', '<strong>警告:</strong> このカテゴリにリンク商品が含まれている場合、マスターカテゴリIDがこのカテゴリIDを指定していないか確認をし、<br />このカテゴリIDが指定されていた場合は他のカテゴリIDに変更する必要があります。<br />このカテゴリIDがマスターカテゴリIDに指定されたまま削除を実行すると、商品のマスターカテゴリIDは存在しないカテゴリIDになってしまうため、<br />カテゴリごとのセール価格の設定が反映できなくなるなどの問題が発生します。');
 define('TEXT_DELETE_PRODUCT_INTRO', 'この商品を本当に削除しますか?');
 
 define('TEXT_DELETE_WARNING_CHILDS', '<b>警告:</b> このカテゴリには %s 個のサブカテゴリが登録されています!');
@@ -134,7 +134,7 @@ define('ERROR_CANNOT_ADD_PRODUCT_TYPE','この特定のタイプの勝因はこ�
   define('ICON_ATTRIBUTES','商品のオプション');
 
   define('TEXT_CATEGORIES_IMAGE_DIR','アップロード先のディレクトリ:');
-  define('TEXT_CATEGORIES_IMAGE_MANUAL', '<strong>Or, select an existing image file from server, filename:</strong>');
+  define('TEXT_CATEGORIES_IMAGE_MANUAL', '<strong>または、サーバーから既存の画像ファイル名を入力して下さい。　ファイル名:</strong>');
 
   define('TEXT_VIRTUAL_PREVIEW','警告: バーチャル商品のため配送先指定をスキップします');
   define('TEXT_VIRTUAL_EDIT','警告: バーチャル商品のため配送先指定をスキップします');
@@ -208,5 +208,5 @@ define('PRODUCTS_PRICE_IS_CALL_FOR_PRICE_TEXT', '価格要問い合わせの商�
   define('TEXT_EDIT_CATEGORIES_META_TAGS_KEYWORDS', 'Metaタグ(Keywords):');
   define('TEXT_EDIT_CATEGORIES_META_TAGS_DESCRIPTION', 'Metaタグ(Description):');
 
-define('WARNING_PRODUCTS_IN_TOP_INFO', 'WARNING: You have Products in the Top Level Category. This will cause pricing to not work properly in the Catalog. Products found: ');
+define('WARNING_PRODUCTS_IN_TOP_INFO', '警告: トップレベルカテゴリに商品が含まれています。<br />この商品は、カテゴリに属していない為、カテゴリごとの価格設定が適応できないなどの問題が発生します。　見つかった商品： ');
 

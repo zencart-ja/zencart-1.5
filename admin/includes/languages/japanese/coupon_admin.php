@@ -48,8 +48,8 @@ define('TEXT_VOUCHER_IS', 'クーポン コード ');
 define('TEXT_REMEMBER', 'クーポン コードをなくさないよう安全な場所に保存してください。');
 define('TEXT_VISIT', 'Visit us at %s');
 define('TEXT_ENTER_CODE', ' クーポンコードを入力してください。 ');
-define('TEXT_COUPON_HELP_DATE', '<p><p>The coupon is valid between %s and %s</p></p>');
-define('HTML_COUPON_HELP_DATE', '<p><p>The coupon is valid between %s and %s</p></p>');
+define('TEXT_COUPON_HELP_DATE', '<p><p>このクーポンは %s から %s までの間、有効です</p></p>');
+define('HTML_COUPON_HELP_DATE', '<p><p>このクーポンは %s から %s までの間、有効です</p></p>');
 
 define('TABLE_HEADING_ACTION', '操作');
 
@@ -85,8 +85,8 @@ define('DATE_CREATED', '作成日');
 define('DATE_MODIFIED', '更新日');
 define('TEXT_HEADING_NEW_COUPON', '新しいクーポン券を作成する');
 define('TEXT_NEW_INTRO', '新しいクーポン情報を入力してください。<br />');
-define('COUPON_ZONE_RESTRICTION', 'Coupon Zone Restriction: ');
-define('TEXT_COUPON_ZONE_RESTRICTION', 'Coupon Zone Restriction are optional.');
+define('COUPON_ZONE_RESTRICTION', '使用可能地域制限');
+define('TEXT_COUPON_ZONE_RESTRICTION', 'クーポン券が使用可能な地域を制限します。');
 
 define('ERROR_NO_COUPON_AMOUNT', 'クーポン券の額が入力されていません。');
 define('ERROR_NO_COUPON_NAME', 'クーポン名が入力されていません。 ');
