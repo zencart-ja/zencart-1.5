@@ -101,6 +101,16 @@ function executeSql($sql_file, $database, $table_prefix = '', $isupgrade=false) 
   $newline = '';
   $lines_to_keep_together_counter=0;
 //  $saveline = '';
+	$mysql_version = (function_exists('mysql_get_server_info')) ? @mysql_get_server_info() : '';
+	if(version_compare($mysql_version,'4.1.0', '>='))
+	{
+		$sql = "SHOW global variables LIKE '%have_innodb%'";
+		$rs = mysql_query($sql);
+		$variables = mysql_fetch_assoc($rs);
+		$engine = $variables['Value']==='YES' ? 'InnoDB' : 'MyISAM';
+	}
+	else $engine = 'MyISAM';
+	
   foreach ($lines as $line) {
     $line = trim($line);
 //    $line = $saveline . $line;
@@ -341,6 +351,15 @@ function executeSql($sql_file, $database, $table_prefix = '', $isupgrade=false) 
         if ($complete_line) {
           if ($debug==true) echo ((!$ignore_line) ? '<br /><strong>About to execute.</strong>': '<strong>Ignoring statement. This command WILL NOT be executed.</strong>').'<br />Debug info:<br />$ line='.$line.'<br />$ complete_line='.$complete_line.'<br>$ keep_together='.$keep_together.'<br />SQL='.$newline.'<br /><br />';
           if (get_magic_quotes_runtime() > 0) $newline=stripslashes($newline);
+          if(substr($newline, 0, 13) == 'CREATE TABLE ')
+          {
+				$mysql_version = mysql_get_server_info();
+				if(version_compare($mysql_version,'4.1.0', '>='))
+				{
+					$char_collate = 'DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci';
+					$newline = str_replace('ENGINE=MyISAM', "ENGINE={$engine} {$char_collate}", $newline);
+				}
+          }
           $output = (trim(str_replace(';','',$newline)) != '' && !$ignore_line) ? $db->Execute($newline) : '';
           $results++;
           $string .= $newline.'<br />';
