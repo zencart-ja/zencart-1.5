@@ -81,7 +81,7 @@ $is_upgrade = (int)$zc_install->getConfigKey('is_upgrade');
   } else { // set defaults:
     $zdb_type       = 'MySQL';
     $zdb_coll       = 'utf8';
-    $zdb_prefix     = '';
+    $zdb_prefix     = 'zenc_';
     $zdb_server     = 'localhost';
     $zdb_user       = '';
     $zdb_name       = 'zencart';
