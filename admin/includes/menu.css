@@ -12,7 +12,7 @@ margin:0;
 padding:4px 10px;
 }
 ul.nde-menu-system *{
-font-size:10px;
+font-size:inherit;
 }
 ul.nde-menu-system li{
 border-right:1px solid #003D00;
@@ -75,4 +75,12 @@ background-color:#599659;
 display:block;
 margin:0;
 padding:4px 0 0;
+}
+
+/* zencart-ja */
+html {font-size:100.01%}
+body {font-size:82.5%;}
+table {font:inherit;}
+ul.nde-menu-system li ul li{
+width:180px;
 }

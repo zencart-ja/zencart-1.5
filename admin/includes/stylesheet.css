@@ -382,3 +382,25 @@ color:#ff6600;
 #alt_nav a {
 	white-space: nowrap;
 }
+
+/* zencart-ja */
+
+html {
+font-size:100.01%;
+}
+
+body {
+font-family:Arial,sans-serif;
+font-size:82.5%;
+}
+table,a,td,input,select,textarea,
+body#login legend,
+ul.nde-menu-system *,
+checkbox,input,radio,select,textarea,file,
+.dataTableRowSpacer,td.dataTableRowSpacer,TR.dataTableRowSpacer,
+.formAreaTitle,.smallText,#alt_nav,#alt_nav h2
+{
+font:inherit;
+}
+
+

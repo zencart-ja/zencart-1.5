@@ -11,7 +11,7 @@ body {
 background-color: #EEE;
 margin: 0px;
 padding: 0px;
-font: 12px Tahoma, Verdana, Arial, sans-serif;
+font: 82.5% Arial, sans-serif;
 text-align: center;
 }
 
@@ -185,7 +185,7 @@ form { margin: 0; padding: 0; }
 fieldset { margin: 0; padding: 10px; border: 1px solid #666; }
 legend { margin: 0; padding: 0 4px; color: #e80; font-weight: bold;}
 .attention { color: red; }
-input, select, textarea { margin: 10px 5px 0; padding: 0; }
+input, select, textarea { margin: 10px 5px 0; padding: 0; font:inherit;}
 label, span.label { margin: 0; padding: 0; font-weight: bold; }
 
 div.section { margin: 0; padding: 0; clear: both; }
