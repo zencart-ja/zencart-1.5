@@ -5,6 +5,8 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: english.php 19537 2011-09-20 17:14:44Z drbyte $
+ * @author kimono
+ * @author yama
  */
 if (!defined('IS_ADMIN_FLAG'))
 {
@@ -115,7 +117,7 @@ define('BOX_CONFIGURATION_SESSIONS', 'セッション管理の設定');
 define('BOX_CONFIGURATION_REGULATIONS', '規約関連の設定');
 define('BOX_CONFIGURATION_GV_COUPONS', 'ギフト券・クーポン券の設定');
 define('BOX_CONFIGURATION_CREDIT_CARDS', 'クレジットカードの設定');
-define('BOX_CONFIGURATION_PRODUCT_INFO', '商品情報の設定');
+define('BOX_CONFIGURATION_PRODUCT_INFO', '商品ページの設定');
 define('BOX_CONFIGURATION_LAYOUT_SETTINGS', 'レイアウトの設定');
 define('BOX_CONFIGURATION_WEBSITE_MAINTENANCE', 'メンテナンス表示の設定');
 define('BOX_CONFIGURATION_NEW_LISTING', '新着商品リストの設定');
@@ -222,7 +224,7 @@ define('BOX_HEADING_ADMIN_ACCESS', '管理者の設定');
 define('BOX_ADMIN_ACCESS_USERS',  '管理者の設定');
 define('BOX_ADMIN_ACCESS_PROFILES', '管理グループの権限設定');
 define('BOX_ADMIN_ACCESS_PAGE_REGISTRATION', '管理ページの登録');
-define('BOX_ADMIN_ACCESS_LOGS', '管理活動ログ');
+define('BOX_ADMIN_ACCESS_LOGS', '管理操作ログ');
 
 define('IMAGE_RELEASE', 'Redeem ', '引き換え');
 
