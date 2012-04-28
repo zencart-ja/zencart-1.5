@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: orders.php 6214 2007-04-17 02:24:25Z ajeh $
+ * @author obitastar
  */
 
 define('HEADING_TITLE', '注文管理');

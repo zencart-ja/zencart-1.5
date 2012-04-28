@@ -7,6 +7,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: create_account.php 17018 2010-07-27 07:25:41Z drbyte $
+ * @author obitastar
  */
 // This should be first line of the script:
 $zco_notifier->notify('NOTIFY_MODULE_START_CREATE_ACCOUNT');
@@ -48,6 +49,12 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
   if (ACCOUNT_COMPANY == 'true') $company = zen_db_prepare_input($_POST['company']);
   $firstname = zen_db_prepare_input(zen_sanitize_string($_POST['firstname']));
   $lastname = zen_db_prepare_input(zen_sanitize_string($_POST['lastname']));
+  // ->furikana
+  if (FURIKANA_NESESSARY) {
+    $firstname_kana = zen_db_prepare_input($_POST['firstname_kana']);
+    $lastname_kana = zen_db_prepare_input($_POST['lastname_kana']);
+  }
+  // <-furikana
   $nick = zen_db_prepare_input($_POST['nick']);
   if (ACCOUNT_DOB == 'true') $dob = zen_db_prepare_input($_POST['dob']);
   $email_address = zen_db_prepare_input($_POST['email_address']);
@@ -103,6 +110,22 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
     $error = true;
     $messageStack->add('create_account', ENTRY_LAST_NAME_ERROR);
   }
+
+  // ->furikana
+  if (FURIKANA_NESESSARY) {
+    if (strlen($firstname_kana) < ENTRY_FIRST_NAME_MIN_LENGTH) {
+      $error = true;
+
+      $messageStack->add('create_account', ENTRY_FIRST_NAME_KANA_ERROR);
+    }
+
+    if (strlen($lastname_kana) < ENTRY_LAST_NAME_MIN_LENGTH) {
+      $error = true;
+
+      $messageStack->add('create_account', ENTRY_LAST_NAME_KANA_ERROR);
+    }
+  }
+  // <-furikana
 
   if (ACCOUNT_DOB == 'true') {
     if (ENTRY_DOB_MIN_LENGTH > 0 or !empty($_POST['dob'])) {
@@ -249,6 +272,24 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
     // hook notifier class
     $zco_notifier->notify('NOTIFY_FAILURE_DURING_CREATE_ACCOUNT');
   } else {
+    // ->furikana
+    if (FURIKANA_NESESSARY) {
+      $sql_data_array = array('customers_firstname' => $firstname,
+                              'customers_lastname' => $lastname,
+                              'customers_firstname_kana' => $firstname_kana,
+                              'customers_lastname_kana' => $lastname_kana,
+                              'customers_email_address' => $email_address,
+                              'customers_nick' => $nick,
+                              'customers_telephone' => $telephone,
+                              'customers_fax' => $fax,
+                              'customers_newsletter' => (int)$newsletter,
+                              'customers_email_format' => $email_format,
+                              'customers_default_address_id' => '0',
+                              'customers_password' => zen_encrypt_password($password),
+                              'customers_authorization' => (int)CUSTOMERS_APPROVAL_AUTHORIZATION
+      );
+    }
+    else {
     $sql_data_array = array('customers_firstname' => $firstname,
                             'customers_lastname' => $lastname,
                             'customers_email_address' => $email_address,
@@ -261,6 +302,8 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
                             'customers_password' => zen_encrypt_password($password),
                             'customers_authorization' => (int)CUSTOMERS_APPROVAL_AUTHORIZATION
     );
+    }
+    // <-furikana
 
     if ((CUSTOMERS_REFERRAL_STATUS == '2' and $customers_referral != '')) $sql_data_array['customers_referral'] = $customers_referral;
     if (ACCOUNT_GENDER == 'true') $sql_data_array['customers_gender'] = $gender;
@@ -272,6 +315,21 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
 
     $zco_notifier->notify('NOTIFY_MODULE_CREATE_ACCOUNT_ADDED_CUSTOMER_RECORD', array_merge(array('customer_id' => $_SESSION['customer_id']), $sql_data_array));
 
+    // ->furikana
+    if (FURIKANA_NESESSARY) {
+      $sql_data_array = array('customers_id' => $_SESSION['customer_id'],
+                              'entry_firstname' => $firstname,
+                              'entry_lastname' => $lastname,
+                              'entry_firstname_kana' => $firstname_kana,
+                              'entry_lastname_kana' => $lastname_kana,
+                              'entry_telephone' => $telephone,
+                              'entry_fax' => $fax,
+                              'entry_street_address' => $street_address,
+                              'entry_postcode' => $postcode,
+                              'entry_city' => $city,
+                              'entry_country_id' => $country);
+    }
+    else {
     $sql_data_array = array('customers_id' => $_SESSION['customer_id'],
                             'entry_firstname' => $firstname,
                             'entry_lastname' => $lastname,
@@ -279,6 +337,8 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
                             'entry_postcode' => $postcode,
                             'entry_city' => $city,
                             'entry_country_id' => $country);
+    }
+    // <-furikana
 
     if (ACCOUNT_GENDER == 'true') $sql_data_array['entry_gender'] = $gender;
     if (ACCOUNT_COMPANY == 'true') $sql_data_array['entry_company'] = $company;
@@ -323,6 +383,13 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
     }
 
     $_SESSION['customer_first_name'] = $firstname;
+    $_SESSION['customer_last_name'] = $lastname;
+    // ->furikana
+    if (FURIKANA_NESESSARY) {
+      $_SESSION['customer_first_name_kana'] = $firstname_kana;
+      $_SESSION['customer_last_name_kana'] = $lastname_kana;
+    }
+    // <-furikana
     $_SESSION['customer_default_address_id'] = $address_id;
     $_SESSION['customer_country_id'] = $country;
     $_SESSION['customer_zone_id'] = $zone_id;
@@ -339,12 +406,12 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
 
     if (ACCOUNT_GENDER == 'true') {
       if ($gender == 'm') {
-        $email_text = sprintf(EMAIL_GREET_MR, $lastname);
+        $email_text = sprintf(EMAIL_GREET_MR, $name);
       } else {
-        $email_text = sprintf(EMAIL_GREET_MS, $lastname);
+        $email_text = sprintf(EMAIL_GREET_MS, $name);
       }
     } else {
-      $email_text = sprintf(EMAIL_GREET_NONE, $firstname);
+      $email_text = sprintf(EMAIL_GREET_NONE, $name);
     }
     $html_msg['EMAIL_GREETING'] = str_replace('\n','',$email_text);
     $html_msg['EMAIL_FIRST_NAME'] = $firstname;

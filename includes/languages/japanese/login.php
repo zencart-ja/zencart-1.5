@@ -5,23 +5,24 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: login.php 14280 2009-08-29 01:33:18Z drbyte $
+ * @author obitastar
  */
 
 define('NAVBAR_TITLE', 'ログイン');
 define('HEADING_TITLE', 'いらっしゃいませ<br />サインインしてください');
 
 define('HEADING_NEW_CUSTOMER', '【初めてのご来店・未登録の方は】<br /> お客様の情報を入力し、アカウントを作成してください。');
-define('HEADING_NEW_CUSTOMER_SPLIT', 'New Customers');
+define('HEADING_NEW_CUSTOMER_SPLIT', 'はじめてのお客様');
 
 define('TEXT_NEW_CUSTOMER_INTRODUCTION', 'この機会に是非ご登録ください!<br />' . STORE_NAME . 'では、一度アカウントを作成していただきますと以降のご利用ではお客様情報などの入力を省くことができ、快適にショッピングを楽しんでいただけます。');
 define('TEXT_NEW_CUSTOMER_INTRODUCTION_SPLIT', 'Have a PayPal account? Want to pay quickly with a credit card? Use the PayPal button below to use the Express Checkout option.');
 define('TEXT_NEW_CUSTOMER_POST_INTRODUCTION_DIVIDER', '<span class="larger">Or</span><br />');
-define('TEXT_NEW_CUSTOMER_POST_INTRODUCTION_SPLIT', 'Create a Customer Profile with <strong>' . STORE_NAME . '</strong> which allows you to shop faster, track the status of your current orders, review your previous orders and take advantage of our other member\'s benefits.');
+define('TEXT_NEW_CUSTOMER_POST_INTRODUCTION_SPLIT', '<strong>' . STORE_NAME . '</strong>にアカウントを作成していただきますと以降のご利用ではお客様情報などの入力を省くことができ、過去の注文履歴の確認など、快適にショッピングを楽しんでいただけます。');
 
 define('HEADING_RETURNING_CUSTOMER', '【アカウントをお持ちの方は】<br />ご登録されたメールアドレス・パスワードでログインしてください。');
-define('HEADING_RETURNING_CUSTOMER_SPLIT', 'Returning Customers');
+define('HEADING_RETURNING_CUSTOMER_SPLIT', '登録済みのお客様');
 
-define('TEXT_RETURNING_CUSTOMER_SPLIT', 'In order to continue, please login to your <strong>' . STORE_NAME . '</strong> account.');
+define('TEXT_RETURNING_CUSTOMER_SPLIT', '注文手続きを進めるために、<strong>' . STORE_NAME . '</strong> にログインして下さい。');
 
 define('TEXT_PASSWORD_FORGOTTEN', 'パスワードをお忘れですか?');
 
@@ -32,6 +33,6 @@ define('TABLE_HEADING_PRIVACY_CONDITIONS', '<span class="privacyconditions">個�
 define('TEXT_PRIVACY_CONDITIONS_DESCRIPTION', '<span class="privacydescription">個人情報保護方針に同意される場合はチェックボックスをクリックしてください。内容はこちらでご覧いただけます。</span> <a href="' . zen_href_link(FILENAME_PRIVACY, '', 'SSL') . '"><u>個人情報保護方針</u></a>.');
 define('TEXT_PRIVACY_CONDITIONS_CONFIRM', '<span class="privacyagree">個人情報保護方針に同意します。</span>');
 
-define('ERROR_SECURITY_ERROR', 'There was a security error when trying to login.');
+define('ERROR_SECURITY_ERROR', 'ログイン中にアクセスエラーがありました。');
 
-define('TEXT_LOGIN_BANNED', 'Error: Access denied.');
+define('TEXT_LOGIN_BANNED', 'エラー: アクセスが拒否されました。');

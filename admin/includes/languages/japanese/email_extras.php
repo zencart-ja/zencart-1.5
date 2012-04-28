@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: email_extras.php 18698 2011-05-04 14:50:06Z wilt $
+ * @author obitastar
  */
 
 // office use only
@@ -34,11 +35,11 @@
 
 // for whos_online when gethost is off
   define('OFFICE_IP_TO_HOST_ADDRESS', '不可能');
-define('TEXT_EMAIL_SUBJECT_ADMIN_USER_ADDED', 'Admin Alert: New admin user added.');
-define('TEXT_EMAIL_MESSAGE_ADMIN_USER_ADDED', 'Administrative alert: A new admin user (%s) has been ADDED to your store by %s.' . "\n\n" . 'If you or an authorized administrator did not initiate this change, it is advised that you verify your site security immediately.');
-define('TEXT_EMAIL_SUBJECT_ADMIN_USER_DELETED', 'Admin Alert: An admin user has been deleted.');
-define('TEXT_EMAIL_MESSAGE_ADMIN_USER_DELETED', 'Administrative alert: An admin user (%s) has been DELETED from your store by %s.' . "\n\n" . 'If you or an authorized administrator did not initiate this change, it is advised that you verify your site security immediately.');
-define('TEXT_EMAIL_SUBJECT_ADMIN_USER_CHANGED', 'Admin Alert: Admin user details have been changed.');
-define('TEXT_EMAIL_ALERT_ADM_EMAIL_CHANGED', 'Admin alert: Admin user (%s) email address has been changed from (%s) to (%s) by (%s)');
-define('TEXT_EMAIL_ALERT_ADM_NAME_CHANGED', 'Admin alert: Admin user (%s) username has been changed from (%s) to (%s) by (%s)');
-define('TEXT_EMAIL_ALERT_ADM_PROFILE_CHANGED', 'Admin alert: Admin user (%s) security profile has been changed from (%s) to (%s) by (%s)');
+define('TEXT_EMAIL_SUBJECT_ADMIN_USER_ADDED', '管理者への警告 : 新しい管理者が追加されました。');
+define('TEXT_EMAIL_MESSAGE_ADMIN_USER_ADDED', '管理者への警告 : ショップに新しい管理者アカウント (%s) が追加されました。' . "\n" . '追加実行管理者は %s. です。' . "\n\n" . 'もしユーザーに心当たりがない場合は、すぐにサイトのセキュリティなどの確認を行って下さい。');
+define('TEXT_EMAIL_SUBJECT_ADMIN_USER_DELETED', '管理者への警告 : 管理者アカウントが削除されました。');
+define('TEXT_EMAIL_MESSAGE_ADMIN_USER_DELETED', '管理者への警告 : 管理者アカウント (%s) が削除されました。 ' . "\n" . '削除実行管理者： %s ' . "\n\n" . 'もしこの変更に心当たりがない場合は、すぐにサイトのセキュリティなどの確認を行って下さい。');
+define('TEXT_EMAIL_SUBJECT_ADMIN_USER_CHANGED', '管理者への警告 : 管理ユーザーの詳細情報が変更されました。');
+define('TEXT_EMAIL_ALERT_ADM_EMAIL_CHANGED', '管理者への警告 : 管理者 (%s) のメールアドレスが (%s) から (%s) に変更されました。' . "\n" . '変更管理者： (%s)');
+define('TEXT_EMAIL_ALERT_ADM_NAME_CHANGED', '管理者への警告 : 管理者アカウント (%s) の管理者名が (%s) から (%s) に変更されました。' . "\n" . ' 管理者名変更管理者： (%s)');
+define('TEXT_EMAIL_ALERT_ADM_PROFILE_CHANGED', '管理者への警告 : 管理者アカウント (%s) の管理グループが (%s) から (%s) に変更されました。' . "\n" . '変更者： (%s)');

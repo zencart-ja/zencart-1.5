@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: icon_names.php 4224 2006-08-24 01:41:50Z drbyte $
+ * @author obitastar
  */
 
 // define the icon images used in the project
@@ -21,6 +22,6 @@ define('ICON_SUCCESS_ALT', '成功');
 define('ICON_WARNING_ALT', '警告');
 define('ICON_TRASH_ALT', 'このアイコンをクリックするとこの商品がカートから削除されます。');
 define('ICON_UPDATE_ALT', 'ハイライト表示されている数量を訂正しこのボタンをクリックしてください。');
-define('ICON_TINYCART_ALT', 'Add this product to your cart by clicking here.');
+define('ICON_TINYCART_ALT', 'カートに入れる');
 
 ?>

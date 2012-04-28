@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: options_values_manager.php 15883 2010-04-11 16:41:26Z wilt $
+ * @author obitastar
  */
 
 define('HEADING_TITLE_OPT', '商品オプション値の管理');
@@ -89,12 +90,7 @@ define('TABLE_TEXT_MAX_COUNT_SHORT', 'ダウンロード可能回数:');
 
 // Option Name/Value to Option Name for Category with Product defaults
   define('TEXT_OPTION_VALUE_COPY_OPTIONS_TO', '<strong>既存のオプション名からオプション名と値を商品にコピーする</strong>');//<strong>Copy Option Name/Value to Products with existing Option Name ...</strong>
-  define('TEXT_INFO_OPTION_VALUE_COPY_OPTIONS_TO', '商品に現在登録されているオプション名と値を選択してください。
-もしくは選択されたカテゴリー内にある、希望するオプション名を持った商品を選択してください<br />
-<strong>例:</strong>オプション名追加:色のOption値:赤を全てに適用、オプション名:Size
-<strong>例:</strong>オプション名追加:ProductIDが34のvalue値を持つ商品の色のoption値:緑
-<strong>例:</strong>オプション名追加:ProductIDが34のvalue値を持つ商品の色のoption値:緑CategoryIDのサイズ:65
-        ');
+  define('TEXT_INFO_OPTION_VALUE_COPY_OPTIONS_TO', '商品に現在登録されているオプション名と値を選択してください。もしくは選択されたカテゴリー内にある、希望するオプション名を持った商品を選択してください<br /><strong>例:</strong>オプション名追加:色のOption値:赤を全てに適用、オプション名:Size<strong>例:</strong>オプション名追加:ProductIDが34のvalue値を持つ商品の色のoption値:緑<strong>例:</strong>オプション名追加:ProductIDが34のvalue値を持つ商品の色のoption値:緑CategoryIDのサイズ:65');
 
   define('TEXT_SELECT_OPTION_TO_ADD_TO', '追加する先のオプション名:');
   define('TEXT_SELECT_OPTION_FROM_ADD', '追加するオプション名:');

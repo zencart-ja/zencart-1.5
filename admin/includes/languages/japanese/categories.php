@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: categories.php 14139 2009-08-10 13:46:02Z wilt $
+ * @author obitastar
  */
 
 define('HEADING_TITLE', 'カテゴリ・商品の管理');
@@ -208,5 +209,5 @@ define('PRODUCTS_PRICE_IS_CALL_FOR_PRICE_TEXT', '価格要問い合わせの商�
   define('TEXT_EDIT_CATEGORIES_META_TAGS_KEYWORDS', 'Metaタグ(Keywords):');
   define('TEXT_EDIT_CATEGORIES_META_TAGS_DESCRIPTION', 'Metaタグ(Description):');
 
-define('WARNING_PRODUCTS_IN_TOP_INFO', '警告: トップレベルカテゴリに商品が含まれています。<br />この商品は、カテゴリに属していない為、カテゴリごとの価格設定が適応できないなどの問題が発生します。　見つかった商品： ');
+define('WARNING_PRODUCTS_IN_TOP_INFO', '警告: トップレベルカテゴリに商品が含まれています。<br />この場合、カテゴリごとの価格設定が適応できないなどを含め、様々な問題が発生します。　見つかった商品： ');
 

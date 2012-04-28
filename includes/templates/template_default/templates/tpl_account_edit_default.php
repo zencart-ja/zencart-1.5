@@ -10,6 +10,7 @@
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: tpl_account_edit_default.php 3848 2006-06-25 20:33:42Z drbyte $
  * @copyright Portions Copyright 2003 osCommerce
+ * @author obitastar
  */
 ?>
 <div class="centerColumn" id="accountEditDefault">
@@ -35,9 +36,21 @@
 <?php echo zen_draw_input_field('firstname', $account->fields['customers_firstname'], 'id="firstname"') . (zen_not_null(ENTRY_FIRST_NAME_TEXT) ? '<span class="alert">' . ENTRY_FIRST_NAME_TEXT . '</span>': ''); ?>
 <br class="clearBoth" />
 
+<?php if (FURIKANA_NESESSARY) { ?>
+<label class="inputLabel" for="firstname_kana"><?php echo ENTRY_FIRST_NAME_KANA; ?></label>
+<?php echo zen_draw_input_field('firstname_kana', $account->fields['customers_firstname_kana'], 'id="firstname_kana"') . (zen_not_null(ENTRY_FIRST_NAME_KANA_TEXT) ? '<span class="alert">' . ENTRY_FIRST_NAME_KANA_TEXT . '</span>': ''); ?>
+<br class="clearBoth" />
+<?php } ?>
+
 <label class="inputLabel" for="lastname"><?php echo ENTRY_LAST_NAME; ?></label>
 <?php echo zen_draw_input_field('lastname', $account->fields['customers_lastname'], 'id="lastname"') . (zen_not_null(ENTRY_LAST_NAME_TEXT) ? '<span class="alert">' . ENTRY_LAST_NAME_TEXT . '</span>': ''); ?>
 <br class="clearBoth" />
+
+<?php if (FURIKANA_NESESSARY) { ?>
+<label class="inputLabel" for="lastname_kana"><?php echo ENTRY_LAST_NAME_KANA; ?></label>
+<?php echo zen_draw_input_field('lastname_kana', $account->fields['customers_lastname_kana'], 'id="lastname_kana"') . (zen_not_null(ENTRY_LAST_NAME_KANA_TEXT) ? '<span class="alert">' . ENTRY_LAST_NAME_KANA_TEXT . '</span>': ''); ?>
+<br class="clearBoth" />
+<?php } ?>
 
 <?php
   if (ACCOUNT_DOB == 'true') {

@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: admin_activity.php 19537 2011-09-20 17:14:44Z drbyte $
+ * @author obitastar
  */
 
 define('HEADING_TITLE', '管理者活動ログマネージャー');

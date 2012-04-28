@@ -7,6 +7,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: checkout_new_address.php 6772 2007-08-21 12:33:29Z drbyte $
+ * @author obitastar
  */
 // This should be first line of the script:
 $zco_notifier->notify('NOTIFY_MODULE_START_CHECKOUT_NEW_ADDRESS');
@@ -33,6 +34,12 @@ if (isset($_POST['action']) && ($_POST['action'] == 'submit')) {
     if (ACCOUNT_COMPANY == 'true') $company = zen_db_prepare_input($_POST['company']);
     $firstname = zen_db_prepare_input($_POST['firstname']);
     $lastname = zen_db_prepare_input($_POST['lastname']);
+    // ->furikana
+    if (FURIKANA_NESESSARY) {
+      $firstname_kana = zen_db_prepare_input($_POST['firstname_kana']);
+      $lastname_kana = zen_db_prepare_input($_POST['lastname_kana']);
+    }
+    // <-furikana
     $street_address = zen_db_prepare_input($_POST['street_address']);
     if (ACCOUNT_SUBURB == 'true') $suburb = zen_db_prepare_input($_POST['suburb']);
     $postcode = zen_db_prepare_input($_POST['postcode']);
@@ -63,6 +70,22 @@ if (isset($_POST['action']) && ($_POST['action'] == 'submit')) {
       $error = true;
       $messageStack->add('checkout_address', ENTRY_LAST_NAME_ERROR);
     }
+
+    // ->furikana
+    if (FURIKANA_NESESSARY) {
+      if (strlen($firstname_kana) < ENTRY_FIRST_NAME_MIN_LENGTH) {
+        $error = true;
+
+        $messageStack->add('checkout_address', ENTRY_FIRST_NAME_KANA_ERROR);
+      }
+
+      if (strlen($lastname_kana) < ENTRY_LAST_NAME_MIN_LENGTH) {
+        $error = true;
+
+        $messageStack->add('checkout_address', ENTRY_LAST_NAME_KANA_ERROR);
+      }
+    }
+    // <-furikana
 
     if (strlen($street_address) < ENTRY_STREET_ADDRESS_MIN_LENGTH) {
       $error = true;
@@ -135,6 +158,22 @@ if (isset($_POST['action']) && ($_POST['action'] == 'submit')) {
     }
 
     if ($error == false) {
+      // ->furikana
+      if (FURIKANA_NESESSARY) {
+        $sql_data_array = array(array('fieldName'=>'customers_id', 'value'=>$_SESSION['customer_id'], 'type'=>'integer'),
+                                array('fieldName'=>'entry_firstname', 'value'=>$firstname, 'type'=>'string'),
+                                array('fieldName'=>'entry_lastname','value'=>$lastname, 'type'=>'string'),
+                                array('fieldName'=>'entry_firstname_kana', 'value'=>$firstname_kana, 'type'=>'string'),
+                                array('fieldName'=>'entry_lastname_kana','value'=>$lastname_kana, 'type'=>'string'),
+                                array('fieldName'=>'entry_telephone', 'value'=>$telephone, 'type'=>'string'),
+                                array('fieldName'=>'entry_fax', 'value'=>$fax, 'type'=>'string'),
+                                array('fieldName'=>'entry_street_address','value'=>$street_address, 'type'=>'string'),
+                                array('fieldName'=>'entry_postcode', 'value'=>$postcode, 'type'=>'string'),
+                                array('fieldName'=>'entry_city', 'value'=>$city, 'type'=>'string'),
+                                array('fieldName'=>'entry_country_id', 'value'=>$country, 'type'=>'integer')
+        );
+      }
+      else {
       $sql_data_array = array(array('fieldName'=>'customers_id', 'value'=>$_SESSION['customer_id'], 'type'=>'integer'),
                               array('fieldName'=>'entry_firstname', 'value'=>$firstname, 'type'=>'string'),
                               array('fieldName'=>'entry_lastname','value'=>$lastname, 'type'=>'string'),
@@ -143,6 +182,8 @@ if (isset($_POST['action']) && ($_POST['action'] == 'submit')) {
                               array('fieldName'=>'entry_city', 'value'=>$city, 'type'=>'string'),
                               array('fieldName'=>'entry_country_id', 'value'=>$country, 'type'=>'integer')
       );
+      }
+      // <-furikana
 
       if (ACCOUNT_GENDER == 'true') $sql_data_array[] = array('fieldName'=>'entry_gender', 'value'=>$gender, 'type'=>'enum:m|f');
       if (ACCOUNT_COMPANY == 'true') $sql_data_array[] = array('fieldName'=>'entry_company', 'value'=>$company, 'type'=>'string');

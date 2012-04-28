@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: english.php 19690 2011-10-04 16:41:45Z drbyte $
+ * @author obitastar
  */
 
 // FOLLOWING WERE moved to meta_tags.php
@@ -16,7 +17,7 @@
   define('FOOTER_TEXT_BODY', 'Copyright &copy; ' . date('Y') . ' <a href="' . zen_href_link(FILENAME_DEFAULT) . '" target="_blank">' . STORE_NAME . '</a>. Powered by <a href="http://www.zen-cart.com" target="_blank">Zen Cart</a> / <a href="http://www.zen-cart.jp" target="_blank">zen-cart.jp</a>');
 
 // look in your $PATH_LOCALE/locale directory for available locales..
-  @setlocale(LC_TIME, 'en_US');
+  @setlocale(LC_TIME, 'ja_JP.UTF-8');
 mb_language('Japanese');
 mb_internal_encoding("UTF-8");
 mb_http_output("UTF-8");
@@ -69,7 +70,7 @@ mb_http_output("UTF-8");
 
 // used for redeem code sidebox
   define('BOX_HEADING_GV_REDEEM', TEXT_GV_NAME);
-  define('BOX_GV_REDEEM_INFO', 'Redemption code: ');
+  define('BOX_GV_REDEEM_INFO', '引き換えコード: ');
 
 // text for gender
   define('MALE', '男性');
@@ -316,13 +317,13 @@ define('TEXT_NO_REVIEWS', '商品のレビューはまだありません。');
   define('TEXT_TIME_SPECIFY','お届け時間帯');
   define('WARNING_INSTALL_DIRECTORY_EXISTS', '警告: インストールディレクトリがそのまま残っています : ' . $warn_path . '/zc_install. セキュリティ上危険なのでこのディレクトリを削除してください。');
   define('WARNING_CONFIG_FILE_WRITEABLE', '警告: 設定ファイルが書き込み可能になっています : ' . $warn_path . '/includes/configure.php. セキュリティ上危険なので、このファイルに正しいユーザー権限を設定して下さい。');
-  define('ERROR_FILE_NOT_REMOVEABLE', 'Error: Could not remove the file specified. You may have to use FTP to remove the file, due to a server-permissions configuration limitation.');
+  define('ERROR_FILE_NOT_REMOVEABLE', 'エラー: 指定されたファイルを削除できませんでした。<br />サーバーのパーミッション制限のため、ファイルを削除するにはFTPを使用する必要がある可能性があります。');
   define('WARNING_SESSION_AUTO_START', '警告: session.auto_start が有効になっています - このphp機能をphp.iniで無効にし、Webサーバを再起動してください。');
   define('WARNING_DOWNLOAD_DIRECTORY_NON_EXISTENT', '警告: ダウンロード商品ディレクトリが存在しません: ' . DIR_FS_DOWNLOAD . '. このディレクトリが有効になるまでダウンロード商品機能は動作しません。');
   define('WARNING_SQL_CACHE_DIRECTORY_NON_EXISTENT', '警告: SQLキャッシュディレクトリが存在しません: ' . DIR_FS_SQL_CACHE . '. このディレクトリが作られるまでSQLキャッシュ機能は動作しません。');
   define('WARNING_SQL_CACHE_DIRECTORY_NOT_WRITEABLE', '警告: SQLキャッシュディレクトリに書き込みできません: ' . DIR_FS_SQL_CACHE . '. 正しいアクセス権が設定されるまでSQLキャッシュ機能は動作しません。');
   define('WARNING_DATABASE_VERSION_OUT_OF_DATE', 'お使いのデータベースのPatch Levelを上げる必要があるようです。管理画面->追加設定・ツール->サーバー情報のチェック でpatch levelを確認してください。');
-  define('WARNING_COULD_NOT_LOCATE_LANG_FILE', 'WARNING: Could not locate language file: ');
+  define('WARNING_COULD_NOT_LOCATE_LANG_FILE', '警告: 言語ファイルを確認できませんでした。　ファイル：');
 
   define('TEXT_CCVAL_ERROR_INVALID_DATE', '入力されたクレジットカードの有効期限は無効です。ご確認の上もう一度入力してください。');
   define('TEXT_CCVAL_ERROR_INVALID_NUMBER', '入力されたクレジットカードのカード番号は無効です。ご確認の上もう一度入力してください。');
@@ -369,7 +370,7 @@ define('BOX_SEND_TO_FRIEND', ' ' . TEXT_GV_NAME . 'を贈る');
   define('TEXT_ERROR', 'エラーがおこりました');
   define('TEXT_INVALID_COUPON_PRODUCT', '現在カートに入っている商品でこのクーポンコードをお使いいただけるものがありません');
   define('TEXT_VALID_COUPON', '割引クーポンを引き換えました');
-  define('TEXT_REMOVE_REDEEM_COUPON_ZONE', 'The coupon code you entered is not valid for the address you have selected.');
+  define('TEXT_REMOVE_REDEEM_COUPON_ZONE', '入力された割引クーポンコードは、お客様のご住所ではご利用いただけません。');
 
 // more info in place of buy now
   define('MORE_INFO_TEXT','...詳細');
@@ -387,9 +388,9 @@ define('BOX_SEND_TO_FRIEND', ' ' . TEXT_GV_NAME . 'を贈る');
 // success messages for added to cart when display cart is off
 // set to blank for no messages
 // for all pages except where multiple add to cart is used:
-  define('SUCCESS_ADDED_TO_CART_PRODUCT', 'Successfully added Product to the cart ...');
+  define('SUCCESS_ADDED_TO_CART_PRODUCT', 'カートに商品が追加されました。');
 // only for where multiple add to cart is used:
-  define('SUCCESS_ADDED_TO_CART_PRODUCTS', 'Successfully added selected Product(s) to the cart ...');
+  define('SUCCESS_ADDED_TO_CART_PRODUCTS', '選択された商品が、カートに追加されました。');
 
   define('TEXT_PRODUCT_WEIGHT_UNIT','kg');
 
@@ -441,7 +442,7 @@ define('BOX_SEND_TO_FRIEND', ' ' . TEXT_GV_NAME . 'を贈る');
   define('ERROR_FILE_NOT_SAVED', 'エラー:  ファイルが保存されていません');
   define('ERROR_DESTINATION_NOT_WRITEABLE', 'エラー:  保存ディレクトリが書き込み可能になっていません');
   define('ERROR_DESTINATION_DOES_NOT_EXIST', 'エラー: 保存ディレクトリが存在しません');
-  define('ERROR_FILE_TOO_BIG', 'Warning: File was too large to upload!<br />Order can be placed but please contact the site for help with upload');
+  define('ERROR_FILE_TOO_BIG', '警告: アップロードファイルが大きすぎます。<br />Order can be placed but please contact the site for help with upload');
 // End iii added
 
   define('TEXT_BEFORE_DOWN_FOR_MAINTENANCE', 'お知らせ: メンテナンス作業のためまもなくサイトを休止いたします。　予定日時：');
@@ -484,7 +485,7 @@ define('BOX_SEND_TO_FRIEND', ' ' . TEXT_GV_NAME . 'を贈る');
   define('ERROR_PRODUCT','商品名: ');
   define('ERROR_PRODUCT_STATUS_SHOPPING_CART','<br />あいにくこの商品は現在取り扱っておりません。<br />ショッピングカートから取り除かせていただきました。');
   define('ERROR_PRODUCT_ATTRIBUTES','<br />The item: ');
-  define('ERROR_PRODUCT_STATUS_SHOPPING_CART_ATTRIBUTES','<br />We are sorry but selected options have changed for this product and have been removed from our inventory at this time.<br />This item has been removed from your shopping cart.');
+  define('ERROR_PRODUCT_STATUS_SHOPPING_CART_ATTRIBUTES','<br />あいにくこの商品は現在取り扱っておりません。<br />ショッピングカートから取り除かせていただきました。');
   define('ERROR_PRODUCT_QUANTITY_MIN',' ... 最小個数エラー - ');
   define('ERROR_PRODUCT_QUANTITY_UNITS',' ... 購入単位エラー - ');
   define('ERROR_PRODUCT_OPTION_SELECTION','<br /> ... 無効なオプションが選択されています ');
@@ -494,10 +495,10 @@ define('BOX_SEND_TO_FRIEND', ' ' . TEXT_GV_NAME . 'を贈る');
   define('ERROR_PRODUCT_QUANTITY_UNITS_SHOPPING_CART',' ... 購入単位エラー - ');
   define('ERROR_PRODUCT_QUANTITY_MAX_SHOPPING_CART',' ... 最大個数エラー - ');
 
-  define('WARNING_SHOPPING_CART_COMBINED', 'NOTICE: For your convenience, your current shopping cart has been combined with your shopping cart from your last visit. Please review your shopping cart before checking out.');
+  define('WARNING_SHOPPING_CART_COMBINED', '注意: カート内には、前回のログイン時にカートに入れた商品も含まれております。<br />お支払い手続きに進む前に、必ずご確認下さい。');
 
 // error on checkout when $_SESSION['customers_id' does not exist in customers table
-  define('ERROR_CUSTOMERS_ID_INVALID', 'Customer information cannot be validated!<br />Please login or recreate your account ...');
+  define('ERROR_CUSTOMERS_ID_INVALID', 'アカウント情報が確認できませんでした。<br />ログインか、アカウント登録を行って下さい。');
 
   define('TABLE_HEADING_FEATURED_PRODUCTS','おすすめ商品');
 
@@ -563,7 +564,7 @@ define('BOX_SEND_TO_FRIEND', ' ' . TEXT_GV_NAME . 'を贈る');
   define('ERROR_CART_UPDATE', 'ご注文内容を更新してください ...<br />');
   define('IMAGE_BUTTON_UPDATE_CART', 'カートの内容を更新');
   define('EMPTY_CART_TEXT_NO_QUOTE', 'Whoops! Your session has expired ... Please update your shopping cart for Shipping Quote ...');
-  define('CART_SHIPPING_QUOTE_CRITERIA', 'Shipping quotes are based on the address information you selected:');
+  define('CART_SHIPPING_QUOTE_CRITERIA', '送料は下記住所に基づき計算しております。');
 
 // multiple product add to cart
   define('TEXT_PRODUCT_LISTING_MULTIPLE_ADD_TO_CART', '追加: ');
@@ -632,8 +633,8 @@ define('BOX_SEND_TO_FRIEND', ' ' . TEXT_GV_NAME . 'を贈る');
 
 // extra product listing sorter
   define('TEXT_PRODUCTS_LISTING_ALPHA_SORTER', '');
-  define('TEXT_PRODUCTS_LISTING_ALPHA_SORTER_NAMES', 'Items starting with ...');
-  define('TEXT_PRODUCTS_LISTING_ALPHA_SORTER_NAMES_RESET', '-- Reset --');
+  define('TEXT_PRODUCTS_LISTING_ALPHA_SORTER_NAMES', '商品名での絞込み');
+  define('TEXT_PRODUCTS_LISTING_ALPHA_SORTER_NAMES_RESET', '-- リセット --');
 
 ///////////////////////////////////////////////////////////
 // include email extras

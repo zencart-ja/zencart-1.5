@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: media_manager.php 4873 2006-11-02 09:12:46Z drbyte $
+//  @author obitastar
 //
 
 define('HEADING_TITLE_MEDIA_MANAGER', 'メディアコレクション(アルバム)');
@@ -47,7 +48,7 @@ define('TEXT_PRODUCTS_INTRO', '以下のフォームで、アルバムを商品�
 define('IMAGE_PRODUCTS', '商品に割り当てる');
 define('TEXT_DELETE_PRODUCTS', '挙げられているMediaとリンクしている全てのアイテムを削除しますか？');
 define('TEXT_DELETE_WARNING_PRODUCTS', '<strong>注意:</strong> %s個のアイテムが 挙げられているメディアにリンクしています!');
-define('TEXT_WARNING_FOLDER_UNWRITABLE', 'NOTE: media folder ' . DIR_FS_CATALOG_MEDIA . ' is not writable. Cannot upload files.');
+define('TEXT_WARNING_FOLDER_UNWRITABLE', '注: メディアフォルダ ' . DIR_FS_CATALOG_MEDIA . ' に書き込むことができなかった為、ファイルをアップロードすることができませんでした。');
 
 define('ERROR_UNKNOWN_DATA', 'エラー: 不明なデータです。要求はキャンセルされました');
 define('TEXT_ADD','追加');

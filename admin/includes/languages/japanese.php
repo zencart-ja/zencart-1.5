@@ -5,7 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: english.php 19537 2011-09-20 17:14:44Z drbyte $
- * @author kimono
+ * @author obitastar
  * @author yama
  */
 if (!defined('IS_ADMIN_FLAG'))
@@ -87,7 +87,7 @@ define('HEADER_TITLE_LOGOFF', 'ログオフ');
 // Define the name of your Gift Certificate as Gift Voucher, Gift Certificate, Zen Cart Dollars, etc. here for use through out the shop
   define('TEXT_GV_NAME','ギフト券');
   define('TEXT_GV_NAMES','ギフト券');
-  define('TEXT_DISCOUNT_COUPON', 'Discount Coupon');
+  define('TEXT_DISCOUNT_COUPON', '割引クーポン券');
 
 // used for redeem code, redemption code, or redemption id
   define('TEXT_GV_REDEEM','引き換えコード');
@@ -217,7 +217,7 @@ define('BOX_GV_ADMIN_QUEUE', '承認待ち' . TEXT_GV_NAMES);
 define('BOX_GV_ADMIN_MAIL', '' . TEXT_GV_NAME.'をメール送付');
 define('BOX_GV_ADMIN_SENT', TEXT_GV_NAMES . 'の送付記録');
 define('BOX_COUPON_ADMIN','クーポン券の管理');
-define('BOX_COUPON_RESTRICT','Coupon Restrictions');
+define('BOX_COUPON_RESTRICT','クーポン券の規制');
 
 // admin access box text
 define('BOX_HEADING_ADMIN_ACCESS', '管理者の設定');
@@ -280,7 +280,7 @@ define('ENTRY_EMAIL_ADDRESS_CHECK_ERROR', '&nbsp;<span class="errorText">この�
 define('ENTRY_EMAIL_ADDRESS_ERROR_EXISTS', '&nbsp;<span class="errorText">このメールアドレスは既に登録されています。</span>');
 define('ENTRY_COMPANY', '会社名:');
 define('ENTRY_COMPANY_ERROR', '');
-define('ENTRY_PRICING_GROUP', 'Discount Pricing Group');
+define('ENTRY_PRICING_GROUP', '割引価格設定グループ');
 define('ENTRY_STREET_ADDRESS', '住所1:');
 define('ENTRY_STREET_ADDRESS_ERROR', '&nbsp;<span class="errorText">' . ENTRY_STREET_ADDRESS_MIN_LENGTH . '文字以上</span>');
 define('ENTRY_SUBURB', '住所2:');
@@ -302,10 +302,10 @@ define('ENTRY_NEWSLETTER_YES', '購読する');
 define('ENTRY_NEWSLETTER_NO', '購読しない');
 define('ENTRY_NEWSLETTER_ERROR', '');
 
-define('ERROR_PASSWORDS_NOT_MATCHING', 'Password and confirmation must match');
+define('ERROR_PASSWORDS_NOT_MATCHING', 'パスワードとパスワード(確認用)は同じでなければなりません。');
 define('ENTRY_PASSWORD_CHANGE_ERROR', '<strong>新しいパスワードを設定できませんでした。</strong><br />');
 define('ERROR_PASSWORD_RULES', 'パスワードは半角英数字を混在させ、%s 文字以上でなければなりません。現在のパスワードと直近4つのパスワードは使用できません。パスワードは、90日おきに期限切れになります。');
-define('ERROR_TOKEN_EXPIRED_PLEASE_RESUBMIT', 'ERROR: Sorry, there was an error processing your data. Please re-submit the information again.');
+define('ERROR_TOKEN_EXPIRED_PLEASE_RESUBMIT', 'エラー: データの処理中にエラーがありました。 もう一度情報を再提出してください。');
 
 // images
 define('IMAGE_ANI_SEND_EMAIL', 'メール送信');
@@ -352,7 +352,7 @@ define('IMAGE_OPTION_VALUES', 'オプション値の管理');
 define('IMAGE_ORDERS', '注文');
 define('IMAGE_ORDERS_INVOICE', '納品書');
 define('IMAGE_ORDERS_PACKINGSLIP', '配送票');
-define('IMAGE_PERMISSIONS', 'Edit Permissions');
+define('IMAGE_PERMISSIONS', 'パーミッションの編集');
 define('IMAGE_PREVIEW', 'プレビュー');
 define('IMAGE_RESTORE', '復元');
 define('IMAGE_RESET', 'リセット');
@@ -361,7 +361,7 @@ define('IMAGE_SEARCH', '検索');
 define('IMAGE_SELECT', '選択');
 define('IMAGE_SEND', '送信');
 define('IMAGE_SEND_EMAIL', 'メール送信');
-define('IMAGE_SUBMIT', 'Submit');
+define('IMAGE_SUBMIT', '送信');
 define('IMAGE_UNLOCK', 'ロック解除');
 define('IMAGE_UPDATE', '更新');
 define('IMAGE_UPDATE_CURRENCIES', '為替レート更新');
@@ -552,8 +552,8 @@ define('NOT_INSTALLED_TEXT','インストールされていません');
 // search filters
   define('TEXT_INFO_SEARCH_DETAIL_FILTER','検索フィルタ: ');
   define('HEADING_TITLE_SEARCH_DETAIL','検索: ');
-  define('HEADING_TITLE_SEARCH_DETAIL_REPORTS', 'Search for Product(s) - Delimited by commas');
-  define('HEADING_TITLE_SEARCH_DETAIL_REPORTS_NAME_MODEL', 'Search for Products Name/Model');
+  define('HEADING_TITLE_SEARCH_DETAIL_REPORTS', '商品IDからの検索 - カンマ(,)区切りでの複数検索も可能');
+  define('HEADING_TITLE_SEARCH_DETAIL_REPORTS_NAME_MODEL', '商品名/型番からの検索');
 
   define('PREV_NEXT_PRODUCT', '商品: ');
   define('TEXT_CATEGORIES_STATUS_INFO_OFF', '<span class="alert">*カテゴリは無効です</span>');
@@ -720,7 +720,7 @@ define('ENTRY_NOTHING_TO_SEND','メッセージの入力内容がありません
 
   define('CATEGORY_HAS_SUBCATEGORIES', '注意: カテゴリにサブカテゴリがあります。<br />商品を追加できません。');
 
-  define('WARNING_WELCOME_DISCOUNT_COUPON_EXPIRES_IN', 'WARNING! Welcome Email Discount Coupon expires in %s days');
+  define('WARNING_WELCOME_DISCOUNT_COUPON_EXPIRES_IN', '警告! ウェルカムメールのクーポン券は、%s日で期限切れになります。');
 
 define('WARNING_ADMIN_FOLDERNAME_VULNERABLE', 'CAUTION: <a href="http://tutorials.zen-cart.com/index.php?article=33" target="_blank">Your /admin/ foldername should be renamed to something less common</a>, to prevent unauthorized access.');
 define('WARNING_EMAIL_SYSTEM_DISABLED', 'WARNING: The email subsystem is turned off. No emails will be sent until it is re-enabled in Admin->Configuration->Email Options.');

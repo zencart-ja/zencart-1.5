@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: checkout_success.php 14198 2009-08-18 22:32:11Z drbyte $
+ * @author obitastar
  */
 
 define('NAVBAR_TITLE_1', 'レジへ進む');

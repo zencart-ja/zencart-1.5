@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: manufacturers.php 4808 2006-10-22 18:48:53Z ajeh $
+//  @author obitastar
 //
 
 define('HEADING_TITLE', 'メーカーの管理');
@@ -35,7 +36,7 @@ define('TEXT_LAST_MODIFIED', '更新日:');
 define('TEXT_PRODUCTS', '商品:');
 define('TEXT_PRODUCTS_IMAGE_DIR', 'アップロードするディレクトリ:');
 define('TEXT_IMAGE_NONEXISTENT', '画像がありません。');
-define('TEXT_MANUFACTURERS_IMAGE_MANUAL', '<strong>Or, select an existing image file from server, filename:</strong>');
+define('TEXT_MANUFACTURERS_IMAGE_MANUAL', '<strong>または、サーバーから既存の画像ファイル名を入力して下さい。　ファイル名:</strong>');
 
 define('TEXT_NEW_INTRO', '新しいメーカーの情報を入力してください。');
 define('TEXT_EDIT_INTRO', '必要な変更を行ってください。');

@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: salemaker.php 6369 2007-05-25 03:03:42Z ajeh $
+//  @author obitastar
 //
 
 define('HEADING_TITLE', 'セールの管理(SALE Maker)');
@@ -64,7 +65,7 @@ define('TEXT_INFO_HEADING_COPY_SALE', 'セールをコピー');
 define('TEXT_INFO_COPY_INTRO', '"%s"のコピー名を入力してください');
 define('TEXT_INFO_HEADING_DELETE_SALE', 'セールを削除');
 define('TEXT_INFO_DELETE_INTRO', 'このセールを本当に削除しますか?');
-define('TEXT_MORE_INFO', '(More Info)');
+define('TEXT_MORE_INFO', '(詳細情報)');
 
-define('TEXT_WARNING_SALEMAKER_PREVIOUS_CATEGORIES','&nbsp;Warning : %s sales already include this category');
+define('TEXT_WARNING_SALEMAKER_PREVIOUS_CATEGORIES','&nbsp;警告 : このカテゴリは、既に %s 件のセールに適用されています。');
 ?>

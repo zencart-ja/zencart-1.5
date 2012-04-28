@@ -6,11 +6,16 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: license_default.php 6981 2007-09-12 18:26:56Z drbyte $
+ * @author obitastar
  */
 
   if ($zc_install->error) include(DIR_WS_INSTALL_TEMPLATE . 'templates/display_errors.php');
 ?>
+<?php if ($language == 'japanese') { ?>
+<iframe src="includes/templates/template_default/templates/gpl_license.japanese.html"></iframe>
+<?php } else { ?>
 <iframe src="includes/templates/template_default/templates/gpl_license.html"></iframe>
+<?php } ?>
 <form method="post" action="index.php?main_page=license<?php echo zcInstallAddSID(); ?>">
   <input type="radio" name="license_consent" id="agree" value="agree" />
   <label for="agree"><?php echo AGREE; ?></label><br />

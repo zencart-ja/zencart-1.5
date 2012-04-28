@@ -22,7 +22,7 @@ INSERT INTO configuration (configuration_title, configuration_key, configuration
 
 #マスターテーブル
 #住所フォーマット追加
-INSERT INTO address_format VALUES (7, '$lastname $firstname$cr$postcode$cr$statename$city$cr$streets$cr$country','$statename $city');
+INSERT INTO address_format VALUES (7, '$firstname $lastname$cr$postcode$cr$state$city$cr$streets$cr$country$cr$telephone$cr$fax','$statename $city');
 
 #通貨設定
 UPDATE currencies SET value='0.012267' WHERE code='USD';

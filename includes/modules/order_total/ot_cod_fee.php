@@ -5,9 +5,10 @@
  * @package orderTotal
  * @copyright Copyright 2003-2009 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
- * @copyright Portions Copyright (c) 2002 Thomas Pl�nkers http://www.oscommerce.at
+ * @copyright Portions Copyright (c) 2002 Thomas Pl・ｽnkers http://www.oscommerce.at
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: ot_cod_fee.php 14820 2009-11-15 16:17:45Z ajeh $
+ * @author obitastar
  */
 /**
  * COD-FEE Order Totals Module
@@ -53,9 +54,13 @@
           if (substr_count($_SESSION['shipping']['id'], 'dp') !=0) $cod_zones = preg_split("/[:,]/", MODULE_ORDER_TOTAL_COD_FEE_DP);
 	  //satt inn av Pompel
 	  if (substr_count($_SESSION['shipping']['id'], 'servicepakke') !=0) $cod_zones = preg_split("/[:,]/", MODULE_ORDER_TOTAL_COD_FEE_SERVICEPAKKE);
+	  if (substr_count($_SESSION['shipping']['id'], 'sagawa') !=0) $cod_zones = preg_split("/[:,]/", MODULE_ORDER_TOTAL_COD_FEE_SAGAWA);
+	  if (substr_count($_SESSION['shipping']['id'], 'yamato') !=0) $cod_zones = preg_split("/[:,]/", MODULE_ORDER_TOTAL_COD_FEE_YAMATO);
+	  if (substr_count($_SESSION['shipping']['id'], 'nittsu') !=0) $cod_zones = preg_split("/[:,]/", MODULE_ORDER_TOTAL_COD_FEE_NITTSU);
 
             for ($i = 0; $i < count($cod_zones); $i++) {
-              if ($cod_zones[$i] == $order->delivery['country']['iso_code_2']) {
+              if ($cod_zones[$i] >= $order->info['total']) { //注文合計から算出
+              //if ($cod_zones[$i] == $order->delivery['country']['iso_code_2']) {
                   $cod_cost = $cod_zones[$i + 1];
                   $cod_country = true;
                   //print('match' . $i . ': ' . $cod_cost);
@@ -112,13 +117,13 @@
     }
 //lagt tilk servicepakke her!!!!
     function keys() {
-      return array('MODULE_ORDER_TOTAL_COD_STATUS', 'MODULE_ORDER_TOTAL_COD_SORT_ORDER', 'MODULE_ORDER_TOTAL_COD_FEE_FLAT', 'MODULE_ORDER_TOTAL_COD_FEE_FREE', 'MODULE_ORDER_TOTAL_COD_FEE_FREESHIPPER', 'MODULE_ORDER_TOTAL_COD_FEE_FREEOPTIONS', 'MODULE_ORDER_TOTAL_COD_FEE_PERWEIGHTUNIT', 'MODULE_ORDER_TOTAL_COD_FEE_ITEM', 'MODULE_ORDER_TOTAL_COD_FEE_TABLE', 'MODULE_ORDER_TOTAL_COD_FEE_UPS', 'MODULE_ORDER_TOTAL_COD_FEE_USPS', 'MODULE_ORDER_TOTAL_COD_FEE_ZONES', 'MODULE_ORDER_TOTAL_COD_FEE_AP', 'MODULE_ORDER_TOTAL_COD_FEE_DP', 'MODULE_ORDER_TOTAL_COD_FEE_SERVICEPAKKE', 'MODULE_ORDER_TOTAL_COD_FEE_FEDEX', 'MODULE_ORDER_TOTAL_COD_TAX_CLASS');
+      return array('MODULE_ORDER_TOTAL_COD_STATUS', 'MODULE_ORDER_TOTAL_COD_SORT_ORDER', 'MODULE_ORDER_TOTAL_COD_FEE_FLAT', 'MODULE_ORDER_TOTAL_COD_FEE_FREE', 'MODULE_ORDER_TOTAL_COD_FEE_FREESHIPPER', 'MODULE_ORDER_TOTAL_COD_FEE_FREEOPTIONS', 'MODULE_ORDER_TOTAL_COD_FEE_PERWEIGHTUNIT', 'MODULE_ORDER_TOTAL_COD_FEE_ITEM', 'MODULE_ORDER_TOTAL_COD_FEE_TABLE', 'MODULE_ORDER_TOTAL_COD_FEE_UPS', 'MODULE_ORDER_TOTAL_COD_FEE_USPS', 'MODULE_ORDER_TOTAL_COD_FEE_ZONES', 'MODULE_ORDER_TOTAL_COD_FEE_AP', 'MODULE_ORDER_TOTAL_COD_FEE_DP', 'MODULE_ORDER_TOTAL_COD_FEE_SERVICEPAKKE', 'MODULE_ORDER_TOTAL_COD_FEE_FEDEX', 'MODULE_ORDER_TOTAL_COD_FEE_SAGAWA', 'MODULE_ORDER_TOTAL_COD_FEE_YAMATO', 'MODULE_ORDER_TOTAL_COD_FEE_NITTSU', 'MODULE_ORDER_TOTAL_COD_TAX_CLASS');
     }
 
     function install() {
       global $db;
-      $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) values ('Display COD', 'MODULE_ORDER_TOTAL_COD_STATUS', 'true', 'Do you want this module to display?', '6', '1','zen_cfg_select_option(array(\'true\', \'false\'), ', now())");
-      $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Sort Order', 'MODULE_ORDER_TOTAL_COD_SORT_ORDER', '950', 'Sort order of display.', '6', '2', now())");
+      $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) values ('インストール状態', 'MODULE_ORDER_TOTAL_COD_STATUS', 'true', 'Do you want this module to display?', '6', '1','zen_cfg_select_option(array(\'true\', \'false\'), ', now())");
+      $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('表示の整列順', 'MODULE_ORDER_TOTAL_COD_SORT_ORDER', '950', '表示の整列順を設定できます。数字が小さいほど上位に表示されます。', '6', '2', now())");
       $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('COD Fee for FLAT', 'MODULE_ORDER_TOTAL_COD_FEE_FLAT', 'AT:3.00,DE:3.58,00:9.99', 'FLAT: &lt;Country code&gt;:&lt;COD price&gt;, .... 00 as country code applies for all countries. If country code is 00, it must be the last statement. If no 00:9.99 appears, COD shipping in foreign countries is not calculated (not possible)', '6', '3', now())");
       $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('COD Fee for Free Shipping by default', 'MODULE_ORDER_TOTAL_COD_FEE_FREE', 'US:3.00', 'Free by default: &lt;Country code&gt;:&lt;COD price&gt;, .... 00 as country code applies for all countries. If country code is 00, it must be the last statement. If no 00:9.99 appears, COD shipping in foreign countries is not calculated (not possible)', '6', '3', now())");
       $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('COD Fee for Free Shipping Module - (freeshipper)', 'MODULE_ORDER_TOTAL_COD_FEE_FREESHIPPER', 'CA:4.50,US:3.00,00:9.99', 'Free Module: &lt;Country code&gt;:&lt;COD price&gt;, .... 00 as country code applies for all countries. If country code is 00, it must be the last statement. If no 00:9.99 appears, COD shipping in foreign countries is not calculated (not possible)', '6', '3', now())");
@@ -133,6 +138,9 @@
       $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('COD Fee for German Post', 'MODULE_ORDER_TOTAL_COD_FEE_DP', 'DE:3.58,00:9.99', 'German Post: &lt;Country code&gt;:&lt;COD price&gt;, .... 00 as country code applies for all countries. If country code is 00, it must be the last statement. If no 00:9.99 appears, COD shipping in foreign countries is not calculated (not possible)', '6', '10', now())");
       $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('COD Fee for Servicepakke', 'MODULE_ORDER_TOTAL_COD_FEE_SERVICEPAKKE', 'NO:69', 'Servicepakke: &lt;Country code&gt;:&lt;COD price&gt;, .... 00 as country code applies for all countries. If country code is 00, it must be the last statement. If no 00:9.99 appears, COD shipping in foreign countries is not calculated (not possible)', '6', '11', now())");
       $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('COD Fee for FedEx', 'MODULE_ORDER_TOTAL_COD_FEE_FEDEX', 'US:3.00', 'FedEx: &lt;Country code&gt;:&lt;COD price&gt;, .... 00 as country code applies for all countries. If country code is 00, it must be the last statement. If no 00:9.99 appears, COD shipping in foreign countries is not calculated (not possible)', '6', '12', now())");
+      $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('佐川急便の代金引換(e-コレクト)用の代引き手数料', 'MODULE_ORDER_TOTAL_COD_FEE_SAGAWA', '00:500', '手数料を「代金引換額:手数料,代金引換額:手数料,...」という書式で入力してください。代金引換額による手数料を無効にする場合は00：手数料で記してください', '6', '13', now())");
+      $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('ヤマト運輸の代金引換(ヤマトコレクト)用の代引き手数料', 'MODULE_ORDER_TOTAL_COD_FEE_YAMATO', '00:400', 'ヤマトコレクトの手数料を「国コード:手数料,国コード:手数料,...」という書式で入力してください。国コードがわかならい場合、またはすべて統一する場合は00：手数料で記してください', '6', '14', now())");
+      $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('日本通運の代金引換(ペリカン集金サービス)用の代引き手数料', 'MODULE_ORDER_TOTAL_COD_FEE_NITTSU', '00:400', 'ペリカン集金サービスの手数料を「国コード:手数料,国コード:手数料,...」という書式で入力してください。国コードがわかならい場合、またはすべて統一する場合は00：手数料で記してください', '6', '15', now())");
       $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, use_function, set_function, date_added) values ('Tax Class', 'MODULE_ORDER_TOTAL_COD_TAX_CLASS', '0', 'Use the following tax class on the COD fee.', '6', '25', 'zen_get_tax_class_title', 'zen_cfg_pull_down_tax_classes(', now())");
     }
 

@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: record_company.php 4811 2006-10-22 19:07:42Z ajeh $
+//  @author obitastar
 //
   define('HEADING_TITLE', 'レコード会社');
   define('TABLE_HEADING_RECORD_COMPANY', 'レコード会社');
@@ -30,7 +31,7 @@
   define('TEXT_RECORD_COMPANY_IMAGE', 'レコード会社の画像');
   define('TEXT_RECORD_COMPANY_URL', 'レコード会社のWebサイト');
   define('TEXT_RECORD_COMPANY_IMAGE_DIR', '画像ディレクトリ&nbsp;');
-  define('TEXT_RECORD_COMPANY_IMAGE_MANUAL', '<strong>Or, select an existing image file from server, filename:</strong>');
+  define('TEXT_RECORD_COMPANY_IMAGE_MANUAL', '<strong>または、サーバーから既存の画像ファイル名を入力して下さい。　ファイル名:</strong>');
 
   define('TEXT_HEADING_NEW_RECORD_COMPANY', '新しいレコード会社');
   define('TEXT_HEADING_EDIT_RECORD_COMPANY', 'レコード会社を編集する');

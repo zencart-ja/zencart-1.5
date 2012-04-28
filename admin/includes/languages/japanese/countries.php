@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: countries.php 19312 2011-07-30 09:43:12Z kuroi $
+ * @author obitastar
  */
 
 define('HEADING_TITLE', '国名設定');

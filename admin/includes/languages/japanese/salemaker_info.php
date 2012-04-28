@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: salemaker_info.php 1105 2005-04-04 22:05:35Z birdbrain $
+//  @author obitastar
 //
 
 define('HEADING_TITLE', 'セールの管理(SALE Maker)');
@@ -64,5 +65,5 @@ define('INFO_TEXT', '<ul>
                         カテゴリをチェックすると、そのカテゴリ内のサブカテゴリも自動的に含まれます。
                       </li>
                     </ul>');
-define('TEXT_CLOSE_WINDOW', '[ close window ]');
+define('TEXT_CLOSE_WINDOW', '[ ウィンドウを閉じる ]');
 ?>

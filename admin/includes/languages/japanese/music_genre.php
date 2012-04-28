@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: music_genre.php 276 2004-09-10 22:35:28Z wilt $
+//  @author obitastar
 //
   define('HEADING_TITLE', '音楽ジャンル');
   define('TABLE_HEADING_MUSIC_GENRE', '音楽ジャンル');
@@ -37,7 +38,7 @@
   define('TEXT_LAST_MODIFIED', '更新日');
   define('TEXT_IMAGE_NONEXISTENT', '画像がありません');
   define('TEXT_PRODUCTS', 'リンクされた商品');
-  define('TEXT_DISPLAY_NUMBER_OF_MUSIC_GENRES', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> Music Genres)');
+  define('TEXT_DISPLAY_NUMBER_OF_MUSIC_GENRES', '<strong>%d</strong> から <strong>%d</strong> までを表示 (全 <strong>%d</strong> 件)');
   define('TEXT_DELETE_PRODUCTS', 'この音楽ジャンルと、これにリンクされている全てのアイテムを本当に削除しますか?');
   define('TEXT_DELETE_WARNING_PRODUCTS', '<b>警告:</b>  %s アイテムがこの音楽ジャンルにリンクされています!');
 ?>

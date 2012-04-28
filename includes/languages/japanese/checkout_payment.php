@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: checkout_payment.php 4087 2006-08-07 04:46:08Z drbyte $
+ * @author obitastar
  */
 
 define('NAVBAR_TITLE_1', 'レジに進む');
@@ -23,8 +24,8 @@ define('TITLE_PLEASE_SELECT', '選択してください');
 define('TEXT_ENTER_PAYMENT_INFORMATION', '今回のご注文でご利用いただけるお支払い方法はこれだけです。');
 define('TABLE_HEADING_COMMENTS', '連絡事項がございましたらご記入ください。');
 
-define('TITLE_NO_PAYMENT_OPTIONS_AVAILABLE', 'Not Available At This Time');
-define('TEXT_NO_PAYMENT_OPTIONS_AVAILABLE','<span class="alert">Sorry, we are not accepting payments from your region at this time.</span><br />Please contact us for alternate arrangements.');
+define('TITLE_NO_PAYMENT_OPTIONS_AVAILABLE', '現在、お支払方法がご利用いただけません。');
+define('TEXT_NO_PAYMENT_OPTIONS_AVAILABLE','<span class="alert">現在、ご登録いただいております地域に対応したお支払方法がございません。</span><br />問題の解決の為に、お問い合わせからご相談下さい。');
 
 define('TITLE_CONTINUE_CHECKOUT_PROCEDURE', '<strong>次画面に進んでください</strong>');
 define('TEXT_CONTINUE_CHECKOUT_PROCEDURE', '→ご注文の最終確認');

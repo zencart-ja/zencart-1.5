@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * $Id: discount_coupon.php 14712 2009-10-28 22:05:08Z ajeh $
+ * @author obitastar
  */
 
 define('NAVBAR_TITLE', '割引クーポン');
@@ -39,5 +40,5 @@ define('TEXT_COUPON_GV_RESTRICTION','<p class="smallText">割引クーポンは'
 define('TEXT_DISCOUNT_COUPON_ID_INFO', '割引クーポン照会... ');
 define('TEXT_DISCOUNT_COUPON_ID', '割引クーポン引換コード: ');
 
-define('TEXT_COUPON_GV_RESTRICTION_ZONES', 'Billing Address Restrictions apply.');
+define('TEXT_COUPON_GV_RESTRICTION_ZONES', '表示アドレス規制はあてはまります。');
 ?>

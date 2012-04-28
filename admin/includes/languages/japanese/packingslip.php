@@ -18,12 +18,13 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: packingslip.php 5961 2007-03-03 17:17:39Z ajeh $
+//  @author obitastar
 //
 
 define('TABLE_HEADING_COMMENTS', 'コメント');
-define('TABLE_HEADING_CUSTOMER_NOTIFIED', 'Customer Notified');
-define('TABLE_HEADING_DATE_ADDED', 'Date Added');
-define('TABLE_HEADING_STATUS', 'Status');
+define('TABLE_HEADING_CUSTOMER_NOTIFIED', '顧客に通知');
+define('TABLE_HEADING_DATE_ADDED', '追加日時');
+define('TABLE_HEADING_STATUS', 'ステータス');
 
 define('TABLE_HEADING_PRODUCTS_MODEL', '型番');
 define('TABLE_HEADING_PRODUCTS', '商品');

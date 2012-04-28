@@ -4,6 +4,7 @@
  * @copyright Copyright 2003-2011 Zen Cart Development Team
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: products_price_manager.php 18695 2011-05-04 05:24:19Z drbyte $
+ * @author obitastar
  */
 
 define('HEADING_TITLE', '商品価格の管理');
@@ -52,7 +53,7 @@ define('TEXT_FEATURED_PRODUCTS_STATUS', 'おすすめ商品の情報:');
 define('TEXT_FEATURED_PRODUCT_AVAILABLE', 'アクティブ');
 define('TEXT_FEATURED_PRODUCT_NOT_AVAILABLE', '非アクティブ');
 define('TEXT_FEATURED_DISABLED', '<strong>注意: </strong>');
-define('TEXT_FEATURED_CONFIRM_DELETE', 'Please confirm that you want to delete the Featured status associated with this product');
+define('TEXT_FEATURED_CONFIRM_DELETE', 'この商品をおすすめ商品の登録から本当に削除しますか?');
 
 define('TEXT_SPECIALS_PRODUCT', '商品:');
 define('TEXT_SPECIALS_SPECIAL_PRICE', '特価商品:');
@@ -65,7 +66,7 @@ define('TEXT_SPECIALS_PRODUCT_AVAILABLE', 'アクティブ');
 define('TEXT_SPECIALS_PRODUCT_NOT_AVAILABLE', '非アクティブ');
 define('TEXT_SPECIALS_NO_GIFTS','ギフト券の場合特価を適用しない');
 define('TEXT_SPECIAL_DISABLED', '<strong>注意：特価商品の情報は、現在非表示、提供終了、まだ提供開始になっていない、のいずれかです。</strong>');
-define('TEXT_SPECIALS_CONFIRM_DELETE', 'Please confirm that you want to delete the Special associated with this product');
+define('TEXT_SPECIALS_CONFIRM_DELETE', 'この商品の特価設定を本当に削除しますか？');
 
 define('TEXT_INFO_DATE_ADDED', '作成日:');
 define('TEXT_INFO_LAST_MODIFIED', '更新日:');
@@ -98,7 +99,7 @@ define('TEXT_PRODUCTS_DISCOUNT_PRICE','割引の値');
 define('TEXT_PRODUCTS_DISCOUNT_TYPE','タイプ');
 
 define('TEXT_PRODUCTS_DISCOUNT_PRICE_EACH','価格を計算:');
-define('TEXT_PRODUCTS_DISCOUNT_PRICE_EXTENDED','拡張された価格Extended Price:');
+define('TEXT_PRODUCTS_DISCOUNT_PRICE_EXTENDED','拡張された価格:');
 define('TEXT_PRODUCTS_DISCOUNT_PRICE_EACH_TAX','価格を<br />計算する: &nbsp; 税込み:');
 define('TEXT_PRODUCTS_DISCOUNT_PRICE_EXTENDED_TAX','拡張された<br />価格: &nbsp; 税込み:');
 

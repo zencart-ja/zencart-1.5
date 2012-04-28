@@ -9,6 +9,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: tpl_modules_checkout_new_address.php 4683 2006-10-07 06:11:53Z drbyte $
+ * @author obitastar
  */
 ?>
 <div class="centerColumnModule" id="checkoutNewAddress">
@@ -30,9 +31,21 @@
 <?php echo zen_draw_input_field('firstname', '', zen_set_field_length(TABLE_CUSTOMERS, 'customers_firstname', '40') . ' id="firstname"') . (zen_not_null(ENTRY_FIRST_NAME_TEXT) ? '<span class="alert">' . ENTRY_FIRST_NAME_TEXT . '</span>': ''); ?>
 <br class="clearBoth" />
 
+<?php if (FURIKANA_NESESSARY) { ?>
+<label class="inputLabel" for="firstname_kana"><?php echo ENTRY_FIRST_NAME_KANA; ?></label>
+<?php echo zen_draw_input_field('firstname_kana', '', zen_set_field_length(TABLE_CUSTOMERS, 'customers_firstname_kana', '40') . ' id="firstname_kana"') . '&nbsp;' . (zen_not_null(ENTRY_FIRST_NAME_KANA_TEXT) ? '<span class="alert">' . ENTRY_FIRST_NAME_KANA_TEXT . '</span>': ''); ?>
+<br class="clearBoth" />
+<?php } ?>
+
 <label class="inputLabel" for="lastname"><?php echo ENTRY_LAST_NAME; ?></label>
 <?php echo zen_draw_input_field('lastname', '', zen_set_field_length(TABLE_CUSTOMERS, 'customers_lastname', '40') . ' id="lastname"') . (zen_not_null(ENTRY_LAST_NAME_TEXT) ? '<span class="alert">' . ENTRY_LAST_NAME_TEXT . '</span>': ''); ?>
 <br class="clearBoth" />
+
+<?php if (FURIKANA_NESESSARY) { ?>
+<label class="inputLabel" for="lastname_kana"><?php echo ENTRY_LAST_NAME_KANA; ?></label>
+<?php echo zen_draw_input_field('lastname_kana', '', zen_set_field_length(TABLE_CUSTOMERS, 'customers_lastname_kana', '40') . ' id="lastname_kana"') . '&nbsp;' . (zen_not_null(ENTRY_LAST_NAME_KANA_TEXT) ? '<span class="alert">' . ENTRY_LAST_NAME_KANA_TEXT . '</span>': ''); ?>
+<br class="clearBoth" />
+<?php } ?>
 
 
 <?php
@@ -45,22 +58,12 @@
   }
 ?>
 
-<label class="inputLabel" for="street-address"><?php echo ENTRY_STREET_ADDRESS; ?></label>
-  <?php echo zen_draw_input_field('street_address', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_street_address', '40') . ' id="street-address"') . (zen_not_null(ENTRY_STREET_ADDRESS_TEXT) ? '<span class="alert">' . ENTRY_STREET_ADDRESS_TEXT . '</span>': ''); ?>
+<label class="inputLabel" for="country"><?php echo ENTRY_COUNTRY; ?></label>
+<?php echo zen_get_country_list('zone_country_id', $selected_country, 'id="country" ' . ($flag_show_pulldown_states == true ? 'onchange="update_zone(this.form);"' : '')) . (zen_not_null(ENTRY_COUNTRY_TEXT) ? '<span class="alert">' . ENTRY_COUNTRY_TEXT . '</span>': ''); ?>
 <br class="clearBoth" />
 
-<?php
-  if (ACCOUNT_SUBURB == 'true') {
-?>
-<label class="inputLabel" for="suburb"><?php echo ENTRY_SUBURB; ?></label>
-<?php echo zen_draw_input_field('suburb', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_suburb', '40') . ' id="suburb"') . (zen_not_null(ENTRY_SUBURB_TEXT) ? '<span class="alert">' . ENTRY_SUBURB_TEXT . '</span>': ''); ?>
-<br class="clearBoth" />
-<?php
-  }
-?>
-
-<label class="inputLabel" for="city"><?php echo ENTRY_CITY; ?></label>
-<?php echo zen_draw_input_field('city', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_city', '40') . ' id="city"') . (zen_not_null(ENTRY_CITY_TEXT) ? '<span class="alert">' . ENTRY_CITY_TEXT . '</span>': ''); ?>
+<label class="inputLabel" for="postcode"><?php echo ENTRY_POST_CODE; ?></label>
+<?php echo zen_draw_input_field('postcode', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_postcode', '40') . ' id="postcode"') . (zen_not_null(ENTRY_POST_CODE_TEXT) ? '<span class="alert">' . ENTRY_POST_CODE_TEXT . '</span>': ''); ?>
 <br class="clearBoth" />
 
 <?php
@@ -90,12 +93,23 @@
   }
 ?>
 
-<label class="inputLabel" for="postcode"><?php echo ENTRY_POST_CODE; ?></label>
-<?php echo zen_draw_input_field('postcode', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_postcode', '40') . ' id="postcode"') . (zen_not_null(ENTRY_POST_CODE_TEXT) ? '<span class="alert">' . ENTRY_POST_CODE_TEXT . '</span>': ''); ?>
+<label class="inputLabel" for="city"><?php echo ENTRY_CITY; ?></label>
+<?php echo zen_draw_input_field('city', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_city', '40') . ' id="city"') . (zen_not_null(ENTRY_CITY_TEXT) ? '<span class="alert">' . ENTRY_CITY_TEXT . '</span>': ''); ?>
 <br class="clearBoth" />
 
-<label class="inputLabel" for="country"><?php echo ENTRY_COUNTRY; ?></label>
-<?php echo zen_get_country_list('zone_country_id', $selected_country, 'id="country" ' . ($flag_show_pulldown_states == true ? 'onchange="update_zone(this.form);"' : '')) . (zen_not_null(ENTRY_COUNTRY_TEXT) ? '<span class="alert">' . ENTRY_COUNTRY_TEXT . '</span>': ''); ?>
+<label class="inputLabel" for="street-address"><?php echo ENTRY_STREET_ADDRESS; ?></label>
+  <?php echo zen_draw_input_field('street_address', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_street_address', '40') . ' id="street-address"') . (zen_not_null(ENTRY_STREET_ADDRESS_TEXT) ? '<span class="alert">' . ENTRY_STREET_ADDRESS_TEXT . '</span>': ''); ?>
 <br class="clearBoth" />
+
+<?php
+  if (ACCOUNT_SUBURB == 'true') {
+?>
+<label class="inputLabel" for="suburb"><?php echo ENTRY_SUBURB; ?></label>
+<?php echo zen_draw_input_field('suburb', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_suburb', '40') . ' id="suburb"') . (zen_not_null(ENTRY_SUBURB_TEXT) ? '<span class="alert">' . ENTRY_SUBURB_TEXT . '</span>': ''); ?>
+<br class="clearBoth" />
+<?php
+  }
+?>
+
 </fieldset>
 </div>

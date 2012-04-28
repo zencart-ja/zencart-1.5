@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: gv_mail.php 1105 2005-04-04 22:05:35Z birdbrain $
+//  @author obitastar
 //
 
 define('HEADING_TITLE', 'ギフト券をメール送付');
@@ -34,7 +35,7 @@ define('TEXT_SELECT_CUSTOMER', '顧客を選択');
 define('TEXT_ALL_CUSTOMERS', '全ての顧客');
 define('TEXT_NEWSLETTER_CUSTOMERS', 'メールマガジンに登録しているすべての顧客');
 
-define('NOTICE_EMAIL_SENT_TO', 'Notice: %sにメールを送信');
+define('NOTICE_EMAIL_SENT_TO', '注意: %sにメールを送信');
 define('ERROR_NO_CUSTOMER_SELECTED', 'エラー： 顧客が選択されていません。');
 define('ERROR_NO_AMOUNT_SELECTED', 'エラー： 額が選択されていません。');
 define('ERROR_NO_SUBJECT', 'エラー： 件名が入力されていません。');

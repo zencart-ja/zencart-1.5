@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: record_artists.php 4810 2006-10-22 19:02:19Z ajeh $
+//  @author obitastar
 //
   define('HEADING_TITLE', 'アーティスト');
   define('TABLE_HEADING_RECORD_ARTISTS', 'アーティスト');
@@ -30,7 +31,7 @@
   define('TEXT_RECORD_ARTIST_IMAGE', 'アーティストの画像');
   define('TEXT_RECORD_ARTIST_URL', 'アーティストのWebサイト');
   define('TEXT_ARTISTS_IMAGE_DIR', '画像ディレクトリ&nbsp;');
-  define('TEXT_ARTISTS_IMAGE_MANUAL', '<strong>Or, select an existing image file from server, filename:</strong>');
+  define('TEXT_ARTISTS_IMAGE_MANUAL', '<strong>または、サーバーから既存の画像ファイル名を入力して下さい。　ファイル名:</strong>');
 
   define('TEXT_HEADING_NEW_RECORD_ARTIST', '新しいアーティスト');
   define('TEXT_HEADING_EDIT_RECORD_ARTIST', 'アーティストを追加');

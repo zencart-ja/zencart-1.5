@@ -7,13 +7,25 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: japanese.php 19537 2011-09-20 17:14:44Z drbyte $
+ * @author obitastar
  */
 /**
  * defining language components for the page
  */
+  define('NAVI_WELCOME', 'ようこそ');
+  define('NAVI_LICENSE', 'ライセンス規約');
+  define('NAVI_PREREQUISITES', 'システム検査');
+  define('NAVI_SYSTEM_SETUP', 'システム設定');
+  define('NAVI_CONFIG_CHECK', 'config確認');
+  define('NAVI_DATABASE_SETUP', 'データベース設定');
+  define('NAVI_DATABASE_UPGRADE', 'データベースアップグレード');
+  define('NAVI_STORE_SETUP', 'ショップ設定');
+  define('NAVI_ADMIN_SETUP', '管理者設定');
+  define('NAVI_FINISHED', '完了');
+
   define('YES', 'はい');
   define('NO', 'いいえ');
-  define('REFRESH_BUTTON', 'Re-Check');
+  define('REFRESH_BUTTON', '再チェック');
   define('OKAY', 'Okay');
 
   // Global entries for the <html> tag

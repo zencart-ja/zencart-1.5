@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 // $Id: gv_faq.php 4155 2006-08-16 17:14:52Z ajeh $
+//  @author obitastar
 //
 
 define('NAVBAR_TITLE', TEXT_GV_NAME . 'についてよくある質問と答え');
@@ -67,6 +68,6 @@ define('SUB_HEADING_TEXT',TEXT_GV_NAME . 'を贈るためには、各ページ�
 
   }
 
-  define('TEXT_GV_REDEEM_INFO', 'Please enter your ' . TEXT_GV_NAME . ' redemption code: ');
-  define('TEXT_GV_REDEEM_ID', 'Redemption Code:');
+  define('TEXT_GV_REDEEM_INFO', TEXT_GV_NAME . 'の引き換えコード入力: ');
+  define('TEXT_GV_REDEEM_ID', '引き換えコード:');
 ?>

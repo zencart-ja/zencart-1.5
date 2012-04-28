@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: users.php 18773 2011-05-20 01:00:21Z drbyte $
+ * @author obitastar
  */
 
 define('HEADING_TITLE', '管理者の設定');

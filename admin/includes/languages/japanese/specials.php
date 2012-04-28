@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: specials.php 4533 2006-09-17 17:21:10Z ajeh $
+//  @author obitastar
 //
 
 define('HEADING_TITLE', '特価商品の管理');
@@ -50,12 +51,12 @@ define('TEXT_IMAGE_NONEXISTENT', '画像が存在しません。');
 define('TEXT_INFO_HEADING_DELETE_SPECIALS', '特価商品を削除');
 define('TEXT_INFO_DELETE_INTRO', 'この特価商品を本当に削除しますか?');
 
-define('SUCCESS_SPECIALS_PRE_ADD', 'Successful: Pre-Add of Special ... please update the price and dates ...');
-define('WARNING_SPECIALS_PRE_ADD_EMPTY', 'Warning: No Product ID specified ... nothing was added ...');
-define('WARNING_SPECIALS_PRE_ADD_DUPLICATE', 'Warning: Product ID already on Special ... nothing was added ...');
-define('WARNING_SPECIALS_PRE_ADD_BAD_PRODUCTS_ID', 'Warning: Product ID is invalid ... nothing was added ...');
-define('TEXT_INFO_HEADING_PRE_ADD_SPECIALS', 'Manually add new Special by Product ID');
-define('TEXT_INFO_PRE_ADD_INTRO', 'On large databases, you may Manually Add a Special by the Product ID<br /><br />This is best used when the page takes too long to render and trying to select a Product from the dropdown becomes difficult due to too many Products from which to choose.');
-define('TEXT_PRE_ADD_PRODUCTS_ID', 'Please enter the Product ID to be Pre-Added: ');
-define('TEXT_INFO_MANUAL', 'Product ID to be Manually Added as a Special');
+define('SUCCESS_SPECIALS_PRE_ADD', '成功しました: 特価商品を追加しました。 ... 特価価格と、必要があれば、提供開始日・終了日を設定して下さい。');
+define('WARNING_SPECIALS_PRE_ADD_EMPTY', '警告: 商品IDが入力されていません。 ... 商品は追加されませんでした。');
+define('WARNING_SPECIALS_PRE_ADD_DUPLICATE', '警告: 既に登録されている商品です。 ... 商品は追加されませんでした。');
+define('WARNING_SPECIALS_PRE_ADD_BAD_PRODUCTS_ID', '警告: 入力された商品IDは無効です。 ... 商品は追加されませんでした。');
+define('TEXT_INFO_HEADING_PRE_ADD_SPECIALS', '商品IDからの特価商品の登録');
+define('TEXT_INFO_PRE_ADD_INTRO', '沢山の商品の中から、手動で商品IDを入力することによって、特価商品を追加できます。<br /><br />商品数が膨大になれば、ページの読み込みやドロップダウンからの選択は手間がかかるため、商品IDから入力するこの方法が最適です。');
+define('TEXT_PRE_ADD_PRODUCTS_ID', '追加したい商品のIDを入力: ');
+define('TEXT_INFO_MANUAL', '商品IDから特価商品を追加する。');
 ?>

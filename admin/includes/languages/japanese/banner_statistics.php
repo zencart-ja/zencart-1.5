@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: banner_statistics.php 1105 2005-04-04 22:05:35Z birdbrain $
+//  @author obitastar
 //
 
 define('HEADING_TITLE', 'バナー統計');

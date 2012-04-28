@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  *  $Id: featured.php 18695 2011-05-04 05:24:19Z drbyte $
+ * @author obitastar
  */
 
 define('HEADING_TITLE', 'おすすめ商品の管理');
@@ -34,12 +35,12 @@ define('TEXT_IMAGE_NONEXISTENT', '画像なし');
 define('TEXT_INFO_HEADING_DELETE_FEATURED', 'おすすめ商品を削除');
 define('TEXT_INFO_DELETE_INTRO', 'このおすすめ商品を本当に削除しますか?');
 
-define('SUCCESS_FEATURED_PRE_ADD', 'Successful: Pre-Add of Featured ... please update the dates ...');
-define('WARNING_FEATURED_PRE_ADD_EMPTY', 'Warning: No Product ID specified ... nothing was added ...');
-define('WARNING_FEATURED_PRE_ADD_DUPLICATE', 'Warning: Product ID already Featured ... nothing was added ...');
-define('WARNING_FEATURED_PRE_ADD_BAD_PRODUCTS_ID', 'Warning: Product ID is invalid ... nothing was added ...');
-define('TEXT_INFO_HEADING_PRE_ADD_FEATURED', 'Manually add new Featured by Product ID');
-define('TEXT_INFO_PRE_ADD_INTRO', 'On large databases, you may Manually Add a Featured by the Product ID<br /><br />This is best used when the page takes too long to render and trying to select a Product from the dropdown becomes difficult due to too many Products from which to choose.');
-define('TEXT_PRE_ADD_PRODUCTS_ID', 'Please enter the Product ID to be Pre-Added: ');
-define('TEXT_INFO_MANUAL', 'Product ID to be Manually Added as a Featured');
+define('SUCCESS_FEATURED_PRE_ADD', '成功しました: おすすめ商品を追加しました。 ... 必要があれば、提供開始日・終了日を設定して下さい。');
+define('WARNING_FEATURED_PRE_ADD_EMPTY', '警告: 商品IDが入力されていません。 ... 商品は追加されませんでした。');
+define('WARNING_FEATURED_PRE_ADD_DUPLICATE', '警告: 既に登録されている商品です。 ... 商品は追加されませんでした。');
+define('WARNING_FEATURED_PRE_ADD_BAD_PRODUCTS_ID', '警告: 入力された商品IDは無効です。 ... 商品は追加されませんでした。');
+define('TEXT_INFO_HEADING_PRE_ADD_FEATURED', '商品IDからのおすすめ商品の登録');
+define('TEXT_INFO_PRE_ADD_INTRO', '沢山の商品の中から、手動で商品IDを入力することによって、おすすめ商品を追加できます。<br /><br />商品数が膨大になれば、ページの読み込みやドロップダウンからの選択は手間がかかるため、商品IDから入力するこの方法が最適です。');
+define('TEXT_PRE_ADD_PRODUCTS_ID', '追加したい商品のIDを入力: ');
+define('TEXT_INFO_MANUAL', '商品IDからのおすすめ商品を追加する。');
 ?>

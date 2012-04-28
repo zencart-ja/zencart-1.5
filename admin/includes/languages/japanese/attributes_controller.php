@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: attributes_controller.php 15883 2010-04-11 16:41:26Z wilt $
+ * @author obitastar
  */
 
 define('HEADING_TITLE', 'カテゴリ: ');

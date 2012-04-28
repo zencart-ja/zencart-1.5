@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: developers_tool_kit.php 18698 2011-05-04 14:50:06Z wilt $
+ * @author obitastar
  */
   define('HEADING_TITLE', '開発者用ツール');
   define('TABLE_CONFIGURATION_TABLE', 'CONSTANT定義を検索');
@@ -28,7 +29,7 @@
 
   define('TEXT_LOOKUP_NONE', '- 未記入 -');
   define('TEXT_INFO_SEARCHING', '検索中 ');
-  define('TEXT_INFO_FILES_FOR', ' ファイル ... for: ');
+  define('TEXT_INFO_FILES_FOR', ' ファイル ... 検索フィルタ&nbsp;: ');
   define('TEXT_INFO_MATCHES_FOUND', '一致する行がヒット: ');
   define('TEXT_INFO_FILENAME', 'FILENAME: ');
 
@@ -71,13 +72,13 @@
   define('TEXT_SEARCH_ALL_FILES', 'Search ALL files for: ');
   define('TEXT_SEARCH_DATABASE_TABLES', 'Search database configuration tables for: ');
 
-  define('TEXT_ALL_FILESTYPE_LOOKUPS', 'File type');
-  define('TEXT_ALL_FILES_LOOKUP_PHP', '.php only');
-  define('TEXT_ALL_FILES_LOOKUP_PHPCSS', '.php and .css');
-  define('TEXT_ALL_FILES_LOOKUP_CSS', '.css only');
-  define('TEXT_ALL_FILES_LOOKUP_HTMLTXT', '.html and .txt');
-  define('TEXT_ALL_FILES_LOOKUP_JS', '.js only');
+  define('TEXT_ALL_FILESTYPE_LOOKUPS', 'ファイルタイプ');
+  define('TEXT_ALL_FILES_LOOKUP_PHP', '.php のみ');
+  define('TEXT_ALL_FILES_LOOKUP_PHPCSS', '.php と .css');
+  define('TEXT_ALL_FILES_LOOKUP_CSS', '.css のみ');
+  define('TEXT_ALL_FILES_LOOKUP_HTMLTXT', '.html と .txt');
+  define('TEXT_ALL_FILES_LOOKUP_JS', '.js のみ');
 
-  define('TEXT_CASE_SENSITIVE', 'Case Sensitive?');
+  define('TEXT_CASE_SENSITIVE', '大文字と小文字を区別をする');
 
 ?>

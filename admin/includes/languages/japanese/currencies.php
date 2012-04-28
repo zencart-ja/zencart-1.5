@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: currencies.php 18931 2011-06-13 15:22:34Z drbyte $
+ * @author obitastar
  */
 
 define('HEADING_TITLE', '通貨設定');
@@ -36,4 +37,4 @@ define('TEXT_INFO_CURRENCY_UPDATED', '%s (%s)の為替レートの更新に成�
 define('ERROR_REMOVE_DEFAULT_CURRENCY', 'エラー: デフォルトの通貨は削除できません。他の通過をデフォルトに設定して、もう一度操作してください。');
 define('ERROR_CURRENCY_INVALID', 'エラー:  %s (%s)の為替レートの更新に失敗しました。(%s経由) 有効な通貨コードか確認してください。');
 define('WARNING_PRIMARY_SERVER_FAILED', '警告: 為替レートを参照しているプライマリサーバ(%s)への接続が失敗しました。%s (%s) - セカンダリサーバに接続を試みます。');
-define('ERROR_INVALID_CURRENCY_ENTRY', 'ERROR: The information you submitted was incomplete, and has not been saved. You must specify a currency code and a name.');
+define('ERROR_INVALID_CURRENCY_ENTRY', 'エラー: 必要な情報が入力されていなかった為、新しい通貨は保存されませんでした。通貨コードと名称は必ず指定しなければなりません。');

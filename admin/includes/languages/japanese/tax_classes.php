@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: tax_classes.php 7167 2007-10-03 23:02:17Z drbyte $
+ * @author obitastar
  */
 
 define('HEADING_TITLE', '税種別設定');
@@ -23,6 +24,6 @@ define('TEXT_INFO_DELETE_INTRO', 'この税種別を本当に削除しますか?
 define('TEXT_INFO_HEADING_NEW_TAX_CLASS', '新しい税種別');
 define('TEXT_INFO_HEADING_EDIT_TAX_CLASS', '税種別を編集');
 define('TEXT_INFO_HEADING_DELETE_TAX_CLASS', '税種別を削除');
-define('ERROR_TAX_RATE_EXISTS_FOR_CLASS', 'ERROR: Cannot delete this Tax Class -- Tax Rates are currently linked to this Tax Class.');
-define('ERROR_TAX_RATE_EXISTS_FOR_PRODUCTS', 'ERROR: Cannot delete this Tax Class -- There are %s products linked to this Tax Class.');
+define('ERROR_TAX_RATE_EXISTS_FOR_CLASS', 'エラー: 税種別を削除できませんでした。 -- この税種別は税率設定と関連付けられています。');
+define('ERROR_TAX_RATE_EXISTS_FOR_PRODUCTS', 'エラー: 税種別を削除できませんでした。 -- この税種別は%s点の商品と関連付けられています。');
 ?>

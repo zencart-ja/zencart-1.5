@@ -6,6 +6,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: database_setup.php 19537 2011-09-20 17:14:44Z drbyte $
+ * @author obitastar
  */
 /**
  * defining language components for the page
@@ -14,12 +15,12 @@
   define('TEXT_MAIN', "データベースの設定を行います。" . SAVE_DATABASE_SETTINGS . " をクリックすると、設定が保存され、データベースへの書き込みが実行されます。");
   define('TEXT_PAGE_HEADING', 'Zen Cart設定　-　データベース設定');
   define('DATABASE_INFORMATION', 'データベース設定');
-    define('DATABASE_OPTIONAL_INFORMATION', 'Database - OPTIONAL Settings');
-  define('DATABASE_OPTIONAL_INSTRUCTION', 'It is recommended to leave these settings as-is unless you have a specific reason for altering them.');
+    define('DATABASE_OPTIONAL_INFORMATION', 'データベース - オプション設定');
+  define('DATABASE_OPTIONAL_INSTRUCTION', '特に変更する理由がなければ、そのままでも問題ありません。');
 define('DATABASE_TYPE', 'データベースタイプ');
   define('DATABASE_TYPE_INSTRUCTION', '使用するデータベースタイプを選択してください。');
-  define('DATABASE_CHARSET', 'Database Character Set / Collation');
-  define('DATABASE_CHARSET_INSTRUCTION', 'Choose the database collation to be used.');
+  define('DATABASE_CHARSET', 'データベース文字セット/照合');
+  define('DATABASE_CHARSET_INSTRUCTION', 'データベース照合を選んでください。');
   define('DATABASE_HOST', 'データベースホスト名');
   define('DATABASE_HOST_INSTRUCTION', '接続するホスト名を入力してください。(例）\'db1.myserver.com\', \'192.168.0.1\', \'localhost\'。');
   define('DATABASE_USERNAME', 'データベースユーザ名');

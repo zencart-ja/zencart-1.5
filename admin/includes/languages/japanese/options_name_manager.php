@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: options_name_manager.php 2181 2005-10-20 18:37:16Z ajeh $
+//  @author obitastar
 //
 
 define('HEADING_TITLE_OPT', '商品オプション名の管理');
@@ -139,7 +140,7 @@ define('TEXT_OPTION_ATTIBUTE_MAX_LENGTH', '<strong>テキスト属性の最長�
 define('TEXT_OPTION_IMAGE_STYLE', '<strong>画像のスタイル:</strong>');
 define('TEXT_OPTION_ATTRIBUTE_IMAGES_STYLE_0', '0= オプション名の下に画像');
 define('TEXT_OPTION_ATTRIBUTE_IMAGES_STYLE_1', '1= 要素、画像、オプション名');
-define('TEXT_OPTION_ATTRIBUTE_IMAGES_STYLE_2', '2= 要素、画像、Element, Image and Option Name Below');
+define('TEXT_OPTION_ATTRIBUTE_IMAGES_STYLE_2', '2= 要素、画像、and Option Name Below');
 define('TEXT_OPTION_ATTRIBUTE_IMAGES_STYLE_3', '3= 要素と画像の下にオプション名');
 define('TEXT_OPTION_ATTRIBUTE_IMAGES_STYLE_4', '4= 画像とオプション名の下に要素');
 define('TEXT_OPTION_ATTRIBUTE_IMAGES_STYLE_5', '5= 画像とオプション名の上に要素');

@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: logoff.php 6992 2007-09-13 02:54:24Z ajeh $
+ * @author obitastar
  */
 
 define('HEADING_TITLE', 'ログアウト');

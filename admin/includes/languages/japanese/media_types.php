@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: media_types.php 1105 2005-04-04 22:05:35Z birdbrain $
+//  @author obitastar
 //
 
 define('HEADING_TITLE', 'メディアフォーマット');
@@ -38,5 +39,5 @@ define('TEXT_NEW_INTRO', '新しいメディアフォーマットについて情
 define('TEXT_EDIT_INTRO', '必要な変更を行ってください。');
 
 define('TEXT_DELETE_INTRO', 'このメディアフォーマットを本当に削除しますか?');
-define('TEXT_DISPLAY_NUMBER_OF_MEDIA_TYPES', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> Media Types)');
+define('TEXT_DISPLAY_NUMBER_OF_MEDIA_TYPES', '<strong>%d</strong> から <strong>%d</strong>　までを表示 (全 <strong>%d</strong> 件)');
 ?>

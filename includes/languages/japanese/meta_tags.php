@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: meta_tags.php 18697 2011-05-04 14:35:20Z wilt $
+ * @author obitastar
  */
 
 // page title
@@ -40,7 +41,7 @@ define('CUSTOM_KEYWORDS', 'ecommerce, open source, shop, online shopping');
   define('META_TAG_TITLE_page_name', '');
 
 // Review Page can have a lead in:
-define('META_TAGS_REVIEW', 'Reviews: ');
+define('META_TAGS_REVIEW', 'レビュー: ');
 
 // separators for meta tag definitions
 // Define Primary Section Output

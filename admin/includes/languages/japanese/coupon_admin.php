@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: coupon_admin.php 5758 2007-02-08 01:39:34Z ajeh $
+//  @author obitastar
 //
 
 define('TOP_BAR_TITLE', '統計');
@@ -113,10 +114,10 @@ define('COUPON_ACTIVE', 'ステータス');
 define('COUPON_START_DATE', '利用開始日');
 define('COUPON_EXPIRE_DATE', '有効期限');
 
-define('ERROR_DISCOUNT_COUPON_WELCOME', 'Discount Coupon CANNOT be deactivated. This Discount Coupon is the Welcome Discount Coupon<br /><br />Change the Welcome Discount Coupon before trying to delete it.');
-define('SUCCESS_COUPON_DISABLED', 'Success! Discount Coupon was set to Inactive ...');
+define('ERROR_DISCOUNT_COUPON_WELCOME', 'この割引クーポンはウェルカムクーポン券に選択されているため、削除できません。<br /><br />ウェルカムクーポン券の選択を変更後に、削除を行って下さい。');
+define('SUCCESS_COUPON_DISABLED', '成功! 割引クーポンは削除されました ...');
 define('TEXT_COUPON_NEW', 'コピーで新しく作成するクーポン券のクーポンコードを指定してください。');
 define('ERROR_DISCOUNT_COUPON_DUPLICATE', '警告! 指定されたクーポンコードは既に存在します。コピー処理を取りやめました。');
 define('TEXT_CONFIRM_COPY', 'このクーポン券をコピーして新しいクーポン券を作成しますか？作成する場合は[保存]ボタンを押してください。');
-define('SUCCESS_COUPON_DUPLICATE', 'Success! Discount Coupon was duplicated ...<br /><br />Be sure to check Coupon Name and Dates ...');
+define('SUCCESS_COUPON_DUPLICATE', '成功! 割引クーポンは複製されました ...<br /><br />必ずクーポン名と日付を確認・変更して下さい ...');
 ?>

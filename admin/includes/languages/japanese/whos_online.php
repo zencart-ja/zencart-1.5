@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: whos_online.php 18698 2011-05-04 14:50:06Z wilt $
+ * @author obitastar
  */
 
 define('HEADING_TITLE', 'オンラインユーザのチェック');
@@ -36,8 +37,8 @@ define('WHOS_ONLINE_REMOVED_TEXT','||'); // このテキスト、上段にまと
   define('TEXT_HOST', '<strong>ホスト:</strong> ');
   define('TEXT_USER_AGENT', '<strong>ユーザーエージェント:</strong> ');
   define('TEXT_EMPTY_CART', '<strong>空のカート</strong>');
-define('TEXT_WHOS_ONLINE_FILTER_SPIDERS', 'Exclude Spiders?');
-define('TEXT_WHOS_ONLINE_FILTER_ADMINS', 'Exclude Admin IP Addresses?');
+define('TEXT_WHOS_ONLINE_FILTER_SPIDERS', '検索ロボットを除外しますか？');
+define('TEXT_WHOS_ONLINE_FILTER_ADMINS', '管理者IPアドレスを除外しますか？');
 
   define('WHOIS_TIMER_REMOVE',1200); // seconds when removed from whos_online table - 1200 default = 20 minutes
   define('WHOIS_TIMER_INACTIVE',180); // seconds when considered inactive - 180 default = 3 minutes
@@ -46,11 +47,11 @@ define('TEXT_WHOS_ONLINE_FILTER_ADMINS', 'Exclude Admin IP Addresses?');
   define('WHOIS_REPEAT_LEGEND_BOTTOM','12'); // show legend on bottom when more than how many entries - 12 default
   define('OFFICE_IP_TO_HOST_ADDRESS', 'OFF');
 
-define('TEXT_WHOS_ONLINE_TIMER_UPDATING', 'Updating ');
-define('TEXT_WHOS_ONLINE_TIMER_EVERY', 'every %s seconds.&nbsp;&nbsp;');
-define('TEXT_WHOS_ONLINE_TIMER_DISABLED', 'Manually');
-define('TEXT_WHOS_ONLINE_TIMER_FREQ0', 'OFF');
-define('TEXT_WHOS_ONLINE_TIMER_FREQ1', '5 sec');
-define('TEXT_WHOS_ONLINE_TIMER_FREQ2', '15 sec');
-define('TEXT_WHOS_ONLINE_TIMER_FREQ3', '30 sec');
-define('TEXT_WHOS_ONLINE_TIMER_FREQ4', '1 min');
+define('TEXT_WHOS_ONLINE_TIMER_UPDATING', '情報の更新：');
+define('TEXT_WHOS_ONLINE_TIMER_EVERY', '%s ごと.&nbsp;&nbsp;');
+define('TEXT_WHOS_ONLINE_TIMER_DISABLED', '手動');
+define('TEXT_WHOS_ONLINE_TIMER_FREQ0', '設定無し');
+define('TEXT_WHOS_ONLINE_TIMER_FREQ1', '5秒');
+define('TEXT_WHOS_ONLINE_TIMER_FREQ2', '15秒');
+define('TEXT_WHOS_ONLINE_TIMER_FREQ3', '30秒');
+define('TEXT_WHOS_ONLINE_TIMER_FREQ4', '1分');

@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: geo_zones.php 4736 2006-10-13 07:11:44Z drbyte $
+ * @author obitastar
  */
 
 define('HEADING_TITLE', '地域税設定');
@@ -12,13 +13,13 @@ define('HEADING_TITLE', '地域税設定');
 define('TABLE_HEADING_COUNTRY', '国名');
 define('TABLE_HEADING_COUNTRY_ZONE', '地域');
 define('TABLE_HEADING_TAX_ZONES', '地域税');
-define('TABLE_HEADING_TAX_ZONES_DESCRIPTION', 'Zone Description');
-define('TABLE_HEADING_STATUS', 'Status');
+define('TABLE_HEADING_TAX_ZONES_DESCRIPTION', '地域説明');
+define('TABLE_HEADING_STATUS', 'ステータス');
 define('TABLE_HEADING_ACTION', '操作');
 //define('TEXT_LEGEND', 'LEGEND: ');
-define('TEXT_LEGEND_TAX_AND_ZONES', ': Taxes &amp; Zones Defined');
-define('TEXT_LEGEND_ONLY_ZONES', ': Zones Defined but not Taxes ');
-define('TEXT_LEGEND_NOT_CONF', ': Not Configured ');
+define('TEXT_LEGEND_TAX_AND_ZONES', ': 税、地域共に設定済み');
+define('TEXT_LEGEND_ONLY_ZONES', ': 地域は設定済み、税が未設定');
+define('TEXT_LEGEND_NOT_CONF', ': 税、地域共に未設定');
 
 define('TEXT_INFO_HEADING_NEW_ZONE', '新しい地域');
 define('TEXT_INFO_NEW_ZONE_INTRO', '新しい地域の情報を入力してください。');

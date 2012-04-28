@@ -5,12 +5,13 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: sqlpatch.php 19537 2011-09-20 17:14:44Z drbyte $
+ * @author obitastar
  */
 
   define('HEADING_TITLE','SQLパッチのインストール');
   define('HEADING_WARNING','スクリプトの実行前にデータベースのフルバックアップを行ってください');
   define('HEADING_WARNING2','サードパーティのモジュールなどを使用している場合、ご自分の責任において実行してください。Zen-Cartは安全性についての保障を行いません。<br />テスト用のDBで事前に確認することを推奨します。');
-  define('HEADING_WARNING_INSTALLSCRIPTS', 'NOTE: Zen Cart database-upgrade scripts should NOT be run from this page.<br />Please upload the new <strong>zc_install</strong> folder and run the upgrade from there instead for better reliability.');
+  define('HEADING_WARNING_INSTALLSCRIPTS', '注: ZenCartのデータベースアップグレードは、このページからは実行できません。<br />新しい <strong>zc_install</strong> フォルダをアップロードし、そこからアップグレードを実行して下さい。');
   define('TEXT_QUERY_RESULTS','クエリの結果:');
   define('TEXT_ENTER_QUERY_STRING','クエリ文を貼り付けて <br />実行してください。&nbsp;&nbsp;<br /><br />必ず「;」で<br />終わってください。');
   define('TEXT_QUERY_FILENAME','ファイルから<br />読み込む:');

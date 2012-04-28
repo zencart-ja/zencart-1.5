@@ -18,6 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 //  $Id: stats_products_purchased.php 4735 2006-10-12 22:37:46Z ajeh $
+//  @author obitastar
 //
 
 define('HEADING_TITLE', '商品の販売数ランキング');
@@ -26,11 +27,11 @@ define('TABLE_HEADING_NUMBER', 'ID#');
 define('TABLE_HEADING_PRODUCTS', '商品名');
 define('TABLE_HEADING_PURCHASED', '販売数');
 
-define('TABLE_HEADING_CUSTOMERS_ID', 'Customer<br />ID#');
-define('TABLE_HEADING_ORDERS_ID', 'Order<br />ID#');
-define('TABLE_HEADING_ORDERS_DATE_PURCHASED', 'Date');
-define('TABLE_HEADING_CUSTOMERS_INFO', 'Customer');
-define('TABLE_HEADING_PRODUCTS_QUANTITY', 'QTY');
-define('TABLE_HEADING_PRODUCTS_NAME', 'Product');
-define('TABLE_HEADING_PRODUCTS_MODEL', 'Model');
+define('TABLE_HEADING_CUSTOMERS_ID', '顧客<br />ID#');
+define('TABLE_HEADING_ORDERS_ID', '注文<br />ID#');
+define('TABLE_HEADING_ORDERS_DATE_PURCHASED', '日付');
+define('TABLE_HEADING_CUSTOMERS_INFO', '顧客情報');
+define('TABLE_HEADING_PRODUCTS_QUANTITY', '数量');
+define('TABLE_HEADING_PRODUCTS_NAME', '商品');
+define('TABLE_HEADING_PRODUCTS_MODEL', '型番');
 ?>

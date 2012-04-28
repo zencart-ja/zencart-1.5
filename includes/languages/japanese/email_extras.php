@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: email_extras.php 19690 2011-10-04 16:41:45Z drbyte $
+ * @author obitastar
  */
 
 // office use only
@@ -28,7 +29,7 @@
   define('EMAIL_DISCLAIMER', 'このメールは当ショップに登録されたお客様に対してお送りしています。お心当たりが無いようでしたら大変お手数ですがメールにて %s までご連絡ください。');
   define('EMAIL_SPAM_DISCLAIMER','このメールは当ショップに登録され、購読を希望された方にお届けしています。配信停止を希望される方は、お手数ですがこちらのメールアドレスまでご連絡下さい。');
   define('EMAIL_FOOTER_COPYRIGHT','Copyright (c) ' . date('Y') . ' <a href="http://www.zen-cart.com" target="_blank">' . STORE_NAME . '</a>. Powered by <a href="http://www.zen-cart.com" target="_blank">Zen Cart</a>');
-  define('TEXT_UNSUBSCRIBE', "\n\nTo unsubscribe from future newsletter and promotional mailings, simply click on the following link: \n");
+  define('TEXT_UNSUBSCRIBE', "\n\nメールマガジンの購読を解除される場合は、こちらのリンクをクリックして下さい: \n");
 
 // email advisory for all emails customer generate - tell-a-friend and GV send
   define('EMAIL_ADVISORY', '-----' . "\n" . '「<strong>重要:</strong>

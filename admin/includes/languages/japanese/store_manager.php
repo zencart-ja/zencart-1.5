@@ -5,9 +5,10 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: store_manager.php 19689 2011-10-04 15:51:25Z drbyte $
+ * @author obitastar
  */
 
-  define('HEADING_TITLE', 'ショップ管理ツール');
+  define('HEADING_TITLE', 'ショップ管理者用ツール');
   define('TABLE_CONFIGURATION_TABLE', 'CONSTANT定義を検索');
 
   define('SUCCESS_PRODUCT_UPDATE_SORT_ALL', '<strong>成功</strong>: 属性のソート順を更新しました');
@@ -27,8 +28,8 @@
   define('TEXT_INFO_MASTER_CATEGORIES_ID_UPDATE', '<strong>全商品のマスターカテゴリIDをリセット</strong><br />リンクされた商品と価格に反映するには: ');
 
   define('TEXT_NEW_ORDERS_ID', '新しいオーダーID');
-  define('TEXT_INFO_SET_NEXT_ORDER_NUMBER', '<strong>Set next order number</strong><br />NOTE: You cannot set the order number to a value lower than any existing order already in the database.');
-  define('TEXT_MSG_NEXT_ORDER', 'The next order number has been set to %s');
+  define('TEXT_INFO_SET_NEXT_ORDER_NUMBER', '<strong>次回の注文からのオーダーIDの設定</strong><br />注: データーベースに存在する既存のオーダーIDより低い値を設定することはできません。');
+  define('TEXT_MSG_NEXT_ORDER', '次回の注文オーダーIDは %s と設定されました。');
   define('TEXT_MSG_NEXT_ORDER_MAX', 'Due to existing order data, the next order number is currently: %s');
   define('TEXT_MSG_NEXT_ORDER_TOO_LARGE', 'Due to database limitations, you cannot set the next order number higher than 2000000000. Please choose a lower value.');
 
@@ -59,7 +60,7 @@
   define('TEXT_INFO_NO_EDIT_AVAILABLE','編集不可');
   define('TEXT_INFO_CONFIGURATION_HIDDEN', ' もしくは不可視');
 
-  define('TEXT_INFO_DATABASE_OPTIMIZE', '<strong>Optimize Database</strong> to remove wasted space from deleted records.<br />May be optionally run monthly or weekly on a busy database.<br />(Best to run during non-busy times.)');
+  define('TEXT_INFO_DATABASE_OPTIMIZE', '<strong>データベースの最適化</strong><br />記録の削除によってできた無駄なスペースを削除する為に、データベースを最適化して下さい。<br />May be optionally run monthly or weekly on a busy database.<br />(Best to run during non-busy times.)');
   define('TEXT_INFO_OPTIMIZING_DATABASE_TABLES', 'Database table optimization in progress. This may take a few minutes. Please wait. The previous menu will re-appear when finished ... ');
   define('SUCCESS_DB_OPTIMIZE', 'Database Optimization - Tables Processed: ');
 
