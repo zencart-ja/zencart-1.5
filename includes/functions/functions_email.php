@@ -100,7 +100,6 @@
       if (!isset($block['EMAIL_FROM_ADDRESS']) || $block['EMAIL_FROM_ADDRESS'] == '') $block['EMAIL_FROM_ADDRESS'] = $from_email_address;
       $email_html = (!is_array($block) && substr($block, 0, 6) == '<html>') ? $block : zen_build_html_email_from_template($module, $block);
       if (!is_array($block) && $block == '' || $block == 'none') $email_html = '';
-
       // Build the email based on whether customer has selected HTML or TEXT, and whether we have supplied HTML or TEXT-only components
       // special handling for XML content
       if ($email_text == '') {
@@ -174,7 +173,7 @@
       $mail = new PHPMailer();
       $lang_code = strtolower(($_SESSION['languages_code'] == '' ? 'en' : $_SESSION['languages_code'] ));
       $mail->SetLanguage($lang_code, DIR_FS_CATALOG . DIR_WS_CLASSES . 'support/');
-      $mail->CharSet =  (defined('CHARSET')) ? CHARSET : "iso-8859-1";
+      $mail->CharSet =  (defined('EMAIL_CHARSET')) ? EMAIL_CHARSET : (defined('CHARSET')) ? CHARSET : "iso-8859-1";
       $mail->Encoding = (defined('EMAIL_ENCODING_METHOD')) ? EMAIL_ENCODING_METHOD : "7bit";
       if ((int)EMAIL_SYSTEM_DEBUG > 0 ) $mail->SMTPDebug = (int)EMAIL_SYSTEM_DEBUG;
       $mail->WordWrap = 76;    // set word wrap to 76 characters
@@ -231,8 +230,12 @@
       // set the reply-to address.  If none set yet, then use Store's default email name/address.
       // If sending from contact-us or tell-a-friend page, use the supplied info
       $email_reply_to_address = (isset($email_reply_to_address) && $email_reply_to_address != '') ? $email_reply_to_address : (in_array($module, array('contact_us',  'tell_a_friend')) ? $from_email_address : EMAIL_FROM);
-      $email_reply_to_name    = (isset($email_reply_to_name) && $email_reply_to_name != '')    ? $email_reply_to_name    : (in_array($module, array('contact_us',  'tell_a_friend')) ? $from_email_name    : STORE_NAME);
+      $email_reply_to_name    = (isset($email_reply_to_name) && $email_reply_to_name != '')    ? $email_reply_to_name    : (in_array($module, array('contact_us',  'tell_a_friend')) ? $from_email_name    : STORE_NAME);      
+      if(defined('EMAIL_CHARSET')){      	
+      	$email_reply_to_name = mb_encode_mimeheader($email_reply_to_name,EMAIL_CHARSET,"B") ;
+      }
       $mail->AddReplyTo($email_reply_to_address, $email_reply_to_name);
+      
 
       // if mailserver requires that all outgoing mail must go "from" an email address matching domain on server, set it to store address
       if (EMAIL_SEND_MUST_BE_STORE=='Yes') $mail->From = EMAIL_FROM;
@@ -282,10 +285,17 @@
         } //end foreach attachments_list
       } //endif attachments_enabled
       $zco_notifier->notify('NOTIFY_EMAIL_AFTER_PROCESS_ATTACHMENTS', sizeof($attachments_list));
-
+	
+      if(defined('EMAIL_CHARSET')){      	
+	$mail->FromName = mb_encode_mimeheader($mail->FromName,EMAIL_CHARSET,"B") ;
+	$mail->Subject = mb_encode_mimeheader($mail->Subject,EMAIL_CHARSET,"B") ;
+	$mail->CharSet = EMAIL_CHARSET;	      	
+	$email_html  = mb_convert_encoding($email_html,EMAIL_CHARSET,"auto");
+	$text  = mb_convert_encoding($text,EMAIL_CHARSET,"auto");
+      }      	
       // prepare content sections:
       if (EMAIL_USE_HTML == 'true' && trim($email_html) != '' &&
-      ($customers_email_format == 'HTML' || (ADMIN_EXTRA_EMAIL_FORMAT != 'TEXT' && substr($module,-6)=='_extra'))) {
+      ($customers_email_format == 'HTML' || (ADMIN_EXTRA_EMAIL_FORMAT != 'TEXT' && substr($module,-6)=='_extra'))) {      	
         $mail->IsHTML(true);           // set email format to HTML
         $mail->Body    = $email_html;  // HTML-content of message
         $mail->AltBody = $text;        // text-only content of message
@@ -425,7 +435,6 @@
     $langfolder = (strtolower($_SESSION['languages_code']) == 'en') ? '' : strtolower($_SESSION['languages_code']) . '/';
     $template_filename_base = DIR_FS_EMAIL_TEMPLATES . $langfolder . "email_template_";
     $template_filename = DIR_FS_EMAIL_TEMPLATES . $langfolder . "email_template_" . $current_page_base . ".html";
-
     if (!file_exists($template_filename)) {
       if (isset($block['EMAIL_TEMPLATE_FILENAME']) && $block['EMAIL_TEMPLATE_FILENAME'] != '' && file_exists($block['EMAIL_TEMPLATE_FILENAME'] . '.html')) {
         $template_filename = $block['EMAIL_TEMPLATE_FILENAME'] . '.html';

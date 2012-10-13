@@ -243,7 +243,9 @@ class order extends base {
 
     $this->content_type = $_SESSION['cart']->get_content_type();
 
+    // ->furikana
     $customer_address_query = "select c.customers_firstname, c.customers_lastname, c.customers_telephone,
+                                    c.customers_firstname_kana, c.customers_lastname_kana, 
                                     c.customers_email_address, ab.entry_company, ab.entry_street_address,
                                     ab.entry_suburb, ab.entry_postcode, ab.entry_city, ab.entry_zone_id,
                                     z.zone_name, co.countries_id, co.countries_name,
@@ -255,10 +257,13 @@ class order extends base {
                                    where c.customers_id = '" . (int)$_SESSION['customer_id'] . "'
                                    and ab.customers_id = '" . (int)$_SESSION['customer_id'] . "'
                                    and c.customers_default_address_id = ab.address_book_id";
+    // <-furikana
 
     $customer_address = $db->Execute($customer_address_query);
 
+    // ->furikana
     $shipping_address_query = "select ab.entry_firstname, ab.entry_lastname, ab.entry_company,
+                                    ab.entry_firstname_kana, ab.entry_lastname_kana,
                                     ab.entry_street_address, ab.entry_suburb, ab.entry_postcode,
                                     ab.entry_city, ab.entry_zone_id, z.zone_name, ab.entry_country_id,
                                     c.countries_id, c.countries_name, c.countries_iso_code_2,
@@ -268,10 +273,13 @@ class order extends base {
                                    left join " . TABLE_COUNTRIES . " c on (ab.entry_country_id = c.countries_id)
                                    where ab.customers_id = '" . (int)$_SESSION['customer_id'] . "'
                                    and ab.address_book_id = '" . (int)$_SESSION['sendto'] . "'";
+    // <-furikana
 
     $shipping_address = $db->Execute($shipping_address_query);
 
+    // ->furikana
     $billing_address_query = "select ab.entry_firstname, ab.entry_lastname, ab.entry_company,
+                                   ab.entry_firstname_kana, ab.entry_lastname_kana,
                                    ab.entry_street_address, ab.entry_suburb, ab.entry_postcode,
                                    ab.entry_city, ab.entry_zone_id, z.zone_name, ab.entry_country_id,
                                    c.countries_id, c.countries_name, c.countries_iso_code_2,
@@ -281,6 +289,7 @@ class order extends base {
                                   left join " . TABLE_COUNTRIES . " c on (ab.entry_country_id = c.countries_id)
                                   where ab.customers_id = '" . (int)$_SESSION['customer_id'] . "'
                                   and ab.address_book_id = '" . (int)$_SESSION['billto'] . "'";
+    // <-furikana
 
     $billing_address = $db->Execute($billing_address_query);
 
@@ -391,6 +400,10 @@ class order extends base {
 */
     $this->customer = array('firstname' => $customer_address->fields['customers_firstname'],
                             'lastname' => $customer_address->fields['customers_lastname'],
+                            // ->furikana
+                            'firstname_kana' => $customer_address->fields['customers_firstname_kana'],
+                            'lastname_kana' => $customer_address->fields['customers_lastname_kana'],
+                            // <-furikana
                             'company' => $customer_address->fields['entry_company'],
                             'street_address' => $customer_address->fields['entry_street_address'],
                             'suburb' => $customer_address->fields['entry_suburb'],
@@ -405,6 +418,10 @@ class order extends base {
 
     $this->delivery = array('firstname' => $shipping_address->fields['entry_firstname'],
                             'lastname' => $shipping_address->fields['entry_lastname'],
+                            // ->furikana
+                            'firstname_kana' => $shipping_address->fields['entry_firstname_kana'],
+                            'lastname_kana' => $shipping_address->fields['entry_lastname_kana'],
+                            // <-furikana
                             'company' => $shipping_address->fields['entry_company'],
                             'street_address' => $shipping_address->fields['entry_street_address'],
                             'suburb' => $shipping_address->fields['entry_suburb'],
@@ -418,6 +435,10 @@ class order extends base {
 
     $this->billing = array('firstname' => $billing_address->fields['entry_firstname'],
                            'lastname' => $billing_address->fields['entry_lastname'],
+                            // ->furikana
+                           'firstname_kana' => $billing_address->fields['entry_firstname_kana'],
+                           'lastname_kana' => $billing_address->fields['entry_lastname_kana'],
+                            // <-furikana
                            'company' => $billing_address->fields['entry_company'],
                            'street_address' => $billing_address->fields['entry_street_address'],
                            'suburb' => $billing_address->fields['entry_suburb'],
@@ -599,6 +620,9 @@ class order extends base {
 
     $sql_data_array = array('customers_id' => $_SESSION['customer_id'],
                             'customers_name' => $this->customer['firstname'] . ' ' . $this->customer['lastname'],
+                            // ->furikana
+                            'customers_name_kana' => $this->customer['firstname_kana'] . ' ' . $this->customer['lastname_kana'],
+                            // <-furikana
                             'customers_company' => $this->customer['company'],
                             'customers_street_address' => $this->customer['street_address'],
                             'customers_suburb' => $this->customer['suburb'],
@@ -610,6 +634,9 @@ class order extends base {
                             'customers_email_address' => $this->customer['email_address'],
                             'customers_address_format_id' => $this->customer['format_id'],
                             'delivery_name' => $this->delivery['firstname'] . ' ' . $this->delivery['lastname'],
+                            // ->furikana
+                            'delivery_name_kana' => $this->delivery['firstname_kana'] . ' ' . $this->delivery['lastname_kana'],
+                            // <-furikana
                             'delivery_company' => $this->delivery['company'],
                             'delivery_street_address' => $this->delivery['street_address'],
                             'delivery_suburb' => $this->delivery['suburb'],
@@ -619,6 +646,9 @@ class order extends base {
                             'delivery_country' => $this->delivery['country']['title'],
                             'delivery_address_format_id' => $this->delivery['format_id'],
                             'billing_name' => $this->billing['firstname'] . ' ' . $this->billing['lastname'],
+                            // ->furikana
+                            'billing_name_kana' => $this->billing['firstname_kana'] . ' ' . $this->billing['lastname_kana'],
+                            // <-furikana
                             'billing_company' => $this->billing['company'],
                             'billing_street_address' => $this->billing['street_address'],
                             'billing_suburb' => $this->billing['suburb'],
