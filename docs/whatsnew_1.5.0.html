@@ -42,7 +42,7 @@ fieldset {max-width: 748px; margin: auto}
 
 -->
 </style>
-<title>What's New in Zen Cart(R) v1.5.0</title>
+<title>Zen Cart(R) v1.5.0 の新機能</title>
 <meta http-equiv="imagetoolbar" content="no">
 <meta name="author" content="The Zen Cart&reg; Team">
 <meta name="robots" content="noindex, nofollow">
@@ -50,20 +50,21 @@ fieldset {max-width: 748px; margin: auto}
 <body>
 
 <fieldset class="intro">
-<h1 class="intro" style="text-align: center;">Welcome to Zen Cart&reg;</h1>
+<h1 class="intro" style="text-align: center;">Zen Cart&reg;へようこそ</h1>
 <br>
-The Zen Cart&reg; software is made available to you for use, additions, changes, modifications, etc. without charge, under the GNU General Public License.
-<br>
-<br>
-While we do not charge for this software, donations are greatly appreciated each time you download a new version, to help cover the expenses of maintenance, upgrades, updates, the free support forum and the continued development of this software for your online e-commerce store.
+Zen Cartは、GNU General Public Licenseの下で、利用、追加、変更、改造などを無償で行うことができます。
 <br>
 <br>
-Donations can be made at:
+このソフトウェアは有償ではありませんが、あなたがダウンロードされる度に寄付されることを心から歓迎いたします。寄付は、Zen Cartのメンテナンス、アップグレード、フォーラムでのサポート、そして開発の継続のために役立てられます。
+<br>
+<br>
+寄付はこちらから：
 <a href="http://www.zen-cart.com/donate" target="_blank">The Zen Cart&reg; Team Page</a>
 <br>
 <br>
-We appreciate your support.<br>
-<em>The Zen Cart&reg; Team</em><br>
+サポートに感謝いたします。<br>
+<br>
+Zen Cart&reg; チーム<br>
 <br>
 
 <p class="small center">
@@ -84,178 +85,184 @@ OSI Certified is a certification mark of the Open Source Initiative.
 <br>
 
 <fieldset>
-<h1>Zen Cart&reg; Minimum Requirements</h1>
-<p>Zen Cart&reg; v1.5.0 requires a minimum of the following:
-<ul><li>PHP 5.2.14 or higher</li>
-<li>MySQL 4.1.3 or higher</li>
-<li>Apache 2.0 or higher.</li>
-<li>Apache configured with AllowOverride set to either 'All' or at least both 'Limit' and 'Indexes' parameters, and preferably the 'Options' parameter as well.</li>
-<li>PHP configured to support CURL with OpenSSL</li>
+<h1>Zen Cart&reg; 最低限の動作環境</h1>
+<p>Zen Cart&reg; v1.5.0 は、以下のような要件を最低動作環境とします。
+<ul><li>PHP 5.2.14 またはそれ以上</li>
+<li>MySQL 4.1.3 またはそれ以上</li>
+<li>Apache 2.0 またはそれ以上</li>
+<li>Apacheは、AllowOverrideのパラメーター設定が'All'か少なくとも'Limit'と'Indexes'であること。また、'Options'も同様になっていることが望ましい</li>
+<li>PHPは、CURLとOpenSSLに対応するよう設定済みであること</li>
 </ul>
 </p>
-<p>While Zen Cart&reg; can run on Windows/IIS servers, Linux/Apache servers are recommended for best results, superior performance, and easier use by shopowners.</p>
+<p>Zen Cart&reg; はWindows/IISサーバーでも動作しますが、パフォーマンスやショップ運営者による簡単な利用を考慮すると、Linux/Apacheサーバーが最適です。
 
-<h1>Whats New ... </h1>
-<h3><strong>The following improvements and bugfixes are included in v1.5.0 since v1.3.9: </strong></h3>
+<h1>What's New（新機能や改善点）</h1>
+<h3><strong>v1.3.9からv1.5.0では、以下のような改善やバグ修正が行われています。
+</strong></h3>
 <ul>
-<li>CHANGE-12 - Numerous system changes to support PA-DSS compliance certification
+<li>変更-12 - PA-DSS（決済アプリケーションのセキュリティ基準）に準拠するため、システムを多数修正
   <ul>
-  <li>Admin passwords now expire every 90 days, as per PA-DSS specification</li>
-  <li>Admin passwords now require a combination of letters and numbers, as well as uniqueness (cannot use already-used passwords)</li>
-  <li>Admin passwords can have a configurable length, but no less than 7 characters</li>
-  <li>Admin passwords also expire, for security reasons, when changing admin configuration from non-SSL mode to SSL mode.</li>
-  <li>Admin Profiles - is now built-in, with a significant number of additional features, and simpler to use.</li>
-  <li>Add basic admin Activity Log Viewer/Exporter tool</li>
-</ul></li><li>HTMLarea editor removed from core due to obsolescence. Use preferred plugin instead if similar functionality is required.</li>
-<li>FCKeditor components removed from core due to obsolescence. CKEditor is the replacement editor by the same author. Switch to the new plugin if desiring to use this editor.</li>
-<li>USPS module removed from core in favor of being an addon, due to the volatility of frequent changes made by USPS. The addon is available in the Free Addons section of the Zen Cart website.</li>
-<li>CHANGE-12 - PA-DSS - prevent payment modules from ever storing more than 10 characters of sanitized CC numbers</li>
-<li>CHANGE-12 - PA-DSS - prevent built-in "gateway" payment modules from functioning if the site is not protected by SSL</li>
-<li>CHANGE-12 - PA-DSS - add admin detection of SSL mode change and auto-expire all passwords if SSL mode is enabled either with ENABLE_SSL_ADMIN or using an https address for HTTP_SERVER</li>
-<li>CHANGE-12 - PA-DSS - add two-factor authentication hook in admin login</li>
-<li>zc_install now treats supplied initial admin password (during install) as temporary ... requiring the admin user to select a new password at first login. This is to prevent abuse from password sniffing.</li>
-<li>Incorporate TZ (timezone) support, with ability to override/disable simply by defining a DISABLE_MYSQL_TZ_SET constant. c/f http://www.zen-cart.com/forum/showthread.php?t=174346</li>
-<li>PADSS-30 - Admin SSL now enabled by default in configure.php file if Enable-SSL is selected during zc_install</li>
-<li>BUGSFORUM-1774 - Add 'secure' flag support for session cookie when site is running entirely in SSL</li>
-<li>BUGSFORUM-1081 - Fixed: no default set for shipping radio buttons if module is disabled after previously selecting a shipping method</li>
-<li>BUGSFORUM-1347 - Remove file-based session handling support due to security concerns and chicken/egg situation caused by garbage collection processes.</li>
-<li>BUGSFORUM-1497 - Admin order totals section of orders.php page ignored currency-formatting display rules in some cases</li>
-<li>BUGSFORUM-1550 - Fix occasional problem with "duplicate entry" in sessions table caused by some servers using longer session ID keys</li>
-<li>BUGSFORUM-1558 - typefilter incorrect lookup problem in case of (unlikely) file-not-found scenario</li>
-<li>BUGSFORUM-1554 - Shopping Cart Problems when updating product quantities for products with Max limit set</li>
-<li>BUGSFORUM-1564 - orders_status wrongly set to 0 in rare cases</li>
-<li>BUGSFORUM-1584 - no_picture.gif could be accidentally deleted if specified as an actual product image</li>
-<li>BUGSFORUM-1589 - Fixed problem with some downloadable orders where an update of an order might set the number of days to a wrong value</li>
-<li>CHANGE-151: Fix rounding and tax calculation issues in Cart/Order Class </li>
-<li>CHANGE-90 - SECURITY: Fix Local File Inclusion Vulnerability</li>
-<li>Whos_online - several improvements to allow the option to exclude spiders and/or admin IP's from the list of displayed results</li>
-<li>Improvement: Developers Toolkit can now optionally search .js files too. </li>
-<li>CHANGE-136 on new installs, DB_CHARSET now defaults to UTF8, not latin1</li>
-<li>CHANGE-137 Removal(deactivation) of CDE payment modules when SSL disabled</li>
-<li>BUGSFORUM-1592 - Fix rounding problems affecting coupon min-purchase eligibility calculations</li>
-<li>CHANGE-70 - zc_install now checks whether .htaccess rules will work, and provides an alert if there's a problem.</li>
-<li>BUGSFORUM-XXXX - PayPal improvements - allows Transaction ID to show on admin order confirmation emails for WPS, just like other payment modules do</li>
-<li>BUGSFORUM-XXXX - PayPal - partial fix for bug where currency code not specified during partial refunds causes request to fail</li>
-<li>BUGSFORUM-XXXX - PayPal - fixed bug where debug logging might happen even if switched off (caused by broader server-config issues) </li>
-<li>BUGSFORUM-XXXX - PayPal - fix bug in Express Checkout where a shipping-override would still send a shipping phone number, causing a 10001 error without explanation.</li>
-<li>BUGSFORUM-XXXX - PayPal - fix bug where EC button was removed from login page but left PayPal text prompts, resulting in confusion. </li>
-<li>BUGSFORUM-XXXX - PayPal - Change to VPS-Timeout-90 instead of 45 at PayPal's request. This means customers might have to wait longer for transactions to complete, but will reduce timeout errors when PayPal's systems are slow.</li>
-<li>BUGSFORUM-XXXX - PayPal - include product ID number on line-item details since is needed for order fulfillment</li>
-<li>BUGSFORUM-1673 - PayPal - Fix minor html table syntax bug in paypal history details on admin orders screen</li>
-<li>BUGSFORUM-1754 - PayPal - fix various rounding problems in all modules</li>
-<li>BUGSFORUM-1760 - PayPal - Fix problems with Hungarian Forint and other 0-decimal currencies</li>
-<li>BUGSFORUM-1926 - PayPal - Fix problem with attributes -- if a product had attributes, the product name was being replaced with attribute details, instead of being appended to</li>
-<li>BUGSFORUM-1971 - PayPal - Trap cases where PayPal returns a blank address unexpectedly, and ask them to supply address details by creating an account</li>
-<li>BUGSFORUM-1971 - PayPal - Minimize address matching issues which arise when storeowners rename their countries to non-ISO standard names (something they should not do)</li>
-<li>BUGSFORUM-1892 - PayPal Express: Item details were shown as "Tax included in prices: 0 (0)"</li> 
-<li>BUGSFORUM-1959 - PayPal IPN and Express Checkout Missing free Items, or listing free items without description</li>
-<li>BUGSFORUM-2024 - PayPal IPN - address-override alert might insert duplicate update notices in order status history</li>
-<li>BUGSFORUM-2151 - Paypal - Error 10413 when redeeming Gift Certificates for amount greater than product-subtotal</li>
-<li>CHANGE-164  - paypal logging not properly disabling consistently </li>
-<li>BUGSFORUM-1613 - Media Manager Assign to Products wouldn't allow assigning of new products due to security change in 1.3.9h</li>
-<li>Fix to admin customer search: search for new customers by customers_email_address to get correct customer and not everyone named Smith</li>
-<li>Fixed display bug with category icons generating link to cPath=0 if cPath not set</li>
-<li>Fix the display of Discount Coupons when a redemption code is applied so it is more readable by the customer</li>
-<li>Fix Add to Cart to stay on listing when set to not display cart</li>
-<li>Fixed coupon admin screen to land on correct page after adding new coupon</li>
-<li>Various Admin pages: Fix pagination problems when changing status, searching, etc.</li>
-<li>Improvement: Shorten CPU cycles on double-parsing an array needlessly in Authorize.net modules. Also improved sanitized debug output.</li>
-<li>BUGSFORUM-1645 - Adding Featured Products ERROR Warning Warning: Product ID already on Special</li>
-<li>Admin products-to-categories copier: Add additional message for clarity when Copy to categories_id is invalid but allow for obscure usage</li>
-<li>Fixed bug on Order History going to page not found when set to not display cart</li>
-<li>Fix: restore shopping cart products in the order they were added</li>
-<li>BUGSFORUM-1662 - Gift Certificates Will Not Release</li>
-<li>Fixed Error message when restricting coupons</li>
-<li>Fixed hard-coded table names which should have been using constants, to allow for prefixes properly.</li>
-<li>Fix problems with the word "search" in spiders.txt</li>
-<li>Admin orders page now passes unformatted value back for availability to customizations which want to redisplay the values differently.</li>
-<li>BUGSFORUM-1696 - clear COUPON_GV_QUEUE when deleting an order</li>
-<li>BUGSFORUM-1681 - fix links in GV mails</li>
-<li>BUGSFORUM-1689 - email validation regex improvements</li>
-<li>BUGSFORUM-1634 - Bugfix: Prevent loading of non-PHP files in some admin autoloading routines</li>
-<li>BUGSFORUM-1650 - sanitize whosonline output </li>
-<li>Downloads - improvements and addition of support for IE9</li>
-<li>BUGSFORUM-1708 - Combine class methods to reduce chance of race conditions and add error suppression to filemtime</li>
-<li>Fix potential GZIP error if server configuration is overly generic</li>
-<li>CHANGE-74 Sanitization</li>
-<li>VARIOUS changes made to admin/catalog page forms to protect against CSRF using security token</li>
-<li>VARIOUS changes for date fields to be handled consistently and to remove some pre-quoting which was breaking bindVars</li>
-<li>CHANGE-102 Fix broken error checking in SQLPatch tool</li>
-<li>CHANGE-128 obscure sql injection fix</li>
-<li>CHANGE-135 add default value to zen_draw_pull_down_menu call to stop the value being drawn from the GLOBALS array and tested as a string.</li> 
-<li>CHANGE-138 Set CURL Proxy Status to FALSE by default, and remove from display since it's now deprecated</li>
-<li>CHANGE-139 fix sprintf() error when generating an outgoing email notification caused by language file refinement</li>
-<li>CHANGE-142 fix tax calculation</li>
-<li>CHANGE-143 fix sidebox query to ensure a correct limit statement is built, if necessary</li>
-<li>CHANGE-143 catch SQL errors and output generic message to user and write message to log instead</li>
-<li>CHANGE-144 XSS mitigation for admin forms -- adds logging for inputs flagged as "rogue" by blacklist algorithm.</li>
-<li>CHANGE-145+146 Blank values for various Maximum Values settings causes PHP errors </li>
-<li>CHANGE-147 zc_install was throwing warning for MySQL versions over 5.2</li>
-<li>BUGSFORUM-1709 Fix extraneous products_id in url</li>
-<li>BUGSFORUM-1783 Fix Virtual Product defaults for all core Product Types</li>
-<li>BUGSFORUM-1798 Preview icon was linked directly to product-general type. Now linked to the product type handler, allowing correct language defines to be loaded when previewing a product via this icon.</li>
-<li>BUGSFORUM-1862 status filter not retaining state, restrict to first char for safety</li>
-<li>BUGSFORUM-1754 change to calculate price/tax on zen_round(zen_add_tax(price,rate)*quantity, decimals)</li>
-<li>BUGSFORUM-1696 SQL error due to non-matching field name</li>
-<li>BUGSFORUM-1907 Fix ambiguous description on admin search switch</li>
-<li>BUGSFORUM-1905 Adjust schema to handle ipv6 addresses</li>
-<li>BUGSFORUM-1949 various ISO country updates</li>
-<li>BUGSFORUM-1973 Downloads might deliver an empty file if readfile() is disabled in PHP and symlink support is off</li>
-<li>BUGSFORUM-2046 HTML Entities not retained while editing via admin</li>
-<li>CHANGE-159 - Remove Welcome-Email Preview from admin</li>
-<li>BUGSFORUM-2038 Invalid email address formatting can cause ugly failure message without explanation</li>
-<li>CHANGE-168 - Fix tax calculations for not-logged-in users, by defaulting to default country/zone just like it does for product listings </li>
-<li>.htaccess - add safety around apache directives to prevent errors with poorly configured servers</li>
-<li>Fix bug in properly detecting SSL mode with zen_redirect calls</li>
-<li>Addressed SSL logoff scenario specific to shared SSL on shared hosting.</li>
-<li>Fix email error handling - was only setting error info if the message succeeded, thus always blank.</li>
-<li>Fix broken markup in admin layout-controller</li>
-<li>add extra line-break before "spam" disclaimer in email footers</li>
-<li>Disable language/currency sideboxes by default, to minimize some confusion</li>
-<li>Fix some collation errors encountered during upgrades</li>
-<li>CHANGE-160 - Various changes for basic compatibility with the proposed PHP 5.4 specifications</li>
-<li>CHANGE-175 - Fix Maximum limit to manage merge of cart on login </li>
-<li>CHANGE-176 - Fix Text Required to allow for 0 to work as Required Text content </li>
-<li>BUGSFORUM-2121 - zc_install - fixed broken link for help with disabling session.use_trans_sid in help text </li>
-<li>Simplified the admin-directory-rename process: New installs now only require renaming the folder. No more special configure.php file edits!</li>
-<li>CHANGE-186 - Removed Tell A Friend feature</li>
-<li>BUGSFORUM-2138 - stripslash keyword in first parsing of search keywords, to protect against broken sql resulting in blank page</li>
-<li>BUGSFORUM-2140 - fix problem with metatag deletion where multiple languages exist</li>
-<li>BUGSFORUM-2150 - PHP Warning: strlen() expects parameter 1 to be string</li>
-<li>BUGSFORUM-2175 - fix XSS issue reported by intermittent PCI scans</li>
-<li>CHANGE-190 - fix constants from discount coupon to gv</li>
+  <li>管理者パスワードは90日で無効になるように（PA-DSS準拠）</li>
+  <li>管理者パスワードは文字と数字の組み合わせが必須に。かつ、過去に使ったパスワードは使えないように（PA-DSS準拠）</li>
+  <li>管理者パスワードは7文字以上で長さを設定できるように</li>
+  <li>管理者設定を非SSLからSSLモードに変更すると管理者パスワードは無効となり、再度設定が必要に</li>
+  <li>管理者プロフィールがいくつかの重要な機能と共に新たに追加され、簡単に使えるように</li>
+  <li>管理者の操作記録閲覧ツールを追加</li>
+</ul></li><li>htmlArea（WYSIWYGのHTMLエディター機能）はコアから削除。同様の機能が必要な場合は、適当なプラグインを導入する必要あり</li>
+<li>FCKeditorはコアから削除。同じ作者からCKEditorが提供されており、必要な場合は新プラグインを導入する必要あり</li>
+<li>USPS（配送）モジュールはコアから削除されアドオンに。USPS側の頻繁な変更で生じうる脆弱性を避けるため。アドオンはZen Cart公式サイトから要ダウンロード
+</li>
+<li>変更-12 - PA-DSS準拠：決済モジュールにおいて、サニタイズされたCCナンバーを10桁を超えて保持できないように</li>
+<li>変更-12 - PA-DSS準拠：ゲートウェイ型の決済モジュールにおいて、サイトがSSLで保護されていない場合は動作しないように</li>
+<li>変更-12 - PA-DSS準拠：管理画面におけるSSLモードの変更の監視と、もしENABLE_SSL_ADMINかHTTP_SERVERでSSLモードが有効になった場合は、全てのパスワードを無効化するよう仕様を追加</li>
+<li>変更-12 - PA-DSS準拠：管理者のログインにおいて、2つのファクターによる認証フックを実装</li>
+<li>zc_installフォルダーは、初期の管理者パスワードを一時的なものと扱い、最初のログイン時にパスワード変更を求めるように（パスワード窃取を防ぐため）</li>
+<li>Incorporate TZ (timezone) のサポート。同時にDISABLE_MYSQL_TZ_SET定数を定義することによって容易にオーバーライド／無効化ができるように　参照（英語）： <a href="http://www.zen-cart.com/forum/showthread.php?t=174346">Time Zone Fix Support Thread</a></li>
+<li>PADSS-30 - zc_installが動作中にSSLを有効に設定すると、configure.phpでのAdmin SSLはデフォルトで有効になるように
+</li>
+<li>バグフォーラム-1774 - サイト全体がSSL通信で稼働している場合、セッションクッキーにおいて"secure"フラグを追加</li>
+<li>バグフォーラム-1081 - 修正：配送方法を選択した後で配送モジュールを無効にした場合、配送方法ラジオボタンの初期選択をなしに
+</li>
+<li>バグフォーラム-1347 - セキュリティの懸念、そしてガベージコレクションでの因果関係が不明瞭になる原因となるため、ファイルベースのセッション管理を廃止
+</li>
+<li>バグフォーラム-1497 - 管理画面のorders.phpページの注文合計の表示で、通貨フォーマットの表示ルールを無視してしまうことがある問題</li>
+<li>バグフォーラム-1550 - 長いセッションIDを使った場合にいくつかのサーバーで起こることがある、セッションテーブルにおけるduplicate entryの問題を修正
+</li>
+<li>バグフォーラム-1558 - ファイルが存在しない場合にtypefilterが誤ってlookupしてしまう問題</li>
+<li>バグフォーラム-1554 - 最大購入数を設定した商品で、カート内で商品数を更新した場合に起こる問題
+</li>
+<li>バグフォーラム-1564 - 稀なケースでorders_statusが誤って0にセットされる
+</li>
+<li>バグフォーラム-1584 - no_picture.gifが実際の商品画像として設定された場合に削除されてしまうケース
+</li>
+<li>バグフォーラム-1589 - ダウンロード商品の注文で注文情報を更新した際に、日付に誤った値が入ってしまうことがある不具合を修正</li>
+<li>変更-151: Cart/Order Classにおける数字の丸め（四捨五入や切り捨て）、税額計算の問題を修正</li>
+<li>変更-90 - セキュリティ：ローカルファイルの参照についての脆弱性</li>
+<li>Whos_online（オンラインのユーザー機能） - 表示される結果からサーチエンジンのロボットや管理者のIPアドレスを除くオプションなど、いくつかの改善</li>
+<li>改善：Developers Toolkitで、オプションとして.jsファイルも検索できるように</li>
+<li>変更-136 新規インストールにおいて、DB_CHARSETのデフォルトをlatin1からUTF8に</li>
+<li>変更-137 SSLが無効にされた場合にCDE決済モジュールを無効に</li>
+<li>バグフォーラム-1592 - クーポンの適用に影響する最低購入金額の数字の丸めの問題を修正</li>
+<li>変更-70 - zc_installは.htaccessファイルの動作をチェックし、問題があれば警告を表示するように</li>
+<li>バグフォーラム-XXXX - PayPalの改善 - 管理者宛ての注文メールで、PayPal WPS（Website Payments Standard）を使った場合も他の決済モジュール同様にトランザクションIDを表示するように</li>
+<li>バグフォーラム-XXXX - PayPal - 一部払い戻しのリクエストにおいて貨幣コードが特定されず失敗となるバグを部分的に修正</li>
+<li>バグフォーラム-XXXX - PayPal - デバッグのログ記録をオフにした場合でも記録されてしまうバグを修正</li>
+<li>バグフォーラム-XXXX - PayPal - エクスプレスチェックアウトで、配送方法をオーバーライドしても10001エラーによって配送先電話番号が送信されてしまうバグを修正</li>
+<li>バグフォーラム-XXXX - PayPal - ログインページからECボタンが削除されているのにPayPalのテキスト説明が残ってしまうバグを修正</li>
+<li>バグフォーラム-XXXX - PayPal - PayPalへのリクエストにおいてVPSのタイムアウトを45秒から90秒に変更。これにより購入者は決済完了までにより長く待たされるが、PayPalのシステムが遅延しているときにタイムアウトエラーとなる可能性が減少する</li>
+<li>バグフォーラム-XXXX - PayPal - 注文のフルフィルメントに必要な製品IDをアイテム詳細情報に含めるように</li>
+<li>バグフォーラム-1673 - PayPal - 注文管理画面のPayPalの注文履歴表示で、HTMLのテーブル表示の小さなバグを修正</li>
+<li>バグフォーラム-1754 - PayPal - 全てのモジュールで数字の丸め（四捨五入や切り捨て）についての問題を修正</li>
+<li>バグフォーラム-1760 - PayPal - ハンガリーのフォリント通貨など、いくつかの通貨（0-decimal currencies）にまつわる問題を修正</li>
+<li>バグフォーラム-1926 - PayPal - 属性についてのバグを解決：商品が属性を持つときは商品名が属性の値で置き換えられるように</li>
+<li>バグフォーラム-1971 - PayPal - PayPalが予期せず空のアドレスを返してくる場合に、アカウントの作成と住所入力を求めるように</li>
+<li>バグフォーラム-1971 - PayPal - ショップ運営者が国名情報をISO標準以外の名前に書き換えた場合、アドレスマッチングで起き得る問題を軽減</li>
+<li>バグフォーラム-1892 - PayPal Expressにおいて、アイテム詳細が「税込み価格：0 (0)」となってしまう問題</li> 
+<li>バグフォーラム-1959 - PayPal IPN（即時支払い通知） とエクスプレスチェックアウトが無料商品を扱えない、または無料商品の説明を欠落させてしまう問題</li>
+<li>バグフォーラム-2024 - PayPal IPN（即時支払い通知） - 注文ステータスの履歴において、アドレスのオーバーライド警告がアップデート告知を重複させてしまう問題</li>
+<li>バグフォーラム-2151 - Paypal - ギフト券を引き換える際、商品数の小計を超えるとエラー10413が起こる問題</li>
+<li>変更-164  - Paypalのログ記録を適切に無効化できないことがある</li>
+<li>バグフォーラム-1613 - 1.3.9hでのセキュリティ修正により、商品に割り当てるメディアマネージャーが、新たな商品への割り当てができない問題</li>
+<li>管理画面の顧客検索の修正：customers_email_addressで新たな顧客を検索した際に正しい情報を返すように</li>
+<li>表示バグの修正：cPathがセットされていないときカテゴリーアイコンのリンクがcPath=0になるように</li>
+<li>割引クーポンの引き換えコードの入力において、顧客がより読みやすいように表示を修正</li>
+<li>カートを表示しないよう設定した際、カートに入れるリンクを商品リストに表示するよう修正</li>
+<li>クーポンの管理画面で、新たにクーポンを追加した後で正しいページに遷移するよう修正</li>
+<li>さまざまな管理画面：ステータス変更や検索などで生じうるページネーションの問題を解決</li>
+<li>改善：Authorize.netモジュールで、プログラムの処理を節約しCPU消費を抑制。また、サニタイズのデバッグ出力を改善</li>
+<li>バグフォーラム-1645 - おすすめ商品のエラー警告を追加："Warning: Product ID already on Special"</li>
+<li>管理画面の商品を特定カテゴリーにコピーする機能：categories_idが無効な場合のエラーメッセージをよりわかりやすくなるよう文言追加</li>
+<li>カートを表示しない設定のとき注文履歴のページがNot Foundになってしまう不具合を修正</li>
+<li>ショッピングカートを修正：商品を追加した順番になるように</li>
+<li>バグフォーラム-1662 - ギフト券が発行されない問題</li>
+<li>クーポンの使用制限に関するエラーメッセージを修正</li>
+<li>Prefixを扱う定数を使うべきテーブル名がハードコーディングされていた問題を修正</li>
+<li>spiders.txt内で"search"という言葉によって起こる問題を修正</li>
+<li>管理画面の注文情報ページで、表示のカスタマイズが可能なようにフォーマットなしの値を返すように改善</li>
+<li>バグフォーラム-1696 - 注文を削除した際にCOUPON_GV_QUEUEもクリア</li>
+<li>バグフォーラム-1681 - GV（ギフト券）メール内のリンクを修正</li>
+<li>バグフォーラム-1689 - メールのバリデーションの正規表現を改善</li>
+<li>バグフォーラム-1634 - バグ修正：いくつかの管理画面の自動ローディングの際、PHPファイル以外のロードを防ぐ</li>
+<li>バグフォーラム-1650 - 「何人が来訪中です」表示のサニタイズ</li>
+<li>Downloads - IE9のサポートにおける改善</li>
+<li>バグフォーラム-1708 - クラスメソッドを結合：競合（race conditions）の可能性を低くし、filemtime関数のエラーを抑制するため</li>
+<li>サーバー設定によっては起こりうるGZIPの潜在的なエラーを修正</li>
+<li>変更-74 サニタイズの強化</li>
+<li>多種の改善：管理画面およびショップ画面で、CSRF脆弱性の対策としてセキュリティトークンを用いて修正</li>
+<li>日付フィールドにさまざまな修正：一定の動きをするように、またbindVarsに影響するいくつかのpre-quotingを削除するため</li>
+<li>変更-102 SQLパッチツールによる検証におけるエラーを修正</li>
+<li>変更-128 SQLインジェクションの修正</li>
+<li>変更-135 zen_draw_pull_down_menuコールにデフォルト値を追加：値がGLOBALS arrayから引き渡され、文字列として扱われないように</li> 
+<li>変更-138 CURL Proxyのステータスを初期状態でオフにし、廃止のため非表示に</li>
+<li>変更-139 メール送信の通知の際、言語ファイルによって起こるsprintf()エラーの修正</li>
+<li>変更-142 税計算の修正</li>
+<li>変更-143 サイドボックスのクエリーを修正：必要な場合に正しいリミット宣言が出されるように</li>
+<li>変更-143 SQLエラーをキャッチし、ユーザーに一般的なメッセージを表示しログの代わりにメッセージを記録</li>
+<li>変更-144 管理画面のフォームのXSS脆弱性の緩和 - ブラックリストアルゴリズムによって"rogue"とフラグ付けされたインプット内容のログを記録</li>
+<li>変更-145+146 最大値の設定で空の値を入れるとPHPエラーが起こる問題</li>
+<li>変更-147 zc_installがMySQL 5.2以上でエラーを出す問題</li>
+<li>バグフォーラム-1709 URL内のproducts_idが不整合になる問題</li>
+<li>バグフォーラム-1783 商品タイプ全てにおけるバーチャル商品の初期設定を修正</li>
+<li>バグフォーラム-1798 プレビューアイコンはproduct-generalタイプにリンクされていたが、product typeハンドラーにリンク付けされ、商品をプレビューした際正しい言語定義がロードされるように</li>
+<li>バグフォーラム-1862 ステータスフィルターはステータスを保持せず、安全のため最初の文字型だけを持つように</li>
+<li>バグフォーラム-1754 zen_round(zen_add_tax(price,rate)*quantity, decimals)での価格・税金計算の変更</li>
+<li>バグフォーラム-1696 フィールド名の不一致によるSQLエラー</li>
+<li>バグフォーラム-1907 管理画面での検索スイッチのあいまいな説明を修正</li>
+<li>バグフォーラム-1905 IPv6を扱うスキーマを調整</li>
+<li>バグフォーラム-1949 さまざまなISO国名コードを更新</li>
+<li>バグフォーラム-1973 PHPでreadfile()が無効でありsymlinkサポートがオフであるとき、ダウンロード商品が空ファイルになる可能性がある問題</li>
+<li>バグフォーラム-2046 管理画面で編集しているときHTMLエンティティが保持されない問題</li>
+<li>変更-159 - 管理画面からウェルカムメールのプレビューを削除</li>
+<li>バグフォーラム-2038 無効なメールアドレスが表示の崩れたエラーメッセージを出してしまう問題</li>
+<li>変更-168 - 非ログインユーザーへの税表示において、デフォルトの国・地域に合わせることで解決</li>
+<li>.htaccess - 設定が貧弱なサーバーでエラーが起きることを防ぐため、Apacheディレクティブの安全性を向上</li>
+<li>SSLモードとzen_redirectコールを正しく察知できるようバグを修正</li>
+<li>ホスティングサービスの共有SSL：SSLログオフシナリオを設定</li>
+<li>メールエラーの扱いを修正：メッセージが成功した場合のみエラー情報を出し、常にブランクになっていた</li>
+<li>管理画面のレイアウトコントローラーの壊れたマークアップの修正</li>
+<li>メールフッターの"spam"免責事項の前に新たなラインブレイクの追加</li>
+<li>デフォルトで言語・通貨サイドボックスの無効化。混乱を避けるため</li>
+<li>アップグレードの際に起こるいくつかの照合エラーの修正</li>
+<li>変更-160 - PHP 5.4の規格との互換性を高めるため、多くの修正</li>
+<li>変更-175 - ログイン時のカートのマージ管理の上限数を修正</li>
+<li>変更-176 - テキストコンテンツにおいて、0をテキストとして許容する必要がある場合に正しく動くよう修正</li>
+<li>バグフォーラム-2121 - zc_install - ヘルプテキスト内でsession.use_trans_sidをオフにすることで、壊れていたリンクを修正</li>
+<li>admin-directory-rename processを簡易化：新たなインストールではフォルダーを残すことのみ求め、configure.phpファイルの特別な編集は不要に</li>
+<li>変更-186 - 友だちに知らせる機能を削除</li>
+<li>バグフォーラム-2138 - キーワードの検索のためのパースで、SQLの結果が空白ページを返さないようキーワードをstripslashするように</li>
+<li>バグフォーラム-2140 - 多言語対応の際に生じうるMETAタグ削除に関する問題を修正</li>
+<li>バグフォーラム-2150 - PHP 警告: strlen() expects parameter 1 to be string</li>
+<li>バグフォーラム-2175 - PCIスキャン（PCI DSS準拠に必要な脆弱性診断）で報告されたXSS問題を修正</li>
+<li>変更-190 - クーポンからギフト券への定数を修正</li>
 
-<li>And all the security fixes and bugfixes from prior versions</li>
+<li>加えて、以前のバージョンからの全てのセキュリティ問題修正とバグ修正</li>
 </ul>
-<h1>CHANGELOG - List of Changed Files </h1>
-<p>For a list of files that have been changed since v1.3.9h, see the <a href="changed_files-v1-5-0.html" target="_blank">changed_files-v1-5-0.html</a> </p>
-<h1>Upgrade Instructions from v1.3.9</h1>
-<h2>HOW TO UPGRADE</h2><p>Please follow the instructions in the &quot;<a href="2.readme_how_to_upgrade.html">how to upgrade</a>&quot; documentation in the /docs folder of the Zen Cart&reg; files. </p>
-<h2>Upgrading Addons or Custom Code</h2>
-<p>If you are attempting to upgrade custom code or addons written for prior versions, you may find this tutorial article helpful: <a href="http://tutorials.zen-cart.com/index.php?article=410" target="_blank">http://tutorials.zen-cart.com/index.php?article=410</a> </p>
-<h2>A Word About UTF-8 vs iso-8859-1</h2>
-<p>Please see this online article for guidance on <a href="http://tutorials.zen-cart.com/index.php?article=414">upgrading old sites from iso-8859-1 to utf8</a> </p>
-<h1>*** SERVER CONFIGURATION REQUIREMENT ***</h1>
-<p>For added security, Zen Cart&reg; comes with several .htaccess files already included in various folders to help provide protection against unwanted visitors 
-and even against mis-use of your site in the unfortunate situation of your site being hacked. These protections prevent hackers from using your site as phishing sources.</p>
-<p>However, for these built-in protections to work, your web hosting server administrator MUST set the AllowOverride directive 
-in the server's apache configuration (the server's master httpd.conf file)  to "All" or at least ensure it includes these parameters: 'Limit Indexes'.<br>
-<pre>ie:&nbsp;&nbsp;&nbsp;&nbsp;AllowOverride All<br>
-or: &nbsp;&nbsp;&nbsp;AllowOverride Limit Indexes&nbsp;&nbsp;&nbsp;&nbsp;</pre><br>
-<em>(NOTE: You must also add "Options" if uncommenting OPTIONS directives in your .htaccess files)</em><br><br>
-Without these settings, you will likely encounter "<strong>500 Internal Server Error</strong>" messages when attempting to access various parts of your site, including perhaps the zc_install installer script. </p>
-<p>Storeowners hosting on Windows Servers using IIS instead of Apache may need to remove the .htaccess files and rework them into suitable equivalents within your IIS configuration. See Microsoft's IIS website for specific assistance.</p>
-<h1>ADDITIONAL NOTE ABOUT .htaccess FILES</h1>
-<p>Inside some folders is an .htaccess file that lists certain *permitted* filetypes which may be accessed. (Anything else is blocked to prevent abuse on your site).</p>
-<p>The side-effect of this is that if you choose to use media types that are not already listed in the *permitted* list, then your visitors will not be able to see those resources. </p>
-<p>Thus, if you are using product images that are not in the list of permitted types in your /images/.htaccess, you will need to add those types to the list.</p>
-<p>Similarly, if you are using certain media types in music product previews, you will need to make sure those are in your /media/.htaccess </p>
-<p>And, if you are using filetypes for downloadable products that are not already listed in your /pub/.htaccess and /download/.htaccess you will need to add those as well.</p>
-
-
+<h1>CHANGELOG - 変更されたファイル一覧</h1>
+<p>v1.3.9hから変更されたファイル一覧はこちら。：<a href="changed_files-v1-5-0.html" target="_blank">changed_files-v1-5-0.html</a> </p>
+<h1>v1.3.9からのアップグレードガイド</h1>
+<h2>アップグレード方法</h2>
+<p>Zen Cart&reg; フォルダー内の/docs/フォルダーにあるドキュメント&quot;<a href="2.readme_how_to_upgrade.html">how to upgrade</a>&quot;に従ってください。</p>
+<h2>アドオンや修正したコードをアップグレードする</h2>
+<p>以前のバージョンのZen Cartに対して行ったコードの修正や追加したアドオンをアップグレードするには、このチュートリアルが役立つでしょう。：<a href="http://tutorials.zen-cart.com/index.php?article=410" target="_blank">Upgrading addons for compatibility with v1.5.x</a></p>
+<h2>UTF-8かiso-8859-1か</h2>
+<p>開設済みのサイトをiso-8859-1からUTF-8にアップグレードするには、このガイダンスを。：<a href="http://tutorials.zen-cart.com/index.php?article=414">Upgrading old sites from iso-8859-1 to utf8</a> </p>
+<h1>重要：サーバー設定の要件</h1>
+<p>セキュリティのため、Zen Cart&reg;にはすでにいくつかの.htaccessファイルが含まれており、不正な侵入から保護し、不幸にもサイトがハックされた場合、フィッシングなどに悪用されることを防ぎます。</p>
+<p>しかし、このような保護を有効にするためには、使用するホスティングサーバーのApache設定（マスターのhttpd.confファイル）において、AllowOverrideディレクティブが"All"になっているか、少なくとも'Limit Indexes'パラメーターを含んでいる必要があります。
+<br>
+<pre>例： &nbsp;&nbsp;&nbsp;&nbsp;AllowOverride All<br>
+または： &nbsp;&nbsp;&nbsp;AllowOverride Limit Indexes&nbsp;&nbsp;&nbsp;&nbsp;</pre><br>
+(注意：.htaccessファイル内のOPTIONSディレクティブに記述していない場合は、"Options"を加える必要があります)<br><br>
+この設定を行わずに、zc_installインストーラーなどサイト内のファイルにアクセスしようとすると"<strong>500 Internal Server Error</strong>"に遭遇することがあります。</p>
+<p>ApacheでなくIISを使うWindowsサーバーの場合は、あらかじめ設定してある.htaccessを取り除き、IISにおいて同様の対策となる設定を行ってください。</p>
+<h1>.htaccessファイルについての追記</h1>
+<p>いくつかのフォルダー内にある.htaccessファイルでは、アクセスを許可する（permitted）ファイルタイプを記述してあります（それ以外はサイトへの攻撃を防ぐためブロックされます）。</p>
+<p>この設定により、許可リストに入っていないメディアタイプをサイトに用いると、サイトの訪問者はそれらを見ることができません。</p>
+<p>これを避けるために、たとえば/images/.htaccessに許可されていないファイルタイプの商品画像がある場合には、ファイルを編集して追加してください。</p>
+<p>同様に、音楽商品のプレビューに/media/.htaccessにあらかじめ記述されていないメディアタイプを使う場合には、許可リストに追加してください。</p>
+<p>また、ダウンロード商品においても、許可リストに記述されていないファイルタイプを使う場合には、/pub/.htaccessと/download/.htaccessに追加する必要があります。
+</p>
 </fieldset>
-<br><br>
-<p class="center"><em>Copyright 2003 - 2011 Zen Ventures, LLC &mdash; Zen Cart&reg; www.zen-cart.com</em></p>
-<br><br>
+<p class="center">Copyright 2003 - 2011 Zen Ventures, LLC &mdash; Zen Cart&reg; <a href="http://www.zen-cart.com/">www.zen-cart.com</a> （翻訳 <a href="http://zen-cart.jp/">www.zen-cart.jp</a>）</p>
 </body>
 </html>
