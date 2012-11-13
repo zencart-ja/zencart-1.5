@@ -1,29 +1,19 @@
-Zen Cart(R) - The Art of E-Commerce
-
-Welcome to Zen Cart(R) E-Commerce
-
-THE FOLLOWING IS A VERY SIMPLIFIED INSTALLATION DOCUMENT.
-WE SUGGEST YOU USE THE HTML VERSIONS IN THE /docs FOLDER FOR MORE DETAILED INSTRUCTIONS.
-
-THE README DOCUMENTS ARE IN THE /docs FOLDER OF THIS DISTRIBUTION.
+Zen Cart(R) E-Commerceへようこそ
 
 
-You can find online documentation at: http://tutorials.zen-cart.com
+インストール方法をごく簡単に説明します。
 
+さらに詳しい説明については、/docs/フォルダー内のHTML版ドキュメント（1.readme_installation.html）をお読みください。また、READMEドキュメントは/docs/フォルダーに同梱されています。
 
-Zen Cart has a built-in automatic installation system. However to use this you must first unpack and upload the code to a compatible web server:
+オンラインのチュートリアルやFAQはこちらのURLから（英語版）： http://tutorials.zen-cart.com/
 
-1. Extract the Zen Cart ZIP file (and tell the unzip utility to *retain* folder structures)
-2. Upload the Zen Cart files and folders to your server using your FTP program
-3. You must make some folders writable. The details are in the HTML-formatted documentation in the /docs/ folder
-4. In your browser enter the URL to your website where you uploaded the files, specifically to the /zc_install/index.php file.
-5. Follow the instructions. You must create your MySQL database credentials before installation, and provide those details when prompted.
+Zen Cartは自動インストールシステムを持っています。そしてこの仕組みを使うためには、ファイルを解凍し、Zen Cartの動作要件を満たすサーバーにアップロードする必要があります。
 
-For more detailed installation instructions, please see the /docs/1.readme_installation.html document in this distribution.
-
-
-
-
+1. Zen CartのZIPファイルを解凍する（解凍時にフォルダー構造を壊さないように注意）
+2. FTPを使ってZen Cartのファイルとフォルダーをサーバーにアップロードする
+3. いくつかのフォルダーを書き込み可能にする。詳細については、/docs/フォルダーのHTML版ドキュメントを参照してください
+4. ブラウザーで、あなたのサーバー上にZen CartのファイルとフォルダーをアップロードしたURLを打ち込み、"/zc_install/index.php"を付ける
+5. 表示される画面の指示に従って作業を進める。このインストールの前にMySQLデータベースの接続情報を作成しておき、必要な画面で入力してください
 
 
 (Document Revision: $Id: install.txt 19798 2011-10-12 05:52:54Z drbyte $)
