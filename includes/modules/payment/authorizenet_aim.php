@@ -3,10 +3,10 @@
  * authorize.net AIM payment method class
  *
  * @package paymentMethod
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: authorizenet_aim.php 19180 2011-07-21 15:33:19Z drbyte $
+ * @version GIT: $Id: Author: DrByte  Tue Aug 28 16:48:39 2012 -0400 Modified in v1.5.1 $
  */
 /**
  * Authorize.net Payment Module (AIM version)
@@ -100,7 +100,7 @@ class authorizenet_aim extends base {
     // Reset order status to pending if capture pending:
     if (MODULE_PAYMENT_AUTHORIZENET_AIM_AUTHORIZATION_TYPE == 'Authorize') $this->order_status = 1;
 
-    $this->_logDir = DIR_FS_SQL_CACHE;
+    $this->_logDir = defined('DIR_FS_LOGS') ? DIR_FS_LOGS : DIR_FS_SQL_CACHE;
 
     if (is_object($order)) $this->update_status();
 
@@ -114,7 +114,7 @@ class authorizenet_aim extends base {
   function update_status() {
     global $order, $db;
     // if store is not running in SSL, cannot offer credit card module, for PCI reasons
-    if (!defined('ENABLE_SSL') || ENABLE_SSL != 'true') $this->enabled = FALSE;
+    if (MODULE_PAYMENT_AUTHORIZENET_AIM_TESTMODE != 'Test' && (!defined('ENABLE_SSL') || ENABLE_SSL != 'true')) $this->enabled = FALSE;
     // check other reasons for the module to be deactivated:
     if ( ($this->enabled == true) && ((int)MODULE_PAYMENT_AUTHORIZENET_AIM_ZONE > 0) ) {
       $check_flag = false;

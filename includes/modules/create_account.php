@@ -3,11 +3,10 @@
  * create_account header_php.php
  *
  * @package modules
- * @copyright Copyright 2003-2010 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: create_account.php 17018 2010-07-27 07:25:41Z drbyte $
- * @author obitastar
+ * @version GIT: $Id: Author: DrByte  Sat Jul 21 16:05:31 2012 -0400 Modified in v1.5.1 $
  */
 // This should be first line of the script:
 $zco_notifier->notify('NOTIFY_MODULE_START_CREATE_ACCOUNT');
@@ -33,6 +32,8 @@ if (!defined('IS_ADMIN_FLAG')) {
  */
 if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
   $process = true;
+  $antiSpam = isset($_POST['should_be_empty']) ? zen_db_prepare_input($_POST['should_be_empty']) : '';
+  $zco_notifier->notify('NOTIFY_CREATE_ACCOUNT_CAPTCHA_CHECK');
 
   if (ACCOUNT_GENDER == 'true') {
     if (isset($_POST['gender'])) {
@@ -162,7 +163,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
     }
   }
 
-  if ($phpBB->phpBB['installed'] == true) {
+  if ($phpBB && $phpBB->phpBB['installed'] == true) {
     if (strlen($nick) < ENTRY_NICK_MIN_LENGTH)  {
       $error = true;
       $messageStack->add('create_account', ENTRY_NICK_LENGTH_ERROR);
@@ -271,6 +272,10 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
   if ($error == true) {
     // hook notifier class
     $zco_notifier->notify('NOTIFY_FAILURE_DURING_CREATE_ACCOUNT');
+  } elseif ($antiSpam != '') {
+    $zco_notifier->notify('NOTIFY_SPAM_DETECTED_DURING_CREATE_ACCOUNT');
+    $messageStack->add_session('header', (defined('ERROR_CREATE_ACCOUNT_SPAM_DETECTED') ? ERROR_CREATE_ACCOUNT_SPAM_DETECTED : 'Thank you, your account request has been submitted for review.'), 'success');
+    zen_redirect(zen_href_link(FILENAME_SHOPPING_CART));
   } else {
     // ->furikana
     if (FURIKANA_NESESSARY) {

@@ -2,10 +2,10 @@
 /**
  * @package Installer
  * @access private
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: header_php.php 19537 2011-09-20 17:14:44Z drbyte $
+ * @version GIT: $Id: Author: Ian Wilson  Tue Aug 14 14:56:11 2012 +0100 Modified in v1.5.1 $
  */
 
 $write_config_files_only = ((isset($_POST['submit']) && $_POST['submit']==ONLY_UPDATE_CONFIG_FILES) || (isset($_POST['configfile']) && zen_not_null($_POST['configfile'])) || (isset($_GET['configfile']) && zen_not_null($_GET['configfile'])) || ZC_UPG_DEBUG3 != false) ? true : false;
@@ -81,7 +81,7 @@ $is_upgrade = (int)$zc_install->getConfigKey('is_upgrade');
   } else { // set defaults:
     $zdb_type       = 'MySQL';
     $zdb_coll       = 'utf8';
-    $zdb_prefix     = 'zenc_';
+    $zdb_prefix     = '';
     $zdb_server     = 'localhost';
     $zdb_user       = '';
     $zdb_name       = 'zencart';
@@ -101,6 +101,17 @@ $is_upgrade = (int)$zc_install->getConfigKey('is_upgrade');
   if (!isset($_POST['db_coll']))     $_POST['db_coll']    = $zdb_coll;
   if (!isset($_POST['cache_type']))  $_POST['cache_type'] = $zdb_cache_type;
 
+  // quick sanitization
+  foreach($_POST as $key=>$val) {
+    if(is_array($val)){
+      foreach($val as $key2 => $val2){
+        $_POST[$key][$key2] = htmlspecialchars($val2, ENT_COMPAT, CHARSET, TRUE);
+      }
+    } else {
+      $_POST[$key] = htmlspecialchars($val, ENT_COMPAT, CHARSET, TRUE);
+    }
+  }
+
   setInputValue($_POST['db_host'],    'DATABASE_HOST_VALUE', $zdb_server);
   setInputValue($_POST['db_username'],'DATABASE_USERNAME_VALUE', $zdb_user);
   setInputValue($_POST['db_name'],    'DATABASE_NAME_VALUE', $zdb_name);
@@ -108,4 +119,3 @@ $is_upgrade = (int)$zc_install->getConfigKey('is_upgrade');
   setInputValue($_POST['db_prefix'],  'DATABASE_NAME_PREFIX', $zdb_prefix );
 
   $zc_first_field= 'onload="document.getElementById(\'db_username\').focus()"';
-

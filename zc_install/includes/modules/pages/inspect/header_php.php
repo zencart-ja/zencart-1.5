@@ -2,10 +2,10 @@
 /**
  * @package Installer
  * @access private
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: header_php.php 19328 2011-08-06 22:53:47Z drbyte $
+ * @version GIT: $Id: Author: DrByte  Fri Sep 7 13:41:39 2012 -0400 Modified in v1.5.1 $
  *
  * @TODO - http://dev.mysql.com/doc/refman/5.0/en/user-resources.html
  */
@@ -376,8 +376,8 @@ if (version_compare(PHP_VERSION, 5.4, '<')) {
   $status_check2[] = array('Importance' => 'Optional', 'Title' => LABEL_GZIP, 'Status' => $php_buffer, 'Class' => ($php_buffer==ON)?'OK':'WARN', 'HelpURL' =>'', 'HelpLabel'=>'');
 
   //Check PostgreSQL availability
-  $pg_support = (function_exists( 'pg_connect' )) ? ON : OFF;
-  // turn off display of Postgres status until we support it again
+// turn off display of Postgres status until we support it again
+  // $pg_support = (function_exists( 'pg_connect' )) ? ON : OFF;
   //$status_check2[] = array('Importance' => 'Optional', 'Title' => LABEL_POSTGRES_AVAILABLE, 'Status' => $pg_support, 'Class' => ($pg_support==ON) ? 'OK' : 'WARN', 'HelpURL' =>ERROR_CODE_DB_NOTSUPPORTED, 'HelpLabel'=>ERROR_TEXT_DB_NOTSUPPORTED);
 
 
@@ -471,6 +471,7 @@ if (version_compare(PHP_VERSION, 5.4, '<')) {
   foreach (array('cache'=>'777 read/write/execute',
                  'images'=>'777 read/write/execute (INCLUDE SUBDIRECTORIES TOO)',
                  'includes/languages/english/html_includes'=>'777 read/write (INCLUDE SUBDIRECTORIES TOO)',
+                 'logs'=>'777 read/write/execute',
                  'media'=>'777 read/write/execute',
                  'pub'=>'777 read/write/execute',
                  'admin/backups'=>'777 read/write',

@@ -1,10 +1,10 @@
 <?php
 /**
  * @package admin
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: configuration.php 19366 2011-08-28 20:21:09Z wilt $
+ * @version GIT: $Id: Author: Ian Wilson  Thu Aug 16 12:36:12 2012 +0100 Modified in v1.5.1 $
  */
 
 
@@ -159,7 +159,7 @@ if ($gID == 7) {
     }
 ?>
                 <td class="dataTableContent"><?php echo $configuration->fields['configuration_title']; ?></td>
-                <td class="dataTableContent"><?php echo htmlspecialchars($cfgValue); ?></td>
+                <td class="dataTableContent"><?php echo htmlspecialchars($cfgValue, ENT_COMPAT, CHARSET, TRUE); ?></td>
                 <td class="dataTableContent" align="right"><?php if ( (isset($cInfo) && is_object($cInfo)) && ($configuration->fields['configuration_id'] == $cInfo->configuration_id) ) { echo zen_image(DIR_WS_IMAGES . 'icon_arrow_right.gif', ''); } else { echo '<a href="' . zen_href_link(FILENAME_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' . $configuration->fields['configuration_id']) . '" name="link_' . $configuration->fields['configuration_key'] . '">' . zen_image(DIR_WS_IMAGES . 'icon_info.gif', IMAGE_ICON_INFO) . '</a>'; } ?>&nbsp;</td>
               </tr>
 <?php

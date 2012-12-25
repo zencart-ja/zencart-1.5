@@ -3,10 +3,10 @@
  * general functions used by the installer
  * @package Installer
  * @access private
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: general.php 19328 2011-08-06 22:53:47Z drbyte $
+ * @version GIT: $Id: Author: Ian Wilson  Tue Aug 14 14:56:11 2012 +0100 Modified in v1.5.1 $
  */
 
   if (!defined('TABLE_UPGRADE_EXCEPTIONS')) define('TABLE_UPGRADE_EXCEPTIONS','upgrade_exceptions');
@@ -29,7 +29,7 @@
 
   function zen_output_string($string, $translate = false, $protected = false) {
     if ($protected == true) {
-      return htmlspecialchars($string);
+      return htmlspecialchars($string, ENT_COMPAT, CHARSET, TRUE);
     } else {
       if ($translate == false) {
         return zen_parse_input_field_data($string, array('"' => '&quot;'));
@@ -101,16 +101,6 @@ function executeSql($sql_file, $database, $table_prefix = '', $isupgrade=false) 
   $newline = '';
   $lines_to_keep_together_counter=0;
 //  $saveline = '';
-	$mysql_version = (function_exists('mysql_get_server_info')) ? @mysql_get_server_info() : '';
-	if(version_compare($mysql_version,'4.1.0', '>='))
-	{
-		$sql = "SHOW global variables LIKE '%have_innodb%'";
-		$rs = mysql_query($sql);
-		$variables = mysql_fetch_assoc($rs);
-		$engine = $variables['Value']==='YES' ? 'InnoDB' : 'MyISAM';
-	}
-	else $engine = 'MyISAM';
-	
   foreach ($lines as $line) {
     $line = trim($line);
 //    $line = $saveline . $line;
@@ -351,15 +341,6 @@ function executeSql($sql_file, $database, $table_prefix = '', $isupgrade=false) 
         if ($complete_line) {
           if ($debug==true) echo ((!$ignore_line) ? '<br /><strong>About to execute.</strong>': '<strong>Ignoring statement. This command WILL NOT be executed.</strong>').'<br />Debug info:<br />$ line='.$line.'<br />$ complete_line='.$complete_line.'<br>$ keep_together='.$keep_together.'<br />SQL='.$newline.'<br /><br />';
           if (get_magic_quotes_runtime() > 0) $newline=stripslashes($newline);
-          if(substr($newline, 0, 13) == 'CREATE TABLE ')
-          {
-				$mysql_version = mysql_get_server_info();
-				if(version_compare($mysql_version,'4.1.0', '>='))
-				{
-					$char_collate = 'DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci';
-					$newline = str_replace('ENGINE=MyISAM', "ENGINE={$engine} {$char_collate}", $newline);
-				}
-          }
           $output = (trim(str_replace(';','',$newline)) != '' && !$ignore_line) ? $db->Execute($newline) : '';
           $results++;
           $string .= $newline.'<br />';
@@ -521,7 +502,7 @@ function executeSql($sql_file, $database, $table_prefix = '', $isupgrade=false) 
 
 //    if (!$onlyMainFile && $za_dir = @dir('../includes/' . 'extra_configures')) {
 //      while ($zv_file = $za_dir->read()) {
-//        if (preg_match('/\.php$/', $zv_file) > 0) {
+//        if (preg_match('~^[^\._].*\.php$~i', $zv_file) > 0) {
 //          //echo $zv_file.'<br>';
 //          $files_array[] = $zv_file;
 //        }
@@ -874,8 +855,11 @@ function executeSql($sql_file, $database, $table_prefix = '', $isupgrade=false) 
   function zen_write_to_upgrade_exceptions_table($line, $reason, $sql_file) {
     global $db;
     zen_create_exceptions_table();
-    $sql="INSERT INTO " . DB_PREFIX . TABLE_UPGRADE_EXCEPTIONS . " VALUES (0,'". $sql_file."','".$reason."', now(), '".addslashes($line)."')";
-     if (ZC_UPG_DEBUG3==true) echo '<br />sql='.$sql.'<br />';
+    $sql="INSERT INTO " . DB_PREFIX . TABLE_UPGRADE_EXCEPTIONS . " VALUES (0,:file:, :reason:, now(), :line:)";
+    $sql = $db->bindVars($sql, ':file:', $sql_file, 'string');
+    $sql = $db->bindVars($sql, ':reason:', $reason, 'string');
+    $sql = $db->bindVars($sql, ':line:', $line, 'string');
+    if (ZC_UPG_DEBUG3==true) echo '<br />sql='.$sql.'<br />';
     $result = $db->Execute($sql);
     return $result;
   }

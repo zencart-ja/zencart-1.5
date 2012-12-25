@@ -1,10 +1,10 @@
 <?php
 /**
  * @package admin
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: english.php 19537 2011-09-20 17:14:44Z drbyte $
+ * @version GIT: $Id: Author: DrByte  Wed Sep 5 10:59:13 2012 -0400 Modified in v1.5.1 $
  */
 if (!defined('IS_ADMIN_FLAG'))
 {
@@ -239,7 +239,7 @@ define('JS_EMAIL_ADDRESS', '* The \'E-Mail Address\' entry must have at least ' 
 define('JS_ADDRESS', '* The \'Street Address\' entry must have at least ' . ENTRY_STREET_ADDRESS_MIN_LENGTH . ' characters.\n');
 define('JS_POST_CODE', '* The \'Post Code\' entry must have at least ' . ENTRY_POSTCODE_MIN_LENGTH . ' characters.\n');
 define('JS_CITY', '* The \'City\' entry must have at least ' . ENTRY_CITY_MIN_LENGTH . ' characters.\n');
-define('JS_STATE', '* The \'State\' entry is must be selected.\n');
+define('JS_STATE', '* The \'State\' entry must be selected.\n');
 define('JS_STATE_SELECT', '-- Select Above --');
 define('JS_ZONE', '* The \'State\' entry must be selected from the list for this country.');
 define('JS_COUNTRY', '* The \'Country\' value must be chosen.\n');
@@ -291,7 +291,7 @@ define('ENTRY_NEWSLETTER_ERROR', '');
 
 define('ERROR_PASSWORDS_NOT_MATCHING', 'Password and confirmation must match');
 define('ENTRY_PASSWORD_CHANGE_ERROR', '<strong>Sorry, your new password was rejected.</strong><br />');
-define('ERROR_PASSWORD_RULES', 'Passwords must contain both letters and numbers, must be at least %s characters long, and must not be the same as the last 4 passwords used. Passwords expire every 90 days.');
+define('ERROR_PASSWORD_RULES', 'Passwords must contain both letters and numbers, must be at least %s characters long, and must not be the same as the last 4 passwords used. Passwords expire every 90 days, after which you will be prompted to choose a new password.');
 define('ERROR_TOKEN_EXPIRED_PLEASE_RESUBMIT', 'ERROR: Sorry, there was an error processing your data. Please re-submit the information again.');
 
 // images
@@ -443,7 +443,7 @@ define('ERROR_FILETYPE_NOT_ALLOWED', 'Error: File upload type not allowed  %s');
 define('SUCCESS_FILE_SAVED_SUCCESSFULLY', 'Success: File upload saved successfully %s');
 define('WARNING_NO_FILE_UPLOADED', 'Warning: No file uploaded.');
 define('WARNING_FILE_UPLOADS_DISABLED', 'Warning: File uploads are disabled in the php.ini configuration file.');
-define('ERROR_ADMIN_SECURITY_WARNING', 'Warning: Your Admin login is not secure ... either you still have default login settings for: Admin admin or have not removed or changed: demo demoonly<br />The login(s) should be changed as soon as possible for the Security of your Shop<br />Go to Tools->Admin Settings to change login IDs and passwords.<br />For additional Security for the Admin please see the /docs');
+define('ERROR_ADMIN_SECURITY_WARNING', 'Warning: Your Admin login is not secure ... either you still have default login settings for: Admin admin or have not removed or changed: demo demoonly<br />The login(s) should be changed as soon as possible for the Security of your shop.');
 define('WARNING_DATABASE_VERSION_OUT_OF_DATE','Your database appears to need patching to a higher level. See Tools->Server Information to review patch levels.');
 define('WARN_DATABASE_VERSION_PROBLEM','true'); //set to false to turn off warnings about database version mismatches
 define('WARNING_ADMIN_DOWN_FOR_MAINTENANCE', '<strong>WARNING:</strong> Site is currently set to Down for Maintenance ...<br />NOTE: You cannot test most Payment and Shipping Modules in Maintenance mode');
@@ -718,6 +718,7 @@ define('TEXT_HIDE', 'Hide');
 define('TEXT_EMAIL', 'Email');
 define('TEXT_NOEMAIL', 'No Email');
 
+define('BOX_HEADING_PRODUCT_TYPES', 'Product Types');
 
 ///////////////////////////////////////////////////////////
 // include additional files:

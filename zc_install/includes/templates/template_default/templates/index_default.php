@@ -6,7 +6,6 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: index_default.php 7414 2007-11-11 06:18:50Z drbyte $
- * @author obitastar
  */
 
   if ($zc_install->error) include(DIR_WS_INSTALL_TEMPLATE . 'templates/display_errors.php');

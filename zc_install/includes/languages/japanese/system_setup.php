@@ -28,6 +28,5 @@
   define('ENABLE_SSL', 'ショップでSSLを有効にする');
   define('ENABLE_SSL_INSTRUCTION', 'SSLの動作を確認していない場合は「いいえ」にしておいてください。<br />');
   define('ENABLE_SSL_ADMIN', '管理画面でSSLを有効にする');
-  define('ENABLE_SSL_ADMIN_INSTRUCTION', 'SSLの動作を確認していない場合は「いいえ」にしておいてください。<br />
-');
+  define('ENABLE_SSL_ADMIN_INSTRUCTION', 'SSLの動作を確認していない場合は「いいえ」にしておいてください。<br />');
   define('REDISCOVER', 'Redetect defaults for this host');

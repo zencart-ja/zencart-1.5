@@ -1,10 +1,10 @@
 <?php
 /**
  * @package admin
- * @copyright Copyright 2003-2009 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: attributes_preview.php 14139 2009-08-10 13:46:02Z wilt $
+ * @version GIT: $Id: Author: Ian Wilson  Tue Aug 14 14:56:11 2012 +0100 Modified in v1.5.1 $
  */
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
@@ -419,7 +419,7 @@ if (!defined('IS_ADMIN_FLAG')) {
 
             } else {
               $tmp_value = $_SESSION['cart']->contents[$_GET['products_id']]['attributes_values'][$products_options_names->fields['products_options_id']];
-              $tmp_html = '<input type="text" name ="id[' . TEXT_PREFIX . $products_options_names->fields['products_options_id'] . ']" size="' . $products_options_names->fields['products_options_size'] .'" maxlength="' . $products_options_names->fields['products_options_length'] . '" value="' . htmlspecialchars($tmp_value) .'" />  ';
+              $tmp_html = '<input type="text" name ="id[' . TEXT_PREFIX . $products_options_names->fields['products_options_id'] . ']" size="' . $products_options_names->fields['products_options_size'] .'" maxlength="' . $products_options_names->fields['products_options_length'] . '" value="' . htmlspecialchars($tmp_value, ENT_COMPAT, CHARSET, TRUE) .'" />  ';
               $tmp_html .= $products_options_details;
               $tmp_word_cnt_string = '';
 // calculate word charges

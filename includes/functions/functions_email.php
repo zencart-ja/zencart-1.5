@@ -105,13 +105,13 @@
       if ($email_text == '') {
         $email_text = str_replace(array('<br>','<br />'), "<br />\n", $block['EMAIL_MESSAGE_HTML']);
         $email_text = str_replace('</p>', "</p>\n", $email_text);
-        $email_text = ($module != 'xml_record') ? htmlspecialchars(stripslashes(strip_tags($email_text))) : $email_text;
+        $email_text = ($module != 'xml_record') ? htmlspecialchars(stripslashes(strip_tags($email_text)), ENT_COMPAT, CHARSET, TRUE) : $email_text;
       } else {
         $email_text = ($module != 'xml_record') ? strip_tags($email_text) : $email_text;
       }
 
       if ($module != 'xml_record') {
-        if (!strstr($email_text, sprintf(EMAIL_DISCLAIMER, STORE_OWNER_EMAIL_ADDRESS)) && $to_email_address != STORE_OWNER_EMAIL_ADDRESS && !defined('EMAIL_DISCLAIMER_NEW_CUSTOMER')) $email_text .= "\n" . sprintf(EMAIL_DISCLAIMER, STORE_OWNER_EMAIL_ADDRESS);
+        if (defined('EMAIL_DISCLAIMER') && EMAIL_DISCLAIMER != '' && !strstr($email_text, sprintf(EMAIL_DISCLAIMER, STORE_OWNER_EMAIL_ADDRESS)) && $to_email_address != STORE_OWNER_EMAIL_ADDRESS && !defined('EMAIL_DISCLAIMER_NEW_CUSTOMER')) $email_text .= "\n" . sprintf(EMAIL_DISCLAIMER, STORE_OWNER_EMAIL_ADDRESS);
         if (defined('EMAIL_SPAM_DISCLAIMER') && EMAIL_SPAM_DISCLAIMER != '' && !strstr($email_text, EMAIL_SPAM_DISCLAIMER) && $to_email_address != STORE_OWNER_EMAIL_ADDRESS) $email_text .= "\n\n" . EMAIL_SPAM_DISCLAIMER;
       }
 
@@ -232,7 +232,7 @@
       $email_reply_to_address = (isset($email_reply_to_address) && $email_reply_to_address != '') ? $email_reply_to_address : (in_array($module, array('contact_us',  'tell_a_friend')) ? $from_email_address : EMAIL_FROM);
       $email_reply_to_name    = (isset($email_reply_to_name) && $email_reply_to_name != '')    ? $email_reply_to_name    : (in_array($module, array('contact_us',  'tell_a_friend')) ? $from_email_name    : STORE_NAME);      
       if(defined('EMAIL_CHARSET')){      	
-      	$email_reply_to_name = mb_encode_mimeheader($email_reply_to_name,EMAIL_CHARSET,"B") ;
+      	$email_reply_to_name = mb_encode_mimeheader($email_reply_to_name,EMAIL_CHARSET,"B",$mail->LE) ;
       }
       $mail->AddReplyTo($email_reply_to_address, $email_reply_to_name);
       
@@ -287,8 +287,8 @@
       $zco_notifier->notify('NOTIFY_EMAIL_AFTER_PROCESS_ATTACHMENTS', sizeof($attachments_list));
 	
       if(defined('EMAIL_CHARSET')){      	
-	$mail->FromName = mb_encode_mimeheader($mail->FromName,EMAIL_CHARSET,"B") ;
-	$mail->Subject = mb_encode_mimeheader($mail->Subject,EMAIL_CHARSET,"B") ;
+	$mail->FromName = mb_encode_mimeheader($mail->FromName,EMAIL_CHARSET,"B",$mail->LE) ;
+	$mail->Subject = mb_encode_mimeheader($mail->Subject,EMAIL_CHARSET,"B",$mail->LE ) ;
 	$mail->CharSet = EMAIL_CHARSET;	      	
 	$email_html  = mb_convert_encoding($email_html,EMAIL_CHARSET,"auto");
 	$text  = mb_convert_encoding($text,EMAIL_CHARSET,"auto");

@@ -1,10 +1,10 @@
 <?php
 /**
  * @package admin
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: init_errors.php 18698 2011-05-04 14:50:06Z wilt $
+ * @version GIT: $Id: Author: Ian Wilson  Sun Jul 22 20:06:40 2012 +0100 Modified in v1.5.1 $
  */
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
@@ -43,7 +43,7 @@ if (!defined('IS_ADMIN_FLAG')) {
   }
 
 // include the password crypto functions
-  require(DIR_WS_FUNCTIONS . 'password_funcs.php');
+  require(DIR_FS_CATALOG . DIR_WS_FUNCTIONS . 'password_funcs.php');
 
 // default admin settings
   $admin_security = false;

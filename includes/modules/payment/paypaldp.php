@@ -1,13 +1,13 @@
 <?php
 /**
- * paypaldp.php payment module class for Paypal Website Payments Pro
+ * paypaldp.php payment module class for Paypal Payments Pro (aka Website Payments Pro)
  *
  * @package paymentMethod
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2005 CardinalCommerce
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: paypaldp.php 19782 2011-10-11 17:54:15Z drbyte $
+ * @version GIT: $Id: Author: DrByte  Tue Aug 28 14:21:34 2012 -0400 Modified in v1.5.1 $
  */
 /**
  * The transaction URL for the Cardinal Centinel 3D-Secure service.
@@ -23,7 +23,7 @@ if (!defined('MODULE_PAYMENT_CARDINAL_CENTINEL_DEBUGGING')) define('MODULE_PAYME
  */
 require_once(DIR_FS_CATALOG . DIR_WS_MODULES . 'payment/paypal/paypal_curl.php');
 /**
- * the PayPal payment module for Website Payments Pro (Direct Payment API)
+ * the PayPal payment module for PayPal Payments Pro (Direct Payment API)
  */
 class paypaldp extends base {
   /**
@@ -128,13 +128,15 @@ class paypaldp extends base {
     global $order;
     $this->code = 'paypaldp';
     $this->codeTitle = MODULE_PAYMENT_PAYPALDP_TEXT_ADMIN_TITLE_WPP;
-    $this->codeVersion = '1.5.0';
+    $this->codeVersion = '1.5.1';
     $this->enableDirectPayment = true;
     $this->enabled = (MODULE_PAYMENT_PAYPALDP_STATUS == 'True');
     // Set the title & description text based on the mode we're in
     if (IS_ADMIN_FLAG === true) {
       $this->description = sprintf(MODULE_PAYMENT_PAYPALDP_TEXT_ADMIN_DESCRIPTION, ' (rev' . $this->codeVersion . ')');
-      $this->title = MODULE_PAYMENT_PAYPALDP_TEXT_ADMIN_TITLE_WPP . (defined('MODULE_PAYMENT_PAYPALDP_MERCHANT_COUNTRY') ? ' (' . MODULE_PAYMENT_PAYPALDP_MERCHANT_COUNTRY . ')' : '');
+      $country = (defined('MODULE_PAYMENT_PAYPALDP_MERCHANT_COUNTRY')) ? MODULE_PAYMENT_PAYPALDP_MERCHANT_COUNTRY : STORE_COUNTRY;
+      $this->title = $country == '223' || $country == 'USA' ? MODULE_PAYMENT_PAYPALDP_TEXT_ADMIN_TITLE_WPP : MODULE_PAYMENT_PAYPALDP_TEXT_ADMIN_TITLE_NONUSA;
+      $this->title .= (defined('MODULE_PAYMENT_PAYPALDP_MERCHANT_COUNTRY') ? ' (' . MODULE_PAYMENT_PAYPALDP_MERCHANT_COUNTRY . ')' : '');
       if ($this->enabled) {
         if ( ((MODULE_PAYMENT_PAYPALDP_MERCHANT_COUNTRY == 'US' || MODULE_PAYMENT_PAYPALDP_MERCHANT_COUNTRY == 'Canada') && (MODULE_PAYMENT_PAYPALWPP_APISIGNATURE == '' || MODULE_PAYMENT_PAYPALWPP_APIUSERNAME == '' || MODULE_PAYMENT_PAYPALWPP_APIPASSWORD == ''))
               || (!defined('MODULE_PAYMENT_PAYPALWPP_STATUS') || MODULE_PAYMENT_PAYPALWPP_STATUS != 'True')
@@ -1036,7 +1038,7 @@ class paypaldp extends base {
     }
     // cannot install DP if EC not already enabled:
     if (!defined('MODULE_PAYMENT_PAYPALWPP_STATUS') || MODULE_PAYMENT_PAYPALWPP_STATUS != 'True') {
-      $messageStack->add_session('<strong>Sorry, you must install and configure PayPal Express Checkout first.</strong> Website Payments Pro requires that you offer Express Checkout to your customers.<br /><a href="' . zen_href_link('modules.php?set=payment&module=paypalwpp', '', 'NONSSL') . '">Click here to set up Express Checkout.</a>' , 'error');
+      $messageStack->add_session('<strong>Sorry, you must install and configure PayPal Express Checkout first.</strong> PayPal Website Payments Pro requires that you offer Express Checkout to your customers.<br /><a href="' . zen_href_link('modules.php?set=payment&module=paypalwpp', '', 'NONSSL') . '">Click here to set up Express Checkout.</a>' , 'error');
       zen_redirect(zen_href_link(FILENAME_MODULES, 'set=payment&module=paypaldp', 'NONSSL'));
       return 'failed';
     }
@@ -1051,7 +1053,7 @@ class paypaldp extends base {
     $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) values ('Transaction Currency', 'MODULE_PAYMENT_PAYPALDP_CURRENCY',  'Selected Currency', 'Which currency should the order be sent to PayPal as? <br />NOTE: if an unsupported currency is sent to PayPal, it will be auto-converted to USD (or GBP if using UK account)<br /><strong>Default: Selected Currency</strong>', '6', '25', 'zen_cfg_select_option(array(\'Selected Currency\', \'Only USD\', \'Only AUD\', \'Only CAD\', \'Only EUR\', \'Only GBP\', \'Only CHF\', \'Only CZK\', \'Only DKK\', \'Only HKD\', \'Only HUF\', \'Only JPY\', \'Only NOK\', \'Only NZD\', \'Only PLN\', \'Only SEK\', \'Only SGD\'), ', now())");
     $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) values ('Fraud Mgmt Filters - FMF', 'MODULE_PAYMENT_PAYPALDP_EC_RETURN_FMF_DETAILS', 'No', 'If you have enabled FMF support in your PayPal account and wish to utilize it in your transactions, set this to yes. Otherwise, leave it at No.', '6', '25','zen_cfg_select_option(array(\'No\', \'Yes\'), ', now())");
 
-    $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) values ('Merchant Country', 'MODULE_PAYMENT_PAYPALDP_MERCHANT_COUNTRY', 'USA', 'Which country is your PayPal Account registered to? <br /><u>Choices:</u><br /><font color=green>You will need to supply <strong>API Settings</strong> in the Express Checkout module.</font><br /><strong>USA and Canada merchants</strong> need PayPal API credentials and a Website Payments Pro account.<br /><strong>UK merchants</strong> need to supply <strong>PAYFLOW settings</strong> (and have a Payflow account)', '6', '25',  'zen_cfg_select_option(array(\'USA\', \'UK\', \'Canada\'), ', now())");
+    $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) values ('Merchant Country', 'MODULE_PAYMENT_PAYPALDP_MERCHANT_COUNTRY', 'USA', 'Which country is your PayPal Account registered to? <br /><u>Choices:</u><br /><font color=green>You will need to supply <strong>API Settings</strong> in the Express Checkout module.</font><br /><strong>USA and Canada merchants</strong> need PayPal API credentials and a PayPal Payments Pro account.<br /><strong>UK merchants</strong> need to supply <strong>PAYFLOW settings</strong> (and have a Payflow account)', '6', '25',  'zen_cfg_select_option(array(\'USA\', \'UK\', \'Canada\'), ', now())");
     $db->Execute("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) values ('Debug Mode', 'MODULE_PAYMENT_PAYPALDP_DEBUGGING', 'Off', 'Would you like to enable debug mode?  A complete detailed log of failed transactions will be emailed to the store owner.', '6', '25', 'zen_cfg_select_option(array(\'Off\', \'Alerts Only\', \'Log File\', \'Log and Email\'), ', now())");
 
     // 3D-Secure
@@ -1140,7 +1142,7 @@ class paypaldp extends base {
                                         'version' => '61.0',
                                         'server' => MODULE_PAYMENT_PAYPALDP_SERVER));
       $doPayPal->_endpoints = array('live'    => 'https://api-3t.paypal.com/nvp',
-                                    'sandbox' => 'https://api.sandbox.paypal.com/nvp');
+                                    'sandbox' => 'https://api-3t.sandbox.paypal.com/nvp');
     }
 
     // set logging options
@@ -1850,7 +1852,7 @@ class paypaldp extends base {
           }
           if ($response['RESPMSG'] != '') $errorText = MODULE_PAYMENT_PAYPALDP_TEXT_DECLINED . ' ' . $errorText;
 
-          $detailedMessage = ($errorText == MODULE_PAYMENT_PAYPALDP_INVALID_RESPONSE || $errorText == MODULE_PAYMENT_PAYPALDP_TEXT_DECLINED || $this->enableDebugging || $response['CURL_ERRORS'] != '' || $this->emailAlerts) ? (isset($response['RESULT']) && $response['RESULT'] != 0 ? MODULE_PAYMENT_PAYPALDP_CANNOT_BE_COMPLETED . ' (' . $errorNum . ')' : $errorNum) . ' ' . urldecode(' ' . $response['L_SHORTMESSAGE0'] . ' - ' . $response['L_LONGMESSAGE0'] . ' ' . $response['CURL_ERRORS']) : '';
+          $detailedMessage = ($errorText == MODULE_PAYMENT_PAYPALDP_INVALID_RESPONSE || $errorText == MODULE_PAYMENT_PAYPALDP_TEXT_DECLINED || (int)trim($errorNum) > 0 || $this->enableDebugging || $response['CURL_ERRORS'] != '' || $this->emailAlerts) ? (isset($response['RESULT']) && $response['RESULT'] != 0 ? MODULE_PAYMENT_PAYPALDP_CANNOT_BE_COMPLETED . ' (' . $errorNum . ')' : $errorNum) . ' ' . urldecode(' ' . $response['L_SHORTMESSAGE0'] . ' - ' . $response['L_LONGMESSAGE0'] . ' ' . $response['CURL_ERRORS']) : '';
           $explain = "\n\nProblem occurred while customer #" . $_SESSION['customer_id'] . ' -- ' . $_SESSION['customer_first_name'] . ' ' . $_SESSION['customer_last_name'] . ' -- was attempting checkout.' . "\n";
           $detailedEmailMessage = MODULE_PAYMENT_PAYPALDP_TEXT_EMAIL_ERROR_MESSAGE . urldecode($response['L_ERRORCODE0']  . ' ' . $response['RESPMSG']. "\n" . $response['L_SHORTMESSAGE0'] . "\n" . $response['L_LONGMESSAGE0'] . $response['L_ERRORCODE1'] . "\n" . $response['L_SHORTMESSAGE1'] . "\n" . $response['L_LONGMESSAGE1'] . $response['L_ERRORCODE2'] . "\n" . $response['L_SHORTMESSAGE2'] . "\n" . $response['L_LONGMESSAGE2'] . ($response['CURL_ERRORS'] != '' ? "\n" . $response['CURL_ERRORS'] : '') . "\n\n" . 'Zen Cart message: ' . $detailedMessage . "\n\n" . $errorInfo . "\n\n" . 'Transaction Response Details: ' . print_r($response, true) . "\n\n" . 'Transaction Submission: ' . urldecode($doPayPal->_sanitizeLog($doPayPal->_parseNameValueList($doPayPal->lastParamList), true)));
           $detailedEmailMessage .= $explain;

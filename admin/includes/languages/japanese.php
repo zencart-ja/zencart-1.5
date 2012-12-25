@@ -304,7 +304,7 @@ define('ENTRY_NEWSLETTER_ERROR', '');
 
 define('ERROR_PASSWORDS_NOT_MATCHING', 'パスワードとパスワード(確認用)は同じでなければなりません。');
 define('ENTRY_PASSWORD_CHANGE_ERROR', '<strong>新しいパスワードを設定できませんでした。</strong><br />');
-define('ERROR_PASSWORD_RULES', 'パスワードは半角英数字を混在させ、%s 文字以上でなければなりません。現在のパスワードと直近4つのパスワードは使用できません。パスワードは、90日おきに期限切れになります。');
+define('ERROR_PASSWORD_RULES', 'パスワードは半角英数字を混在させ、%s 文字以上でなければなりません。現在のパスワードと直近4つのパスワードは使用できません。パスワードは、90日おきに期限切れになり、新しいパスワードの入力を求められるようになります。');
 define('ERROR_TOKEN_EXPIRED_PLEASE_RESUBMIT', 'エラー: データの処理中にエラーがありました。 もう一度情報を再提出してください。');
 
 // images
@@ -456,7 +456,7 @@ define('ERROR_FILETYPE_NOT_ALLOWED', 'エラー: ファイルアップロード�
 define('SUCCESS_FILE_SAVED_SUCCESSFULLY', '成功: アップロードされたファイルが保存されました。%s');
 define('WARNING_NO_FILE_UPLOADED', '警告: アップロードファイルが指定されていません。');
 define('WARNING_FILE_UPLOADS_DISABLED', '警告: このPHPではファイルアップロードがサポートされていません。iniファイルを修正してください。');
-define('ERROR_ADMIN_SECURITY_WARNING', '警告: 管理人のログインが安全ではありません ... まだ初期ログインの設定がされていません。: Admin アドミンは取り外されていないか、または変更されていません。<br />できるだけ早く、Shopのセキュリティのためにログインを変えるべきです。<br />ツールに行きます->ログインIDとパスワードを変える管理人設定。<br />管理人のための追加セキュリティに関しては、/docsを参照してください。');
+define('ERROR_ADMIN_SECURITY_WARNING', '警告: 管理人のログインが安全ではありません ... まだ初期ログインの設定がされていません。: Admin アドミンは取り外されていないか、または変更されていません。<br />Shopのセキュリティのためにログインを変えてください。');
 define('WARNING_DATABASE_VERSION_OUT_OF_DATE','データベースのパッチレベルを上げる必要があります。 ツールを見てください->サーバ情報を参照のもと、パッチレベルを見直してください。');
 define('WARN_DATABASE_VERSION_PROBLEM','true'); //データベースバージョンミスマッチに関する警告をオフにする設定にします。');
 define('WARNING_ADMIN_DOWN_FOR_MAINTENANCE', '<strong>警告</strong> サイトは現在メンテナンス中のため閉鎖されています。<br />注意: メンテナンス時には、Paymentや送料のモジュールテストを行なうことはできません。');
@@ -731,6 +731,8 @@ define('TEXT_VISIBLE', 'Visible');
 define('TEXT_HIDE', 'Hide');
 define('TEXT_EMAIL', 'Email');
 define('TEXT_NOEMAIL', 'No Email');
+
+define('BOX_HEADING_PRODUCT_TYPES', '商品タイプ');
 
 // ->furikana
 define('JS_FIRST_NAME_KANA', '* 姓(ふりがな)を入力してください。' . ENTRY_FIRST_NAME_MIN_LENGTH . '文字以上\n');

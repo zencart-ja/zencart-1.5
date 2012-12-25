@@ -3,11 +3,11 @@
  * functions used by payment module class for Paypal IPN payment method
  *
  * @package paymentMethod
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @copyright Portions Copyright 2004 DevosC.com
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: paypal_functions.php 19559 2011-09-21 19:38:45Z drbyte $
+ * @version GIT: $Id: Author: DrByte  Tue Aug 28 16:48:39 2012 -0400 Modified in v1.5.1 $
  */
 
 // Functions for paypal processing
@@ -991,6 +991,7 @@
   function ipn_add_error_log($message, $paypal_instance_id = '') {
     if ($paypal_instance_id == '') $paypal_instance_id = date('mdYGi');
     $logfilename = 'includes/modules/payment/paypal/logs/ipn_' . $paypal_instance_id . '.log';
+    if (defined('DIR_FS_LOGS')) $logfilename = DIR_FS_LOGS . '/ipn_' . $paypal_instance_id . '.log';
     $fp = @fopen($logfilename, 'a');
     if ($fp) {
       fwrite($fp, date('M d Y G:i') . ' -- ' . $message . "\n\n");

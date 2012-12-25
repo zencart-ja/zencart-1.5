@@ -1,10 +1,10 @@
 <?php
 /**
  * @package admin
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: gv_mail.php 19970 2011-11-08 17:38:46Z ajeh $
+ * @version GIT: $Id: Author: Ian Wilson  Tue Aug 7 15:17:58 2012 +0100 Modified in v1.5.1 $
  */
 
   require('includes/application_top.php');
@@ -303,19 +303,19 @@ function check_form(form_name) {
                 <td><?php echo zen_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
               </tr>
               <tr>
-                <td class="smallText"><b><?php echo TEXT_FROM; ?></b><br /><?php echo htmlspecialchars(stripslashes($_POST['from'])); ?></td>
+                <td class="smallText"><b><?php echo TEXT_FROM; ?></b><br /><?php echo htmlspecialchars(stripslashes($_POST['from']), ENT_COMPAT, CHARSET, TRUE); ?></td>
               </tr>
               <tr>
                 <td><?php echo zen_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
               </tr>
               <tr>
-                <td class="smallText"><b><?php echo TEXT_SUBJECT; ?></b><br /><?php echo htmlspecialchars(stripslashes($_POST['subject'])); ?></td>
+                <td class="smallText"><b><?php echo TEXT_SUBJECT; ?></b><br /><?php echo htmlspecialchars(stripslashes($_POST['subject']), ENT_COMPAT, CHARSET, TRUE); ?></td>
               </tr>
               <tr>
                 <td><?php echo zen_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
               </tr>
               <tr>
-                <td class="smallText"><b><?php echo TEXT_AMOUNT; ?></b><br /><?php echo nl2br(htmlspecialchars(stripslashes($_POST['amount']))) . ($_POST['amount'] <= 0 ? '&nbsp<span class="alert">' . ERROR_GV_AMOUNT . '</span>' : ''); ?></td>
+                <td class="smallText"><b><?php echo TEXT_AMOUNT; ?></b><br /><?php echo nl2br(htmlspecialchars(stripslashes($_POST['amount']), ENT_COMPAT, CHARSET, TRUE)) . ($_POST['amount'] <= 0 ? '&nbsp<span class="alert">' . ERROR_GV_AMOUNT . '</span>' : ''); ?></td>
               </tr>
               <tr>
                 <td><?php echo zen_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
@@ -324,7 +324,7 @@ function check_form(form_name) {
                 <td><hr /><b><?php echo TEXT_RICH_TEXT_MESSAGE; ?></b><br /><?php echo stripslashes($_POST['message_html']); ?></td>
               </tr>
               <tr>
-                <td><hr /><b><?php echo TEXT_MESSAGE; ?></b><br /><tt><?php echo nl2br(htmlspecialchars(stripslashes($_POST['message']))); ?></tt><hr /></td>
+                <td><hr /><b><?php echo TEXT_MESSAGE; ?></b><br /><tt><?php echo nl2br(htmlspecialchars(stripslashes($_POST['message']), ENT_COMPAT, CHARSET, TRUE)); ?></tt><hr /></td>
               </tr>
               <tr>
                 <td><?php echo zen_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
@@ -336,7 +336,7 @@ function check_form(form_name) {
     reset($_POST);
     while (list($key, $value) = each($_POST)) {
       if (!is_array($_POST[$key])) {
-        echo zen_draw_hidden_field($key, htmlspecialchars(stripslashes($value)));
+        echo zen_draw_hidden_field($key, htmlspecialchars(stripslashes($value), ENT_COMPAT, CHARSET, TRUE));
       }
     }
 ?>

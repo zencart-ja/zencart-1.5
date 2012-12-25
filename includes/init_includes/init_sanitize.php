@@ -4,10 +4,10 @@
  * see {@link  http://www.zen-cart.com/wiki/index.php/Developers_API_Tutorials#InitSystem wikitutorials} for more details.
  *
  * @package initSystem
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: init_sanitize.php 18695 2011-05-04 05:24:19Z drbyte $
+ * @version GIT: $Id: Author: DrByte  Thu Aug 2 11:55:32 2012 -0400 Modified in v1.5.1 $
  * @todo move the array process to security class
  */
 
@@ -27,7 +27,7 @@
     {
       if ((! isset ( $_SESSION ['securityToken'] ) || ! isset ( $_POST ['securityToken'] )) || ($_SESSION ['securityToken'] !== $_POST ['securityToken']))
       {
-        zen_redirect ( zen_href_link ( FILENAME_PAGE_NOT_FOUND, '', $request_type ) );
+        zen_redirect ( zen_href_link ( FILENAME_TIME_OUT, '', $request_type ) );
       }
     }
   }
@@ -139,7 +139,7 @@
       $_GET['main_page'] = 'index';
     } elseif (MISSING_PAGE_CHECK == 'Page Not Found') {
       header('HTTP/1.1 404 Not Found');
-      $_GET['main_page'] = 'page_not_found';
+      $_GET['main_page'] = FILENAME_PAGE_NOT_FOUND;
     }
   }
   $current_page = $_GET['main_page'];

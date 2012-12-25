@@ -3,10 +3,10 @@
  * Page Template
  *
  * @package templateSystem
- * @copyright Copyright 2003-2006 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: tpl_product_reviews_write_default.php 4365 2006-09-03 19:16:58Z wilt $
+ * @version GIT: $Id: Author: DrByte  Sun Aug 19 09:47:29 2012 -0400 Modified in v1.5.1 $
  */
 ?>
 <div class="centerColumn" id="reviewsWrite">
@@ -64,6 +64,7 @@
 
 <label id="textAreaReviews" for="review-text"><?php echo SUB_TITLE_REVIEW; ?></label>
 <?php echo zen_draw_textarea_field('review_text', 60, 5, '', 'id="review-text"'); ?>
+<?php echo zen_draw_input_field('should_be_empty', '', ' size="60" id="RAS" style="visibility:hidden; display:none;" autocomplete="off"'); ?>
 
     <div class="buttonRow forward"><?php echo zen_image_submit(BUTTON_IMAGE_SUBMIT, BUTTON_SUBMIT_ALT); ?></div>
 <br class="clearBoth" />

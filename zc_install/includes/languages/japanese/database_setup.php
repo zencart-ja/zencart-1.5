@@ -15,9 +15,9 @@
   define('TEXT_MAIN', "データベースの設定を行います。" . SAVE_DATABASE_SETTINGS . " をクリックすると、設定が保存され、データベースへの書き込みが実行されます。");
   define('TEXT_PAGE_HEADING', 'Zen Cart設定　-　データベース設定');
   define('DATABASE_INFORMATION', 'データベース設定');
-    define('DATABASE_OPTIONAL_INFORMATION', 'データベース - オプション設定');
+  define('DATABASE_OPTIONAL_INFORMATION', 'データベース - オプション設定');
   define('DATABASE_OPTIONAL_INSTRUCTION', '特に変更する理由がなければ、そのままでも問題ありません。');
-define('DATABASE_TYPE', 'データベースタイプ');
+  define('DATABASE_TYPE', 'データベースタイプ');
   define('DATABASE_TYPE_INSTRUCTION', '使用するデータベースタイプを選択してください。');
   define('DATABASE_CHARSET', 'データベース文字セット/照合');
   define('DATABASE_CHARSET_INSTRUCTION', 'データベース照合を選んでください。');

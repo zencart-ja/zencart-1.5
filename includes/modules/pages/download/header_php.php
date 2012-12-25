@@ -3,10 +3,10 @@
  * download header_php.php
  *
  * @package page
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: header_php.php 18964 2011-06-22 19:58:38Z drbyte $
+ * @version GIT: $Id: Author: DrByte  Sun Aug 19 23:55:33 2012 -0400 Modified in v1.5.1 $
  */
 // This should be first line of the script:
 $zco_notifier->notify('NOTIFY_HEADER_START_DOWNLOAD');
@@ -29,7 +29,7 @@ if ((isset($_GET['order']) && !is_numeric($_GET['order'])) || (isset($_GET['id']
 
 // Check that order_id, customer_id and filename match
 $sql = "SELECT date_format(o.date_purchased, '%Y-%m-%d')
-          AS date_purchased_day, opd.download_maxdays, opd.download_count, opd.download_maxdays, opd.orders_products_filename
+          AS date_purchased_day, opd.download_maxdays, opd.download_count, opd.download_maxdays, opd.orders_products_filename, o.*
           FROM " . TABLE_ORDERS . " o, " . TABLE_ORDERS_PRODUCTS . " op, " . TABLE_ORDERS_PRODUCTS_DOWNLOAD . " opd
           WHERE o.customers_id = customersID
           AND o.orders_id = ordersID
@@ -78,6 +78,7 @@ function zen_random_name()
 {
   $letters = 'abcdefghijklmnopqrstuvwxyz';
   $dirname = '.';
+  if (defined('DOWNLOADS_SKIP_DOT_PREFIX_ON_REDIRECT') && DOWNLOADS_SKIP_DOT_PREFIX_ON_REDIRECT === TRUE) $dirname = '';
   $length = floor(zen_rand(16,20));
   for ($i = 1; $i <= $length; $i++) {
     $q = floor(zen_rand(1,26));
@@ -148,9 +149,9 @@ if (!isset($downloadFilesize) || ($downloadFilesize < 1)) {
 
 
     /**
-     * set notifier point ... we are ready to begin the actual download
+     * set notifier point ... we are ready to begin the actual download. An observer class could hook this notifier point and do something completely different, such as stamping PDFs etc.
      */
-    $zco_notifier->notify('NOTIFY_DOWNLOAD_READY_TO_START', $origin_filename, $browser_filename, $downloadFilesize, $_SESSION['customers_host_address']);
+    $zco_notifier->notify('NOTIFY_DOWNLOAD_READY_TO_START', array($origin_filename, $browser_filename, $downloadFilesize, $_SESSION['customers_host_address'], $downloads->fields));
 
 
     /**
@@ -180,7 +181,9 @@ if (!isset($downloadFilesize) || ($downloadFilesize < 1)) {
     header("Content-Type: application/force-download");
 
     header('Content-Disposition: attachment; filename="' . urlencode($browser_filename) . '"');
-    if ((int)$downloadFilesize > 0) header("Content-Length: " . (string) $downloadFilesize);
+
+//     relocated below
+//     if ((int)$downloadFilesize > 0) header("Content-Length: " . (string) $downloadFilesize);
 
     header("Expires: Mon, 22 Jan 2002 00:00:00 GMT");
     header("Last-Modified: " . gmdate("D,d M Y H:i:s") . " GMT");
@@ -210,7 +213,8 @@ if (!isset($downloadFilesize) || ($downloadFilesize < 1)) {
     header("Content-Transfer-Encoding: binary");
 
 
-// Redirect usually will work only on Unix/Linux hosts since Windows hosts can't do symlinking in PHP versions older than 5.3.0
+// NOTE: Redirect usually will work only on Unix/Linux hosts since Windows hosts can't do symlinking in PHP versions older than 5.3.0
+
 if (DOWNLOAD_BY_REDIRECT == 'true') {
   zen_unlink_temp_dir(DIR_FS_DOWNLOAD_PUBLIC);
   $tempdir = zen_random_name() . '-' . time();;
@@ -229,6 +233,9 @@ if (DOWNLOAD_BY_REDIRECT == 'true') {
 if (DOWNLOAD_BY_REDIRECT != 'true' or $link_create_status==false ) {
   // not downloading by redirect; instead, we stream it to the browser.
   // This happens if the symlink couldn't happen, or if set as default in Admin
+
+  if ((int)$downloadFilesize > 0) header("Content-Length: " . (string) $downloadFilesize);
+
   $disabled_funcs = @ini_get("disable_functions");
   if (DOWNLOAD_IN_CHUNKS != 'true' && !strstr($disabled_funcs,'readfile')) {
     $zco_notifier->notify('NOTIFY_DOWNLOAD_WITHOUT_REDIRECT___COMPLETED', $origin_filename);

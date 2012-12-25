@@ -699,3 +699,7 @@ ALTER TABLE coupon_gv_customer CHANGE amount amount decimal(20,4) NOT NULL defau
 ALTER TABLE coupon_gv_queue CHANGE amount amount decimal(20,4) NOT NULL default '0.0000';
 UPDATE configuration SET configuration_value='On' where configuration_key='MISSING_PAGE_CHECK';
 UPDATE configuration SET configuration_value='107' where configuration_key='SHIPPING_ORIGIN_COUNTRY';
+
+# オプションタイプtextの利用可能設定
+
+INSERT INTO products_options_values (products_options_values_id, language_id, products_options_values_name) VALUES (0, 2, 'TEXT');

@@ -3,10 +3,10 @@
  * paypalwpp.php payment module class for PayPal Express Checkout payment method
  *
  * @package paymentMethod
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: paypalwpp.php 19729 2011-10-07 20:33:35Z drbyte $
+ * @version GIT: $Id: Author: DrByte  Tue Aug 28 14:21:34 2012 -0400 Modified in v1.5.1 $
  */
 /**
  * load the communications layer code
@@ -101,7 +101,7 @@ class paypalwpp extends base {
     global $order;
     $this->code = 'paypalwpp';
     $this->codeTitle = MODULE_PAYMENT_PAYPALWPP_TEXT_ADMIN_TITLE_EC;
-    $this->codeVersion = '1.5.0';
+    $this->codeVersion = '1.5.1';
     $this->enableDirectPayment = FALSE;
     $this->enabled = (MODULE_PAYMENT_PAYPALWPP_STATUS == 'True');
     // Set the title & description text based on the mode we're in ... EC vs US/UK vs admin
@@ -640,7 +640,7 @@ class paypalwpp extends base {
     // cannot remove EC if DP installed:
     if (defined('MODULE_PAYMENT_PAYPALDP_STATUS')) {
       // this language text is hard-coded in english since Website Payments Pro is not yet available in any countries that speak any other language at this time.
-      $messageStack->add_session('<strong>Sorry, you must remove Website Payments Pro (paypaldp) first.</strong> Website Payments Pro requires that you offer Express Checkout to your customers.<br /><a href="' . zen_href_link('modules.php?set=payment&module=paypaldp', '', 'NONSSL') . '">Click here to edit or remove your Website Payments Pro module.</a>' , 'error');
+      $messageStack->add_session('<strong>Sorry, you must remove PayPal Payments Pro (paypaldp) first.</strong> PayPal Payments Pro (Website Payments Pro) requires that you offer Express Checkout to your customers.<br /><a href="' . zen_href_link('modules.php?set=payment&module=paypaldp', '', 'NONSSL') . '">Click here to edit or remove your PayPal Payments Pro module.</a>' , 'error');
       zen_redirect(zen_href_link(FILENAME_MODULES, 'set=payment&module=paypalwpp', 'NONSSL'));
       return 'failed';
     }
@@ -724,7 +724,7 @@ class paypalwpp extends base {
                                         'version' => '61.0',
                                         'server' => MODULE_PAYMENT_PAYPALWPP_SERVER));
       $doPayPal->_endpoints = array('live'    => 'https://api-3t.paypal.com/nvp',
-                                    'sandbox' => 'https://api.sandbox.paypal.com/nvp');
+                                    'sandbox' => 'https://api-3t.sandbox.paypal.com/nvp');
     }
 
     // set logging options
@@ -1659,6 +1659,7 @@ class paypalwpp extends base {
     $error = $this->_errorHandler($response, 'GetExpressCheckoutDetails');
 
     // Check for blank address -- if address received from PayPal is blank, ask the customer to register in the store first and then resume checkout
+  if ($_SESSION['cart']->get_content_type() != 'virtual')
     if ($response['SHIPTONAME'] . $response['SHIPTOSTREET'] . $response['SHIPTOSTREET2'] . $response['SHIPTOCITY'] . $response['SHIPTOSTATE'] . $response['SHIPTOZIP'] . $response['SHIPTOCOUNTRYCODE'] == '') {
       $this->terminateEC(MODULES_PAYMENT_PAYPALWPP_TEXT_BLANK_ADDRESS, true, FILENAME_CREATE_ACCOUNT);
     }
@@ -2744,7 +2745,7 @@ class paypalwpp extends base {
           if ($response['L_ERRORCODE0'] == 10736) $errorText = MODULE_PAYMENT_PAYPALWPP_TEXT_ADDR_ERROR;
           if ($response['L_ERRORCODE0'] == 10752) $errorText = MODULE_PAYMENT_PAYPALWPP_TEXT_DECLINED;
 
-          $detailedMessage = ($errorText == MODULE_PAYMENT_PAYPALWPP_TEXT_GEN_ERROR || $this->enableDebugging || $response['CURL_ERRORS'] != '' || $this->emailAlerts) ? $errorNum . ' ' . urldecode(' ' . $response['L_SHORTMESSAGE0'] . ' - ' . $response['L_LONGMESSAGE0'] . (isset($response['RESPMSG']) ? ' ' . $response['RESPMSG'] : '') . ' ' . $response['CURL_ERRORS']) : '';
+          $detailedMessage = ($errorText == MODULE_PAYMENT_PAYPALWPP_TEXT_GEN_ERROR || (int)trim($errorNum) > 0 || $this->enableDebugging || $response['CURL_ERRORS'] != '' || $this->emailAlerts) ? $errorNum . ' ' . urldecode(' ' . $response['L_SHORTMESSAGE0'] . ' - ' . $response['L_LONGMESSAGE0'] . (isset($response['RESPMSG']) ? ' ' . $response['RESPMSG'] : '') . ' ' . $response['CURL_ERRORS']) : '';
           $detailedEmailMessage = ($detailedMessage == '') ? '' : MODULE_PAYMENT_PAYPALWPP_TEXT_EMAIL_ERROR_MESSAGE . urldecode($response['L_ERRORCODE0'] . "\n" . $response['L_SHORTMESSAGE0'] . "\n" . $response['L_LONGMESSAGE0'] . $response['L_ERRORCODE1'] . "\n" . $response['L_SHORTMESSAGE1'] . "\n" . $response['L_LONGMESSAGE1'] . $response['L_ERRORCODE2'] . "\n" . $response['L_SHORTMESSAGE2'] . "\n" . $response['L_LONGMESSAGE2'] . ($response['CURL_ERRORS'] != '' ? "\n" . $response['CURL_ERRORS'] : '') . "\n\n" . 'Zen Cart message: ' . $errorText) . $errorInfo;
           if (!isset($response['L_ERRORCODE0']) && isset($response['RESULT'])) $detailedEmailMessage .= "\n\n" . print_r($response, TRUE);
           if ($detailedEmailMessage != '') zen_mail(STORE_NAME, STORE_OWNER_EMAIL_ADDRESS, MODULE_PAYMENT_PAYPALWPP_TEXT_EMAIL_ERROR_SUBJECT . ' (' . zen_uncomment($errorNum) . ')', zen_uncomment($detailedEmailMessage), STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS, array('EMAIL_MESSAGE_HTML'=>zen_uncomment($detailedMessage)), 'paymentalert');
@@ -2784,7 +2785,7 @@ class paypalwpp extends base {
           if ($response['L_ERRORCODE0'] == 10417) $errorText = MODULE_PAYMENT_PAYPALWPP_TEXT_INSUFFICIENT_FUNDS_ERROR;
           if ($response['L_ERRORCODE0'] == 10474) $errorText .= urldecode($response['L_LONGMESSAGE0']);
 
-          $detailedMessage = ($errorText == MODULE_PAYMENT_PAYPALWPP_INVALID_RESPONSE || $this->enableDebugging || $response['CURL_ERRORS'] != '' || $this->emailAlerts) ? $errorNum . ' ' . urldecode(' ' . $response['L_SHORTMESSAGE0'] . ' - ' . $response['L_LONGMESSAGE0'] . $response['RESULT'] . ' ' . $response['CURL_ERRORS']) : '';
+          $detailedMessage = ($errorText == MODULE_PAYMENT_PAYPALWPP_INVALID_RESPONSE || (int)trim($errorNum) > 0 || $this->enableDebugging || $response['CURL_ERRORS'] != '' || $this->emailAlerts) ? $errorNum . ' ' . urldecode(' ' . $response['L_SHORTMESSAGE0'] . ' - ' . $response['L_LONGMESSAGE0'] . $response['RESULT'] . ' ' . $response['CURL_ERRORS']) : '';
           $detailedEmailMessage = ($detailedMessage == '') ? '' : MODULE_PAYMENT_PAYPALWPP_TEXT_EMAIL_ERROR_MESSAGE . urldecode($response['L_ERRORCODE0'] . "\n" . $response['L_SHORTMESSAGE0'] . "\n" . $response['L_LONGMESSAGE0'] . $response['L_ERRORCODE1'] . "\n" . $response['L_SHORTMESSAGE1'] . "\n" . $response['L_LONGMESSAGE1'] . $response['L_ERRORCODE2'] . "\n" . $response['L_SHORTMESSAGE2'] . "\n" . $response['L_LONGMESSAGE2'] . ($response['CURL_ERRORS'] != '' ? "\n" . $response['CURL_ERRORS'] : '') . "\n\n" . 'Zen Cart message: ' . $errorText) . $errorInfo;
           if (!isset($response['L_ERRORCODE0']) && isset($response['RESULT'])) $detailedEmailMessage .= "\n\n" . print_r($response, TRUE);
           if ($detailedEmailMessage != '') zen_mail(STORE_NAME, STORE_OWNER_EMAIL_ADDRESS, MODULE_PAYMENT_PAYPALWPP_TEXT_EMAIL_ERROR_SUBJECT . ' (' . zen_uncomment($errorNum) . ')', zen_uncomment($detailedEmailMessage), STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS, array('EMAIL_MESSAGE_HTML'=>zen_uncomment($detailedMessage)), 'paymentalert');
@@ -2883,7 +2884,7 @@ class paypalwpp extends base {
           }
           $errorText = MODULE_PAYMENT_PAYPALWPP_TEXT_GEN_API_ERROR;
           $errorNum .= ' (' . urldecode($response['L_SHORTMESSAGE0'] . ' <!-- ' . $response['RESPMSG']) . ' -->) ' . $response['L_ERRORCODE0'];
-          $detailedMessage = ($errorText == MODULE_PAYMENT_PAYPALWPP_TEXT_GEN_API_ERROR || $errorText == MODULE_PAYMENT_PAYPALWPP_TEXT_DECLINED || $this->enableDebugging || $response['CURL_ERRORS'] != '' || $this->emailAlerts) ? urldecode(' ' . $response['L_SHORTMESSAGE0'] . ' - ' . $response['L_LONGMESSAGE0'] . ' ' . $response['CURL_ERRORS']) : '';
+          $detailedMessage = ($errorText == MODULE_PAYMENT_PAYPALWPP_TEXT_GEN_API_ERROR || $errorText == MODULE_PAYMENT_PAYPALWPP_TEXT_DECLINED || (int)trim($errorNum) > 0 || $this->enableDebugging || $response['CURL_ERRORS'] != '' || $this->emailAlerts) ? urldecode(' ' . $response['L_SHORTMESSAGE0'] . ' - ' . $response['L_LONGMESSAGE0'] . ' ' . $response['CURL_ERRORS']) : '';
           $detailedEmailMessage = ($detailedMessage == '') ? '' : MODULE_PAYMENT_PAYPALWPP_TEXT_EMAIL_ERROR_MESSAGE .  ' ' . $response['RESPMSG'] . urldecode($response['L_ERRORCODE0'] . "\n" . $response['L_SHORTMESSAGE0'] . "\n" . $response['L_LONGMESSAGE0'] . $response['L_ERRORCODE1'] . "\n" . $response['L_SHORTMESSAGE1'] . "\n" . $response['L_LONGMESSAGE1'] . $response['L_ERRORCODE2'] . "\n" . $response['L_SHORTMESSAGE2'] . "\n" . $response['L_LONGMESSAGE2'] . ($response['CURL_ERRORS'] != '' ? "\n" . $response['CURL_ERRORS'] : '') . "\n\n" . 'Zen Cart message: ' . $detailedMessage . "\n\n" . 'Transaction Response Details: ' . print_r($response, true) . "\n\n" . 'Transaction Submission: ' . urldecode($doPayPal->_sanitizeLog($doPayPal->_parseNameValueList($doPayPal->lastParamList), true)));
           if ($detailedEmailMessage != '') zen_mail(STORE_NAME, STORE_OWNER_EMAIL_ADDRESS, MODULE_PAYMENT_PAYPALWPP_TEXT_EMAIL_ERROR_SUBJECT . ' (' . zen_uncomment($errorNum) . ')', zen_uncomment($detailedMessage), STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS, array('EMAIL_MESSAGE_HTML'=>nl2br(zen_uncomment($detailedEmailMessage))), 'paymentalert');
           $messageStack->add_session($errorText . $errorNum . $detailedMessage, 'error');

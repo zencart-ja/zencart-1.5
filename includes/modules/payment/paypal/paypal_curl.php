@@ -3,9 +3,9 @@
  * paypal_curl.php communications class for PayPal Express Checkout / Website Payments Pro / Payflow Pro payment methods
  *
  * @package paymentMethod
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: paypal_curl.php 19559 2011-09-21 19:38:45Z drbyte $
+ * @version GIT: $Id: Author: DrByte  Tue Aug 28 14:21:34 2012 -0400 Modified in v1.5.1 $
  */
 
 /**
@@ -46,7 +46,7 @@ class paypal_curl extends base {
    * URL endpoints -- defaults here are for three-token NVP implementation
    */
   var $_endpoints = array('live'    => 'https://api-3t.paypal.com/nvp',
-                          'sandbox' => 'https://api.sandbox.paypal.com/nvp');
+                          'sandbox' => 'https://api-3t.sandbox.paypal.com/nvp');
   /**
    * Options for cURL. Defaults to preferred (constant) options.
    */
@@ -433,7 +433,7 @@ class paypal_curl extends base {
     } elseif ($this->_mode == 'nvp') {
       $headers[] = 'X-VPS-VIT-Integration-Product: PHP::Zen Cart(R) - PayPal/NVP';
     }
-    $headers[] = 'X-VPS-VIT-Integration-Version: 1.5.0';
+    $headers[] = 'X-VPS-VIT-Integration-Version: 1.5.1';
     $this->lastHeaders = $headers;
 
     $ch = curl_init();

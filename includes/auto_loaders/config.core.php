@@ -4,9 +4,9 @@
  * see  {@link  http://www.zen-cart.com/wiki/index.php/Developers_API_Tutorials#InitSystem wikitutorials} for more details.
  *
  * @package initSystem
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: config.core.php 18698 2011-05-04 14:50:06Z wilt $
+ * @version GIT: $Id: Author: Ian Wilson  Wed Jul 4 14:44:03 2012 +0100 Modified in v1.5.1 $
  */
 if (!defined('IS_ADMIN_FLAG')) {
  die('Illegal Access');
@@ -70,6 +70,15 @@ if (!defined('USE_PCONNECT')) define('USE_PCONNECT', 'false');
                                 'loadFile'=>'message_stack.php');
   $autoLoadConfig[0][] = array('autoType'=>'class',
                                 'loadFile'=>'breadcrumb.php');
+  $autoLoadConfig[0][] = array('autoType'=>'class',
+                               'loadFile'=>'query_cache.php');
+
+  $autoLoadConfig[0][] = array('autoType'=>'classInstantiate',
+                               'className'=>'QueryCache',
+                               'objectName'=>'queryCache',
+                               'checkInstantiated'=>true);
+                                
+                                
 /**
  * Breakpoint 10.
  *

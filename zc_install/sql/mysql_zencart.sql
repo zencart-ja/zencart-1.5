@@ -2,10 +2,10 @@
 # * Main Zen Cart SQL Load for MySQL databases
 # * @package Installer
 # * @access private
-# * @copyright Copyright 2003-2011 Zen Cart Development Team
+# * @copyright Copyright 2003-2012 Zen Cart Development Team
 # * @copyright Portions Copyright 2003 osCommerce
 # * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
-# * @version $Id: mysql_zencart.sql 20043 2011-12-06 23:07:06Z drbyte $
+# * @version GIT: $Id: Author: DrByte  Tue Aug 28 16:03:47 2012 -0400 Modified in v1.5.1 $
 #
 
 ############ IMPORTANT INSTRUCTIONS ###############
@@ -95,11 +95,11 @@ CREATE TABLE admin (
   reset_token varchar(60) NOT NULL default '',
   last_modified datetime NOT NULL default '0000-00-00 00:00:00',
   last_login_date datetime NOT NULL default '0000-00-00 00:00:00',
-  last_login_ip varchar(15) NOT NULL default '',
+  last_login_ip varchar(45) NOT NULL default '',
   failed_logins smallint(4) unsigned NOT NULL default '0',
   lockout_expires int(11) NOT NULL default '0',
   last_failed_attempt datetime NOT NULL default '0000-00-00 00:00:00',
-  last_failed_ip varchar(15) NOT NULL default '',
+  last_failed_ip varchar(45) NOT NULL default '',
   PRIMARY KEY  (admin_id),
   KEY idx_admin_name_zen (admin_name),
   KEY idx_admin_email_zen (admin_email),
@@ -118,11 +118,11 @@ CREATE TABLE admin_activity_log (
   access_date datetime NOT NULL default '0001-01-01 00:00:00',
   admin_id int(11) NOT NULL default '0',
   page_accessed varchar(80) NOT NULL default '',
-  page_parameters text default '',
-  ip_address varchar(20) NOT NULL default '',
+  page_parameters text,
+  ip_address varchar(45) NOT NULL default '',
   flagged tinyint NOT NULL default '0',
   attention varchar(255) NOT NULL default '',
-  gzpost mediumblob NOT NULL default '',
+  gzpost mediumblob,
   PRIMARY KEY  (log_id),
   KEY idx_page_accessed_zen (page_accessed),
   KEY idx_access_date_zen (access_date),
@@ -427,7 +427,7 @@ CREATE TABLE coupon_gv_queue (
   order_id int(5) NOT NULL default '0',
   amount decimal(15,4) NOT NULL default '0.0000',
   date_created datetime NOT NULL default '0001-01-01 00:00:00',
-  ipaddr varchar(32) NOT NULL default '',
+  ipaddr varchar(45) NOT NULL default '',
   release_flag char(1) NOT NULL default 'N',
   PRIMARY KEY  (unique_id),
   KEY idx_cust_id_order_id_zen (customer_id,order_id),
@@ -446,7 +446,7 @@ CREATE TABLE coupon_redeem_track (
   coupon_id int(11) NOT NULL default '0',
   customer_id int(11) NOT NULL default '0',
   redeem_date datetime NOT NULL default '0001-01-01 00:00:00',
-  redeem_ip varchar(32) NOT NULL default '',
+  redeem_ip varchar(45) NOT NULL default '',
   order_id int(11) NOT NULL default '0',
   PRIMARY KEY  (unique_id),
   KEY idx_coupon_id_zen (coupon_id)
@@ -1972,7 +1972,7 @@ CREATE TABLE whos_online (
   customer_id int(11) default NULL,
   full_name varchar(64) NOT NULL default '',
   session_id varchar(128) NOT NULL default '',
-  ip_address varchar(20) NOT NULL default '',
+  ip_address varchar(45) NOT NULL default '',
   time_entry varchar(14) NOT NULL default '',
   time_last_click varchar(14) NOT NULL default '',
   last_page_url varchar(255) NOT NULL default '',
@@ -2167,9 +2167,9 @@ INSERT INTO banners (banners_title, banners_url, banners_image, banners_group, b
 INSERT INTO banners (banners_title, banners_url, banners_image, banners_group, banners_html_text, expires_impressions, expires_date, date_scheduled, date_added, date_status_change, status, banners_open_new_windows, banners_on_ssl, banners_sort_order) VALUES ('if you have to think ... you haven''t been Zenned!', 'http://www.zen-cart.com', 'banners/think_anim.gif', 'Wide-Banners', '', 0, NULL, NULL, '2004-01-12 20:53:18', NULL, 1, 1, 1, 0);
 INSERT INTO banners (banners_title, banners_url, banners_image, banners_group, banners_html_text, expires_impressions, expires_date, date_scheduled, date_added, date_status_change, status, banners_open_new_windows, banners_on_ssl, banners_sort_order) VALUES ('Zen Cart the art of e-commerce', 'http://www.zen-cart.com', 'banners/bw_zen_88wide.gif', 'BannersAll', '', 0, NULL, NULL, '2005-05-13 10:54:38', NULL, 1, 1, 1, 10);
 INSERT INTO banners (banners_title, banners_url, banners_image, banners_group, banners_html_text, expires_impressions, expires_date, date_scheduled, date_added, date_status_change, status, banners_open_new_windows, banners_on_ssl, banners_sort_order) VALUES ('Start Accepting Credit Cards For Your Business Today!', 'http://www.zen-cart.com/partners/payment', 'banners/cardsvcs_468x60.gif', 'Wide-Banners', '', 0, NULL, NULL, '2006-03-13 11:02:43', NULL, 1, 1, 1, 0);
-INSERT INTO banners (banners_title, banners_url, banners_image, banners_group, banners_html_text, expires_impressions, expires_date, date_scheduled, date_added, date_status_change, status, banners_open_new_windows, banners_on_ssl, banners_sort_order) VALUES ('eStart Your Web Store with Zen Cart(R)', 'http://www.lulu.com/content/466605', 'banners/big-book-ad.gif', 'Wide-Banners', '', '0', NULL, NULL, '2007-02-10 00:00:00',NULL,'1','1','1','1');
-INSERT INTO banners (banners_title, banners_url, banners_image, banners_group, banners_html_text, expires_impressions, expires_date, date_scheduled, date_added, date_status_change, status, banners_open_new_windows, banners_on_ssl, banners_sort_order) VALUES ('eStart Your Web Store with Zen Cart(R)', 'http://www.lulu.com/content/466605', 'banners/tall-book.gif', 'SideBox-Banners', '', '0', NULL, NULL, '2007-02-10 00:00:00',NULL,'1','1','1','1');
-INSERT INTO banners (banners_title, banners_url, banners_image, banners_group, banners_html_text, expires_impressions, expires_date, date_scheduled, date_added, date_status_change, status, banners_open_new_windows, banners_on_ssl, banners_sort_order) VALUES ('eStart Your Web Store with Zen Cart(R)', 'http://www.lulu.com/content/466605', 'banners/tall-book.gif', 'BannersAll', '', '0', NULL, NULL, '2007-02-10 00:00:00',NULL,'1','1','1','15');
+INSERT INTO banners (banners_title, banners_url, banners_image, banners_group, banners_html_text, expires_impressions, expires_date, date_scheduled, date_added, date_status_change, status, banners_open_new_windows, banners_on_ssl, banners_sort_order) VALUES ('eStart Your Web Store with Zen Cart(R)', 'http://www.zen-cart.com/book', 'banners/big-book-ad.gif', 'Wide-Banners', '', '0', NULL, NULL, '2007-02-10 00:00:00',NULL,'1','1','1','1');
+INSERT INTO banners (banners_title, banners_url, banners_image, banners_group, banners_html_text, expires_impressions, expires_date, date_scheduled, date_added, date_status_change, status, banners_open_new_windows, banners_on_ssl, banners_sort_order) VALUES ('eStart Your Web Store with Zen Cart(R)', 'http://www.zen-cart.com/book', 'banners/tall-book.gif', 'SideBox-Banners', '', '0', NULL, NULL, '2007-02-10 00:00:00',NULL,'1','1','1','1');
+INSERT INTO banners (banners_title, banners_url, banners_image, banners_group, banners_html_text, expires_impressions, expires_date, date_scheduled, date_added, date_status_change, status, banners_open_new_windows, banners_on_ssl, banners_sort_order) VALUES ('eStart Your Web Store with Zen Cart(R)', 'http://www.zen-cart.com/book', 'banners/tall-book.gif', 'BannersAll', '', '0', NULL, NULL, '2007-02-10 00:00:00',NULL,'1','1','1','15');
 
 
 INSERT INTO configuration (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) VALUES ('Store Name', 'STORE_NAME', 'Zen Cart', 'The name of my store', '1', '1', now());
@@ -3195,10 +3195,10 @@ INSERT INTO get_terms_to_filter VALUES ('record_company_id', 'TABLE_RECORD_COMPA
 # Dumping data for table project_version
 #
 
-INSERT INTO project_version (project_version_id, project_version_key, project_version_major, project_version_minor, project_version_patch1, project_version_patch1_source, project_version_patch2, project_version_patch2_source, project_version_comment, project_version_date_applied) VALUES (1, 'Zen-Cart Main', '1', '5.0', '', '', '', '', 'Fresh Installation', now());
-INSERT INTO project_version (project_version_id, project_version_key, project_version_major, project_version_minor, project_version_patch1, project_version_patch1_source, project_version_patch2, project_version_patch2_source, project_version_comment, project_version_date_applied) VALUES (2, 'Zen-Cart Database', '1', '5.0', '', '', '', '', 'Fresh Installation', now());
-INSERT INTO project_version_history (project_version_id, project_version_key, project_version_major, project_version_minor, project_version_patch, project_version_comment, project_version_date_applied) VALUES (1, 'Zen-Cart Main', '1', '5.0', '', 'Fresh Installation', now());
-INSERT INTO project_version_history (project_version_id, project_version_key, project_version_major, project_version_minor, project_version_patch, project_version_comment, project_version_date_applied) VALUES (2, 'Zen-Cart Database', '1', '5.0', '', 'Fresh Installation', now());
+INSERT INTO project_version (project_version_id, project_version_key, project_version_major, project_version_minor, project_version_patch1, project_version_patch1_source, project_version_patch2, project_version_patch2_source, project_version_comment, project_version_date_applied) VALUES (1, 'Zen-Cart Main', '1', '5.1', '', '', '', '', 'New Installation', now());
+INSERT INTO project_version (project_version_id, project_version_key, project_version_major, project_version_minor, project_version_patch1, project_version_patch1_source, project_version_patch2, project_version_patch2_source, project_version_comment, project_version_date_applied) VALUES (2, 'Zen-Cart Database', '1', '5.1', '', '', '', '', 'New Installation', now());
+INSERT INTO project_version_history (project_version_id, project_version_key, project_version_major, project_version_minor, project_version_patch, project_version_comment, project_version_date_applied) VALUES (1, 'Zen-Cart Main', '1', '5.1', '', 'New Installation', now());
+INSERT INTO project_version_history (project_version_id, project_version_key, project_version_major, project_version_minor, project_version_patch, project_version_comment, project_version_date_applied) VALUES (2, 'Zen-Cart Database', '1', '5.1', '', 'New Installation', now());
 
 ##### End of SQL setup for Zen Cart.
 

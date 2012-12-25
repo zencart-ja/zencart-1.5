@@ -3,10 +3,10 @@
 # *
 # * @package Installer
 # * @access private
-# * @copyright Copyright 2003-2011 Zen Cart Development Team
+# * @copyright Copyright 2003-2012 Zen Cart Development Team
 # * @copyright Portions Copyright 2003 osCommerce
 # * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
-# * @version $Id: mysql_upgrade_zencart_139_to_150.sql 20043 2011-12-06 23:07:06Z drbyte $
+# * @version GIT: $Id: Author: DrByte  Tue Aug 28 14:21:34 2012 -0400 Modified in v1.5.1 $
 #
 
 ############ IMPORTANT INSTRUCTIONS ###############
@@ -53,7 +53,7 @@ ALTER TABLE sessions CHANGE COLUMN sesskey sesskey varchar(64) NOT NULL default 
 ALTER TABLE admin_activity_log CHANGE COLUMN log_id log_id bigint(15) NOT NULL auto_increment;
 ALTER TABLE admin_activity_log ADD COLUMN flagged tinyint NOT NULL default '0';
 ALTER TABLE admin_activity_log ADD COLUMN attention varchar(255) NOT NULL default '';
-ALTER TABLE admin_activity_log ADD COLUMN gzpost mediumblob NOT NULL default '';
+ALTER TABLE admin_activity_log ADD COLUMN gzpost mediumblob ;
 ALTER TABLE admin_activity_log DROP INDEX page_accessed;
 ALTER TABLE admin_activity_log DROP INDEX access_date;
 ALTER TABLE admin_activity_log ADD INDEX idx_page_accessed_zen (page_accessed);
@@ -249,19 +249,19 @@ VALUES ('configMyStore', 'BOX_CONFIGURATION_MY_STORE', 'FILENAME_CONFIGURATION',
 
 # Clean up old US Armed Forces zones
 update address_book set entry_zone_id = (
-select zone_id 
+select zone_id
 FROM zones where zone_country_id = 223 and zone_code = 'AE') where entry_zone_id in (
-select zone_id 
-FROM zones where zone_country_id = 223 and zone_code 
+select zone_id
+FROM zones where zone_country_id = 223 and zone_code
 in ('AF', 'AM'));
 update address_book set entry_zone_id = (
-select zone_id 
+select zone_id
 FROM zones where zone_country_id = 223 and zone_code = 'AA') where entry_zone_id in (
-select zone_id 
+select zone_id
 FROM zones where zone_country_id = 223 and zone_code = 'AC');
 delete from zones where zone_country_id = 223 and zone_code in ('AF', 'AM', 'AC');
 
-       
+
 #############
 
 #### VERSION UPDATE STATEMENTS

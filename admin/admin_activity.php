@@ -3,10 +3,10 @@
  * Admin Activity Log Viewer/Archiver
  *
  * @package admin
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: admin_activity.php 19538 2011-09-20 17:27:38Z drbyte $
+ * @version GIT: $Id: Author: DrByte  Tue Aug 28 16:03:47 2012 -0400 Modified in v1.5.1 $
  *
  * @TODO: prettify so on-screen output is more friendly, perhaps adding pagination support etc (using existing "s" and "p" params)
  * @TODO: prettify by hiding postdata until requested, either with hidden layers or other means
@@ -130,12 +130,12 @@ if ($action != '')
             $exporter_output .= "  <row>\n";
             $exporter_output .= "    <access_date>" . $result->fields['access_date'] . "</access_date>\n";
             $exporter_output .= "    <admin_id>" . $result->fields['admin_id'] . "</admin_id>\n";
-            $exporter_output .= "    <admin_name>" . htmlspecialchars($result->fields['admin_name']) . "</admin_name>\n";
+            $exporter_output .= "    <admin_name>" . htmlspecialchars($result->fields['admin_name'], ENT_COMPAT, CHARSET, TRUE) . "</admin_name>\n";
             $exporter_output .= "    <ip_address>" . $result->fields['ip_address'] . "</ip_address>\n";
             $exporter_output .= "    <page_accessed>" . $result->fields['page_accessed'] . "</page_accessed>\n";
-            $exporter_output .= "    <page_parameters>" . htmlspecialchars($result->fields['page_parameters']) . "</page_parameters>\n";
-            $exporter_output .= "    <flagged>" . htmlspecialchars($result->fields['flagged']) . "</flagged>\n";
-            $exporter_output .= "    <attention>" . htmlspecialchars($result->fields['attention']) . "</attention>\n";
+            $exporter_output .= "    <page_parameters>" . htmlspecialchars($result->fields['page_parameters'], ENT_COMPAT, CHARSET, TRUE) . "</page_parameters>\n";
+            $exporter_output .= "    <flagged>" . htmlspecialchars($result->fields['flagged'], ENT_COMPAT, CHARSET, TRUE) . "</flagged>\n";
+            $exporter_output .= "    <attention>" . htmlspecialchars($result->fields['attention'], ENT_COMPAT, CHARSET, TRUE) . "</attention>\n";
             $exporter_output .= "    <postdata>" . $postoutput . "</postdata>\n";
             $exporter_output .= "  </row>\n";
           } else
@@ -262,7 +262,7 @@ if ($action != '')
                                  'admin_id' => (isset($_SESSION['admin_id'])) ? (int)$_SESSION['admin_id'] : 0,
                                  'page_accessed' =>  'Log reset by ' . $admname . '.',
                                  'page_parameters' => '',
-                                 'ip_address' => substr($_SERVER['REMOTE_ADDR'],0,15)
+                                 'ip_address' => substr($_SERVER['REMOTE_ADDR'],0,45)
                                  );
         zen_db_perform(TABLE_ADMIN_ACTIVITY_LOG, $sql_data_array);
         $messageStack->add_session(SUCCESS_CLEAN_ADMIN_ACTIVITY_LOG, 'success');

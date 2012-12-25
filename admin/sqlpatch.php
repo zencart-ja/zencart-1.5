@@ -1,10 +1,10 @@
 <?php
 /**
  * @package admin
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: sqlpatch.php 19537 2011-09-20 17:14:44Z drbyte $
+ * @version GIT: $Id: Author: DrByte  Sun Jul 1 16:59:57 2012 -0400 Modified in v1.5.1 $
  */
 
   require('includes/application_top.php');
@@ -624,8 +624,11 @@ if ($_GET['debug']=='ON') echo $line . '<br />';
   function zen_write_to_upgrade_exceptions_table($line, $reason, $sql_file) {
     global $db;
     zen_create_exceptions_table();
-    $sql="INSERT INTO " . DB_PREFIX . TABLE_UPGRADE_EXCEPTIONS . " VALUES (0,'". $sql_file."','".$reason."', now(), '".zen_db_input($line)."')";
-     if (ZC_UPG_DEBUG3==true) echo '<br />sql='.$sql.'<br />';
+    $sql="INSERT INTO " . DB_PREFIX . TABLE_UPGRADE_EXCEPTIONS . " VALUES (0,:file:, :reason:, now(), :line:)";
+    $sql = $db->bindVars($sql, ':file:', $sql_file, 'string');
+    $sql = $db->bindVars($sql, ':reason:', $reason, 'string');
+    $sql = $db->bindVars($sql, ':line:', $line, 'string');
+    if (ZC_UPG_DEBUG3==true) echo '<br />sql='.$sql.'<br />';
     $result = $db->Execute($sql);
     return $result;
   }

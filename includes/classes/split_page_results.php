@@ -3,10 +3,10 @@
  * split_page_results Class.
  *
  * @package classes
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: split_page_results.php 18925 2011-06-13 04:35:37Z drbyte $
+ * @version GIT: $Id: Author: Ian Wilson  Fri Aug 17 17:54:58 2012 +0100 Modified in v1.5.1 $
  */
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
@@ -23,15 +23,21 @@ class splitPageResults extends base {
   var $sql_query, $number_of_rows, $current_page_number, $number_of_pages, $number_of_rows_per_page, $page_name;
 
   /* class constructor */
-  function splitPageResults($query, $max_rows, $count_key = '*', $page_holder = 'page', $debug = false) {
+  function splitPageResults($query, $max_rows, $count_key = '*', $page_holder = 'page', $debug = false, $countQuery = "") {
     global $db;
     $max_rows = ($max_rows == '' || $max_rows == 0) ? 20 : $max_rows;
 
     $this->sql_query = preg_replace("/\n\r|\r\n|\n|\r/", " ", $query);
+    if ($countQuery != "") $countQuery = preg_replace("/\n\r|\r\n|\n|\r/", " ", $countQuery);
+    $this->countQuery = ($countQuery != "") ? $countQuery : $this->sql_query;
     $this->page_name = $page_holder;
 
     if ($debug) {
+      echo '<br /><br />';
       echo 'original_query=' . $query . '<br /><br />';
+      echo 'original_count_query=' . $countQuery . '<br /><br />';
+      echo 'sql_query=' . $this->sql_query . '<br /><br />';
+      echo 'count_query=' . $this->countQuery . '<br /><br />';
     }
     if (isset($_GET[$page_holder])) {
       $page = $_GET[$page_holder];
@@ -46,9 +52,9 @@ class splitPageResults extends base {
 
     $this->number_of_rows_per_page = $max_rows;
 
-    $pos_to = strlen($this->sql_query);
+    $pos_to = strlen($this->countQuery);
 
-    $query_lower = strtolower($this->sql_query);
+    $query_lower = strtolower($this->countQuery);
     $pos_from = strpos($query_lower, ' from', 0);
 
     $pos_group_by = strpos($query_lower, ' group by', $pos_from);
@@ -65,8 +71,7 @@ class splitPageResults extends base {
     } else {
       $count_string = zen_db_input($count_key);
     }
-    $count_query = "select count(" . $count_string . ") as total " .
-    substr($this->sql_query, $pos_from, ($pos_to - $pos_from));
+    $count_query = "select count(" . $count_string . ") as total " . substr($this->countQuery, $pos_from, ($pos_to - $pos_from));
     if ($debug) {
       echo 'count_query=' . $count_query . '<br /><br />';
     }

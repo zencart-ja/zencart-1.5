@@ -3,9 +3,9 @@
  * ipncheck.php diagnostic tool
  *
  * @package utility
- * @copyright Copyright 2007-2010 Zen Cart Development Team
+ * @copyright Copyright 2007-2012 Zen Cart Development Team
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: ipncheck.php 15777 2010-04-02 01:59:22Z drbyte $
+ * @version GIT: $Id: Author: Ian Wilson  Fri Aug 31 11:51:59 2012 +0100 Modified in v1.5.1 $
  *
  * This utility is intended to be used to check whether a Zen Cart store is able to connect TO PayPal in order to RESPOND to an incoming IPN notification.
  * Unfortunately it cannot test whether PayPal's servers can successfully post an IPN *to* your store.  To do that one should test a live transaction.
@@ -218,7 +218,7 @@ echo '<br><br>Script finished.';
     $errors = ($commErrNo != 0 ? "\n(" . $commErrNo . ') ' . $commError : '');
 
     if (($response == '' || $errors != '') && ($web['scheme'] != 'http')) {
-      if ($verboseMode) echo nl2br("\n\n" . 'VERBOSE output:' . "\n-------------\n<pre>" . htmlspecialchars($response) . "</pre>\n--------------\n");
+      if ($verboseMode) echo nl2br("\n\n" . 'VERBOSE output:' . "\n-------------\n<pre>" . htmlspecialchars($response, ENT_COMPAT, 'UTF-8', TRUE) . "</pre>\n--------------\n");
       echo nl2br('CURL ERROR: ' . $status . $errors . "\n" . 'Trying direct HTTP on port 80 instead ...' . "\n");
       $web['scheme'] = 'http';
       $web['port'] = '80';
@@ -232,7 +232,7 @@ echo '<br><br>Script finished.';
     //$commInfo = @curl_getinfo($ch);
     curl_close($ch);
     //die("\n\n".'data:'.$response);
-    if ($verboseMode) echo nl2br("\n\n" . 'VERBOSE output: ' . "\n-------------\n<pre>" . htmlspecialchars($response) . "</pre>\n--------------\n");
+    if ($verboseMode) echo nl2br("\n\n" . 'VERBOSE output: ' . "\n-------------\n<pre>" . htmlspecialchars($response, ENT_COMPAT, 'UTF-8', TRUE) . "</pre>\n--------------\n");
     $errors = ($commErrNo != 0 ? "\n(" . $commErrNo . ') ' . $commError : '');
     if ($errors != '') {
       echo nl2br('CURL ERROR: ' . $status . $errors . "\n" . 'ABORTING CURL METHOD ...' . "\n\n");

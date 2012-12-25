@@ -22,7 +22,7 @@ define('ERROR_SECURITY_ERROR', 'ログイン時にセキュリティエラーが
 
 define('TEXT_PASSWORD_FORGOTTEN', 'パスワード再送信');
 
-define('LOGIN_EXPIRY_NOTICE', '15分以上操作をしない場合、再ログインが必要になります。<br /><br />注：すべてのパスワードは、90日おきに期限切れになります。');
+define('LOGIN_EXPIRY_NOTICE', '15分以上操作をしない場合、再ログインが必要になります。<br /><br />注：すべてのパスワードは、90日おきに期限切れになり、新しいパスワードの入力を求められるようになります。');
 define('ERROR_PASSWORD_EXPIRED', '注: パスワードは有効期限切れになりました。新しいパスワードを選択して下さい。パスワードは<strong>半角英数字を混在させ、7文字以上でなければなりません。</strong>');
 define('TEXT_TEMPORARY_PASSWORD_MUST_BE_CHANGED', 'セキュリティ上の理由で、パスワードを変更していただく必要があります。新しいパスワードをご入力下さい。<br />パスワードは <strong>半角英数字を混在させ、7文字以上でなければなりません。</strong>');
 
