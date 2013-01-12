@@ -12,20 +12,20 @@
 /**
  * defining language components for the page
  */
-  define('NAVI_WELCOME', '�悤����');
-  define('NAVI_LICENSE', '���C�Z���X�K��');
-  define('NAVI_PREREQUISITES', '�V�X�e������');
-  define('NAVI_SYSTEM_SETUP', '�V�X�e���ݒ�');
-  define('NAVI_CONFIG_CHECK', 'config�m�F');
-  define('NAVI_DATABASE_SETUP', '�f�[�^�x�[�X�ݒ�');
-  define('NAVI_DATABASE_UPGRADE', '�f�[�^�x�[�X�A�b�v�O���[�h');
-  define('NAVI_STORE_SETUP', '�V���b�v�ݒ�');
-  define('NAVI_ADMIN_SETUP', '�Ǘ��Ґݒ�');
-  define('NAVI_FINISHED', '����');
+  define('NAVI_WELCOME', 'ようこそ');
+  define('NAVI_LICENSE', 'ライセンス規約');
+  define('NAVI_PREREQUISITES', 'システム検査');
+  define('NAVI_SYSTEM_SETUP', 'システム設定');
+  define('NAVI_CONFIG_CHECK', 'config確認');
+  define('NAVI_DATABASE_SETUP', 'データベース設定');
+  define('NAVI_DATABASE_UPGRADE', 'データベースアップグレード');
+  define('NAVI_STORE_SETUP', 'ショップ設定');
+  define('NAVI_ADMIN_SETUP', '管理者設定');
+  define('NAVI_FINISHED', '完了');
 
-  define('YES', '�͂�');
-  define('NO', '������');
-  define('REFRESH_BUTTON', '�ă`�F�b�N');
+  define('YES', 'はい');
+  define('NO', 'いいえ');
+  define('REFRESH_BUTTON', '再チェック');
   define('OKAY', 'Okay');
 
   // Global entries for the <html> tag
@@ -35,193 +35,193 @@
   define('CHARSET', 'utf-8');
 
   // META TAG TITLE
-  define('META_TAG_TITLE', (defined('TEXT_PAGE_HEADING') ? TEXT_PAGE_HEADING : 'Zen Cart&reg;�C���X�g�[��'));
+  define('META_TAG_TITLE', (defined('TEXT_PAGE_HEADING') ? TEXT_PAGE_HEADING : 'Zen Cart&reg;インストーラ'));
 
-  define('INSTALLATION_IN_PROGRESS','�C���X�g�[���i�s��...');
+  define('INSTALLATION_IN_PROGRESS','インストール進行中...');
 
   if (isset($_GET['main_page']) && ($_GET['main_page']== 'index' || $_GET['main_page']== 'license')) {
-    define('TEXT_ERROR_WARNING', '����: �p������O�ɒ��ӂ��Ăق�������������܂��B');
+    define('TEXT_ERROR_WARNING', '注意: 継続する前に注意してほしい事項があります。');
   } else {
-    define('TEXT_ERROR_WARNING', '<span class="errors"><strong>�x��: ��肪������܂���</strong></span>');
+    define('TEXT_ERROR_WARNING', '<span class="errors"><strong>警告: 問題が見つかりました</strong></span>');
   }
 
-  define('DB_ERROR_NOT_CONNECTED', '�C���X�g�[���G���[: �f�[�^�x�[�X�ւ̐ڑ��Ɏ��s���܂���');
-	define('SHOULD_UPGRADE','�A�b�v�O���[�h���邱�Ƃ������߂��܂�! ');
+  define('DB_ERROR_NOT_CONNECTED', 'インストールエラー: データベースへの接続に失敗しました');
+	define('SHOULD_UPGRADE','アップグレードすることをお勧めします! ');
   define('MUST_UPGRADE','You need to upgrade this before installing Zen Cart&reg;');
 
-  define('UPLOAD_SETTINGS','�A�b�v���[�h�ł���T�C�Y�̏���͈ȉ��̃f�[�^�̒��ōŏ��̒l�ɐݒ肳��܂�:.<br />
-php.ini ��<em>upload_max_filesize</em>: %s <br />
-php.ini ��<em>post_max_size</em>: %s <br />' . 
-//'<em>Zen Cart&reg;</em>�̃A�b�v���[�h�ݒ�: %s <br />' .
-'Apache�̐ݒ�ɂ���Ă̓t�@�C���̃A�b�v���[�h���ł��Ȃ�������t�@�C���T�C�Y�̏�����������ꂽ�肷�邱�Ƃ�����܂��B
-���ڂ���������Apache�̐������Q�Ƃ��Ă��������B');
+  define('UPLOAD_SETTINGS','アップロードできるサイズの上限は以下のデータの中で最小の値に設定されます:.<br />
+php.ini の<em>upload_max_filesize</em>: %s <br />
+php.ini の<em>post_max_size</em>: %s <br />' . 
+//'<em>Zen Cart&reg;</em>のアップロード設定: %s <br />' .
+'Apacheの設定によってはファイルのアップロードができなかったりファイルサイズの上限が制限されたりすることがあります。
+より詳しい説明はApacheの説明を参照してください。');
 
-  define('TEXT_HELP_LINK', ' �ڍ׏��...');
-  define('TEXT_CLOSE_WINDOW', '[�E�B���h�E�����]');
-  define('STORE_ADDRESS_DEFAULT_VALUE', '�V���b�v��
-  �Z��
-  �d�b�ԍ�');
+  define('TEXT_HELP_LINK', ' 詳細情報...');
+  define('TEXT_CLOSE_WINDOW', '[ウィンドウを閉じる]');
+  define('STORE_ADDRESS_DEFAULT_VALUE', 'ショップ名
+  住所
+  電話番号');
 
-  define('ERROR_TEXT_ADMIN_CONFIGURE', '/admin/includes/configure.php �����݂��܂���');
+  define('ERROR_TEXT_ADMIN_CONFIGURE', '/admin/includes/configure.php が存在しません');
   define('ERROR_CODE_ADMIN_CONFIGURE', '2');
 
-  define('ERROR_TEXT_STORE_CONFIGURE', '/includes/configure.php �����݂��܂���');
+  define('ERROR_TEXT_STORE_CONFIGURE', '/includes/configure.php が存在しません');
   define('ERROR_CODE_STORE_CONFIGURE', '3');
 
-  define('ERROR_TEXT_PHYSICAL_PATH_ISEMPTY', '�����p�X�����͂���Ă��܂���');
+  define('ERROR_TEXT_PHYSICAL_PATH_ISEMPTY', '物理パスが入力されていません');
   define('ERROR_CODE_PHYSICAL_PATH_ISEMPTY', '9');
 
-  define('ERROR_TEXT_PHYSICAL_PATH_INCORRECT', '�����p�X���s�K�؂ł�');
+  define('ERROR_TEXT_PHYSICAL_PATH_INCORRECT', '物理パスが不適切です');
   define('ERROR_CODE_PHYSICAL_PATH_INCORRECT', '10');
 
-  define('ERROR_TEXT_VIRTUAL_HTTP_ISEMPTY', '���zHTTP�����͂���Ă��܂���');
+  define('ERROR_TEXT_VIRTUAL_HTTP_ISEMPTY', '仮想HTTPが入力されていません');
   define('ERROR_CODE_VIRTUAL_HTTP_ISEMPTY', '11');
 
-  define('ERROR_TEXT_VIRTUAL_HTTPS_ISEMPTY', '���zHTTPS�����͂���Ă��܂���');
+  define('ERROR_TEXT_VIRTUAL_HTTPS_ISEMPTY', '仮想HTTPSが入力されていません');
   define('ERROR_CODE_VIRTUAL_HTTPS_ISEMPTY', '12');
 
-  define('ERROR_TEXT_VIRTUAL_HTTPS_SERVER_ISEMPTY', '���zHTTPS �T�[�o�����͂���Ă��܂���');
+  define('ERROR_TEXT_VIRTUAL_HTTPS_SERVER_ISEMPTY', '仮想HTTPS サーバが入力されていません');
   define('ERROR_CODE_VIRTUAL_HTTPS_SERVER_ISEMPTY', '13');
 
-  define('ERROR_TEXT_DB_USERNAME_ISEMPTY', 'DB���[�U�������͂���Ă��܂���');
-  define('ERROR_CODE_DB_USERNAME_ISEMPTY', '16'); // ��{�I�ɓ������b�Z�[�W�Ȃ̂ŕʂ̂��̂��ė��p
+  define('ERROR_TEXT_DB_USERNAME_ISEMPTY', 'DBユーザ名が入力されていません');
+  define('ERROR_CODE_DB_USERNAME_ISEMPTY', '16'); // 基本的に同じメッセージなので別のものを再利用
 
-  define('ERROR_TEXT_DB_HOST_ISEMPTY', 'DB�z�X�g�����͂���Ă��܂���');
+  define('ERROR_TEXT_DB_HOST_ISEMPTY', 'DBホストが入力されていません');
   define('ERROR_CODE_DB_HOST_ISEMPTY', '24');
 
-  define('ERROR_TEXT_DB_NAME_ISEMPTY', 'DB�������͂���Ă��܂���'); 
+  define('ERROR_TEXT_DB_NAME_ISEMPTY', 'DB名が入力されていません'); 
   define('ERROR_CODE_DB_NAME_ISEMPTY', '25');
 
-  define('ERROR_TEXT_DB_SQL_NOTEXIST', 'SQL�C���X�g�[���t�@�C�������݂��܂���');
+  define('ERROR_TEXT_DB_SQL_NOTEXIST', 'SQLインストールファイルが存在しません');
   define('ERROR_CODE_DB_SQL_NOTEXIST', '26');
 
-  define('ERROR_TEXT_DB_NOTSUPPORTED', '�f�[�^�x�[�X���T�|�[�g����Ă��܂���');
+  define('ERROR_TEXT_DB_NOTSUPPORTED', 'データベースがサポートされていません');
   define('ERROR_CODE_DB_NOTSUPPORTED', '27');
 
-  define('ERROR_TEXT_DB_CONNECTION_FAILED', '�f�[�^�x�[�X�ւ̐ڑ��Ɏ��s���܂���');
+  define('ERROR_TEXT_DB_CONNECTION_FAILED', 'データベースへの接続に失敗しました');
   define('ERROR_CODE_DB_CONNECTION_FAILED', '28');
 
   define('ERROR_TEXT_STORE_ZONE_NEEDS_SELECTION', 'Store Zone must be specified.');
   define('ERROR_CODE_STORE_ZONE_NEEDS_SELECTION', '29');
 
-  define('ERROR_TEXT_DB_NOTEXIST', '�f�[�^�x�[�X�����݂��܂���');
+  define('ERROR_TEXT_DB_NOTEXIST', 'データベースが存在しません');
   define('ERROR_CODE_DB_NOTEXIST', '30');
 
-  define('ERROR_TEXT_STORE_NAME_ISEMPTY', '�V���b�v�������͂���Ă��܂���');
+  define('ERROR_TEXT_STORE_NAME_ISEMPTY', 'ショップ名が入力されていません');
   define('ERROR_CODE_STORE_NAME_ISEMPTY', '31');
 
-  define('ERROR_TEXT_STORE_OWNER_ISEMPTY', '�V���b�v�̃I�[�i�[�������͂���Ă��܂���');
+  define('ERROR_TEXT_STORE_OWNER_ISEMPTY', 'ショップのオーナー名が入力されていません');
   define('ERROR_CODE_STORE_OWNER_ISEMPTY', '32');
 
-  define('ERROR_TEXT_STORE_OWNER_EMAIL_ISEMPTY', '�V���b�v�I�[�i�[�̃��[���A�h���X�����͂���Ă��܂���');
+  define('ERROR_TEXT_STORE_OWNER_EMAIL_ISEMPTY', 'ショップオーナーのメールアドレスが入力されていません');
   define('ERROR_CODE_STORE_OWNER_EMAIL_ISEMPTY', '33');
 
-  define('ERROR_TEXT_STORE_OWNER_EMAIL_NOTEMAIL', '�V���b�v�I�[�i�[�̃��[���A�h���X�������ł�');
+  define('ERROR_TEXT_STORE_OWNER_EMAIL_NOTEMAIL', 'ショップオーナーのメールアドレスが無効です');
   define('ERROR_CODE_STORE_OWNER_EMAIL_NOTEMAIL', '34');
 
-define('ERROR_TEXT_STORE_ADDRESS_ISEMPTY', '�V���b�v�̏Z�������͂���Ă��܂���');
+define('ERROR_TEXT_STORE_ADDRESS_ISEMPTY', 'ショップの住所が入力されていません');
 define('ERROR_CODE_STORE_ADDRESS_ISEMPTY', '35');
 
-define('ERROR_TEXT_DEMO_SQL_NOTEXIST', '�f�����i��SQL�t�@�C�������݂��܂���');
+define('ERROR_TEXT_DEMO_SQL_NOTEXIST', 'デモ商品のSQLファイルが存在しません');
 define('ERROR_CODE_DEMO_SQL_NOTEXIST', '36');
 
-define('ERROR_TEXT_ADMIN_USERNAME_ISEMPTY', '�Ǘ���ID�����͂���Ă��܂���');
+define('ERROR_TEXT_ADMIN_USERNAME_ISEMPTY', '管理者IDが入力されていません');
 define('ERROR_CODE_ADMIN_USERNAME_ISEMPTY', '46');
 
-define('ERROR_TEXT_ADMIN_EMAIL_ISEMPTY', '�Ǘ��҂̃��[���A�h���X�����͂���Ă��܂���');
+define('ERROR_TEXT_ADMIN_EMAIL_ISEMPTY', '管理者のメールアドレスが入力されていません');
 define('ERROR_CODE_ADMIN_EMAIL_ISEMPTY', '47');
 
-define('ERROR_TEXT_ADMIN_EMAIL_NOTEMAIL', '�Ǘ��҂̃��[���A�h���X�͗L���Ȃ��̂ł͂���܂���');
+define('ERROR_TEXT_ADMIN_EMAIL_NOTEMAIL', '管理者のメールアドレスは有効なものではありません');
 define('ERROR_CODE_ADMIN_EMAIL_NOTEMAIL', '48');
 
-define('ERROR_TEXT_ADMIN_PASS_ISEMPTY', '�Ǘ��҂̃p�X���[�h�����͂���Ă��܂���');
+define('ERROR_TEXT_ADMIN_PASS_ISEMPTY', '管理者のパスワードが入力されていません');
 define('ERROR_CODE_ADMIN_PASS_ISEMPTY', '49');
 
-define('ERROR_TEXT_ADMIN_PASS_NOTEQUAL', '�p�X���[�h����v���܂���');
+define('ERROR_TEXT_ADMIN_PASS_NOTEQUAL', 'パスワードが一致しません');
 define('ERROR_CODE_ADMIN_PASS_NOTEQUAL', '50');
 
-define('ERROR_TEXT_4_1_2', 'PHP�̃o�[�W������4.1.2�ł�');
+define('ERROR_TEXT_4_1_2', 'PHPのバージョンは4.1.2です');
 define('ERROR_CODE_4_1_2', '1');
-define('ERROR_TEXT_PHP_OLD_VERSION', 'PHP�̃o�[�W�������T�|�[�g�O�ł�');
+define('ERROR_TEXT_PHP_OLD_VERSION', 'PHPのバージョンがサポート外です');
 define('ERROR_CODE_PHP_OLD_VERSION', '55');
-define('ERROR_TEXT_PHP_VERSION', '�T�|�[�g�O��PHP�o�[�W�����ł�');
+define('ERROR_TEXT_PHP_VERSION', 'サポート外のPHPバージョンです');
 define('ERROR_CODE_PHP_VERSION', '91');
 
-define('ERROR_TEXT_ADMIN_CONFIGURE_WRITE', 'admin configure.php ���������݉\�ł͂���܂���');
+define('ERROR_TEXT_ADMIN_CONFIGURE_WRITE', 'admin configure.php が書き込み可能ではありません');
 define('ERROR_CODE_ADMIN_CONFIGURE_WRITE', '56');
 
-define('ERROR_TEXT_STORE_CONFIGURE_WRITE', 'store configure.php ���������݉\�ł͂���܂���');
+define('ERROR_TEXT_STORE_CONFIGURE_WRITE', 'store configure.php が書き込み可能ではありません');
 define('ERROR_CODE_STORE_CONFIGURE_WRITE', '57');
 
-define('ERROR_TEXT_CACHE_DIR_ISEMPTY', 'Session/SQL Cache Directory entry �����͂���Ă��܂���');
+define('ERROR_TEXT_CACHE_DIR_ISEMPTY', 'Session/SQL Cache Directory entry が入力されていません');
 define('ERROR_CODE_CACHE_DIR_ISEMPTY', '61');
 
-define('ERROR_TEXT_CACHE_DIR_ISDIR', 'Session/SQL Cache Directory entry �����݂��܂���');
+define('ERROR_TEXT_CACHE_DIR_ISDIR', 'Session/SQL Cache Directory entry が存在しません');
 define('ERROR_CODE_CACHE_DIR_ISDIR', '62');
 
-define('ERROR_TEXT_CACHE_DIR_ISWRITEABLE', 'Session/SQL Cache Directory entry ���������݉\�ł͂���܂���');
+define('ERROR_TEXT_CACHE_DIR_ISWRITEABLE', 'Session/SQL Cache Directory entry が書き込み可能ではありません');
 define('ERROR_CODE_CACHE_DIR_ISWRITEABLE', '63');
 
 define('ERROR_TEXT_ADMIN_PASS_INSECURE', 'Password not secure enough. Requires letters and numbers, and at least 7 characters.');
 define('ERROR_CODE_ADMIN_PASS_INSECURE', '64');
 
-define('ERROR_TEXT_REGISTER_GLOBALS_ON', 'Register Globals��ON�ɂȂ��Ă��܂�');
+define('ERROR_TEXT_REGISTER_GLOBALS_ON', 'Register GlobalsがONになっています');
 define('ERROR_CODE_REGISTER_GLOBALS_ON', '69');
 
-define('ERROR_TEXT_SAFE_MODE_ON', 'Safe Mode��ON�ɂȂ��Ă��܂�');
+define('ERROR_TEXT_SAFE_MODE_ON', 'Safe ModeがONになっています');
 define('ERROR_CODE_SAFE_MODE_ON', '70');
 
-define('ERROR_TEXT_CACHE_CUSTOM_NEEDED','�L���b�V���t�H���_�̓t�@�C���L���b�V���O�T�|�[�g���g�p���邽�߂ɕK�v�ł�');
+define('ERROR_TEXT_CACHE_CUSTOM_NEEDED','キャッシュフォルダはファイルキャッシングサポートを使用するために必要です');
 define('ERROR_CODE_CACHE_CUSTOM_NEEDED', '71');
 
-define('ERROR_TEXT_TABLE_RENAME_CONFIGUREPHP_FAILED','�V�����v���t�B�N�X��configure.php �t�@�C�����X�V�ł��܂���ł���');
+define('ERROR_TEXT_TABLE_RENAME_CONFIGUREPHP_FAILED','新しいプレフィクスでconfigure.php ファイルを更新できませんでした');
 define('ERROR_CODE_TABLE_RENAME_CONFIGUREPHP_FAILED', '72');
 
-define('ERROR_TEXT_TABLE_RENAME_INCOMPLETE','���ׂẴe�[�u���̃��l�[�����ł��܂���ł���');
+define('ERROR_TEXT_TABLE_RENAME_INCOMPLETE','すべてのテーブルのリネームができませんでした');
 define('ERROR_CODE_TABLE_RENAME_INCOMPLETE', '73');
 
-define('ERROR_TEXT_SESSION_SAVE_PATH','PHP "session.save_path" ���������ݕs�ɂȂ��Ă��܂�');
+define('ERROR_TEXT_SESSION_SAVE_PATH','PHP "session.save_path" が書き込み不可になっています');
 define('ERROR_CODE_SESSION_SAVE_PATH','74');
 
-define('ERROR_TEXT_MAGIC_QUOTES_RUNTIME','PHP "magic_quotes_runtime" ��ON�ɂȂ��Ă��܂�');
+define('ERROR_TEXT_MAGIC_QUOTES_RUNTIME','PHP "magic_quotes_runtime" がONになっています');
 define('ERROR_CODE_MAGIC_QUOTES_RUNTIME','75');
 
-define('ERROR_TEXT_DB_VER_UNKNOWN','�f�[�^�x�[�X�G���W���̃o�[�W������񂪕s���ł�');
+define('ERROR_TEXT_DB_VER_UNKNOWN','データベースエンジンのバージョン情報が不明です');
 define('ERROR_CODE_DB_VER_UNKNOWN','76');
 
-define('ERROR_TEXT_UPLOADS_DISABLED','�t�@�C���A�b�v���[�h��OFF�ɂȂ��Ă��܂�');
+define('ERROR_TEXT_UPLOADS_DISABLED','ファイルアップロードがOFFになっています');
 define('ERROR_CODE_UPLOADS_DISABLED','77');
 
-define('ERROR_TEXT_ADMIN_PWD_REQUIRED','�A�b�v�O���[�h����ɂ͊Ǘ��l�p�̃p�X���[�h���K�v�ł�');
+define('ERROR_TEXT_ADMIN_PWD_REQUIRED','アップグレードするには管理人用のパスワードが必要です');
 define('ERROR_CODE_ADMIN_PWD_REQUIRED','78');
 
-define('ERROR_TEXT_PHP_SESSION_SUPPORT','PHP Session Support���K�v�ł�');
+define('ERROR_TEXT_PHP_SESSION_SUPPORT','PHP Session Supportが必要です');
 define('ERROR_CODE_PHP_SESSION_SUPPORT','80');
 
-define('ERROR_TEXT_PHP_AS_CGI','Windows�ȊO�ł�PHP��cgi�Ƃ��Ďg�p���邱�Ƃ͂����߂��܂���');
+define('ERROR_TEXT_PHP_AS_CGI','Windows以外ではPHPをcgiとして使用することはお勧めしません');
 define('ERROR_CODE_PHP_AS_CGI','81');
 
-define('ERROR_TEXT_DISABLE_FUNCTIONS','�K�v��PHP�̋@�\��OFF�ɂȂ��Ă��܂�');
+define('ERROR_TEXT_DISABLE_FUNCTIONS','必要なPHPの機能がOFFになっています');
 define('ERROR_CODE_DISABLE_FUNCTIONS','82');
 
-define('ERROR_TEXT_OPENSSL_WARN','OpenSSL��SSL (https://)��񋟂��邽�߂Ɏg������@�̂ЂƂł��B<br /><br />�ȉ��̃P�[�X�ł͎g�p�s�ƕ\������܂��BOpenSSL���g�p�������ꍇ�͎Q�l�ɂ��Ă��������B <br />(a) �E�F�u�z�X�g��SSL���T�|�[�g���Ă��Ȃ�<br />(b) �E�F�u�T�[�o�[��OpenSSL���C���X�g�[������Ă��Ȃ�(����SSL�T�[�r�X���C���X�g�[������Ă���\��������)<br />(c) �E�F�u�z�X�g��SSL�F�؂ɂ��ďڍׂ�m��Ȃ����߁A�K�؂Ȑݒ�����邱�Ƃ��ł��Ȃ�<br />(d) PHP��OpenSSL���T�|�[�g����悤�ɐݒ肳��Ă��Ȃ��B');
+define('ERROR_TEXT_OPENSSL_WARN','OpenSSLはSSL (https://)を提供するために使われる方法のひとつです。<br /><br />以下のケースでは使用不可と表示されます。OpenSSLを使用したい場合は参考にしてください。 <br />(a) ウェブホストがSSLをサポートしていない<br />(b) ウェブサーバーにOpenSSLがインストールされていない(他のSSLサービスがインストールされている可能性がある)<br />(c) ウェブホストがSSL認証について詳細を知らないため、適切な設定をすることができない<br />(d) PHPがOpenSSLをサポートするように設定されていない。');
 define('ERROR_CODE_OPENSSL_WARN','79');
 
-define('ERROR_TEXT_DB_PREFIX_NODOTS','�e�[�u���v���t�B�N�X�ł́u / �v�u \\ �v�u . �v���g�p���邱�Ƃ��ł��܂���B ');
+define('ERROR_TEXT_DB_PREFIX_NODOTS','テーブルプレフィクスでは「 / 」「 \\ 」「 . 」を使用することができません。 ');
 define('ERROR_CODE_DB_PREFIX_NODOTS','83');
 
-define('ERROR_TEXT_PHP_SESSION_AUTOSTART','PHP Session.autostart ��OFF�ɂ��Ă��������B');
+define('ERROR_TEXT_PHP_SESSION_AUTOSTART','PHP Session.autostart をOFFにしてください。');
 define('ERROR_CODE_PHP_SESSION_AUTOSTART','84');
-define('ERROR_TEXT_PHP_SESSION_TRANS_SID','PHP Session.use_trans_sid ��OFF�ɂ��Ă��������B');
+define('ERROR_TEXT_PHP_SESSION_TRANS_SID','PHP Session.use_trans_sid をOFFにしてください。');
 define('ERROR_CODE_PHP_SESSION_TRANS_SID','86');
-define('ERROR_TEXT_DB_PRIVS','�f�[�^�x�[�X���[�U�Ɏg�p�������K�v�ł�');
+define('ERROR_TEXT_DB_PRIVS','データベースユーザに使用権限が必要です');
 define('ERROR_CODE_DB_PRIVS','87');
-define('ERROR_TEXT_COULD_NOT_WRITE_CONFIGURE_FILES','/includes/configure.php �ɏ������݂��s���ۃG���[���������܂���');
+define('ERROR_TEXT_COULD_NOT_WRITE_CONFIGURE_FILES','/includes/configure.php に書き込みを行う際エラーが発生しました');
 define('ERROR_CODE_COULD_NOT_WRITE_CONFIGURE_FILES','88');
-define('ERROR_TEXT_GD_SUPPORT','GD�T�|�[�g�Ɋւ���ڍ�');
+define('ERROR_TEXT_GD_SUPPORT','GDサポートに関する詳細');
 define('ERROR_CODE_GD_SUPPORT','89');
 
-define('ERROR_TEXT_DB_MYSQL5','MySQL5.7�ȏ�̃o�[�W�����ł̃e�X�g�͕s���S�ł�');
+define('ERROR_TEXT_DB_MYSQL5','MySQL5.7以上のバージョンでのテストは不完全です');
 define('ERROR_CODE_DB_MYSQL5','90');
 
 define('ERROR_TEXT_OPEN_BASEDIR','Could have problems uploading files or doing backups');
@@ -243,68 +243,68 @@ if (isset($_GET['error_code'])) {
 
 switch ($error_code) {
   case ('1'):
-    define('POPUP_ERROR_HEADING', 'PHP�o�[�W����4.1.2���m�F����܂���');
-    define('POPUP_ERROR_TEXT', 'PHP�o�[�W����4.1.2�̂������̃����[�X�ŏ�ʃO���[�o���z��Ɋւ���o�O���񍐂���Ă��܂��B���̃o�O�ɂ����Zen Cart�̊Ǘ���ʂ��\������Ȃ��\��������܂��̂ŁA�\�ł����PHP���A�b�v�O���[�h���Ă��������B<br /><br />PHP 4.3.2�ȍ~��Zen Cart�����s���邽�߂̍Œ჉�C���ł��B<br />PHP 4.4.9�ȍ~���g�p���邱�Ƃ����������߂��܂��B');
+    define('POPUP_ERROR_HEADING', 'PHPバージョン4.1.2が確認されました');
+    define('POPUP_ERROR_TEXT', 'PHPバージョン4.1.2のいくつかのリリースで上位グローバル配列に関するバグが報告されています。このバグによってZen Cartの管理画面が表示されない可能性がありますので、可能であればPHPをアップグレードしてください。<br /><br />PHP 4.3.2以降がZen Cartを実行するための最低ラインです。<br />PHP 4.4.9以降を使用することを強くお勧めします。');
     
   break;
   case ('2'):
-    define('POPUP_ERROR_HEADING', '/admin/includes/configure.php �����݂��܂���');
-    define('POPUP_ERROR_TEXT', '�t�@�C�� /admin/includes/configure.php �����݂��܂���B��̃t�@�C�����쐬���邩�A/admin/includes/dist-configure.php �� configure.php �փ��l�[�����邱�Ƃł��̃t�@�C�����쐬�ł��܂��B�쐬��Aread-write ���}�[�N���邩�ACHMOD 666 �܂��� CHMOD 777 �Ƃ���K�v������܂��B');
+    define('POPUP_ERROR_HEADING', '/admin/includes/configure.php が存在しません');
+    define('POPUP_ERROR_TEXT', 'ファイル /admin/includes/configure.php が存在しません。空のファイルを作成するか、/admin/includes/dist-configure.php を configure.php へリネームすることでこのファイルを作成できます。作成後、read-write をマークするか、CHMOD 666 または CHMOD 777 とする必要があります。');
     
   break;
   case ('3'):
-    define('POPUP_ERROR_HEADING', '/includes/configure.php �����݂��܂���');
-    define('POPUP_ERROR_TEXT', '�t�@�C�� /includes/configure.php �����݂��܂���B ��̃t�@�C�����쐬���邩�A/includes/dist-configure.php �� configure.php �փ��l�[�����邱�Ƃł��̃t�@�C�����쐬�ł��܂��B�쐬��Aread-write ���}�[�N���邩�ACHMOD 666 �܂��� CHMOD 777 �Ƃ���K�v������܂��B');
+    define('POPUP_ERROR_HEADING', '/includes/configure.php が存在しません');
+    define('POPUP_ERROR_TEXT', 'ファイル /includes/configure.php が存在しません。 空のファイルを作成するか、/includes/dist-configure.php を configure.php へリネームすることでこのファイルを作成できます。作成後、read-write をマークするか、CHMOD 666 または CHMOD 777 とする必要があります。');
 
   break;
   case ('4'):
-    define('POPUP_ERROR_HEADING', '�����p�X');
-    define('POPUP_ERROR_TEXT', '�����p�X��Zen Cart�̃t�@�C���Q��u���Ă���f�B���N�g���̃p�X�ł��Blinux�n�̃V�X�e���ł́A���Ƃ���html�t�@�C���� /var/www/html �֊i�[����܂��B����Zen Cart�t�@�C���Q�� \'store\' �Ƃ����f�B���N�g���֒u�����Ȃ�A�����p�X�� /var/www/html/store �ƂȂ�ł��傤�B�����Ă��̓C���X�g�[�������̃f�B���N�g���𐳊m�ɐ������Ă���ƐM�����Ă悢�ł��傤�B');
+    define('POPUP_ERROR_HEADING', '物理パス');
+    define('POPUP_ERROR_TEXT', '物理パスはZen Cartのファイル群を置いているディレクトリのパスです。linux系のシステムでは、たとえばhtmlファイルは /var/www/html へ格納されます。もしZen Cartファイル群を \'store\' というディレクトリへ置いたなら、物理パスは /var/www/html/store となるでしょう。たいていはインストーラがこのディレクトリを正確に推測していると信頼してよいでしょう。');
     
   break;
   case ('5'):
-    define('POPUP_ERROR_HEADING', '���zHTTP�p�X');
-    define('POPUP_ERROR_TEXT', '�T�C�g(�V���b�v)��URL�ł��B�����T�C�g���h���C����root�ɂ���Ȃ�A http://www.example.com �܂��� http://example.com �ƂȂ�܂��B�����ustore�v�Ƃ����T�u�f�B���N�g���ɐݒu�����ꍇ�́Ahttp://www.example.com/store �ƂȂ�܂��B');
+    define('POPUP_ERROR_HEADING', '仮想HTTPパス');
+    define('POPUP_ERROR_TEXT', 'サイト(ショップ)のURLです。もしサイトがドメインのrootにあるなら、 http://www.example.com または http://example.com となります。もし「store」というサブディレクトリに設置した場合は、http://www.example.com/store となります。');
     
   break;
   case ('6'):
-    define('POPUP_ERROR_HEADING', '���zHTTPS�T�[�o');
-    define('POPUP_ERROR_TEXT', 'secure/SSL�T�[�o�ւ̃E�F�u�T�[�o�A�h���X�ł��B���̃A�h���X��SSL/Secure���[�h���T�[�o��łǂ̂悤�Ɏ��s����Ă��邩�ɂ���ĕς��܂��B');
+    define('POPUP_ERROR_HEADING', '仮想HTTPSサーバ');
+    define('POPUP_ERROR_TEXT', 'secure/SSLサーバへのウェブサーバアドレスです。このアドレスはSSL/Secureモードがサーバ上でどのように実行されているかによって変わります。');
     
   break;
   case ('7'):
-    define('POPUP_ERROR_HEADING', '���zHTTPS�p�X');
-    define('POPUP_ERROR_TEXT', 'Zen Cart�E�F�u�T�C�g��secure/SSL���[�h�ŉ{�����邽�߂ɃE�F�u�u���E�U�ɓ��͂���A�h���X�̂��Ƃł��B');
+    define('POPUP_ERROR_HEADING', '仮想HTTPSパス');
+    define('POPUP_ERROR_TEXT', 'Zen Cartウェブサイトをsecure/SSLモードで閲覧するためにウェブブラウザに入力するアドレスのことです。');
     
   break;
   case ('8'):
     define('POPUP_ERROR_HEADING', 'Enable SSL');
-    define('POPUP_ERROR_TEXT', '�T�C�g��SSL/Secure(HTTPS)���g�p���邩�ǂ��������߂܂��B<br /><br />�l��񂪓��͂���邠����y�[�W�A�Ⴆ�΃��O�C���A�`�F�b�N�A�E�g�A�A�J�E���g�ڍׂȂǂ�SSL/Secure���[�h�ɂ��ی삷�邱�Ƃ��ł��܂��B����ɁA����͊Ǘ��҃G���A�ɓK�p���邱�Ƃ��ł��܂��B<br /><br />SSL�T�[�o(HTTP�̑����HTTPS�̎g�p�ɂ��\�����ꂽ)�ɃA�N�Z�X���Ȃ���΂Ȃ�܂���B<br /><br />SSL�T�[�o�����邩�ǂ���������Ȃ���΁A���͂��̐ݒ�� \'No\' �̂܂܂ɂ��Ă����Ă��������A�����Ď����̃z�X�e�B���O�v���o�C�_�֊m�F���Ă��������B��:���ׂĂ̐ݒ�́Aconfigure.php�t�@�C����ҏW���邱�ƂŌォ��ύX���邱�Ƃ��ł��܂��B');
+    define('POPUP_ERROR_TEXT', 'サイトでSSL/Secure(HTTPS)を使用するかどうかを決めます。<br /><br />個人情報が入力されるあらゆるページ、例えばログイン、チェックアウト、アカウント詳細などをSSL/Secureモードにより保護することができます。さらに、それは管理者エリアに適用することもできます。<br /><br />SSLサーバ(HTTPの代わりにHTTPSの使用により表示された)にアクセスしなければなりません。<br /><br />SSLサーバがあるかどうか分からなければ、今はこの設定を \'No\' のままにしておいてください、そして自分のホスティングプロバイダへ確認してください。注:すべての設定は、configure.phpファイルを編集することで後から変更することができます。');
     
   break;
   case ('9'):
-    define('POPUP_ERROR_HEADING', '�����p�X�����͂���܂���ł���');
-    define('POPUP_ERROR_TEXT', '�����p�X�����͂���܂���ł����B�L���Ȓl����͂���K�v������܂��B');
+    define('POPUP_ERROR_HEADING', '物理パスが入力されませんでした');
+    define('POPUP_ERROR_TEXT', '物理パスが入力されませんでした。有効な値を入力する必要があります。');
 
   break;
   case ('10'):
-    define('POPUP_ERROR_HEADING', '�����p�X�͐���������܂���');
-    define('POPUP_ERROR_TEXT', '���͂��ꂽ�����p�X�͗L���ł͂���܂���B�C�����čēx�����Ă��������B');
+    define('POPUP_ERROR_HEADING', '物理パスは正しくありません');
+    define('POPUP_ERROR_TEXT', '入力された物理パスは有効ではありません。修正して再度試してください。');
     
   break;
   case ('11'):
-    define('POPUP_ERROR_HEADING', '���zHTTP�����͂���܂���ł���');
-    define('POPUP_ERROR_TEXT', '���zHTTP�p�X�����͂���܂���ł����B�L���Ȓl����͂���K�v������܂��B');
+    define('POPUP_ERROR_HEADING', '仮想HTTPが入力されませんでした');
+    define('POPUP_ERROR_TEXT', '仮想HTTPパスが入力されませんでした。有効な値を入力する必要があります。');
     
   break;
   case ('12'):
-    define('POPUP_ERROR_HEADING', '���zHTTPS�����͂���܂���ł���');
-    define('POPUP_ERROR_TEXT', 'SSL���[�h�L����I��������ŉ��zHTTPS�p�X�����͂���܂���ł����B�L���Ȓl����͂��邩�ASSL���[�h�𖳌��ɂ���K�v������܂��B');
+    define('POPUP_ERROR_HEADING', '仮想HTTPSが入力されませんでした');
+    define('POPUP_ERROR_TEXT', 'SSLモード有効を選択した上で仮想HTTPSパスが入力されませんでした。有効な値を入力するか、SSLモードを無効にする必要があります。');
     
   break;
   case ('13'):
-    define('POPUP_ERROR_HEADING', '���zHTTPS�T�[�o�����͂���܂���ł���');
-    define('POPUP_ERROR_TEXT', 'SSL���[�h�L����I��������ŉ��zHTTPS�T�[�o�����͂���܂���ł����B�L���Ȓl����͂��邩�ASSL���[�h�𖳌��ɂ���K�v������܂��B');
+    define('POPUP_ERROR_HEADING', '仮想HTTPSサーバが入力されませんでした');
+    define('POPUP_ERROR_TEXT', 'SSLモード有効を選択した上で仮想HTTPSサーバが入力されませんでした。有効な値を入力するか、SSLモードを無効にする必要があります。');
     
   break;
   case ('14'):
@@ -313,33 +313,33 @@ switch ($error_code) {
     
   break;
   case ('15'):
-    define('POPUP_ERROR_HEADING', '�f�[�^�x�[�X�z�X�g');
-    define('POPUP_ERROR_TEXT', '�f�[�^�x�[�X�v���O���������s����E�F�u�T�[�o�̖��O�ł��B�قƂ�ǂ̏ꍇ�A \'localhost\' �̂܂܂ő��v�ł��B����ȊO�̏ꍇ�́A�����̃f�[�^�x�[�X�T�[�o�̃T�[�o�����z�X�e�B���O�v���o�C�_�֐q�˂�K�v������ł��傤�B');
+    define('POPUP_ERROR_HEADING', 'データベースホスト');
+    define('POPUP_ERROR_TEXT', 'データベースプログラムを実行するウェブサーバの名前です。ほとんどの場合、 \'localhost\' のままで大丈夫です。それ以外の場合は、それらのデータベースサーバのサーバ名をホスティングプロバイダへ尋ねる必要があるでしょう。');
     
   break;
   case ('16'):
-    define('POPUP_ERROR_HEADING', '�f�[�^�x�[�X���[�U��');
-    define('POPUP_ERROR_TEXT', '���ׂẴf�[�^�x�[�X�̓A�N�Z�X���邽�߂Ƀ��[�U������уp�X���[�h��K�v�Ƃ��܂��B�f�[�^�x�[�X���[�U���̓z�X�e�B���O�v���o�C�_�ɂ���Ċ��蓖�Ă��Ă���ł��傤�B���̏ڍׂɂ��Ă̓z�X�e�B���O�v���o�C�_�Ɋm�F���Ă��������B');
+    define('POPUP_ERROR_HEADING', 'データベースユーザ名');
+    define('POPUP_ERROR_TEXT', 'すべてのデータベースはアクセスするためにユーザ名およびパスワードを必要とします。データベースユーザ名はホスティングプロバイダによって割り当てられているでしょう。その詳細についてはホスティングプロバイダに確認してください。');
     
   break;
   case ('17'):
-    define('POPUP_ERROR_HEADING', '�f�[�^�x�[�X�p�X���[�h');
-    define('POPUP_ERROR_TEXT', '���ׂẴf�[�^�x�[�X�̓A�N�Z�X���邽�߂Ƀ��[�U������уp�X���[�h��K�v�Ƃ��܂��B�f�[�^�x�[�X�p�X���[�h�́A�z�X�e�B���O�v���o�C�_�ɂ�芄�蓖�Ă��Ă���ł��傤�B���̏ڍׂɂ��Ă̓z�X�e�B���O�v���o�C�_�Ɋm�F���Ă��������B');
+    define('POPUP_ERROR_HEADING', 'データベースパスワード');
+    define('POPUP_ERROR_TEXT', 'すべてのデータベースはアクセスするためにユーザ名およびパスワードを必要とします。データベースパスワードは、ホスティングプロバイダにより割り当てられているでしょう。その詳細についてはホスティングプロバイダに確認してください。');
     
   break;
   case ('18'):
-    define('POPUP_ERROR_HEADING', '�f�[�^�x�[�X��');
-    define('POPUP_ERROR_TEXT', '�����Zen Cart�Ɏg�p����f�[�^�x�[�X���ł��B����������͂��邩������Ȃ��ꍇ�ɂ́A�z�X�e�B���O�v���o�C�_�ɏڍׂ��m�F���Ă��������B');
+    define('POPUP_ERROR_HEADING', 'データベース名');
+    define('POPUP_ERROR_TEXT', 'これはZen Cartに使用するデータベース名です。もし何を入力するか分からない場合には、ホスティングプロバイダに詳細を確認してください。');
     
   break;
   case ('19'):
-    define('POPUP_ERROR_HEADING', '�f�[�^�x�[�X�v���t�B�N�X');
-    define('POPUP_ERROR_TEXT', 'Zen Cart�́A�g�p�����e�[�u���̖��O�Ƀv���t�B�N�X�������邱�Ƃ��ł��܂��B�z�X�g����1�����f�[�^�x�[�X���񋟂���Ă��āA�f�[�^�x�[�X���g�p���鑼�̃X�N���v�g���C���X�g�[���������ꍇ�ɁA����͓��ɗL�p�ł��B�ʏ�̓f�t�H���g�̐ݒ�̂܂܂ɂ��Ă������ق��������ł��傤�B');
+    define('POPUP_ERROR_HEADING', 'データベースプレフィクス');
+    define('POPUP_ERROR_TEXT', 'Zen Cartは、使用されるテーブルの名前にプレフィクスを加えることができます。ホストから1つだけデータベースが提供されていて、データベースを使用する他のスクリプトもインストールしたい場合に、これは特に有用です。通常はデフォルトの設定のままにしておいたほうがいいでしょう。');
     
   break;
   case ('20'):
-    define('POPUP_ERROR_HEADING', '�f�[�^�x�[�X�쐬');
-    define('POPUP_ERROR_TEXT', '���̐ݒ�́AZen Cart�p�̃f�[�^�x�[�X���쐬���邱�Ƃ��C���X�g�[�������݂邩�ǂ��������߂܂��B��:\'create\'�̏����́AZen Cart�ɕK�v�ȃe�[�u����ǉ����邱�ƂƑS���֌W����܂���B�����͎����I�ɍs����ł��傤�B�����̃z�X�g�ł� \'create\' ������^���Ă��Ȃ��ł��傤���A��̃f�[�^�x�[�X���쐬����ʂ̕��@(�Ⴆ��cPanel�AphpMyAdmin)��񋟂��Ă���ł��傤�B');
+    define('POPUP_ERROR_HEADING', 'データベース作成');
+    define('POPUP_ERROR_TEXT', 'この設定は、Zen Cart用のデータベースを作成することをインストーラが試みるかどうかを決めます。注:\'create\'の処理は、Zen Cartに必要なテーブルを追加することと全く関係ありません。それらは自動的に行われるでしょう。多くのホストでは \'create\' 権限を与えていないでしょうが、空のデータベースを作成する別の方法(例えばcPanel、phpMyAdmin)を提供しているでしょう。');
     
   break;
 //  case ('21'):
@@ -358,28 +358,28 @@ switch ($error_code) {
     
   break;
   case ('24'):
-    define('POPUP_ERROR_HEADING', '�f�[�^�x�[�X�z�X�g�������͂���Ă��܂���');
-    define('POPUP_ERROR_TEXT', '�f�[�^�x�[�X�z�X�g�������͂���Ă��܂���B�L���ȃf�[�^�x�[�X�T�[�o�z�X�g������͂��Ă��������B<br />����̓f�[�^�x�[�X�v���O���������s����E�F�u�T�[�o�̖��O�ł��B�قƂ�ǂ̏ꍇ�A\'localhost\'�̂܂܂ő��v�ł��B����ȊO�̏ꍇ�́A�f�[�^�x�[�X�T�[�o�̃T�[�o�����z�X�e�B���O�v���o�C�_�Ɏ��₵�Ă��������B');
+    define('POPUP_ERROR_HEADING', 'データベースホスト名が入力されていません');
+    define('POPUP_ERROR_TEXT', 'データベースホスト名が入力されていません。有効なデータベースサーバホスト名を入力してください。<br />これはデータベースプログラムを実行するウェブサーバの名前です。ほとんどの場合、\'localhost\'のままで大丈夫です。それ以外の場合は、データベースサーバのサーバ名をホスティングプロバイダに質問してください。');
   break;
   
   case ('25'):
-    define('POPUP_ERROR_HEADING', '�f�[�^�x�[�X�������͂���Ă��܂���');
-    define('POPUP_ERROR_TEXT', 'T�f�[�^�x�[�X�������͂���Ă��܂���BZen Cart�Ɏg�p����f�[�^�x�[�X������͂��Ă��������B<br />�����Zen Cart�Ɏg�p����f�[�^�x�[�X�̖��O�ł��B����������͂��邩�킩��Ȃ��Ȃ�A�z�X�e�B���O�v���o�C�_�ɏڍׂ��m�F���Ă��������B');
+    define('POPUP_ERROR_HEADING', 'データベース名が入力されていません');
+    define('POPUP_ERROR_TEXT', 'Tデータベース名が入力されていません。Zen Cartに使用するデータベース名を入力してください。<br />これはZen Cartに使用するデータベースの名前です。もし何を入力するかわからないなら、ホスティングプロバイダに詳細を確認してください。');
     
   break;
   case ('26'):
-    define('POPUP_ERROR_HEADING', 'SQL�C���X�g�[���t�@�C�������݂��܂���');
-    define('POPUP_ERROR_TEXT', 'SQL�C���X�g�[���t�@�C���������邱�Ƃ��ł��܂���ł����B\'zc_install\' �f�B���N�g���� \'mysql_zencart.sql\' �Ƃ����悤�Ȗ��O�̃t�@�C�������邱�Ƃ��m�F���Ă��������B');
+    define('POPUP_ERROR_HEADING', 'SQLインストールファイルが存在しません');
+    define('POPUP_ERROR_TEXT', 'SQLインストールファイルを見つけることができませんでした。\'zc_install\' ディレクトリに \'mysql_zencart.sql\' というような名前のファイルがあることを確認してください。');
     
   break;
   case ('27'):
-    define('POPUP_ERROR_HEADING', '�f�[�^�x�[�X���T�|�[�g����Ă��܂���');
-    define('POPUP_ERROR_TEXT', '�I�������f�[�^�x�[�X�^�C�v�̓C���X�g�[������Ă���o�[�W������PHP�ɃT�|�[�g����Ă��Ȃ��悤�ł��B�I�������f�[�^�x�[�X�^�C�v���T�|�[�g����Ă��邩�z�X�e�B���O�v���o�C�_�֊m�F����K�v������܂��B�����������g�̃T�[�o�ł���΁A���̃f�[�^�x�[�X�^�C�v��PHP�ɃR���p�C�����đg�ݍ��񂾂����m�F���Ă��������B�܂����W���[��/dll�t�@�C���̓��[�h����Ă���K�v������܂��B');
+    define('POPUP_ERROR_HEADING', 'データベースがサポートされていません');
+    define('POPUP_ERROR_TEXT', '選択したデータベースタイプはインストールされているバージョンのPHPにサポートされていないようです。選択したデータベースタイプがサポートされているかホスティングプロバイダへ確認する必要があります。もし自分自身のサーバであれば、そのデータベースタイプをPHPにコンパイルして組み込んだかを確認してください。またモジュール/dllファイルはロードされている必要があります。');
     
   break;
   case ('28'):
-    define('POPUP_ERROR_HEADING', '�f�[�^�x�[�X�ւ̐ڑ��Ɏ��s���܂���');
-    define('POPUP_ERROR_TEXT', '�f�[�^�x�[�X�֐ڑ��ł��܂���ł����B����͂������̗��R�ɂ��N���肦�܂��B<br /><br />DB�z�X�g�����������Ȃ����A���[�U���܂���<em>�p�X���[�h</em>���������Ȃ���������܂���B<br /><br />�܂��f�[�^�x�[�X�����������Ȃ��̂�������܂���(<strong>�f�[�^�x�[�X�����݂��Ă��܂���? </strong> <strong>�����ō쐬���܂�����? </strong> -- ����: Zen Cart�̃C���X�g�[���̓f�[�^�x�[�X���쐬���܂���B)�B<br /><br />���ׂĂ̓��͍��ڂ����������m�F���Ă��������B');
+    define('POPUP_ERROR_HEADING', 'データベースへの接続に失敗しました');
+    define('POPUP_ERROR_TEXT', 'データベースへ接続できませんでした。これはいくつかの理由により起こりえます。<br /><br />DBホスト名が正しくないか、ユーザ名または<em>パスワード</em>が正しくないかもしれません。<br /><br />またデータベース名が正しくないのかもしれません(<strong>データベースが存在していますか? </strong> <strong>自分で作成しましたか? </strong> -- 注意: Zen Cartのインストーラはデータベースを作成しません。)。<br /><br />すべての入力項目が正しいか確認してください。');
     
   break;
   case ('29'):
@@ -388,289 +388,289 @@ switch ($error_code) {
     
   break;
   case ('30'):
-    define('POPUP_ERROR_HEADING', '�f�[�^�x�[�X�����݂��܂���');
-    define('POPUP_ERROR_TEXT', '�w�肳�ꂽ�f�[�^�x�[�X����������܂���ł����B<br />(<strong>���̃f�[�^�x�[�X���쐬���܂�����? </strong> -- ����: Zen Cart�̓f�[�^�x�[�X���쐬���܂���B)<br /><br />�f�[�^�x�[�X�̏ڍׂ��m�F������A�w�肵���f�[�^�x�[�X�Ɋւ���f�[�^���C�����Ă��������B<br /><br />�E�F�u�z�X�e�B���O�̋@�\���g���ăf�[�^�x�[�X���쐬����K�v�����邩������܂���B�f�[�^�x�[�X���쐬����ꍇ�́A���[�U���ƃp�X���[�h�����ăf�[�^�x�[�X�����������Ă����ƁA�C���X�g�[������ۂɕ֗��ł��B');
+    define('POPUP_ERROR_HEADING', 'データベースが存在しません');
+    define('POPUP_ERROR_TEXT', '指定されたデータベース名が見つかりませんでした。<br />(<strong>そのデータベースを作成しましたか? </strong> -- 注意: Zen Cartはデータベースを作成しません。)<br /><br />データベースの詳細を確認した後、指定したデータベースに関するデータを修正してください。<br /><br />ウェブホスティングの機能を使ってデータベースを作成する必要があるかもしれません。データベースを作成する場合は、ユーザ名とパスワードそしてデータベース名をメモしておくと、インストールする際に便利です。');
     
   break;
   case ('31'):
-    define('POPUP_ERROR_HEADING', '�V���b�v�������͂���܂���ł���');
-    define('POPUP_ERROR_TEXT', '�V���b�v�����w�肵�Ă��������B');
+    define('POPUP_ERROR_HEADING', 'ショップ名が入力されませんでした');
+    define('POPUP_ERROR_TEXT', 'ショップ名を指定してください。');
     
   break;
   case ('32'):
-    define('POPUP_ERROR_HEADING', '�V���b�v�I�[�i�[�̖��O�����͂���܂���ł���');
-    define('POPUP_ERROR_TEXT', '�V���b�v�I�[�i�[�̖��O����͂��Ă��������B���̏��� \'Contact Us\' �y�[�W�A\'Welcome\' ���[���A����ѓX�̐F�X�ȉӏ��ɕ\������܂��B');
+    define('POPUP_ERROR_HEADING', 'ショップオーナーの名前が入力されませんでした');
+    define('POPUP_ERROR_TEXT', 'ショップオーナーの名前を入力してください。この情報は \'Contact Us\' ページ、\'Welcome\' メール、および店の色々な箇所に表示されます。');
     
   break;
   case ('33'):
-    define('POPUP_ERROR_HEADING', '�V���b�v�̃��[���A�h���X�����͂���܂���ł���');
-    define('POPUP_ERROR_TEXT', '�V���b�v�̃��[���A�h���X����͂��Ă��������B����͓X���甭������郁�[�����ŘA����Ƃ��Ďg�p�����A�h���X�ł��B�\������悤�Ɏ蓮�ŃJ�X�^�}�C�Y���Ȃ�����A���̏��͂ǂ̃y�[�W�ɂ��\������邱�Ƃ͂���܂���B');
+    define('POPUP_ERROR_HEADING', 'ショップのメールアドレスが入力されませんでした');
+    define('POPUP_ERROR_TEXT', 'ショップのメールアドレスを入力してください。これは店から発送されるメール内で連絡先として使用されるアドレスです。表示するように手動でカスタマイズしない限り、この情報はどのページにも表示されることはありません。');
     
   break;
   case ('34'):
-    define('POPUP_ERROR_HEADING', '�V���b�v�̃��[���A�h���X���L���ł͂���܂���');
-    define('POPUP_ERROR_TEXT', '�L���ȃ��[���A�h���X����͂��Ă��������B');
+    define('POPUP_ERROR_HEADING', 'ショップのメールアドレスが有効ではありません');
+    define('POPUP_ERROR_TEXT', '有効なメールアドレスを入力してください。');
     
   break;
   case ('35'):
-    define('POPUP_ERROR_HEADING', '�V���b�v�̏Z�������͂���܂���ł���');
-    define('POPUP_ERROR_TEXT', '�V���b�v�̏Z������͂��Ă��������B����͂��₢���킹�y�[�W��(�K�v�ɉ����Ĕ�\���ɂ��邱�Ƃ��ł��܂�)�A�[�i��/���e���ו[�ɕ\������܂��B�܂��A�`�F�b�N�A�E�g�Ōڋq���`�F�b�N��}�l�[�I�[�_�[�ł̍w����I�������ۂɂ����̏�񂪕\�������ł��傤�B');
+    define('POPUP_ERROR_HEADING', 'ショップの住所が入力されませんでした');
+    define('POPUP_ERROR_TEXT', 'ショップの住所を入力してください。これはお問い合わせページや(必要に応じて非表示にすることもできます)、納品書/内容明細票に表示されます。また、チェックアウトで顧客がチェックやマネーオーダーでの購入を選択した際にもこの情報が表示されるでしょう。');
     
   break;
   case ('36'):
-    define('POPUP_ERROR_HEADING', '�f�����iSQL�t�@�C�������݂��܂���');
-    define('POPUP_ERROR_TEXT', 'Zen Cart�f�����i�f�[�^���C���X�g�[�����邽�߂�SQL�t�@�C����������܂���B/zc_install/demo/xxxxxxx_demo.sql �t�@�C�������݂��邩�`�F�b�N���Ă��������B(xxxxxxx = �f�[�^�x�[�X�^�C�v)');
+    define('POPUP_ERROR_HEADING', 'デモ商品SQLファイルが存在しません');
+    define('POPUP_ERROR_TEXT', 'Zen Cartデモ商品データをインストールするためのSQLファイルが見つかりません。/zc_install/demo/xxxxxxx_demo.sql ファイルが存在するかチェックしてください。(xxxxxxx = データベースタイプ)');
     
   break;
   case ('37'):
-    define('POPUP_ERROR_HEADING', '�V���b�v��');
-    define('POPUP_ERROR_TEXT', '�V���b�v�̖��̂ł��B����͂��̃V�X�e���ɂ���đ����郁�[���܂��̓u���E�U�̃^�C�g���̒��Ŏg�p����܂��B');
+    define('POPUP_ERROR_HEADING', 'ショップ名');
+    define('POPUP_ERROR_TEXT', 'ショップの名称です。これはこのシステムによって送られるメールまたはブラウザのタイトルの中で使用されます。');
     
   break;
   case ('38'):
-    define('POPUP_ERROR_HEADING', '�V���b�v�I�[�i�[�̖��O');
-    define('POPUP_ERROR_TEXT', '�V���b�v�I�[�i�[�̖��O�͂��̃V�X�e���ɂ���đ����郁�[���̒��Ŏg�p����܂��B');
+    define('POPUP_ERROR_HEADING', 'ショップオーナーの名前');
+    define('POPUP_ERROR_TEXT', 'ショップオーナーの名前はこのシステムによって送られるメールの中で使用されます。');
     
   break;
   case ('39'):
-    define('POPUP_ERROR_HEADING', '�V���b�v�I�[�i�[�̃��[���A�h���X');
-    define('POPUP_ERROR_TEXT', '�V���b�v���A�����󂯂邱�Ƃ��ł����v�ȃ��[���A�h���X�ł��B�V�X�e���ɂ���đ���ꂽ�قƂ�ǂ̃��[����A���₢���킹�y�[�W�Ɏg�p����܂��B');
+    define('POPUP_ERROR_HEADING', 'ショップオーナーのメールアドレス');
+    define('POPUP_ERROR_TEXT', 'ショップが連絡を受けることができる主要なメールアドレスです。システムによって送られたほとんどのメールや、お問い合わせページに使用されます。');
     
   break;
   case ('40'):
-    define('POPUP_ERROR_HEADING', '��');
-    define('POPUP_ERROR_TEXT', '�V���b�v�����_��u�����ł��B�ł���є����̃I�v�V�������������������߂ɁA����𐳊m�ɐݒ肷�邱�Ƃ��d�v�ł��B����ɂ���͔[�i���ɂ����鈶���̃��C�A�E�g�Ȃǂ����肵�܂��B');
+    define('POPUP_ERROR_HEADING', '国');
+    define('POPUP_ERROR_TEXT', 'ショップが拠点を置く国です。税および発送のオプションが正しく働くために、これを正確に設定することが重要です。さらにこれは納品書における宛名のレイアウトなどを決定します。');
     
   break;
   case ('41'):
-    define('POPUP_ERROR_HEADING', '�]�[��');
-    define('POPUP_ERROR_TEXT', '�V���b�v�����_��u�����̒n���I�ȋ敪�ł��B�Ⴆ�΃A�����J���O���̏B�A���{�̓s���{���ł��B');
+    define('POPUP_ERROR_HEADING', 'ゾーン');
+    define('POPUP_ERROR_TEXT', 'ショップが拠点を置く国の地理的な区分です。例えばアメリカ合衆国の州、日本の都道府県です。');
     
   break;
   case ('42'):
-    define('POPUP_ERROR_HEADING', '�V���b�v�̏Z��');
-    define('POPUP_ERROR_TEXT', '�V���b�v�̏Z���ł��B�[�i���⒍���m�F�Ɏg�p����܂��B');
+    define('POPUP_ERROR_HEADING', 'ショップの住所');
+    define('POPUP_ERROR_TEXT', 'ショップの住所です。納品書や注文確認に使用されます。');
     
   break;
   case ('43'):
-    define('POPUP_ERROR_HEADING', '�f�t�H���g�̌���');
-    define('POPUP_ERROR_TEXT', '�V���b�v�Ŏg���f�t�H���g�̌���ł��B�������m�Ȍ���p�b�N�����[�h�����΁AZen Cart�͂��̂܂ܑ�������T�|�[�g���܂��BZen Cart�͉p��p�b�N���f�t�H���g�ɂȂ��Ă��܂��B���̑��̌���Ɋւ��ẮAZen Cart�R�~���j�e�B�ɂ���Ė|�󂳂ꂽ����p�b�N�� www.zen-cart.com �̃_�E�����[�h�R�[�i�[�ɗp�ӂ���Ă��܂��B');
+    define('POPUP_ERROR_HEADING', 'デフォルトの言語');
+    define('POPUP_ERROR_TEXT', 'ショップで使うデフォルトの言語です。もし正確な言語パックがロードされれば、Zen Cartはそのまま多言語をサポートします。Zen Cartは英語パックがデフォルトになっています。その他の言語に関しては、Zen Cartコミュニティによって翻訳された言語パックが www.zen-cart.com のダウンロードコーナーに用意されています。');
     
   break;
   case ('44'):
-    define('POPUP_ERROR_HEADING', '�f�t�H���g�̒ʉ�');
-    define('POPUP_ERROR_TEXT', '�V���b�v�ň����f�t�H���g�̒ʉ݂�I�����Ă��������B������]������̂����X�g�ɂȂ���΁A�C���X�g�[��������ɊǗ��҃G���A�ŊȒP�ɕύX�ł��܂��B');
+    define('POPUP_ERROR_HEADING', 'デフォルトの通貨');
+    define('POPUP_ERROR_TEXT', 'ショップで扱うデフォルトの通貨を選択してください。もし希望するものがリストになければ、インストール完了後に管理者エリアで簡単に変更できます。');
     
   break;
   case ('45'):
-    define('POPUP_ERROR_HEADING', '�f�����i�C���X�g�[��');
-    define('POPUP_ERROR_TEXT', 'Zen Cart�̗l�X�ȓ����������Ă݂邽�߂ɁA�f�����i���f�[�^�x�[�X�ɃC���X�g�[�����邩�ǂ����I�����Ă��������B');
+    define('POPUP_ERROR_HEADING', 'デモ商品インストール');
+    define('POPUP_ERROR_TEXT', 'Zen Cartの様々な特徴を試してみるために、デモ商品をデータベースにインストールするかどうか選択してください。');
     
   break;
   case ('46'):
-    define('POPUP_ERROR_HEADING', '�Ǘ���ID�����͂���܂���ł���');
-    define('POPUP_ERROR_TEXT', '�C���X�g�[��������ɊǗ��҃G���A�փ��O�C�����邽�߂̊Ǘ���ID���w�肷��K�v������܂��B');
+    define('POPUP_ERROR_HEADING', '管理者IDが入力されませんでした');
+    define('POPUP_ERROR_TEXT', 'インストール完了後に管理者エリアへログインするための管理者IDを指定する必要があります。');
     
   break;
   case ('47'):
-    define('POPUP_ERROR_HEADING', '�Ǘ��҂̃��[���A�h���X�����͂���܂���ł���');
-    define('POPUP_ERROR_TEXT', '�Ǘ��҂̃��[���A�h���X�́A�p�X���[�h��Y��p�X���[�h�Ĕ��s���s�Ȃ��ۂɎg�p����܂��B');
+    define('POPUP_ERROR_HEADING', '管理者のメールアドレスが入力されませんでした');
+    define('POPUP_ERROR_TEXT', '管理者のメールアドレスは、パスワードを忘れパスワード再発行を行なう際に使用されます。');
     
   break;
   case ('48'):
-    define('POPUP_ERROR_HEADING', '�Ǘ��҂̃��[���A�h���X�͗L���Ȃ��̂ł͂���܂���');
-    define('POPUP_ERROR_TEXT', '�L���ȃ��[���A�h���X����͂��Ă�������');
+    define('POPUP_ERROR_HEADING', '管理者のメールアドレスは有効なものではありません');
+    define('POPUP_ERROR_TEXT', '有効なメールアドレスを入力してください');
     
   break;
   case ('49'):
-    define('POPUP_ERROR_HEADING', '�Ǘ��҃p�X���[�h�����͂���܂���ł���');
-    define('POPUP_ERROR_TEXT', '�Z�L�����e�B�̂��߂ɁA�p�X���[�h�͋󔒂ɂ͂ł��܂���B');
+    define('POPUP_ERROR_HEADING', '管理者パスワードが入力されませんでした');
+    define('POPUP_ERROR_TEXT', 'セキュリティのために、パスワードは空白にはできません。');
     
   break;
   case ('50'):
-    define('POPUP_ERROR_HEADING', '�p�X���[�h����v���܂���');
-    define('POPUP_ERROR_TEXT', '�Ǘ��҃p�X���[�h����ъm�F���ē��͂��Ă��������B');
+    define('POPUP_ERROR_HEADING', 'パスワードが一致しません');
+    define('POPUP_ERROR_TEXT', '管理者パスワードおよび確認を再入力してください。');
     
   break;
   case ('51'):
-    define('POPUP_ERROR_HEADING', '�Ǘ���ID');
-    define('POPUP_ERROR_TEXT', '�C���X�g�[��������ɊǗ��҃G���A�փ��O�C�����邽�߂̊Ǘ���ID�������Ŏw�肷��K�v������܂��B');
+    define('POPUP_ERROR_HEADING', '管理者ID');
+    define('POPUP_ERROR_TEXT', 'インストール完了後に管理者エリアへログインするための管理者IDをここで指定する必要があります。');
     
   break;
   case ('52'):
-    define('POPUP_ERROR_HEADING', '�Ǘ��҂̃��[���A�h���X');
-    define('POPUP_ERROR_TEXT', '�Ǘ��҂̃��[���A�h���X�́A�p�X���[�h��Y��p�X���[�h�Đݒ���s�Ȃ��ۂɎg�p����܂��B');
+    define('POPUP_ERROR_HEADING', '管理者のメールアドレス');
+    define('POPUP_ERROR_TEXT', '管理者のメールアドレスは、パスワードを忘れパスワード再設定を行なう際に使用されます。');
     
   break;
   case ('53'):
-    define('POPUP_ERROR_HEADING', '�Ǘ��҃p�X���[�h');
-    define('POPUP_ERROR_TEXT', '�Ǘ��҃p�X���[�h�͊Ǘ��҃G���A�ւ̃A�N�Z�X��^������S�ȃp�X���[�h�ł��B');
+    define('POPUP_ERROR_HEADING', '管理者パスワード');
+    define('POPUP_ERROR_TEXT', '管理者パスワードは管理者エリアへのアクセスを与える安全なパスワードです。');
     
   break;
   case ('54'):
-    define('POPUP_ERROR_HEADING', '�Ǘ��҃p�X���[�h(�m�F)');
-    define('POPUP_ERROR_TEXT', '���R�A��v����p�X���[�h����͂���K�v������܂��B');
+    define('POPUP_ERROR_HEADING', '管理者パスワード(確認)');
+    define('POPUP_ERROR_TEXT', '当然、一致するパスワードを入力する必要があります。');
     
   break;
   case ('55'):
-    define('POPUP_ERROR_HEADING', 'PHP�̃o�[�W�������T�|�[�g�O');
-    define('POPUP_ERROR_TEXT', '�T�[�o��œ����Ă���o�[�W������PHP��Zen Cart�̃T�|�[�g�O�ł��B<br /><br />PHP 5.3.14��������̍Œ�����ł��B<br />�ł����PHP 5.3.3�ȏ�ɃA�b�v�O���[�h���邱�Ƃ������߂��܂��B<br /><br />If you are trying to use older PHP versions, note that using older releases of PHP may result in the admin section of Zen Cart&reg; not being accessible, might leave your site vulnerable to hacking, and may not support some of the PHP Session code that handles keeping individual customer logins unique and separate from other customers. You are advised to upgrade your PHP version.');
+    define('POPUP_ERROR_HEADING', 'PHPのバージョンがサポート外');
+    define('POPUP_ERROR_TEXT', 'サーバ上で動いているバージョンのPHPはZen Cartのサポート外です。<br /><br />PHP 5.3.14が動作環境の最低条件です。<br />できればPHP 5.3.3以上にアップグレードすることをお勧めします。<br /><br />If you are trying to use older PHP versions, note that using older releases of PHP may result in the admin section of Zen Cart&reg; not being accessible, might leave your site vulnerable to hacking, and may not support some of the PHP Session code that handles keeping individual customer logins unique and separate from other customers. You are advised to upgrade your PHP version.');
     
   break;
   case ('56'):
-    define('POPUP_ERROR_HEADING', 'admin configure.php ���������ݕs��');
-    define('POPUP_ERROR_TEXT', '�t�@�C�� admin/includes/configure.php ���������݉\�ɂȂ��Ă��܂���BUnix��Linux�V�X�e�����g�p����Ă���̂ł���΁AZen Cart�̃C���X�g�[������������܂�CHMOD�Ńt�@�C���̌�����777�܂���666�ɕύX���Ă��������B�����Ă���FTP�v���O�����ł��̕ύX���s�����Ƃ��ł��܂�(�E�N���b�N��t�@�C���̑�����ҏW����Ȃ�)�B<br /><br />Windows�f�X�N�g�b�v�V�X�e���Ȃ�΁A�P��read/write�ɐݒ肵�Ă��������B<br /><br />Windows�T�[�o�[�A����IIS��ł́A���̃t�@�C�����E�N���b�N���āA�Z�L�����e�B�[��I�����A�u�C���^�[�l�b�g�Q�X�g�A�J�E���g�v���邢��IUSR_xxxxxxx���[�U���ǂݏ����ł���悤�ɐݒ肵�Ă��������B<br /><br />�C���X�g�[��������������A���̃t�@�C����ǂݐ�p�ɖ߂��Ă�������(CHMOD 644���邢��444�AWindows�Ȃ�uwrite�v�����������A�uread-only�v���`�F�b�N���Ă��������B)�B');
+    define('POPUP_ERROR_HEADING', 'admin configure.php が書き込み不可');
+    define('POPUP_ERROR_TEXT', 'ファイル admin/includes/configure.php が書き込み可能になっていません。UnixやLinuxシステムを使用されているのであれば、Zen Cartのインストールが完了するまでCHMODでファイルの権限を777または666に変更してください。たいていのFTPプログラムでこの変更を行うことができます(右クリックやファイルの属性を編集するなど)。<br /><br />Windowsデスクトップシステムならば、単にread/writeに設定してください。<br /><br />Windowsサーバー、特にIIS上では、このファイルを右クリックして、セキュリティーを選択し、「インターネットゲストアカウント」あるいはIUSR_xxxxxxxユーザが読み書きできるように設定してください。<br /><br />インストールが完了したら、このファイルを読み専用に戻してください(CHMOD 644あるいは444、Windowsなら「write」を取り消すか、「read-only」をチェックしてください。)。');
     
   break;
   case ('57'):
-    define('POPUP_ERROR_HEADING', 'Store configure.php ���������ݕs��');
-    define('POPUP_ERROR_TEXT', '�t�@�C�� includes/configure.php ���������݉\�ɂȂ��Ă��܂���BUnix��Linux�V�X�e�����g�p����Ă���̂ł���΁AZen Cart�̃C���X�g�[������������܂�CHMOD�Ńt�@�C���̌�����777�܂���666�ɕύX���Ă��������B�����Ă���FTP�v���O�����ł��̕ύX���s�����Ƃ��ł��܂�(�E�N���b�N��t�@�C���̑�����ҏW����Ȃ�)�B<br /><br />Windows�f�X�N�g�b�v�V�X�e���Ȃ�΁A�P��read/write�ɐݒ肵�Ă��������B<br /><br />Windows�T�[�o�[�A����IIS��ł́A���̃t�@�C�����E�N���b�N���āA�Z�L�����e�B�[��I�����A�u�C���^�[�l�b�g�Q�X�g�A�J�E���g�v���邢��IUSR_xxxxxxx���[�U���ǂݏ����ł���悤�ɐݒ肵�Ă��������B<br /><br />�C���X�g�[��������������A���̃t�@�C����ǂݐ�p�ɖ߂��Ă�������(CHMOD 644���邢��444�AWindows�Ȃ�uwrite�v�����������A�uread-only�v���`�F�b�N���Ă��������B)�B');
+    define('POPUP_ERROR_HEADING', 'Store configure.php が書き込み不可');
+    define('POPUP_ERROR_TEXT', 'ファイル includes/configure.php が書き込み可能になっていません。UnixやLinuxシステムを使用されているのであれば、Zen Cartのインストールが完了するまでCHMODでファイルの権限を777または666に変更してください。たいていのFTPプログラムでこの変更を行うことができます(右クリックやファイルの属性を編集するなど)。<br /><br />Windowsデスクトップシステムならば、単にread/writeに設定してください。<br /><br />Windowsサーバー、特にIIS上では、このファイルを右クリックして、セキュリティーを選択し、「インターネットゲストアカウント」あるいはIUSR_xxxxxxxユーザが読み書きできるように設定してください。<br /><br />インストールが完了したら、このファイルを読み専用に戻してください(CHMOD 644あるいは444、Windowsなら「write」を取り消すか、「read-only」をチェックしてください。)。');
     
   break;
   case ('58'):
-    define('POPUP_ERROR_HEADING', '�f�[�^�x�[�X�e�[�u���v���t�B�N�X');
-    define('POPUP_ERROR_TEXT', 'Zen Cart�́A�g�p�����e�[�u���̖��O�Ƀv���t�B�N�X�������邱�Ƃ��ł��܂��B�f�[�^�x�[�X��������g���Ȃ��ꍇ�ɁA�f�[�^�x�[�X���g�p����ق��̃v���O�������C���X�g�[���������Ȃ�A�v���t�B�N�X�Ńe�[�u������ʂ��邱�Ƃ��ł��܂��B�ʏ�̓f�t�H���g�̐ݒ�̂܂܂Ō��\�ł��B');
+    define('POPUP_ERROR_HEADING', 'データベーステーブルプレフィクス');
+    define('POPUP_ERROR_TEXT', 'Zen Cartは、使用されるテーブルの名前にプレフィクスを加えることができます。データベースが一つしか使えない場合に、データベースを使用するほかのプログラムもインストールしたいなら、プレフィクスでテーブルを区別することができます。通常はデフォルトの設定のままで結構です。');
     
   break;
   case ('59'):
-    define('POPUP_ERROR_HEADING', 'SQL�L���b�V���f�B���N�g��');
-    define('POPUP_ERROR_TEXT', 'SQL�N�G���́A�f�[�^�x�[�X�̒��ɁA���邢�̓T�[�o�̃n�[�h�f�B�X�N��̃t�@�C���ɃL���b�V�����邱�Ƃ��ł��܂��B �T�[�o�̃n�[�h�f�B�X�N��̃t�@�C���ւ�SQL�L���b�V����I�������Ȃ�΁A�L���b�V���f�[�^��ۑ����邽�߂̃f�B���N�g�����w�肵�Ă��������B<br /><br />�W���I��Zen Cart�̃C���X�g�[���ɂ� \'cache\' �t�H���_���܂܂�Ă��܂��B�E�F�u�T�[�o�i�Ⴆ��apache�j�����̃f�B���N�g���ɃA�N�Z�X�ł���悤�ɁA���̃t�H���_��ǂݏ����\�ɂ���K�v������܂��B<br /><br />�w�肳�ꂽ�f�B���N�g�������邱�Ƃ��m�F���A�E�F�u�T�[�o�ɂ���ď������݉\�ł��邩(CHMOD 777�܂��͏��Ȃ��Ƃ�666�𐄏�)���m���߂Ă��������B');
+    define('POPUP_ERROR_HEADING', 'SQLキャッシュディレクトリ');
+    define('POPUP_ERROR_TEXT', 'SQLクエリは、データベースの中に、あるいはサーバのハードディスク上のファイルにキャッシュすることができます。 サーバのハードディスク上のファイルへのSQLキャッシュを選択したならば、キャッシュデータを保存するためのディレクトリを指定してください。<br /><br />標準的なZen Cartのインストールには \'cache\' フォルダが含まれています。ウェブサーバ（例えばapache）がこのディレクトリにアクセスできるように、このフォルダを読み書き可能にする必要があります。<br /><br />指定されたディレクトリがあることを確認し、ウェブサーバによって書き込み可能であるか(CHMOD 777または少なくとも666を推奨)を確かめてください。');
     
   break;
   case ('60'):
-    define('POPUP_ERROR_HEADING', 'SQL�L���b�V�����@');
-    define('POPUP_ERROR_TEXT', 'SQL�N�G���ɂ���Ă̓L���b�V�����邱�Ƃ��ł��܂��B�L���b�V�����ꂽ�ꍇ�ɂ́A��葬����������܂��B�����ł�SQL�N�G�����L���b�V�����邽�߂ɁA�ǂ̕��@���g�p���邩�w�肱�Ƃ��ł��܂��B<br /><br /><strong>�Ȃ�</strong>. SQL�N�G���͑S���L���b�V������܂���B�������i��J�e�S�����ƂĂ����Ȃ��Ȃ�A���ꂪ�œK�ł��B<br /><br /><strong>�f�[�^�x�[�X</strong>. SQL�N�G�����f�[�^�x�[�X�e�[�u���ɃL���b�V������܂��B����́A���K�͂̏��i/�J�e�S�����̃T�C�g�ő��x�A�b�v�������炷�ł��傤�B<br /><br /><strong>�t�@�C��</strong>. SQL�N�G�����T�[�o�̃n�[�h�f�B�X�N�ɃL���b�V������܂��B������@�\�����邽�߂ɂ́A�E�F�u�T�[�o���������݉\�ȃN�G�����L���b�V������f�B���N�g�����m�F����K�v������܂��B���̕��@�͑�K�͂ȏ��i/�J�e�S�����̃T�C�g�ɓK���Ă���ł��傤�B');
+    define('POPUP_ERROR_HEADING', 'SQLキャッシュ方法');
+    define('POPUP_ERROR_TEXT', 'SQLクエリによってはキャッシュすることができます。キャッシュされた場合には、より速く処理されます。ここではSQLクエリをキャッシュするために、どの方法を使用するか指定ことができます。<br /><br /><strong>なし</strong>. SQLクエリは全くキャッシュされません。もし商品やカテゴリがとても少ないなら、これが最適です。<br /><br /><strong>データベース</strong>. SQLクエリがデータベーステーブルにキャッシュされます。これは、中規模の商品/カテゴリ数のサイトで速度アップをもたらすでしょう。<br /><br /><strong>ファイル</strong>. SQLクエリがサーバのハードディスクにキャッシュされます。これを機能させるためには、ウェブサーバが書き込み可能なクエリをキャッシュするディレクトリを確認する必要があります。この方法は大規模な商品/カテゴリ数のサイトに適しているでしょう。');
     
   break;
   case ('61'):
-    define('POPUP_ERROR_HEADING', '�Z�b�V����/SQL �L���b�V���f�B���N�g�������w��');
-    define('POPUP_ERROR_TEXT', '�Z�b�V����/SQL�N�G���̃L���b�V���O�Ƀt�@�C�����g�p����ꍇ�A�E�F�u�T�[�o��̗L���ȃf�B���N�g�����w�肷��K�v������܂��B�܂��E�F�u�T�[�o�����̃f�B���N�g���ւ̏������݌����������Ă��邱�Ƃ��m�F���Ă��������B');
+    define('POPUP_ERROR_HEADING', 'セッション/SQL キャッシュディレクトリが未指定');
+    define('POPUP_ERROR_TEXT', 'セッション/SQLクエリのキャッシングにファイルを使用する場合、ウェブサーバ上の有効なディレクトリを指定する必要があります。またウェブサーバがそのディレクトリへの書き込み権限を持っていることを確認してください。');
     
   break;
   case ('62'):
-    define('POPUP_ERROR_HEADING', '�Z�b�V����/SQL �L���b�V���f�B���N�g����������Ȃ�');
-    define('POPUP_ERROR_TEXT', '�Z�b�V����/SQL�N�G���̃L���b�V���O�Ƀt�@�C�����g�p����ꍇ�A�E�F�u�T�[�o��̗L���ȃf�B���N�g�������݂���K�v������܂��B�܂��E�F�u�T�[�o�����̃f�B���N�g���ւ̏������݌����������Ă��邱�Ƃ��m�F���Ă��������B');
+    define('POPUP_ERROR_HEADING', 'セッション/SQL キャッシュディレクトリが見つからない');
+    define('POPUP_ERROR_TEXT', 'セッション/SQLクエリのキャッシングにファイルを使用する場合、ウェブサーバ上の有効なディレクトリが存在する必要があります。またウェブサーバがそのディレクトリへの書き込み権限を持っていることを確認してください。');
     
   break;
   case ('63'):
-    define('POPUP_ERROR_HEADING', '�Z�b�V����/SQL �L���b�V���f�B���N�g�����������ݕs��');
-    define('POPUP_ERROR_TEXT', '�Z�b�V����/SQL�N�G���̃L���b�V���O�Ƀt�@�C�����g�p����ꍇ�A�E�F�u�T�[�o��̗L���ȃf�B���N�g�����w�肷��K�v������܂��B�܂��E�F�u�T�[�o�����̃f�B���N�g���ւ̏������݌����������Ă��邱�Ƃ��m�F���Ă��������BLinux/Unix�ɂ����Ă�CHMOD 666�܂���777�AWindows�T�[�o�ɂ����Ă�Read/Write��K�p���Ă�������(IIS��ł́A�C���^�[�l�b�g�Q�X�g�A�J�E���g�ɓK�p����K�v������܂�)�B');
+    define('POPUP_ERROR_HEADING', 'セッション/SQL キャッシュディレクトリが書き込み不可');
+    define('POPUP_ERROR_TEXT', 'セッション/SQLクエリのキャッシングにファイルを使用する場合、ウェブサーバ上の有効なディレクトリを指定する必要があります。またウェブサーバがそのディレクトリへの書き込み権限を持っていることを確認してください。Linux/UnixにおいてはCHMOD 666または777、WindowsサーバにおいてはRead/Writeを適用してください(IIS上では、インターネットゲストアカウントに適用する必要があります)。');
   break;
 
   case ('64'):
-    define('POPUP_ERROR_HEADING', '�����T�[�o��ɃC���X�g�[�����Ă���phpBB�t�H�[�����ƃ����N�����܂���? ');
-    define('POPUP_ERROR_TEXT', 'Zen Cart�X�g�A���A���ɐݒu���Ă���phpBB�t�H�[�����ƃ����N����ɂ́A�͂���I�����Ă��������B');
+    define('POPUP_ERROR_HEADING', '同じサーバ上にインストールしているphpBBフォーラムとリンクさせますか? ');
+    define('POPUP_ERROR_TEXT', 'Zen Cartストアを、既に設置してあるphpBBフォーラムとリンクするには、はいを選択してください。');
     
   break;
 //  case ('65'):
-//    define('POPUP_ERROR_HEADING', 'phpBB�f�[�^�x�[�X�v���t�B�N�X');
-//    define('POPUP_ERROR_TEXT', 'phpBB�e�[�u���p�̃v���t�B�N�X���w�肵�Ă��������B�ʏ�� \'phpBB_\' �ł��B');
+//    define('POPUP_ERROR_HEADING', 'phpBBデータベースプレフィクス');
+//    define('POPUP_ERROR_TEXT', 'phpBBテーブル用のプレフィクスを指定してください。通常は \'phpBB_\' です。');
 //    
 //  break;
 //  case ('66'):
-//    define('POPUP_ERROR_HEADING', 'phpBB�f�[�^�x�[�X�� ');
-//    define('POPUP_ERROR_TEXT', 'phpBB�e�[�u��������f�[�^�x�[�X�����w�肵�Ă��������B');
+//    define('POPUP_ERROR_HEADING', 'phpBBデータベース名 ');
+//    define('POPUP_ERROR_TEXT', 'phpBBテーブルがあるデータベース名を指定してください。');
 //  break;
 //  case ('67'):
-//    define('POPUP_ERROR_HEADING', 'phpBB�f�B���N�g��');
-//    define('POPUP_ERROR_TEXT', 'phpBB�X�N���v�g�t�@�C�����C���X�g�[������Ă���f�B���N�g���ւ̊��S�ȃp�X���w�肵�Ă��������B�������邱�ƂŁAZen Cart�V���b�v��phpBB�����N���N���b�N�����ۂɁA�������y�[�W���\�������悤�ɂȂ�܂��B<br /><br />�����ɓ��͂���p�X�́A�T�[�o��"root"����̑��΃p�X�ł��B����phpBB��<strong>/home/users/username/public_html/phpbb </strong>�ɐݒu���Ă���Ȃ�A<strong>/home/users/username/public_html/phpbb/ </strong>�Ɠ��͂��Ă��������B�����T�u�t�H���_�ɂ���Ȃ�A���̃p�X���w�肵�Ă��������B<br /><br />���̃t�H���_�ɂ���u<em>config.php</em>�v���w�肳��܂��B');
+//    define('POPUP_ERROR_HEADING', 'phpBBディレクトリ');
+//    define('POPUP_ERROR_TEXT', 'phpBBスクリプトファイルがインストールされているディレクトリへの完全なパスを指定してください。こうすることで、Zen CartショップのphpBBリンクをクリックした際に、正しいページが表示されるようになります。<br /><br />ここに入力するパスは、サーバの"root"からの相対パスです。もしphpBBが<strong>/home/users/username/public_html/phpbb </strong>に設置してあるなら、<strong>/home/users/username/public_html/phpbb/ </strong>と入力してください。もしサブフォルダにあるなら、そのパスを指定してください。<br /><br />そのフォルダにある「<em>config.php</em>」が指定されます。');
 //  break;
 //  case ('68'):
-//    define('POPUP_ERROR_HEADING', 'phpBB�f�B���N�g��');
-//    define('POPUP_ERROR_TEXT', '�w�肵���f�B���N�g����phpBB configure�t�@�C��������܂���ł����B���̎����ݒ���g�p����ɂ́AphpBB�����ɃC���X�g�[������Ă���K�v������܂��B�C���X�g�[������Ă��Ȃ��Ȃ�AphpBB�̎����ݒ���w�肹���AZen Cart��phpBB�̃C���X�g�[����Ɏ蓮�Őݒ肷��K�v������܂��B<br /><br />�����ɓ��͂��ꂽ�p�X�́A�T�[�o��"root"����̑��΃p�X�ł��BphpBB�� <strong>/home/users/username/public_html/phpbb </strong>�ɐݒu���Ă���Ȃ�A<strong>/home/users/username/public_html/phpbb/ </strong>����͂���K�v������܂��B�����T�u�t�H���_�ɂ���Ȃ�A���̃p�X���w�肵�Ă��������B<br /><br />���̃t�H���_�ɂ���u<em>config.php</em>�v���w�肳��܂��B');
+//    define('POPUP_ERROR_HEADING', 'phpBBディレクトリ');
+//    define('POPUP_ERROR_TEXT', '指定したディレクトリにphpBB configureファイルがありませんでした。この自動設定を使用するには、phpBBが既にインストールされている必要があります。インストールされていないなら、phpBBの自動設定を指定せず、Zen CartとphpBBのインストール後に手動で設定する必要があります。<br /><br />ここに入力されたパスは、サーバの"root"からの相対パスです。phpBBが <strong>/home/users/username/public_html/phpbb </strong>に設置してあるなら、<strong>/home/users/username/public_html/phpbb/ </strong>を入力する必要があります。もしサブフォルダにあるなら、そのパスを指定してください。<br /><br />そのフォルダにある「<em>config.php</em>」が指定されます。');
 //  break;
   case ('69'):
     define('POPUP_ERROR_HEADING', 'Register Globals');
-    define('POPUP_ERROR_TEXT', 'register_globals�̓Z�L�����e�B��d��Ȗ��������N�����\�������邽�߁AZen Cart�́Aregister_globals�̐ݒ��Off�ɂ��Ȃ���Γ��삵�܂���(v1.3.0.2-l10n-jp-3���)�B<br/>Zen Cart�̃C���X�g�[���f�B���N�g����.htaccess�t�@�C�����������A�b�v���[�h����Ă���̂ɂ��̃��b�Z�[�W���\������Ă���ꍇ�A���g�p���̃T�[�o�[�ł�.htaccess��register_globals�̐ݒ��ύX�ł��Ȃ����Ƃ��Ӗ����Ă��܂��B<br/>���̖����������邽�߂ɂ́A���̂���2�̂ǂ��炩�̑Ή����K�v�ł��B<br/><br/><br/>1. �T�[�o�[�̐ݒ��ύX����<br/>2. register_globals��Off�ŉ^�p�\�ȃT�[�o�[�ɍăC���X�g�[������');
+    define('POPUP_ERROR_TEXT', 'register_globalsはセキュリティ上重大な問題を引き起こす可能性があるため、Zen Cartは、register_globalsの設定をOffにしなければ動作しません(v1.3.0.2-l10n-jp-3より)。<br/>Zen Cartのインストールディレクトリに.htaccessファイルが正しくアップロードされているのにこのメッセージが表示されている場合、ご使用中のサーバーでは.htaccessでregister_globalsの設定を変更できないことを意味しています。<br/>この問題を解決するためには、次のうち2つのどちらかの対応が必要です。<br/><br/><br/>1. サーバーの設定を変更する<br/>2. register_globalsがOffで運用可能なサーバーに再インストールする');
   break;
   case ('70'):
     define('POPUP_ERROR_HEADING', 'Safe Mode is On');
-    define('POPUP_ERROR_TEXT', '�����Ie-Commerce�A�v���P�[�V�����ł���Zen Cart�́ASafe Mode�ŉғ����Ă���T�[�o�ł͂��܂��@�\���܂���B<br /><br />e-Commerce�V�X�e�������s���邱�Ƃ́A�����̐�i�I�ȃT�[�r�X��K�v�Ƃ��A�����ȁu���L�v�z�X�e�B���O�T�[�r�X�ł͓��삪��������邱�Ƃ��悭����܂��B�E�F�u�X�y�[�X���uSafe Mode�v�ɐݒ肵�Ă��܂��ƁA�I�����C���V���b�v�𖜑S�ȏ�Ԃŉ^�c���邱�Ƃ��ł��Ȃ��Ȃ�܂��Bphp.ini�t�@�C����ŁuSAFE_MODE=OFF�v�ɐݒ肵�Ă��������B���̕ύX�ɂ̓z�X�e�B���O��Ђ̎菕�����K�v�ɂȂ�ꍇ������܂��B');
+    define('POPUP_ERROR_TEXT', '総合的e-CommerceアプリケーションであるZen Cartは、Safe Modeで稼働しているサーバではうまく機能しません。<br /><br />e-Commerceシステムを実行することは、多数の先進的なサービスを必要とし、廉価な「共有」ホスティングサービスでは動作が制限されることがよくあります。ウェブスペースを「Safe Mode」に設定してしまうと、オンラインショップを万全な状態で運営することができなくなります。php.iniファイル上で「SAFE_MODE=OFF」に設定してください。この変更にはホスティング会社の手助けが必要になる場合があります。');
   break;
   case ('71'):
-    define('POPUP_ERROR_HEADING', '�t�@�C���x�[�X�L���b�V���O�T�|�[�g�̂��߂ɃL���b�V���t�H���_���K�v�ł�');
-    define('POPUP_ERROR_TEXT', 'Zen Cart�̃t�@�C���x�[�XSQL�L���b�V���T�|�[�g���g�p����Ȃ�A�E�F�u�X�y�[�X�̃L���b�V���t�H���_�̌�����K�؂ɐݒ肷��K�v������܂��B<br /><br />�L���b�V���t�H���_���g�p�������Ȃ���΁A�u�f�[�^�x�[�X�L���b�V���O�v�܂��́u�L���b�V���s�g�p�v��I�����邱�Ƃ��ł��܂��B���̏ꍇ�A�Z�b�V�����g���b�J�[�����l�Ƀt�@�C���L���b�V�����g�p����̂Łu�Z�b�V������ۑ�����v���g�p���Ȃ�����������������܂���B<br /><br />�L���b�V���t�H���_��K�؂ɃZ�b�g�A�b�v���邽�߂ɁAFTP�v���O�����܂��̓V�F���E�A�N�Z�X���g�p���A�t�H���_�̃p�[�~�b�V������CHMOD 666�܂���777�ɂ��Ă��������B<br /><br />���m�ɁA�E�F�u�T�[�o�̃��[�UID�i�Ⴆ�΁F\'apache\' �� \'www-user\' �܂���Windows�ł� \'IUSR_xxxxxxxxx\'�j�́A�L���b�V���t�H���_�ɑ΂��� \'read-write-delete\' �̂��ׂĂ̌����������Ă��Ȃ���΂Ȃ�܂���B');
+    define('POPUP_ERROR_HEADING', 'ファイルベースキャッシングサポートのためにキャッシュフォルダが必要です');
+    define('POPUP_ERROR_TEXT', 'Zen CartのファイルベースSQLキャッシュサポートを使用するなら、ウェブスペースのキャッシュフォルダの権限を適切に設定する必要があります。<br /><br />キャッシュフォルダを使用したくなければ、「データベースキャッシング」または「キャッシュ不使用」を選択することもできます。この場合、セッショントラッカーが同様にファイルキャッシュを使用するので「セッションを保存する」も使用しない方がいいかもしれません。<br /><br />キャッシュフォルダを適切にセットアップするために、FTPプログラムまたはシェル・アクセスを使用し、フォルダのパーミッションをCHMOD 666または777にしてください。<br /><br />明確に、ウェブサーバのユーザID（例えば：\'apache\' や \'www-user\' またはWindowsでは \'IUSR_xxxxxxxxx\'）は、キャッシュフォルダに対して \'read-write-delete\' のすべての権限をもっていなければなりません。');
   break;
   case ('72'):
-    define('POPUP_ERROR_HEADING', 'ERROR: ���ׂĂ�configure.php�t�@�C����V�����v���t�B�N�X�ōX�V�ł��܂���ł���');
-    define('POPUP_ERROR_TEXT', '�e�[�u������ύX������Aconfigure.php�t�@�C���̍X�V���ɃG���[���������܂����B/includes/configure.php �� /admin/includes/configure.php �t�@�C�����蓮�ŕҏW���A�uDB_PREFIX�v��Zen Cart�e�[�u���𐳂����w�肷��悤�ɏ��������Ă��������B');
+    define('POPUP_ERROR_HEADING', 'ERROR: すべてのconfigure.phpファイルを新しいプレフィクスで更新できませんでした');
+    define('POPUP_ERROR_TEXT', 'テーブル名を変更した後、configure.phpファイルの更新中にエラーが発生しました。/includes/configure.php と /admin/includes/configure.php ファイルを手動で編集し、「DB_PREFIX」がZen Cartテーブルを正しく指定するように書き直してください。');
   break;
   case ('73'):
-    define('POPUP_ERROR_HEADING', 'ERROR: ���ׂẴe�[�u���ɐV�����e�[�u���v���t�B�N�X��K�p�ł��܂���ł���');
-    define('POPUP_ERROR_TEXT', '�f�[�^�x�[�X�e�[�u����V�����e�[�u���v���t�B�N�X��t�����ĉ��������݂Ă���ԂɁA�G���[���������܂����B�f�[�^�x�[�X�e�[�u���������ƂŒ�������K�v������ł��傤�B�ň��̏ꍇ�A�o�b�N�A�b�v���畜������K�v�����邩������܂���B');
+    define('POPUP_ERROR_HEADING', 'ERROR: すべてのテーブルに新しいテーブルプレフィクスを適用できませんでした');
+    define('POPUP_ERROR_TEXT', 'データベーステーブルを新しいテーブルプレフィクスを付加して改名を試みている間に、エラーが発生しました。データベーステーブル名を手作業で調査する必要があるでしょう。最悪の場合、バックアップから復旧する必要があるかもしれません。');
   break;
   case ('74'):
-    define('POPUP_ERROR_HEADING', '����: PHP�́usession.save_path�v�������݋֎~');
-    define('POPUP_ERROR_TEXT', '<strong>����͒P�Ȃ钍�ӏ����ł��B</strong>PHP��session.save_path�ݒ�Ŏw�肳�ꂽ�p�X�ւ̏������݌���������܂���B<br /><br />����͂܂肱�̃p�X�ݒ���b��I�ȃt�@�C���̕ۑ��ꏊ�Ƃ��Ďg�����Ƃ��ł��Ȃ����Ƃ��Ӗ����܂��B����ɁA���ɕ\�����ꂽ�u��������L���b�V���̃p�X�v���g���Ă��������B<br /><br /><br />���邢�́A�������̃p�X���m�F�s�ƂȂ����ꍇ�ɂ́A�T�[�o��php.ini�t�@�C���ł̐ݒ�ŋ�����ĂȂ��\��������܂��B�������_�o���ɂȂ�K�v�͂���܂���B����͒P�Ȃ钍�ӏ������ƍl���Ă��������B�ǂ����Ă��C�ɂȂ�Ȃ�A�E�F�u�z�X�g���ɑ��k���Ă��������B');
+    define('POPUP_ERROR_HEADING', '注意: PHPの「session.save_path」が書込み禁止');
+    define('POPUP_ERROR_TEXT', '<strong>これは単なる注意書きです。</strong>PHPのsession.save_path設定で指定されたパスへの書き込み権限がありません。<br /><br />これはつまりこのパス設定を暫定的なファイルの保存場所として使うことができないことを意味します。代わりに、下に表示された「推奨するキャッシュのパス」を使ってください。<br /><br /><br />あるいは、もしこのパスが確認不可となった場合には、サーバのphp.iniファイルでの設定で許可されてない可能性があります。ただし神経質になる必要はありません。これは単なる注意書きだと考えてください。どうしても気になるなら、ウェブホスト側に相談してください。');
   break;
   case ('75'):
-    define('POPUP_ERROR_HEADING', '����: PHP�́umagic_quotes_runtime�v��ON�ɂȂ��Ă���');
-    define('POPUP_ERROR_TEXT', '�umagic_quotes_runtime�v��OFF�ɂȂ��Ă��邱�Ƃ��D�܂����ł��BON�ɂȂ��Ă���ƁA�\�����Ȃ�1064 SQL�G���[������������A�R�[�h�̎��s�Ɏx������������Ƃ�����܂��B<br /><br />�����T�[�o�S�̂Łumagic_quotes_runtime�v��OFF�ɂł��Ȃ��Ȃ�A.htaccess�t�@�C����php.ini��OFF�ɂ��Ă��������B�ݒ�̎d�����킩��Ȃ��ꍇ�ɂ́A�E�F�u�z�X�g���ɑ��k���Ă��������B');
+    define('POPUP_ERROR_HEADING', '注意: PHPの「magic_quotes_runtime」がONになっている');
+    define('POPUP_ERROR_TEXT', '「magic_quotes_runtime」はOFFになっていることが好ましいです。ONになっていると、予期しない1064 SQLエラーが発生したり、コードの実行に支障をきたすことがあります。<br /><br />もしサーバ全体で「magic_quotes_runtime」をOFFにできないなら、.htaccessファイルかphp.iniでOFFにしてください。設定の仕方がわからない場合には、ウェブホスト側に相談してください。');
   break;
   case ('76'):
-    define('POPUP_ERROR_HEADING', '�f�[�^�x�[�X�G���W���̃o�[�W�������s��');
-    define('POPUP_ERROR_TEXT', '�w�肳�ꂽ�f�[�^�x�[�X�G���W���̃o�[�W�������s���ł��B<br /><br />����͕K�������d��Ȗ��u�ł͂���܂���v�B���ۂ̂Ƃ���A���i�K�ł̓o�[�W�������m�F�ł��Ȃ����Ƃ����΂��΂݂��܂��B<br /><br />���̃f�[�^���s���ƂȂ��Ă����Ƃ��Ă��A�C���X�g�[�����p�����Ēʏ�͖�肠��܂���B');
+    define('POPUP_ERROR_HEADING', 'データベースエンジンのバージョンが不明');
+    define('POPUP_ERROR_TEXT', '指定されたデータベースエンジンのバージョンが不明です。<br /><br />これは必ずしも重大な問題「ではありません」。実際のところ、現段階ではバージョンが確認できないことがしばしばみられます。<br /><br />このデータが不明となっていたとしても、インストールを継続して通常は問題ありません。');
   break;
   case ('77'):
-    define('POPUP_ERROR_HEADING', '�t�@�C���A�b�v���[�h��OFF');
-    define('POPUP_ERROR_TEXT', '�t�@�C���A�b�v���[�h��������Ă��܂���B�A�b�v���[�h��������ɂ́Aphp.ini�t�@�C����<em><strong>file_uploads = on</strong></em>�Ǝw�肵�Ă��������B');
+    define('POPUP_ERROR_HEADING', 'ファイルアップロードがOFF');
+    define('POPUP_ERROR_TEXT', 'ファイルアップロードが許可されていません。アップロードを許可するには、php.iniファイルで<em><strong>file_uploads = on</strong></em>と指定してください。');
   break;
   case ('78'):
-    define('POPUP_ERROR_HEADING', '�A�b�v�O���[�h�����s����ɂ͊Ǘ��l�̃p�X���[�h���K�v');
-    define('POPUP_ERROR_TEXT', '�f�[�^�x�[�X�ɕύX��������ɂ͊Ǘ��l�̃��[�U���ƃp�X���[�h���K�v�ł��B<br /><br />Zen Cart�̊Ǘ��l���[�U���ƃp�X���[�h�𐳂������͂��Ă��������B');
+    define('POPUP_ERROR_HEADING', 'アップグレードを実行するには管理人のパスワードが必要');
+    define('POPUP_ERROR_TEXT', 'データベースに変更を加えるには管理人のユーザ名とパスワードが必要です。<br /><br />Zen Cartの管理人ユーザ名とパスワードを正しく入力してください。');
   break;
   case ('79'):
-    define('POPUP_ERROR_TEXT','OpenSSL�̓T�C�g��SSL (https://)��񋟂��邽�߂Ɏg������@�̈�ł��B<br /><br />�g�p�s�ƕ\�����ꂽ�ꍇ�A�l�����闝�R�Ƃ��Ĉȉ��̂��̂��l�����܂�: <br />(a) �E�F�u�z�X�g��SSL���T�|�[�g���Ă��Ȃ�<br />(b) �E�F�u�T�[�o�[��OpenSSL���C���X�g�[������Ă��Ȃ�(����SSL�T�[�r�X���C���X�g�[������Ă���\��������)<br />(c) �E�F�u�z�X�g��SSL�F�؂ɂ��ďڍׂ�m��Ȃ����߁A�K�؂Ȑݒ�����邱�Ƃ��ł��Ȃ�<br />(d) PHP��OpenSSL���T�|�[�g����悤�ɐݒ肳��Ă��Ȃ��B<br /><br />������̌����ɂ���A�E�F�u�y�[�W�̈Í���(SSL)���K�v�Ȃ�A�E�F�u�z�X�e�B���O�̃v���o�C�_�ɑ��k���Ă��������B');
-    define('POPUP_ERROR_HEADING','OpenSSL���');
+    define('POPUP_ERROR_TEXT','OpenSSLはサイトにSSL (https://)を提供するために使われる方法の一つです。<br /><br />使用不可と表示された場合、考えられる理由として以下のものが考えられます: <br />(a) ウェブホストがSSLをサポートしていない<br />(b) ウェブサーバーにOpenSSLがインストールされていない(他のSSLサービスがインストールされている可能性がある)<br />(c) ウェブホストがSSL認証について詳細を知らないため、適切な設定をすることができない<br />(d) PHPがOpenSSLをサポートするように設定されていない。<br /><br />いずれの原因にせよ、ウェブページの暗号化(SSL)が必要なら、ウェブホスティングのプロバイダに相談してください。');
+    define('POPUP_ERROR_HEADING','OpenSSL情報');
   break;
   case ('80'):
-    define('POPUP_ERROR_HEADING', 'PHP�Z�b�V�����T�|�[�g���K�v');
-    define('POPUP_ERROR_TEXT', 'PHP�Z�b�V�����T�|�[�g��ON�ɂ��Ă��������B�ȉ��̃��W���[�����C���X�g�[�����邱�Ƃŉ�������ꍇ������܂�: php4-session ');
+    define('POPUP_ERROR_HEADING', 'PHPセッションサポートが必要');
+    define('POPUP_ERROR_TEXT', 'PHPセッションサポートをONにしてください。以下のモジュールをインストールすることで解決する場合があります: php4-session ');
   break;
   case ('81'):
-    define('POPUP_ERROR_HEADING', 'Windows�ȊO�ł�PHP��cgi�Ƃ��Ďg�p���邱�Ƃ������');
-    define('POPUP_ERROR_TEXT', 'Linux/Unix�T�[�o���PHP��cgi�Ƃ��Ď��s������ƁA�l�X�Ȗ�肪�N����\��������܂��B<br /><br />Windows�T�[�o�Ȃ�APHP�͏��cgi���W���[���Ƃ��Ď��s�����̂ŁAWindows�T�[�o���g���Ă���Ȃ�A���̌x���𖳎����Ă��������B');
+    define('POPUP_ERROR_HEADING', 'Windows以外ではPHPをcgiとして使用することを避ける');
+    define('POPUP_ERROR_TEXT', 'Linux/Unixサーバ上でPHPをcgiとして実行させると、様々な問題が起こる可能性があります。<br /><br />Windowsサーバなら、PHPは常にcgiモジュールとして実行されるので、Windowsサーバを使っているなら、この警告を無視してください。');
   break;
   case ('82'):
     define('POPUP_ERROR_HEADING', ERROR_TEXT_DISABLE_FUNCTIONS);
-    define('POPUP_ERROR_TEXT', 'php.ini�t�@�C���ňȉ��̋@�\�̂����ꂩ��OFF�ɂȂ��Ă��܂�: <br /><ul><li>set_time_limit</li><li>exec</li></ul>�g���t�B�b�N���c��ȃT�[�o�[�ł͈��S���̂��߁A���̋@�\��OFF�ɂ��Ă�����̂�����܂����Ae-Commerce�V�X�e���𓮍삳����ɂ͗��z�I�ł͂Ȃ��A�p�t�H�[�}���X�ɉe�����o��\��������܂��B<br /><br />�z�X�e�B���O�v���o�C�_�[�ɁA�����̋@�\���J�������T�[�o��񋟂��Ă��炤�悤�Ɍ����邱�Ƃ������߂��܂��B');
+    define('POPUP_ERROR_TEXT', 'php.iniファイルで以下の機能のいずれかがOFFになっています: <br /><ul><li>set_time_limit</li><li>exec</li></ul>トラフィックが膨大なサーバーでは安全性のため、この機能をOFFにしているものがありますが、e-Commerceシステムを動作させるには理想的ではなく、パフォーマンスに影響が出る可能性があります。<br /><br />ホスティングプロバイダーに、これらの機能を開放したサーバを提供してもらうように交渉することをお勧めします。');
   break;
   case ('83'):
-    define('POPUP_ERROR_HEADING','�f�[�^�x�[�X�̃e�[�u���v���t�B�N�X�ɖ����̕������܂܂�Ă���');
-    define('POPUP_ERROR_TEXT','�f�[�^�x�[�X�̃e�[�u���v���t�B�N�X�ɂ͈ȉ��̕������܂ނ��Ƃ��ł��܂���: <br />
-&nbsp;&nbsp; / �܂��� \\ �܂��� . <br /><br />�v���t�B�N�X�̎w�����蒼���Ă��������B�Ⴆ�ΊȒP�Ɂuzen_�v�̂悤�Ȃ��̂������߂��܂��B');
+    define('POPUP_ERROR_HEADING','データベースのテーブルプレフィクスに未許可の文字が含まれている');
+    define('POPUP_ERROR_TEXT','データベースのテーブルプレフィクスには以下の文字を含むことができません: <br />
+&nbsp;&nbsp; / または \\ または . <br /><br />プレフィクスの指定をやり直してください。例えば簡単に「zen_」のようなものをお勧めします。');
   break;
   case ('84'):
-    define('POPUP_ERROR_HEADING','PHP��Session.autostart��ON�ɂȂ��Ă���B');
-    define('POPUP_ERROR_TEXT','php.ini�t�@�C���ɂ���session.auto_start�ݒ肪ON�ɂȂ��Ă��܂��B<br /><br />Zen Cart�ł̓Z�b�V�����̐ݒ肪�����������_�ŃZ�b�V�������J�n����f�U�C���ɂȂ��Ă��邽�߁A���̐ݒ�ł̓Z�b�V�����̏����ɕs�s�����N����\��������܂��B�Z�b�V�����������I�ɊJ�n������ݒ肾�ƁA�T�[�o�ɂ���Ă͖��ɂȂ�܂��B<br /><br />���������OFF�ɂ������Ȃ�AZen Cart�̃��[�g�f�B���N�g��(index.php�Ɠ����t�H���_)�ɂ���.htaccess�t�@�C���Ɏ��̃R�}���h����������ł�������: <br /><br /><code>php_value session.auto_start 0</code>');
+    define('POPUP_ERROR_HEADING','PHPのSession.autostartがONになっている。');
+    define('POPUP_ERROR_TEXT','php.iniファイルにあるsession.auto_start設定がONになっています。<br /><br />Zen Cartではセッションの設定が完了した時点でセッションを開始するデザインになっているため、この設定ではセッションの処理に不都合が起きる可能性があります。セッションを自動的に開始させる設定だと、サーバによっては問題になります。<br /><br />もしこれをOFFにしたいなら、Zen Cartのルートディレクトリ(index.phpと同じフォルダ)にある.htaccessファイルに次のコマンドを書き込んでください: <br /><br /><code>php_value session.auto_start 0</code>');
   break;
   case ('85'):
-    define('POPUP_ERROR_HEADING','�f�[�^�x�[�X�A�b�v�O���[�h�p��SQL�̋L�q���s���S');
-    define('POPUP_ERROR_TEXT','�f�[�^�x�[�X���A�b�v�O���[�h����ۂɁASQL�̋L�q�̂����̂����������s����܂���ł����B����̓f�[�^�x�[�X�ɏd�������G���g�������邩�A����ׂ��͂��̃R�������Ȃ��Ȃǂ̏���������Ȃ��������Ƃɂ����̂ł��B<br /><br />�ł��悭�����錴���Ƃ��āAZen Cart�̃f�[�^�x�[�X�ɕύX��������悤�ȃR���g���r���[�V����/ �A�h�I���Ȃǂ��C���X�g�[���������Ƃ��������܂��B<br /><br />���ɃA�b�v�O���[�h�̍ۂɃG���[���������Ă��A�V���b�v�̉^�c�ɂ͑S���e����^���Ȃ����Ƃ�����܂����A�O�̂��߂ɃG���[�̓��e���m�F���邱�Ƃ������߂��܂��B<br /><br />�m�F����ɂ́A�uupgrade_exceptions�v�e�[�u���̓��e���`�F�b�N���邱�Ƃ���n�߂Ă��������B');
+    define('POPUP_ERROR_HEADING','データベースアップグレード用のSQLの記述が不完全');
+    define('POPUP_ERROR_TEXT','データベースをアップグレードする際に、SQLの記述のうちのいくつかが実行されませんでした。これはデータベースに重複したエントリがあるか、あるべきはずのコラムがないなどの条件が合わなかったことによるものです。<br /><br />最もよく見られる原因として、Zen Cartのデータベースに変更を加えるようなコントリビューション/ アドオンなどをインストールしたことが挙げられます。<br /><br />仮にアップグレードの際にエラーが発生しても、ショップの運営には全く影響を与えないこともありますが、念のためにエラーの内容を確認することをお勧めします。<br /><br />確認するには、「upgrade_exceptions」テーブルの内容をチェックすることから始めてください。');
   break;
   case ('86'):
-    define('POPUP_ERROR_HEADING','PHP��Session.use_trans_sid��ON�ɂȂ��Ă���');
-    define('POPUP_ERROR_TEXT','php.ini�t�@�C����session.use_trans_sid��ON�ɐݒ肳��Ă��܂��B<br /><br />���̂܂܂��ƃZ�b�V�����̏����ɖ�肪�o��΂��肩�A���S���ɂ��x����������\��������܂��B<br /><br /><a href="http://www.olate.com/articles/252">http://www.olate.com/articles/252</a>���Q�l�ɂ���.htaccess�̃p�����[�^��ύX���邩�Aphp.ini�t�@�C����OFF�ɂ��Ă��������B<br /><br />���S���Ɋւ��Ă̏��́A���̏ꏊ���Q�Ƃ��Ă�������: <a href="http://shh.thathost.com/secadv/2003-05-11-php.txt">http://shh.thathost.com/secadv/2003-05-11-php.txt</a>�B');
+    define('POPUP_ERROR_HEADING','PHPのSession.use_trans_sidがONになっている');
+    define('POPUP_ERROR_TEXT','php.iniファイルでsession.use_trans_sidがONに設定されています。<br /><br />このままだとセッションの処理に問題が出るばかりか、安全性にも支障をきたす可能性があります。<br /><br /><a href="http://www.olate.com/articles/252">http://www.olate.com/articles/252</a>を参考にして.htaccessのパラメータを変更するか、php.iniファイルでOFFにしてください。<br /><br />安全性に関しての情報は、次の場所を参照してください: <a href="http://shh.thathost.com/secadv/2003-05-11-php.txt">http://shh.thathost.com/secadv/2003-05-11-php.txt</a>。');
   break;
   case ('87'):
-    define('POPUP_ERROR_HEADING','�f�[�^�x�[�X���[�U�̌������K�v');
-    define('POPUP_ERROR_TEXT','Zen Cart���^�c����ɂ͈ȉ��̂悤�ȃf�[�^�x�[�X���x���ł̌������K�v�ł�: <ul><li>ALL PRIVILEGES<br /><em>or</em></li><li>SELECT</li><li>INSERT</li><li>UPDATE</li><li>DELETE</li><li>CREATE</li><li>ALTER</li><li>INDEX</li><li>DROP</li></ul>����̑���ɂ́uCREATE�v�ƁuDROP�v�̌����͕K�v����܂��񂪁A�C���X�g�[����A�b�v�O���[�h������SQL�p�b�`�Ȃǂ̍ۂɕK�v�ɂȂ�܂��B');
+    define('POPUP_ERROR_HEADING','データベースユーザの権限が必要');
+    define('POPUP_ERROR_TEXT','Zen Cartを運営するには以下のようなデータベースレベルでの権限が必要です: <ul><li>ALL PRIVILEGES<br /><em>or</em></li><li>SELECT</li><li>INSERT</li><li>UPDATE</li><li>DELETE</li><li>CREATE</li><li>ALTER</li><li>INDEX</li><li>DROP</li></ul>日常の操作には「CREATE」と「DROP」の権限は必要ありませんが、インストールやアップグレードそしてSQLパッチなどの際に必要になります。');
   break;
   case ('88'):
-    define('POPUP_ERROR_HEADING','/includes/configure.php�ւ̏������݂Ɏ��s');
-    define('POPUP_ERROR_TEXT','�w�肵���ݒ��configure.php�t�@�C���ɕۑ�����ہAZen Cart�C���X�g�[�����������݂Ɏ��s���܂����B�ȉ���configure.php�t�@�C���ɑ΂��ăE�F�u�T�[�o���������݂̌����������Ă��邩�m�F���Ă��������B<br /><br />- /includes/configure.php<br />- /admin/includes/configure.php<br /><br />�����Ă����̃t�@�C�������������邽�߂̃f�B�X�N�e�ʂ��s�����Ă��Ȃ������`�F�b�N����K�v�����邩������܂���B<br /><br />�G���[���N�����Ƃ��ɁA�����̃t�@�C���T�C�Y��0-bytes�������Ƃ�����A�f�B�X�N�e�ʂ̖��ł���\���������Ȃ�܂��B<br /><br />�C���X�g�[������������܂ŁAUnix/Linux�z�X�e�B���O�ł�CHMOD 777�ɂ��Ă������Ƃ����z�I�ł��B�����ăC���X�g�[���������������_�ŁA644��444�ɐݒ肵�Ă��������B<br /><br />Windows�̏ꍇ�ɂ́A�C���X�g�[�����n�߂�O�ɁA�����̃t�@�C�����E�N���b�N���āA�u�v���p�e�B�v��I�����A�u�Z�L�����e�B�v�^�u���N���b�N���܂��B�u�V�K�v���N���b�N���āu�S���v��I�����āA�ǂݏ����̌�����^���܂��B�����ăC���X�g�[��������������A�ǂݐ�p�ɐݒ肵�Ȃ����܂��B');
+    define('POPUP_ERROR_HEADING','/includes/configure.phpへの書き込みに失敗');
+    define('POPUP_ERROR_TEXT','指定した設定をconfigure.phpファイルに保存する際、Zen Cartインストーラが書き込みに失敗しました。以下のconfigure.phpファイルに対してウェブサーバが書き込みの権限をもっているか確認してください。<br /><br />- /includes/configure.php<br />- /admin/includes/configure.php<br /><br />そしてこれらのファイルを書き換えるためのディスク容量が不足していないかもチェックする必要があるかもしれません。<br /><br />エラーが起きたときに、これらのファイルサイズが0-bytesだったとしたら、ディスク容量の問題である可能性が高くなります。<br /><br />インストールが完了するまで、Unix/LinuxホスティングではCHMOD 777にしておくことが理想的です。そしてインストールが完了した時点で、644か444に設定してください。<br /><br />Windowsの場合には、インストールを始める前に、これらのファイルを右クリックして、「プロパティ」を選択し、「セキュリティ」タブをクリックします。「新規」をクリックして「全員」を選択して、読み書きの権限を与えます。そしてインストールが完了したら、読み専用に設定しなおします。');
   break;
   case ('89'):
-    define('POPUP_ERROR_HEADING','GD�T�|�[�g�Ɋւ���ڍ�');
-    define('POPUP_ERROR_TEXT','�摜�����̂��߂ɁAZen Cart��PHP��GD�T�|�[�g���g�p���܂�(GD���g�p�\�ȏꍇ)�B�o�[�W����2.0�ȏ�̂��̂������߂��܂��B<br /><br />����GD�T�|�[�g��PHP�ɓ����Ă��Ȃ��Ȃ�A�z�X�e�B���O��Ђɗ���ł݂܂��傤�B');
+    define('POPUP_ERROR_HEADING','GDサポートに関する詳細');
+    define('POPUP_ERROR_TEXT','画像処理のために、Zen CartはPHPのGDサポートを使用します(GDが使用可能な場合)。バージョン2.0以上のものをお勧めします。<br /><br />もしGDサポートがPHPに入っていないなら、ホスティング会社に頼んでみましょう。');
   break;
   case ('90'):
     define('POPUP_ERROR_HEADING','MySQL 5.7 (and higher) not fully supported in v1.5.x');
     define('POPUP_ERROR_TEXT','NOTE: Zen Cart&reg; v2.0 and newer support MySQL 5 and PHP 5 properly.<br />But, you are presently installing v1.5.x.<br /><br />While many efforts have been spent on ensuring that database queries in Zen Cart&reg; v1.5.x are compatible with MySQL 5 releases, the newer v2.x versions are more thoroughly tested.<br /><br />You are welcome to proceed with installation; however, please note that for full compatibility you should use the newer version of Zen Cart.');
   break;
   case ('91'):
-    define('POPUP_ERROR_HEADING','PHP�o�[�W�����̌x��');
-    define('POPUP_ERROR_TEXT','Zen Cart��PHP�o�[�W����5.3.14�ȏ�Ŏ��s�����悤�Ƀf�U�C������Ă��܂��B<br /><br />Zen Cart�Ŏg���Ă���PHP�t�@���N�V����(��ɔF�؂ƃZ�b�V���������֘A)�͕�����PHP�ɂ͑S�����݂��Ȃ����A���邢�̓o�O������܂��B<br /><br />���̃T�[�o��Zen Cart���^�c����Ȃ�APHP�̃o�[�W�������A�b�v�O���[�h���邱�Ƃ����������߂��܂��B');
+    define('POPUP_ERROR_HEADING','PHPバージョンの警告');
+    define('POPUP_ERROR_TEXT','Zen CartはPHPバージョン5.3.14以上で実行されるようにデザインされています。<br /><br />Zen Cartで使われているPHPファンクション(主に認証とセッション処理関連)は噴くいPHPには全く存在しないか、あるいはバグがあります。<br /><br />このサーバでZen Cartを運営するなら、PHPのバージョンをアップグレードすることを強くお勧めします。');
   break;
   case ('92'):
     define('POPUP_ERROR_HEADING','open_basedir restriction may cause problems');
