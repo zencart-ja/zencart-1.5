@@ -162,7 +162,7 @@ define('ERROR_CODE_CACHE_DIR_ISDIR', '62');
 define('ERROR_TEXT_CACHE_DIR_ISWRITEABLE', 'Session/SQL Cache Directory entry が書き込み可能ではありません');
 define('ERROR_CODE_CACHE_DIR_ISWRITEABLE', '63');
 
-define('ERROR_TEXT_ADMIN_PASS_INSECURE', 'Password not secure enough. Requires letters and numbers, and at least 7 characters.');
+define('ERROR_TEXT_ADMIN_PASS_INSECURE', '英字と数字を組み合わせた7文字以上のパスワードを指定してください');
 define('ERROR_CODE_ADMIN_PASS_INSECURE', '64');
 
 define('ERROR_TEXT_REGISTER_GLOBALS_ON', 'Register GlobalsがONになっています');
