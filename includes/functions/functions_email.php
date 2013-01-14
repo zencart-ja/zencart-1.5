@@ -5,10 +5,10 @@
  * Hooks into phpMailer class for actual email encoding and sending
  *
  * @package functions
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: functions_email.php 19325 2011-08-02 22:09:43Z drbyte $
+ * @version GIT: $Id: Author: Ian Wilson  Tue Aug 14 14:56:11 2012 +0100 Modified in v1.5.1 $
  * 2007-09-30 added encryption support for Gmail Chuck Redman
  */
 
@@ -100,6 +100,7 @@
       if (!isset($block['EMAIL_FROM_ADDRESS']) || $block['EMAIL_FROM_ADDRESS'] == '') $block['EMAIL_FROM_ADDRESS'] = $from_email_address;
       $email_html = (!is_array($block) && substr($block, 0, 6) == '<html>') ? $block : zen_build_html_email_from_template($module, $block);
       if (!is_array($block) && $block == '' || $block == 'none') $email_html = '';
+
       // Build the email based on whether customer has selected HTML or TEXT, and whether we have supplied HTML or TEXT-only components
       // special handling for XML content
       if ($email_text == '') {
@@ -295,7 +296,7 @@
       }      	
       // prepare content sections:
       if (EMAIL_USE_HTML == 'true' && trim($email_html) != '' &&
-      ($customers_email_format == 'HTML' || (ADMIN_EXTRA_EMAIL_FORMAT != 'TEXT' && substr($module,-6)=='_extra'))) {      	
+      ($customers_email_format == 'HTML' || (ADMIN_EXTRA_EMAIL_FORMAT != 'TEXT' && substr($module,-6)=='_extra'))) {
         $mail->IsHTML(true);           // set email format to HTML
         $mail->Body    = $email_html;  // HTML-content of message
         $mail->AltBody = $text;        // text-only content of message
@@ -435,6 +436,7 @@
     $langfolder = (strtolower($_SESSION['languages_code']) == 'en') ? '' : strtolower($_SESSION['languages_code']) . '/';
     $template_filename_base = DIR_FS_EMAIL_TEMPLATES . $langfolder . "email_template_";
     $template_filename = DIR_FS_EMAIL_TEMPLATES . $langfolder . "email_template_" . $current_page_base . ".html";
+
     if (!file_exists($template_filename)) {
       if (isset($block['EMAIL_TEMPLATE_FILENAME']) && $block['EMAIL_TEMPLATE_FILENAME'] != '' && file_exists($block['EMAIL_TEMPLATE_FILENAME'] . '.html')) {
         $template_filename = $block['EMAIL_TEMPLATE_FILENAME'] . '.html';
