@@ -1,10 +1,10 @@
 <?php
 /**
  * @package admin
- * @copyright Copyright 2003-2006 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: preview_info_meta_tags.php 3009 2006-02-11 15:41:10Z wilt $
+ * @version GIT: $Id: Author: Ian Wilson  Tue Aug 7 15:42:16 2012 +0100 Modified in v1.5.1 $
  */
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
@@ -107,15 +107,15 @@ if (!defined('IS_ADMIN_FLAG')) {
       reset($_POST);
       while (list($key, $value) = each($_POST)) {
         if (!is_array($_POST[$key])) {
-          echo zen_draw_hidden_field($key, htmlspecialchars(stripslashes($value)));
+          echo zen_draw_hidden_field($key, htmlspecialchars(stripslashes($value), ENT_COMPAT, CHARSET, TRUE));
         }
       }
 
       $languages = zen_get_languages();
       for ($i=0, $n=sizeof($languages); $i<$n; $i++) {
-        echo zen_draw_hidden_field('metatags_title[' . $languages[$i]['id'] . ']', htmlspecialchars(stripslashes($metatags_title[$languages[$i]['id']])));
-        echo zen_draw_hidden_field('metatags_keywords[' . $languages[$i]['id'] . ']', htmlspecialchars(stripslashes($metatags_keywords[$languages[$i]['id']])));
-        echo zen_draw_hidden_field('metatags_description[' . $languages[$i]['id'] . ']', htmlspecialchars(stripslashes($metatags_description[$languages[$i]['id']])));
+        echo zen_draw_hidden_field('metatags_title[' . $languages[$i]['id'] . ']', htmlspecialchars(stripslashes($metatags_title[$languages[$i]['id']]), ENT_COMPAT, CHARSET, TRUE));
+        echo zen_draw_hidden_field('metatags_keywords[' . $languages[$i]['id'] . ']', htmlspecialchars(stripslashes($metatags_keywords[$languages[$i]['id']]), ENT_COMPAT, CHARSET, TRUE));
+        echo zen_draw_hidden_field('metatags_description[' . $languages[$i]['id'] . ']', htmlspecialchars(stripslashes($metatags_description[$languages[$i]['id']]), ENT_COMPAT, CHARSET, TRUE));
       }
 
       echo zen_image_submit('button_back.gif', IMAGE_BACK, 'name="edit"') . '&nbsp;&nbsp;';
