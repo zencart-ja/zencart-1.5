@@ -8,4 +8,4 @@
  * @author obitastar
  */
 
-define('ERROR_CUSTOMER_DOWNLOAD_FAILURE', 'ŒÚ‹qƒ_ƒEƒ“ƒ[ƒhŽ¸”s');
+define('ERROR_CUSTOMER_DOWNLOAD_FAILURE', 'é¡§å®¢ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰å¤±æ•—');

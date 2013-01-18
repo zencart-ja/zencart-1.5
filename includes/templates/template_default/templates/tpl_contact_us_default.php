@@ -47,6 +47,17 @@
 
 <fieldset id="contactUsForm">
 <legend><?php echo HEADING_TITLE; ?></legend>
+<?php
+    if (DISPLAY_CONTACT_US_PRIVACY_CONDITIONS == 'true') {
+?>
+<div id="contactUsNoticeContent" class="content">
+     <?php echo TABLE_HEADING_PRIVACY_CONDITIONS; ?>
+     <?php echo TEXT_PRIVACY_CONDITIONS_DESCRIPTION . '<br /><br />' . zen_draw_checkbox_field('privacy_conditions', '1', false, 'id="privacy"') . '<label for="privacy">&nbsp;' . TEXT_PRIVACY_CONDITIONS_CONFIRM . '</label>'; ?>
+</div>
+<?php
+    }
+?>
+
 <div class="alert forward"><?php echo FORM_REQUIRED_INFORMATION; ?></div>
 <br class="clearBoth" />
 

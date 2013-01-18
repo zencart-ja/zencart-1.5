@@ -159,3 +159,12 @@ $customers_ip_address = $_SERVER['REMOTE_ADDR'];
 if (!isset($_SESSION['customers_ip_address'])) {
   $_SESSION['customers_ip_address'] = $customers_ip_address;
 }
+
+/**
+  * is Furikana nesessary?
+**/
+if (defined('FURIKANA_NECESSARY_COUNTRIES') &&
+  !is_bool(strpos(strtolower(FURIKANA_NECESSARY_COUNTRIES), strtolower($_SESSION['language']))))
+  define('FURIKANA_NESESSARY', true);
+else
+  define('FURIKANA_NESESSARY', false);

@@ -24,7 +24,12 @@ if (isset($_GET['action']) && ($_GET['action'] == 'send')) {
 
   $zc_validate_email = zen_validate_email($email_address);
 
-  if ($zc_validate_email and !empty($enquiry) and !empty($name) && $error == FALSE) {
+  if (DISPLAY_CONTACT_US_PRIVACY_CONDITIONS == 'true' && 
+      (! isset($_POST['privacy_conditions']) || ($_POST['privacy_conditions'] != '1'))) {
+      $error = true;
+      $messageStack->add('contact', ERROR_PRIVACY_STATEMENT_NOT_ACCEPTED, 'error');
+  }
+  else if ($zc_validate_email and !empty($enquiry) and !empty($name) && $error == FALSE) {
     // if anti-spam is not triggered, prepare and send email:
    if ($antiSpam != '') {
       $zco_notifier->notify('NOTIFY_SPAM_DETECTED_USING_CONTACT_US');
