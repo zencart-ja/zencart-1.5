@@ -10,11 +10,7 @@
 
   if ($zc_install->error) include(DIR_WS_INSTALL_TEMPLATE . 'templates/display_errors.php');
 ?>
-<?php if ($language == 'japanese') { ?>
-<iframe src="includes/templates/template_default/templates/gpl_license.japanese.html"></iframe>
-<?php } else { ?>
 <iframe src="includes/templates/template_default/templates/gpl_license.html"></iframe>
-<?php } ?>
 <form method="post" action="index.php?main_page=license<?php echo zcInstallAddSID(); ?>">
   <input type="radio" name="license_consent" id="agree" value="agree" />
   <label for="agree"><?php echo AGREE; ?></label><br />
