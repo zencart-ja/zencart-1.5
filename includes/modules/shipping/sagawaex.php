@@ -77,7 +77,7 @@
     }
 
 // class methods
-    function quote() {
+    function quote($method = '') {
       global $shipping_weight, $shipping_num_boxes;
       global $order;
       global $a_sagawaex_time;
